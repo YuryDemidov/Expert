@@ -1,0 +1,18 @@
+@use 'vars' as vars;
+@use 'sass:math';
+
+// px to rem
+@function rem($pixels, $context: vars.$font-size-mobile) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  $result: $pixels / $context * 1rem;
+  $result: math.round($result * 100) / 100;
+
+  @return $result;
+}

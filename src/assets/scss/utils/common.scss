@@ -1,0 +1,84 @@
+@use '../tools' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+
+  font-size: $font-size-mobile;
+  line-height: $main-line-height;
+  color: $main-font-color;
+
+  @media screen and (min-width: $tablet-min-width) {
+    font-size: $font-size-tablet;
+  }
+
+  @media screen and (min-width: $s-desktop-min-width) {
+    font-size: $font-size-desktop;
+  }
+}
+
+body {
+  padding: 0;
+
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: rem(12);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none !important;
+
+  &_mobile {
+    @media (max-width: $phone-landscape-max-width) {
+      display: none !important;
+    }
+  }
+
+  &_mobile-tablet {
+    @media (max-width: $tablet-portrait-max-width) {
+      display: none !important;
+    }
+  }
+
+  &_desktop {
+    @media (min-width: $s-desktop-min-width) {
+      display: none !important;
+    }
+  }
+
+  &_desktop-tablet {
+    @media (min-width: $tablet-min-width) {
+      display: none !important;
+    }
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  -webkit-clip-path: inset(100%) !important;
+  clip-path: inset(100%) !important;
+}

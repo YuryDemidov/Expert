@@ -1,0 +1,33 @@
+@use '../../tools' as *;
+
+.link {
+  color: $main-font-color;
+
+  border-bottom: 1px solid $transparent-color;
+
+  transition: border-bottom-color 0.4s ease-out;
+
+  @include in-focus() {
+    border-bottom-color: $x-dark-dim-color;
+  }
+}
+
+.link.inline-icon {
+  border-bottom: none;
+
+  .inline-icon__text {
+    border-bottom: 1px solid $transparent-color;
+
+    transition: border-bottom-color 0.4s ease-out;
+  }
+
+  @include in-focus() {
+    .inline-icon__text {
+      border-bottom-color: $x-dark-dim-color;
+    }
+  }
+}
+
+.link.button {
+  border-bottom: none;
+}

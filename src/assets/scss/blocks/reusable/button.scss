@@ -1,0 +1,15 @@
+@use '../../tools' as *;
+
+.button-border {
+  @include button($background: false);
+}
+
+.button-fill {
+  @include button($color: $default-color, $background: $main-font-color);
+}
+
+.button {
+  &__content {
+    position: relative;
+  }
+}

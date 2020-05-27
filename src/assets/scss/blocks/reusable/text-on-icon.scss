@@ -1,0 +1,35 @@
+@use '../../tools' as *;
+
+.text-on-icon {
+  position: relative;
+
+  .inline-icon {
+    @include box(100%, 100%);
+
+    justify-content: center;
+
+    &__text {
+      display: none;
+    }
+  }
+
+  &__text {
+    @include absolute-centered();
+
+    font-size: 10px;
+    color: #ffffff;
+
+    cursor: pointer;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .text-on-icon {
+    display: flex;
+
+    .inline-icon {
+      align-self: center;
+      height: auto;
+    }
+  }
+}

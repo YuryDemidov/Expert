@@ -1,0 +1,13 @@
+@use '../../tools' as *;
+
+.underline {
+  @include in-focus() {
+    border-bottom-color: $main-font-color;
+  }
+
+  border-bottom: 1px solid $dim-color;
+
+  &_dashed {
+    border-bottom-style: dashed;
+  }
+}

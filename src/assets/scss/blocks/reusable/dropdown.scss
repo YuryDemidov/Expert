@@ -1,0 +1,67 @@
+@use '../../tools' as *;
+
+.dropdown {
+  position: relative;
+
+  &__body {
+    display: none;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .dropdown {
+    &__trigger {
+      position: relative;
+
+      padding-right: rem(20);
+
+      cursor: pointer;
+
+      &::before {
+        @include stroke-arrow($direction: 'down');
+
+        content: '';
+        position: absolute;
+        top: 1px;
+        right: 7px;
+      }
+    }
+
+    &__body {
+      @include horizontally-centered();
+
+      z-index: 10;
+
+      min-width: rem(140);
+      margin-top: 4px;
+      padding-top: rem(12);
+      padding-bottom: rem(4);
+
+      background: $default-color;
+      box-shadow: 0 4px 8px $x-light-dim-color;
+      border-radius: 3px;
+    }
+
+    &__list {
+      @include reset-list();
+
+      text-align: center;
+    }
+
+    &__list-item {
+      margin-bottom: rem(14);
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .dropdown {
+    &__trigger {
+      min-height: 20px;
+
+      &::before {
+        top: 3px;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+// Font
+$font-family: 'RUBuntu', 'Arial', 'Helvetica', sans-serif;
+$font-size-mobile: 12px;
+$font-size-tablet: 13px;
+$font-size-desktop: 14px;
+$main-line-height: 1.3;
+
+// Media queries (min-width)
+$l-desktop-min-width: 1400px;
+$desktop-min-width: 1200px;
+$s-desktop-min-width: 1024px;
+$tablet-min-width: 768px;
+$phone-landscape-min-width: 576px;
+$phone-portrait-min-width: 375px;
+
+// Media queries (max-width)
+$s-desktop-max-width: 1399px;
+$tablet-landscape-max-width: 1199px;
+$tablet-portrait-max-width: 1023px;
+$phone-landscape-max-width: 767px;
+$phone-portrait-max-width: 575px;
+
+// Colors
+$main-font-color: #000000; // rgba(0, 0, 0, 1)
+$default-color: #ffffff; // rgba(1, 1, 1, 1)
+$firm-color: #ff7180; // rgba(255, 113, 128, 1)
+$alt-firm-color: #088677; // rgba(8, 134, 119, 1)
+$success-color: #088a08; // rgba(8, 138, 8, 1)
+$error-color: #ee0408; // rgba(238, 4, 8, 1)
+$info-color: rgba(120, 175, 210, 0.2); // result as #e4eff6 on white background
+$xxx-dark-dim-color: rgba(0, 0, 0, 0.9); // result as #191919 on white background
+$xx-dark-dim-color: rgba(0, 0, 0, 0.8); // result as #333333 on white background
+$x-dark-dim-color: rgba(0, 0, 0, 0.6); // result as #666666 on white background
+$dark-dim-color: rgba(0, 0, 0, 0.5); // result as #7f7f7f on white background
+$dim-color: rgba(0, 0, 0, 0.4); // result as #999999 on white background
+$light-dim-color: rgba(0, 0, 0, 0.2); // result as #cccccc on white background
+$x-light-dim-color: rgba(0, 0, 0, 0.1); // result as #e5e5e5 on white background
+$lightgray-color: #f0f0f0; // like rgba(0, 0, 0, 0.06) on white background
+$x-lightgray-color: #f5f5f5; // like rgba(0, 0, 0, 0.04) on white background
+$transparent-color: rgba(0, 0, 0, 0);

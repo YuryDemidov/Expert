@@ -1,0 +1,5 @@
+@use '../../tools' as *;
+
+.error-message {
+  color: $error-color;
+}
