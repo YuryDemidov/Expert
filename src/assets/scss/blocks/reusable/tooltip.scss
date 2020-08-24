@@ -1,0 +1,50 @@
+@use '../../tools' as *;
+
+.tooltip {
+  position: relative;
+
+  &__trigger {
+    display: block;
+
+    color: $alt-default-color;
+
+    cursor: pointer;
+
+    @include in-focus() {
+      outline: none;
+      -webkit-tap-highlight-color: $transparent-color;
+    }
+  }
+
+  &__body {
+    @include horizontally-centered();
+
+    z-index: 1;
+    top: calc(100% + 2px);
+
+    display: none;
+    min-width: 210px;
+    padding: 9px 15px;
+
+    font-size: 12px;
+    line-height: 1.4;
+
+    background-color: $xx-dark-dim-color;
+    border-radius: 3px;
+
+    &::before {
+      @include filled-arrow-2(5px, $xx-dark-dim-color, 'up');
+      @include horizontally-centered();
+
+      content: '';
+      top: -10px;
+    }
+  }
+
+  &__trigger[data-on='hover']:hover .tooltip__body,
+  &__trigger[data-on='hover']:focus .tooltip__body {
+    display: block;
+
+    outline: none;
+  }
+}

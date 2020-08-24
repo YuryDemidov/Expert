@@ -1,0 +1,11 @@
+meta(charset='utf-8')
+title= locals.data.pageData.title
+meta(name='description' content=locals.data.pageData.description)
+meta(name='keywords' content=locals.data.pageData.keywords)
+meta(name='viewport' content='width=device-width')
+meta(http-equiv='X-UA-Compatible' content='IE=edge')
+meta(name="yandex-verification" content="8085584c20aa6a13")
+link(rel='manifest' href='site.webmanifest')
+include favicons
+if locals.data.pageData.canonical
+  link(rel='canonical' href=locals.data.pageData.canonical)

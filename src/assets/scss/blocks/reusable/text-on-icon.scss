@@ -3,14 +3,12 @@
 .text-on-icon {
   position: relative;
 
+  cursor: pointer;
+
   .inline-icon {
-    @include box(100%, 100%);
+    @include box(100%);
 
     justify-content: center;
-
-    &__text {
-      display: none;
-    }
   }
 
   &__text {
@@ -19,7 +17,7 @@
     font-size: 10px;
     color: #ffffff;
 
-    cursor: pointer;
+    pointer-events: none;
   }
 }
 

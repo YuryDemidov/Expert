@@ -1,13 +1,50 @@
 @use '../../tools' as *;
 
 .underline {
-  @include in-focus() {
-    border-bottom-color: $main-font-color;
-  }
-
   border-bottom: 1px solid $dim-color;
+
+  @include in-focus() {
+    border-bottom-color: $default-color;
+  }
 
   &_dashed {
     border-bottom-style: dashed;
+  }
+
+  &_dotted {
+    position: relative;
+    display: inline-block;
+
+    border-bottom: none;
+
+    @include in-focus() {
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    &::before {
+      @include box(100%, 1px);
+
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: -3px;
+      left: 0;
+
+      transition: opacity 0.5s;
+    }
+  }
+
+  &_blue-dotted {
+    &::before {
+      background: url('../../../img/util/borders/dotted-border_blue.svg') repeat-x 2px 0;
+    }
+  }
+
+  &_pink-dotted {
+    &::before {
+      background: url('../../../img/util/borders/dotted-border_pink.svg') repeat-x 2px 0;
+    }
   }
 }

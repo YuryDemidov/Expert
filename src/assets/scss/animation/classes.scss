@@ -1,3 +1,11 @@
+.animated {
+  animation-duration: 0.5s;
+}
+
+.zoom-in {
+  animation-name: zoom-in;
+}
+
 .fade-in {
   animation-name: fade-in;
 }
@@ -12,4 +20,20 @@
 
 .slide-out-up {
   animation-name: slide-out-up;
+}
+
+.fade-slide-in-down {
+  animation-name: fade-slide-in-down;
+}
+
+.fade-slide-out-up {
+  animation-name: fade-slide-out-up;
+}
+
+.bounce-in {
+  animation-name: bounce-in;
+}
+
+.pulse-big {
+  animation-name: pulse-big;
 }

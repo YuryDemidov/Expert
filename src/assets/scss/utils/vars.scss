@@ -1,9 +1,8 @@
 // Font
-$font-family: 'RUBuntu', 'Arial', 'Helvetica', sans-serif;
-$font-size-mobile: 12px;
-$font-size-tablet: 13px;
-$font-size-desktop: 14px;
-$main-line-height: 1.3;
+$main-font-family: 'RUBuntu', 'Arial', 'Helvetica', sans-serif;
+$main-font-size: 1.6rem; // html font-size is set to 62.5% or 10px by default. So main font-size is 16px in rems
+$main-line-height: 1.2;
+$title-font-family: 'Museo Sans', 'Arial', 'Helvetica', sans-serif;
 
 // Media queries (min-width)
 $l-desktop-min-width: 1400px;
@@ -21,13 +20,8 @@ $phone-landscape-max-width: 767px;
 $phone-portrait-max-width: 575px;
 
 // Colors
-$main-font-color: #000000; // rgba(0, 0, 0, 1)
-$default-color: #ffffff; // rgba(1, 1, 1, 1)
-$firm-color: #ff7180; // rgba(255, 113, 128, 1)
-$alt-firm-color: #088677; // rgba(8, 134, 119, 1)
-$success-color: #088a08; // rgba(8, 138, 8, 1)
-$error-color: #ee0408; // rgba(238, 4, 8, 1)
-$info-color: rgba(120, 175, 210, 0.2); // result as #e4eff6 on white background
+$default-color: #000000; // rgba(0, 0, 0, 1)
+$alt-default-color: #ffffff; // rgba(1, 1, 1, 1)
 $xxx-dark-dim-color: rgba(0, 0, 0, 0.9); // result as #191919 on white background
 $xx-dark-dim-color: rgba(0, 0, 0, 0.8); // result as #333333 on white background
 $x-dark-dim-color: rgba(0, 0, 0, 0.6); // result as #666666 on white background
@@ -38,3 +32,111 @@ $x-light-dim-color: rgba(0, 0, 0, 0.1); // result as #e5e5e5 on white background
 $lightgray-color: #f0f0f0; // like rgba(0, 0, 0, 0.06) on white background
 $x-lightgray-color: #f5f5f5; // like rgba(0, 0, 0, 0.04) on white background
 $transparent-color: rgba(0, 0, 0, 0);
+$success-color: #088a08; // rgba(8, 138, 8, 1)
+$transparent-success-color: rgba(8, 138, 8, 0.4);
+$error-color: #ee0408; // rgba(238, 4, 8, 1)
+$transparent-error-color: rgba(238, 4, 8, 0.4);
+
+// Themes
+$xxx-low-lightness: 28%;
+$xx-low-lightness: 37%;
+$x-low-lightness: 46%;
+$low-lightness: 55%;
+$medium-lightness: 64%;
+$high-lightness: 73%;
+$x-high-lightness: 82%;
+$xx-high-lightness: 91%;
+$xxx-high-lightness: 100%;
+
+$xx-low-saturation: 40%;
+$x-low-saturation: 50%;
+$low-saturation: 60%;
+$medium-saturation: 70%;
+$high-saturation: 80%;
+$x-high-saturation: 90%;
+$xx-high-saturation: 100%;
+
+// Theme main
+$theme-main-hue: 202;
+$theme-main-saturation: 100%;
+$theme-main-lightness: 62%;
+$theme-main: hsl(202, 100%, 62%);
+$theme-main-alt: hsl(0, 78%, 72%);
+$theme-main-background: hsl(200, 100%, 97%);
+// Theme 1
+$theme-1-hue: 229;
+$theme-1-saturation: 100%;
+$theme-1-lightness: 27%;
+$theme-1: hsl(229, 100%, 27%);
+$theme-1-alt: hsl(0, 78%, 72%);
+$theme-1-background: hsl(0, 100%, 95%);
+// Theme 2
+$theme-2-hue: 338;
+$theme-2-saturation: 100%;
+$theme-2-lightness: 66%;
+$theme-2: hsl(338, 100%, 66%);
+$theme-2-alt: hsl(338, 100%, 66%);
+$theme-2-background: hsl(7, 100%, 96%);
+// Theme 3
+$theme-3-hue: 258;
+$theme-3-saturation: 100%;
+$theme-3-lightness: 62%;
+$theme-3: hsl(258, 100%, 62%);
+$theme-3-alt: hsl(258, 100%, 62%);
+$theme-3-background: hsl(25, 95%, 92%);
+// Theme 4
+$theme-4-hue: 356;
+$theme-4-saturation: 93%;
+$theme-4-lightness: 82%;
+$theme-4: hsl(356, 93%, 82%);
+$theme-4-alt: hsl(173, 62%, 53%);
+$theme-4-background: hsl(173, 100%, 92%);
+// Theme 5
+$theme-5-hue: 286;
+$theme-5-saturation: 39%;
+$theme-5-lightness: 48%;
+$theme-5: hsl(286, 39%, 48%);
+$theme-5-alt: hsl(286, 39%, 48%);
+$theme-5-background: hsl(250, 100%, 91%);
+// Theme 6
+$theme-6-hue: 356;
+$theme-6-saturation: 99%;
+$theme-6-lightness: 40%;
+$theme-6: hsl(356, 99%, 40%);
+$theme-6-alt: hsl(356, 99%, 40%);
+$theme-6-background: hsl(201, 100%, 75%);
+// Theme 7
+$theme-7-hue: 338;
+$theme-7-saturation: 100%;
+$theme-7-lightness: 58%;
+$theme-7: hsl(338, 100%, 58%);
+$theme-7-alt: hsl(265, 100%, 73%);
+$theme-7-background: hsl(314, 92%, 90%);
+// Theme 8
+$theme-8-hue: 258;
+$theme-8-saturation: 100%;
+$theme-8-lightness: 61%;
+$theme-8: hsl(258, 100%, 61%);
+$theme-8-alt: hsl(22, 90%, 73%);
+$theme-8-background: hsl(25, 95%, 92%);
+// Theme 9
+$theme-9-hue: 195;
+$theme-9-saturation: 100%;
+$theme-9-lightness: 50%;
+$theme-9: hsl(195, 100%, 50%);
+$theme-9-alt: hsl(195, 100%, 50%);
+$theme-9-background: hsl(325, 68%, 85%);
+// Theme 10
+$theme-10-hue: 202;
+$theme-10-saturation: 100%;
+$theme-10-lightness: 62%;
+$theme-10: hsl(202, 100%, 62%);
+$theme-10-alt: hsl(202, 100%, 62%);
+$theme-10-background: hsl(0, 0%, 95%);
+// Theme 11
+$theme-11-hue: 26;
+$theme-11-saturation: 96%;
+$theme-11-lightness: 67%;
+$theme-11: hsl(26, 96%, 67%);
+$theme-11-alt: hsl(26, 96%, 67%);
+$theme-11-background: hsl(26, 100%, 87%);

@@ -1,0 +1,59 @@
+@use '../../tools' as *;
+
+.custom-checkbox {
+  &__label {
+    position: relative;
+
+    padding-left: 22px;
+
+    color: $default-color;
+
+    cursor: pointer;
+    user-select: none;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+
+      transition: all 0.4s;
+    }
+
+    &::before {
+      @include box(15px);
+
+      left: 0;
+
+      border: 1px solid $light-dim-color;
+    }
+
+    &::after {
+      @include check-mark(6px, 11px, 2px, $alt-default-color);
+
+      left: 5px;
+
+      opacity: 0;
+    }
+  }
+
+  &__checkbox_invalid + .custom-checkbox__label::before {
+    border-color: $transparent-error-color;
+    box-shadow: 0 0 5px $transparent-error-color;
+  }
+
+  &__checkbox:focus + .custom-checkbox__label::before {
+    border-color: $dark-dim-color;
+  }
+
+  &__checkbox:checked + .custom-checkbox__label {
+    &::before {
+      background-color: $default-color;
+      border-color: $default-color;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}

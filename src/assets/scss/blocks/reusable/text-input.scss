@@ -3,15 +3,14 @@
 .text-input {
   position: relative;
 
-  padding-top: rem(12);
+  padding-top: 1.2rem;
 
   &__input {
     @include reset-indents();
 
     width: 100%;
-    padding: rem(2);
+    padding: 0.4rem;
 
-    font: inherit;
     font-size: 16px;
 
     border: none;
@@ -21,6 +20,12 @@
     &:focus {
       outline: none;
     }
+
+    @include active-custom-placeholder() {
+      top: 0;
+
+      transform: scale(0.85);
+    }
   }
 
   &__placeholder {
@@ -28,23 +33,36 @@
     top: 20px;
     left: 0;
 
-    padding-left: rem(2);
+    padding-left: 0.4rem;
 
     font-size: 14px;
 
     pointer-events: none;
 
-    transition: transform 0.4s ease;
-    transform-origin: left;
+    transition-property: top, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transform-origin: top left;
   }
 
-  &__input:focus + &__placeholder,
-  &__input:not([value='']) + &__placeholder {
-    transform: translateY(-22px) scale(0.85);
-  }
+  &_halfwidth {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-  &__message {
-    display: none;
-    margin-top: rem(6);
+    .text-input__input {
+      width: 50%;
+    }
+
+    .text-input__second-column {
+      max-width: 50%;
+      margin-left: auto;
+    }
+
+    .text-input__postscript {
+      font-weight: 400;
+      font-size: 14px;
+      color: $dim-color;
+    }
   }
 }

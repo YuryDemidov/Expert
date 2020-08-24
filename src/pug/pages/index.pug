@@ -1,15 +1,24 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Webpack + Pug';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - var yearsDifference = locals.data.globalData.currentYear - locals.data.globalData.startYear
+  -
+    locals.data.pageData = {
+      title: `Массаж в Москве. ${yearsDifference} лет успешной работы. Медицинский подход`,
+      description: `Массаж, Москва - услуги профессиональных массажистов с медицинской лицензией - более
+        ${yearsDifference} лет успешной работы, эффективные классические и авторские методики.`,
+      keywords: `массаж в Москве, массаж, Москва, услуги, антицеллюлитный массаж, массаж спины, медицинский массаж,
+        массаж от целлюлита`,
+      pageClass: 'index-page',
+      canonical: 'http://expert-massage-clinic.ru/'
+    }
 
 block content
   section
     .container
-      img(src='assets/img/chrome.png')
-      img(src='assets/img/logo.png')
-      p tests text lalala 1234
+      p= locals.data.globalData.startYear
+      p(style='font-family: MuseoSans, sans-serif')= locals.data.globalData.currentYear
+      img(src='assets/img/test/chrome.png')
+      img(src='assets/img/test/arro1.jpg')
 
 block script

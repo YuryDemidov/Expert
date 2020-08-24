@@ -10,25 +10,17 @@ html {
   box-sizing: border-box;
   height: 100%;
 
-  font-size: $font-size-mobile;
+  font-size: 62.5%;
   line-height: $main-line-height;
-  color: $main-font-color;
-
-  @media screen and (min-width: $tablet-min-width) {
-    font-size: $font-size-tablet;
-  }
-
-  @media screen and (min-width: $s-desktop-min-width) {
-    font-size: $font-size-desktop;
-  }
+  color: $default-color;
 }
 
 body {
   padding: 0;
 
-  font-family: $font-family;
+  font-family: $main-font-family;
   font-weight: 400;
-  font-size: rem(12);
+  font-size: $main-font-size;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

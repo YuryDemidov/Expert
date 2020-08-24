@@ -3,65 +3,75 @@
 .dropdown {
   position: relative;
 
+  font-size: 12px;
+
+  &__trigger {
+    position: relative;
+
+    margin-top: 0.6rem;
+    padding-right: 2rem;
+    padding-bottom: 0.6rem;
+
+    cursor: pointer;
+
+    &::before {
+      @include stroke-arrow($color: currentColor,$direction: 'down');
+
+      content: '';
+      position: absolute;
+      top: 0.2em;
+      right: 7px;
+    }
+  }
+
+  button.dropdown__trigger {
+    font-size: 16px;
+    color: currentColor;
+
+    background: none;
+    border: none;
+  }
+
   &__body {
+    z-index: 10;
+
     display: none;
+
+    background: $alt-default-color;
+    border-radius: 3px;
+
+    &:hover {
+      display: block;
+    }
+  }
+
+  &[data-on='hover'] .dropdown__trigger:hover + .dropdown__body {
+    display: block;
+  }
+
+  &__list {
+    @include reset-list();
   }
 }
 
 @media (min-width: $tablet-min-width) {
   .dropdown {
-    &__trigger {
-      position: relative;
-
-      padding-right: rem(20);
-
-      cursor: pointer;
-
-      &::before {
-        @include stroke-arrow($direction: 'down');
-
-        content: '';
-        position: absolute;
-        top: 1px;
-        right: 7px;
-      }
-    }
-
     &__body {
       @include horizontally-centered();
 
-      z-index: 10;
+      min-width: 14rem;
+      padding: 1.2rem;
+      padding-bottom: 0.4rem;
 
-      min-width: rem(140);
-      margin-top: 4px;
-      padding-top: rem(12);
-      padding-bottom: rem(4);
-
-      background: $default-color;
-      box-shadow: 0 4px 8px $x-light-dim-color;
-      border-radius: 3px;
+      box-shadow: 0 3px 8px 1px $x-light-dim-color;
     }
 
     &__list {
-      @include reset-list();
-
       text-align: center;
     }
 
     &__list-item {
-      margin-bottom: rem(14);
-    }
-  }
-}
-
-@media (min-width: $s-desktop-min-width) {
-  .dropdown {
-    &__trigger {
-      min-height: 20px;
-
-      &::before {
-        top: 3px;
-      }
+      margin-bottom: 1.4rem;
     }
   }
 }

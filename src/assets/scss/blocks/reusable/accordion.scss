@@ -1,1 +1,26 @@
 @use '../../tools' as *;
+
+.accordion {
+  &__title {
+    position: relative;
+
+    display: inline-block;
+    margin: 0;
+
+    vertical-align: middle;
+
+    cursor: pointer;
+  }
+
+  &__body {
+    overflow: hidden;
+  }
+
+  &[data-state='closed'] .accordion__body {
+    height: 0;
+  }
+
+  &[data-state='opened'] .accordion__body {
+    height: auto;
+  }
+}

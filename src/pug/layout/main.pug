@@ -1,20 +1,23 @@
+//- IMPORTANT! Global object 'locals' is used for possibility to apply variables outside includes scope
+- locals.data = {}
+
 include ../utils/mixins
+include ../utils/global-data
+
 block variables
 
 doctype html
 html(lang='ru')
   head
-    meta(charset='utf-8')
-    title #{title}
-    meta(name="description", content=description)
+    include ../includes/modules/head/head
     block head
 
-  body(class=pageClass)
+  body(class=(pageData ? pageData.pageClass : false))
     #app
-    .wrapper
-      include ../includes/modules/header
-      .content-wrapper
-        block content
-      include ../includes/modules/footer
+      .wrapper
+        include ../includes/modules/header
+        .content-wrapper
+          block content
+        include ../includes/modules/footer
 
     block script

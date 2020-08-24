@@ -35,7 +35,7 @@ const plugins = () => {
 
     new CopyWebpackPlugin({
       patterns: [
-        { from: `${PATHS.src}/static`, to: '' }
+        { from: `${PATHS.src}/static`, to: `` }
       ]
     }),
 
@@ -241,7 +241,7 @@ const imageOptimOptions = ext => {
 
 module.exports = {
   // BASE config
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, '../src'),
   externals: {
     paths: PATHS
   },
@@ -297,7 +297,8 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: filename('[ext]'),
-          outputPath: `${PATHS.assets}img`
+          outputPath: (url, resourcePath, context) => path.relative(context, resourcePath),
+          esModule: false
         }
       }, {
         loader: 'image-webpack-loader',

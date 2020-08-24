@@ -3,17 +3,24 @@
 @use 'utils/fonts';
 @use 'utils/common';
 
-// Modules
-
-@use 'blocks/reusable/accordion';
-@use 'blocks/reusable/button';
-@use 'blocks/reusable/dropdown';
-@use 'blocks/reusable/error-message';
-@use 'blocks/reusable/inline-icon';
-@use 'blocks/reusable/link';
-@use 'blocks/reusable/text-input';
-@use 'blocks/reusable/text-on-icon';
-@use 'blocks/reusable/underline';
-
+// Animation
 @use 'animation/classes';
 @use 'animation/keyframes';
+
+// Modules
+// Reusable
+@use 'blocks/reusable/accordion';
+@use 'blocks/reusable/block-title';
+@use 'blocks/reusable/button';
+@use 'blocks/reusable/custom-checkbox';
+@use 'blocks/reusable/dropdown';
+@use 'blocks/reusable/inline-icon';
+@use 'blocks/reusable/input-with-button';
+@use 'blocks/reusable/link';
+@use 'blocks/reusable/message';
+@use 'blocks/reusable/preloader';
+@use 'blocks/reusable/table';
+@use 'blocks/reusable/text-input';
+@use 'blocks/reusable/text-on-icon';
+@use 'blocks/reusable/tooltip';
+@use 'blocks/reusable/underline';

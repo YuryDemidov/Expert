@@ -1,0 +1,17 @@
+// Favicons
+import './favicons/android-chrome-192x192.png'
+import './favicons/android-chrome-256x256.png'
+import './favicons/apple-touch-icon-60x60.png'
+import './favicons/apple-touch-icon-76x76.png'
+import './favicons/apple-touch-icon-120x120.png'
+import './favicons/apple-touch-icon-152x152.png'
+import './favicons/apple-touch-icon-180x180.png'
+import './favicons/favicon-32x32.png'
+import './favicons/favicon-16x16.png'
+import './favicons/mstile-70x70.png'
+import './favicons/mstile-150x150.png'
+import './favicons/mstile-310x310.png'
+import './favicons/safari-pinned-tab.svg'
+
+import './test/chrome.png'
+import './test/arro1.jpg'
