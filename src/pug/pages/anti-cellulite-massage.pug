@@ -1,0 +1,39 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: '/anti-cellulite-massage.html',
+      title: `Антицеллюлитный массаж, Москва - положительные отзывы, видимый эффект`,
+      description: `Массаж от целлюлита - антицеллюлитный массаж в Москве, отличная цена от профессионального массажиста
+        с медицинской лицензией`,
+      keywords: `антицеллюлитный, массаж, услуга, описание, от целлюлита, Москва, цена`,
+      canonical: 'http://expert-massage-clinic.ru/anti-cellulite-massage.html',
+      pageClass: 'anti-cellulite-massage-page',
+      theme: '9',
+      mainScreenHeading: 'Антицеллюлитный массаж.',
+      mainScreenSubheading: 'Избавляет от целлюлита, разглаживает кожу. Подтягивает ягодицы, уменьшает «ушки» и бока',
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: 'минимальный стаж специалистов, у всех мед. образование'
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a> c
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ]
+    }
+
+block content
+  section
+    .container
+      h1
+
+block script

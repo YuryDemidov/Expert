@@ -56,6 +56,61 @@ $high-saturation: 80%;
 $x-high-saturation: 90%;
 $xx-high-saturation: 100%;
 
+$themes: (
+  'main': (
+    'primary': hotpink,
+    'secondary': pink
+  ),
+  '1': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '2': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '3': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '4': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '5': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '6': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '7': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '8': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '9': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '10': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '11': (
+    'primary': firebrick,
+    'secondary': red
+  ),
+  '12': (
+    'primary': firebrick,
+    'secondary': red
+  )
+) !default;
+
 // Theme main
 $theme-main-hue: 202;
 $theme-main-saturation: 100%;

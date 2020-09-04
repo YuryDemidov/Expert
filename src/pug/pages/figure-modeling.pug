@@ -1,0 +1,38 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: '/figure-modeling.html',
+      title: `Ручное моделирование фигуры в Москве - профессиональный подход`,
+      description: `Ручное моделирование фигуры - профессиональный массаж в Москве, отличная цена от профессионального
+        массажиста с медицинской лицензией`,
+      keywords: `моделирование, фигуры, ручное, массаж, услуга, описание, от целлюлита, Москва, цена`,
+      canonical: 'http://expert-massage-clinic.ru/figure-modeling.html',
+      pageClass: 'figure-modeling-page',
+      theme: '7',
+      mainScreenHeading: 'Ручное моделирование фигуры.',
+      mainScreenSubheading: 'Авторская техника для похудения и подтягивания кожи. Уходит лишний вес, тают объёмы',
+      mainScreenFeatures: [
+        {
+          bigText: `3 в 1`,
+          smallText: 'лимфодренаж, антицеллю&shy;литный массаж, обёртывание'
+        },
+        {
+          bigText: '2-15 см',
+          smallText: 'в талии теряли наши клиенты, в зависимости от начальных данных'
+        },
+        {
+          bigText: '3-18 кг',
+          smallText: 'лишнего веса уходило у клиентов за курс массажа'
+        }
+      ]
+    }
+
+block content
+  section
+    .container
+      h1
+
+block script

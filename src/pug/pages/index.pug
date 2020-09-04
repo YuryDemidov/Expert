@@ -1,24 +1,40 @@
 extends ../layout/main
 
 block variables
-  - var yearsDifference = locals.data.globalData.currentYear - locals.data.globalData.startYear
+  - var globalData = locals.data.globalData
   -
     locals.data.pageData = {
-      title: `Массаж в Москве. ${yearsDifference} лет успешной работы. Медицинский подход`,
+      url: '/',
+      title: `Массаж в Москве. ${globalData.company.businessDuration} лет успешной работы. Медицинский подход`,
       description: `Массаж, Москва - услуги профессиональных массажистов с медицинской лицензией - более
-        ${yearsDifference} лет успешной работы, эффективные классические и авторские методики.`,
+        ${globalData.company.businessDuration} лет успешной работы, эффективные классические и авторские методики.`,
       keywords: `массаж в Москве, массаж, Москва, услуги, антицеллюлитный массаж, массаж спины, медицинский массаж,
         массаж от целлюлита`,
+      canonical: 'http://expert-massage-clinic.ru/',
       pageClass: 'index-page',
-      canonical: 'http://expert-massage-clinic.ru/'
+      theme: 'main',
+      mainScreenHeading: 'Expert - первая клиника профессионального массажа',
+      mainScreenSubheading: `Мы избавляем от болей в спине, целлюлита и отёков, подтягиваем лицо без операций и лечим
+        массажем`,
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: 'минимальный стаж специалистов, у всех мед. образование'
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a> c
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ]
     }
 
 block content
   section
     .container
-      p= locals.data.globalData.startYear
-      p(style='font-family: MuseoSans, sans-serif')= locals.data.globalData.currentYear
-      img(src='assets/img/test/chrome.png')
-      img(src='assets/img/test/arro1.jpg')
 
 block script

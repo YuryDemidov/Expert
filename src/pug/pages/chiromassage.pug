@@ -1,0 +1,40 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: '/chiromassage.html',
+      title: `Хиромассаж - Москва. Отличная цена, профессиональный подход`,
+      description: `Хиромассаж - сочетание европейской техники и восточных приёмов для наилучшего эффекта для мышц и
+      кожи лица. Москва - отличная цена и профессиональный подход`,
+      keywords: `хиромассаж, массаж лица, Москва, услуга, описание, цена, стоимость`,
+      canonical: 'http://expert-massage-clinic.ru/chiromassage.html',
+      pageClass: 'chiromassage-page',
+      theme: '5',
+      mainScreenHeading: 'Хиромассаж лица.',
+      mainScreenSubheading: `Омолаживает и подтягивает кожу, улучшает эмоциональное состояние, гармонизирует и
+        расслабляет`,
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: 'минимальный стаж специалистов, у всех мед. образование'
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a> c
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ]
+    }
+
+block content
+  section
+    .container
+      h1
+
+block script

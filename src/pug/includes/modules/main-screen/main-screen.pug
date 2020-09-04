@@ -1,0 +1,9 @@
+section.main-screen
+  .main-screen__heading
+    h1.page__title.main-screen__title= locals.data.pageData.mainScreenHeading
+    span.main-screen__subtitle= locals.data.pageData.mainScreenSubheading
+  ul.main-screen__features-list
+    each feature in locals.data.pageData.mainScreenFeatures
+      li.main-screen__feature-item
+        b.main-screen__feature-main-text= feature.bigText
+        span.main-screen__feature-text!= feature.smallText

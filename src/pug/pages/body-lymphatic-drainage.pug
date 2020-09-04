@@ -1,0 +1,39 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: '/body-lymphatic-drainage',
+      title: `Лимфодренажный массаж тела в Москве. Отличная цена, медицинский подход`,
+      description: `Массаж лимфодренажный в Москве, отличная цена, положительные отзывы. Лечебный лимфодренажный массаж
+        от профессионального массажиста.`,
+      keywords: `лимфодренажный, массаж, услуга, описание, цена, стоимость, Москва`,
+      canonical: 'http://expert-massage-clinic.ru/body-lymphatic-drainage.html',
+      pageClass: 'body-lymphatic-drainage-page',
+      theme: '8',
+      mainScreenHeading: 'Лимфодренажный массаж.',
+      mainScreenSubheading: `Избавляет от отёков на лице и теле, оздоравливает и улучшает внешность, возвращает лёгкость
+        походки`,
+      mainScreenFeatures: [
+        {
+          bigText: '2-10 кг',
+          smallText: 'теряют клиенты, избавляясь от отёков'
+        },
+        {
+          bigText: 'в 8 раз',
+          smallText: 'усиливается лимфоток после процедуры'
+        },
+        {
+          bigText: '500 мл',
+          smallText: 'межклеточной жидкости в среднем уходит за сеанс'
+        }
+      ]
+    }
+
+block content
+  section
+    .container
+      h1
+
+block script

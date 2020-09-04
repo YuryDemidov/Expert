@@ -1,0 +1,70 @@
+- var globalData = locals.data.globalData
+-
+  var menuData = {
+    list: [
+      {
+      text: 'Цены и акции',
+      url: '/prices.html'
+      },
+      {
+        text: 'Отзывы',
+        url: '/reviews.html'
+      },
+      {
+        text: 'О нас',
+        url: '/about.html'
+      },
+      {
+        text: 'Контакты',
+        url: '/contacts.html'
+      },
+      {
+        text: 'Полезное',
+        url: '/information.html'
+      }
+    ],
+    promo: {
+      name: 'Пробный сеанс минус 20%',
+      image: {
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': '/assets/img/banners/menu/menu-promo@1x.webp',
+            '2x': '/assets/img/banners/menu/menu-promo@2x.webp',
+            '3x': '/assets/img/banners/menu/menu-promo@3x.webp'
+          },
+          png: {
+            '1x': '/assets/img/banners/menu/menu-promo@1x.png',
+            '2x': '/assets/img/banners/menu/menu-promo@2x.png',
+            '3x': '/assets/img/banners/menu/menu-promo@3x.png'
+          }
+        }
+      }
+    }
+  }
+
+mixin submenu-item(massage)
+  li.submenu__list-item
+    a.submenu__link(href=massage.url)= massage.name
+    if massage.tag
+      b.submenu__tag(class=(massage.tag.color ? `submenu__tag_${massage.tag.color}` : false))= massage.tag.text
+
+nav.main-menu
+  h2.visually-hidden Главное меню
+  ul.main-menu__list
+    li.main-menu__list-item.dropdown
+      span.main-menu__section.dropdown__trigger(data-on='hover') Виды массажа
+      .main-menu__submenu.submenu.dropdown__body
+        each type, i in ['Массаж тела', 'Массаж лица']
+          ul.submenu__list
+            li.submenu__list-item
+              h3.submenu___list-heading= type
+            each massage in globalData.massages
+              if ((i === 0) && (massage.menuType === 'body') || (i === 1) && (massage.menuType === 'face'))
+                +submenu-item(massage)
+        a.submenu__promo-link
+          +picture-tag(menuData.promo.image, menuData.promo.image.mobile.png['3x'], menuData.promo.name, 230, 210).submenu__promo-image
+    each item in menuData.list
+      li.main-menu__list-item
+        a(href=item.url)= item.text

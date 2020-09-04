@@ -12,6 +12,7 @@
 @use 'blocks/reusable/accordion';
 @use 'blocks/reusable/block-title';
 @use 'blocks/reusable/button';
+@use 'blocks/reusable/container';
 @use 'blocks/reusable/custom-checkbox';
 @use 'blocks/reusable/dropdown';
 @use 'blocks/reusable/inline-icon';
@@ -24,3 +25,5 @@
 @use 'blocks/reusable/text-on-icon';
 @use 'blocks/reusable/tooltip';
 @use 'blocks/reusable/underline';
+
+@use 'blocks/header/header';

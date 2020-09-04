@@ -1,0 +1,39 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: '/facial-lymphatic-drainage.html',
+      title: `Лимфодренажный массаж лица в Москве`,
+      description: `Лимфодренажный массаж лица - прорабатывается лицо, шея и зона декольте, эффект заметен после первой
+        процедуры`,
+      keywords: `лимфодренажный, массаж лица, услуга, описание, цена, стоимость, Москва`,
+      canonical: 'http://expert-massage-clinic.ru/facial-lymphatic-drainage.html',
+      pageClass: 'facial-lymphatic-drainage-page',
+      theme: '3',
+      mainScreenHeading: 'Лимфодренажный массаж лица.',
+      mainScreenSubheading: 'Убирает отёки и мешки под глазами, улучшает цвет лица',
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: 'минимальный стаж специалистов, у всех мед. образование'
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a> c
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ]
+    }
+
+block content
+  section
+    .container
+      h1
+
+block script

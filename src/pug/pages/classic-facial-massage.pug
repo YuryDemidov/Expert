@@ -1,0 +1,39 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: '/classic-facial-massage.html',
+      title: `Классический массаж лица - Москва`,
+      description: `Классический массаж лица, Москва - ${globalData.company.businessDuration} лет успешной работы!
+        Профессиональная методика, лучшие цены`,
+      keywords: `классический массаж лица, Москва, услуга, описание, цена, стоимость`,
+      canonical: 'http://expert-massage-clinic.ru/classic-facial-massage.html',
+      pageClass: 'classic-facial-massage-page',
+      theme: '2',
+      mainScreenHeading: 'Классический массаж лица.',
+      mainScreenSubheading: `Снимает спазмы и усталость мышц, улучшает цвет и тонус лица`,
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: 'минимальный стаж специалистов, у всех мед. образование'
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a> c
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ]
+    }
+
+block content
+  section
+    .container
+      h1
+
+block script

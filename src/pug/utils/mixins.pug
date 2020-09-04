@@ -1,0 +1,50 @@
+//-
+  Структура url`ов фотографий в imagesArray
+  Порядок важен!
+  Если чего-то нет, передать false.
+  Форматы изображений jpg/png + webp.
+  Для мобильных 1x, 2x, 3x, для остального - 1x, 2x
+  Если для двух типов устройств используются одинаковые фото,
+  нужно прописать url`ы только для меньшего,
+  а для большего передать false (т.е. mobile > tablet > desktop)
+
+  desktop: {...},
+  tablet: {
+    webp: {
+      '1x': 'url/photo.webp',
+      '2x': 'url/photo.webp'
+    },
+    jpg/png: {
+      '1x': 'url/photo.jpg',
+      '2x': 'url/photo.jpg'
+    }
+  },
+  mobile: {...}
+mixin picture-tag(imagesArray, fallbackImage, altText, width, height)
+  span.picture(class=attributes.class)
+    picture
+      each formatsList, device in imagesArray
+        if formatsList
+          -
+            var deviceAttribute = false
+            if (device === 'tablet')
+              deviceAttribute = '(min-width: 768px)'
+            if (device === 'desktop')
+              deviceAttribute = '(min-width: 1024px)'
+          each dprsList, format in formatsList
+            if dprsList
+              -
+                var computedSrcSet = ''
+                var mimeType = false
+                if (format === 'webp')
+                  mimeType = 'image/webp'
+                if (format === 'png')
+                  mimeType = 'image/png'
+              each images, dpr in dprsList
+                - var formattedDpr = (dpr === '1x') ? ', ' : ` ${dpr}, `
+                if images
+                  - computedSrcSet = computedSrcSet + `${images}${formattedDpr}`
+                if (computedSrcSet.charAt(computedSrcSet.length - 1) === ',')
+                  computedSrcSet = computedSrcSet.slice(0, -1)
+              source(srcset=computedSrcSet media=deviceAttribute type=mimeType)
+      img(src=fallbackImage alt!=altText width=width height=height)
