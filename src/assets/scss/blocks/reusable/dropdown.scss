@@ -19,7 +19,7 @@
 
       content: '';
       position: absolute;
-      top: 0.2em;
+      top: 0.25em;
       right: 7px;
     }
   }
@@ -38,7 +38,7 @@
     display: none;
 
     background: $alt-default-color;
-    border-radius: 3px;
+    border-radius: 5px;
 
     &:hover {
       display: block;
@@ -60,10 +60,8 @@
       @include horizontally-centered();
 
       min-width: 14rem;
-      padding: 1.2rem;
-      padding-bottom: 0.4rem;
 
-      box-shadow: 0 3px 8px 1px $x-light-dim-color;
+      box-shadow: 0 4px 16px $x-light-dim-color;
     }
 
     &__list {

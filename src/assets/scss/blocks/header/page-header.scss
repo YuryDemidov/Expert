@@ -1,0 +1,73 @@
+@use '../../tools' as *;
+
+.page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 108rem;
+  width: 100%;
+
+  background-color: $alt-default-color;
+
+  &__logo-link {
+    @include horizontally-centered();
+
+    top: 15rem;
+
+    max-width: 150px;
+    width: 33vw;
+  }
+
+  &__phones {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  &__appointment-button {
+    margin-right: 1rem;
+
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .page-header {
+    padding: 0 1.5rem;
+
+    &__logo-link {
+      top: 8rem;
+    }
+
+    &__appointment-button {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .page-header {
+    @include horizontally-centered();
+
+    padding: 0 1vw;
+    padding-top: 2.5rem;
+
+    background: none;
+
+    &__logo-link {
+      position: relative;
+      top: initial;
+      left: initial;
+
+      transform: none;
+    }
+
+    &__appointment-button {
+      font-size: 1.6rem;
+    }
+  }
+}

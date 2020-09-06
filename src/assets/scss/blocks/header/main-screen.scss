@@ -1,0 +1,182 @@
+@use '../../tools' as *;
+
+.main-screen {
+  padding-top: 35rem;
+
+  @include themify() {
+    background-color: $color-background;
+  }
+  background-image:
+    url('../../../img/main-screen/index/main-bg-1_normal@1x.jpg'),
+    url('../../../img/main-screen/index/main-bg-2_normal@1x.jpg');
+  background-position:
+    left top 4.5rem,
+    right top 4.5rem;
+  background-repeat: no-repeat;
+  background-size: auto 35rem;
+
+  &__content {
+    text-align: center;
+
+    background-color: $alt-default-color;
+  }
+
+  &__heading {
+    padding: 3rem 2rem;
+  }
+
+  &__title,
+  &__subtitle {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+
+    font-size: 2.4rem;
+  }
+
+  &__subtitle {
+    padding: 0 6rem;
+
+    font-size: 1.8rem;
+  }
+
+  &__features-list {
+    @include reset-list();
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(6rem + 9%);
+    padding-bottom: 7rem;
+
+    @include themify() {
+      background-color: $color-background;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+
+      width: 100%;
+
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &::before {
+      bottom: 100%;
+
+      padding-bottom: 21%;
+
+      background-image: url('../../../img/main-screen/index/wave_top.svg');
+    }
+
+    &::after {
+      top: 100%;
+
+      padding-bottom: 16%;
+
+      background-image: url('../../../img/main-screen/index/wave_bottom.svg');
+    }
+  }
+
+  &__feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6rem;
+  }
+
+  &__feature-main-text {
+    margin-bottom: 0.6rem;
+
+    font-size: 4rem;
+  }
+
+  &__feature-text {
+    font-size: 1.6rem;
+  }
+}
+
+.theme-main .main-screen {
+  &__title,
+  &__subtitle {
+    display: block;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .main-screen {
+    padding-top: 15rem;
+
+    background-size: contain;
+
+    &__subtitle {
+      font-size: 2.4rem;
+    }
+
+    &__content,
+    &__features-list {
+      background: none;
+    }
+
+    &__features-list {
+      flex-direction: row;
+      justify-content: center;
+
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+
+    &__feature-item {
+      margin: 0 4vw;
+    }
+  }
+
+  .page .main-screen {
+    &__features-list {
+      background: none;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .main-screen {
+    padding-top: 8vw;
+    padding-bottom: 4vw;
+
+    background-position:
+      left top,
+      right top;
+
+    &__content {
+      @include centered-block(100rem);
+    }
+
+    &__heading {
+      line-height: 1.2;
+    }
+
+    &__title,
+    &__subtitle {
+      font-size: 3.2rem;
+    }
+
+    &__title {
+      margin-bottom: 0;
+    }
+
+    &__features-list {
+      margin-top: 3vw;
+      padding-bottom: 0;
+    }
+  }
+}

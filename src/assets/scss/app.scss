@@ -2,6 +2,7 @@
 @use 'utils/libs';
 @use 'utils/fonts';
 @use 'utils/common';
+@use 'utils/themes';
 
 // Animation
 @use 'animation/classes';
@@ -11,6 +12,7 @@
 // Reusable
 @use 'blocks/reusable/accordion';
 @use 'blocks/reusable/block-title';
+@use 'blocks/reusable/burger-icon';
 @use 'blocks/reusable/button';
 @use 'blocks/reusable/container';
 @use 'blocks/reusable/custom-checkbox';
@@ -19,6 +21,7 @@
 @use 'blocks/reusable/input-with-button';
 @use 'blocks/reusable/link';
 @use 'blocks/reusable/message';
+@use 'blocks/reusable/picture';
 @use 'blocks/reusable/preloader';
 @use 'blocks/reusable/table';
 @use 'blocks/reusable/text-input';
@@ -26,4 +29,9 @@
 @use 'blocks/reusable/tooltip';
 @use 'blocks/reusable/underline';
 
-@use 'blocks/header/header';
+@use 'blocks/header/page-header';
+@use 'blocks/header/phones-list';
+@use 'blocks/header/main-screen';
+
+@use 'blocks/menu/main-menu';
+@use 'blocks/menu/submenu';

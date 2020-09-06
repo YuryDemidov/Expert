@@ -258,13 +258,8 @@
   }
 }
 
-@mixin button($width: 180px, $height: null, $color: vars.$default-color, $font-size: vars.$main-font-size, $font-weight: 700, $uppercase: true, $border: vars.$default-color, $border-radius: 3px, $background) {
+@mixin button($width: null, $height: null, $color: vars.$default-color, $font-size: vars.$main-font-size, $font-weight: 700, $uppercase: false, $border-radius: 20px, $background: null) {
   @include reset-button();
-  @include in-focus() {
-    &::before {
-      transform: scale(1.05);
-    }
-  }
 
   position: relative;
 
@@ -277,7 +272,7 @@
     min-height: $height;
   }
   margin: 0;
-  padding: 1.6rem 1.4rem;
+  padding: 1rem 2rem;
 
   text-align: center;
   vertical-align: middle;
@@ -292,48 +287,11 @@
   white-space: nowrap;
   color: $color;
 
-  border-radius: calc(#{$border-radius} + 1px);
-
+  @if ($background) {
+    background-color: $background;
+  }
+  border-radius: $border-radius;
   cursor: pointer;
 
-  &::before {
-    @include box(100%);
-
-    content: '';
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    @if ($background) {
-      background-color: $background;
-    }
-    border: 1px solid $border;
-    border-radius: $border-radius;
-
-    pointer-events: none;
-
-    transition: all 0.4s ease;
-  }
-}
-
-/*
- * Implementation of themes
- */
-@mixin themify($themes) {
-  @each $theme, $map in $themes {
-    .theme-#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
-      }
-      @content;
-      $theme-map: null !global;
-    }
-  }
-}
-
-@function themed($key) {
-  @return map-get($theme-map, $key);
+  transition: all 0.3s;
 }

@@ -1,0 +1,34 @@
+@use '../../tools' as *;
+
+.main-menu {
+  &__list {
+    @include horizontal-list();
+  }
+
+  &__list-item {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .main-menu {
+    &__list-item {
+      margin: 0 1rem;
+
+      font-size: 1.6rem;
+
+      &.dropdown {
+        position: static;
+      }
+    }
+
+    &__submenu {
+      right: 4vw;
+      left: 4vw;
+
+      margin-top: 2.5rem;
+
+      transform: none;
+    }
+  }
+}

@@ -28,9 +28,11 @@
 
       content: '';
       position: absolute;
-      right: 0;
-      bottom: -3px;
+      bottom: 1px;
       left: 0;
+
+      background-position: center;
+      background-repeat: repeat-x;
 
       transition: opacity 0.5s;
     }
@@ -38,13 +40,26 @@
 
   &_blue-dotted {
     &::before {
-      background: url('../../../img/util/borders/dotted-border_blue.svg') repeat-x 2px 0;
+      background-image: url('../../../img/util/borders/dotted-border_blue.svg');
     }
   }
 
   &_pink-dotted {
     &::before {
-      background: url('../../../img/util/borders/dotted-border_pink.svg') repeat-x 2px 0;
+      background-image: url('../../../img/util/borders/dotted-border_pink.svg');
+    }
+  }
+
+  &_black-dotted {
+    &::before {
+      background-image: url('../../../img/util/borders/dotted-border_black.svg');
+    }
+  }
+
+  &_gray-dotted {
+    &::before {
+      background-image: url('../../../img/util/borders/dotted-border_black.svg');
+      opacity: 0.5;
     }
   }
 }

@@ -1,57 +1,24 @@
 @use '../../tools' as *;
 
-.button-border {
-  @include button($background: false);
+.button {
+  @include reset-button();
+  @include button($color: $alt-default-color);
 
-  &::before {
-    border-color: currentColor;
-  }
-}
-
-.button-fill {
-  @include button($color: $default-color, $background: $alt-default-color);
-}
-
-.button-fill,
-.button-border {
-  &.link {
-    border-bottom: none;
-
-    &::before {
-      z-index: -1;
+  @include in-focus() {
+    @include themify() {
+      background-color: $color-primary-transparent;
     }
   }
-}
 
-.button {
-  &__content {
-    position: relative;
+  &_primary {
+    @include themify() {
+      background-color: $color-primary;
+    }
   }
 
-  &__preloader {
-    @include box(100%);
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    pointer-events: none;
-  }
-}
-
-.button_disabled,
-.button:disabled,
-.button-border:disabled,
-.button-fill:disabled {
-  cursor: default;
-
-  @include in-focus {
-    &::before {
-      transform: none;
+  &_secondary {
+    @include themify() {
+      background-color: $color-secondary;
     }
   }
 }
