@@ -121,8 +121,8 @@
   transform: $manual-transform;
 }
 
-@mixin retina() {
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@mixin retina($dpr: 2) {
+  @media (-webkit-min-device-pixel-ratio: $dpr), (min-resolution: #{$dpr * 96}dpi) {
     @content;
   }
 }

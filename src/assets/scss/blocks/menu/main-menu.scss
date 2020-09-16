@@ -13,7 +13,7 @@
 @media (min-width: $s-desktop-min-width) {
   .main-menu {
     &__list-item {
-      margin: 0 1rem;
+      margin: 0 1vw;
 
       font-size: 1.6rem;
 
@@ -29,6 +29,15 @@
       margin-top: 2.5rem;
 
       transform: none;
+    }
+  }
+}
+
+@media (min-width: $l-desktop-min-width) {
+  .main-menu {
+    &__list-item {
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
     }
   }
 }

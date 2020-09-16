@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 108rem;
+  max-width: calc(105rem + 5vw);
   width: 100%;
 
   background-color: $alt-default-color;
@@ -55,6 +55,12 @@
 
     padding: 0 1vw;
     padding-top: 2.5rem;
+    @include themify() {
+      @if ($header-image-2 == null) {
+        padding-right: 3vw;
+        padding-left: 0;
+      }
+    }
 
     background: none;
 
@@ -69,5 +75,12 @@
     &__appointment-button {
       font-size: 1.6rem;
     }
+  }
+}
+
+@media (min-width: $l-desktop-min-width) {
+  .page-header {
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }

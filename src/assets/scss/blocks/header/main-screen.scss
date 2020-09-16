@@ -5,13 +5,41 @@
 
   @include themify() {
     background-color: $color-background;
+
+    @if ($header-image-2 != null) {
+      background-image:
+        #{url(map-deep-get($header-image-1, 'small', '1x'))},
+        #{url(map-deep-get($header-image-2, 'small', '1x'))};
+      background-position:
+        left top 4.5rem,
+        right top 4.5rem;
+
+      @include retina() {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'small', '2x'))},
+          #{url(map-deep-get($header-image-2, 'small', '2x'))};
+      }
+
+      @include retina(3) {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'small', '3x'))},
+          #{url(map-deep-get($header-image-2, 'small', '3x'))};
+      }
+    }
+    @else {
+      background-image: #{url(map-deep-get($header-image-1, 'small', '1x'))};
+      background-position: right top 4.5rem;
+
+      @include retina() {
+        background-image: #{url(map-deep-get($header-image-1, 'small', '2x'))};
+      }
+
+      @include retina(3) {
+        background-image: #{url(map-deep-get($header-image-1, 'small', '3x'))};
+      }
+    }
   }
-  background-image:
-    url('../../../img/main-screen/index/main-bg-1_normal@1x.jpg'),
-    url('../../../img/main-screen/index/main-bg-2_normal@1x.jpg');
-  background-position:
-    left top 4.5rem,
-    right top 4.5rem;
+
   background-repeat: no-repeat;
   background-size: auto 35rem;
 
@@ -74,7 +102,7 @@
 
       padding-bottom: 21%;
 
-      background-image: url('../../../img/main-screen/index/wave_top.svg');
+      background-image: url('../../../img/main-screen/main/wave_top.svg');
     }
 
     &::after {
@@ -82,7 +110,7 @@
 
       padding-bottom: 16%;
 
-      background-image: url('../../../img/main-screen/index/wave_bottom.svg');
+      background-image: url('../../../img/main-screen/main/wave_bottom.svg');
     }
   }
 
@@ -116,6 +144,27 @@
     padding-top: 15rem;
 
     background-size: contain;
+
+    @include themify() {
+      @if ($header-image-2 != null) {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'normal', '1x'))},
+          #{url(map-deep-get($header-image-2, 'normal', '1x'))};
+
+        @include retina() {
+          background-image:
+            #{url(map-deep-get($header-image-1, 'normal', '2x'))},
+            #{url(map-deep-get($header-image-2, 'normal', '2x'))};
+        }
+      }
+      @else {
+        background-image: #{url(map-deep-get($header-image-1, 'normal', '1x'))};
+
+        @include retina() {
+          background-image: #{url(map-deep-get($header-image-1, 'normal', '2x'))};
+        }
+      }
+    }
 
     &__subtitle {
       font-size: 2.4rem;
@@ -153,9 +202,18 @@
     padding-top: 8vw;
     padding-bottom: 4vw;
 
-    background-position:
-      left top,
-      right top;
+    @include themify() {
+      @if ($header-image-2 != null) {
+        background-position:
+          left top,
+          right top;
+      }
+      @else {
+        padding-right: 10rem;
+
+        background-position: right top;
+      }
+    }
 
     &__content {
       @include centered-block(100rem);
@@ -177,6 +235,47 @@
     &__features-list {
       margin-top: 3vw;
       padding-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .main-screen {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+
+    &__features-list {
+      margin-top: 6rem;
+    }
+
+    &__feature-item {
+      margin-right: 4.5rem;
+      margin-left: 4.5rem;
+    }
+  }
+}
+
+@media (min-width: $xl-desktop-min-width) {
+  .main-screen {
+    @include themify() {
+      @if ($header-image-2 != null) {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'xl', '1x'))},
+          #{url(map-deep-get($header-image-2, 'xl', '1x'))};
+
+        @include retina() {
+          background-image:
+            #{url(map-deep-get($header-image-1, 'xl', '2x'))},
+            #{url(map-deep-get($header-image-2, 'xl', '2x'))};
+        }
+      }
+      @else {
+        background-image: #{url(map-deep-get($header-image-1, 'xl', '1x'))};
+
+        @include retina() {
+          background-image: #{url(map-deep-get($header-image-1, 'xl', '2x'))};
+        }
+      }
     }
   }
 }
