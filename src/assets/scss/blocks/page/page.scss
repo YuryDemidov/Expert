@@ -1,7 +1,23 @@
+@use '../../tools' as *;
+
 .page {
   height: 100%;
 
   &__header {
     position: relative;
+  }
+
+  &[data-state='noscroll'] {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .page {
+    &__header {
+      position: absolute;
+
+      width: 100%;
+    }
   }
 }

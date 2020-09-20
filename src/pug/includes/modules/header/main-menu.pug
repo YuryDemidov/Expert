@@ -50,10 +50,10 @@ mixin submenu-item(massage)
     if massage.tag
       b.submenu__tag(class=(massage.tag.color ? `submenu__tag_${massage.tag.color}` : false))= massage.tag.text
 
-nav.main-menu.hidden_mobile
+nav.page-header__menu.main-menu
   h2.visually-hidden Главное меню
   ul.main-menu__list
-    li.main-menu__list-item.dropdown(data-on='hover')
+    li.main-menu__list-item.main-menu__submenu-trigger.dropdown(data-on='hover' data-state='closed' tabindex='0')
       span.main-menu__section.dropdown__trigger Виды массажа
       .main-menu__submenu.dropdown__body
         .submenu
@@ -66,6 +66,14 @@ nav.main-menu.hidden_mobile
                   +submenu-item(massage)
           a.submenu__promo-link
             +picture-tag(menuData.promo.image, menuData.promo.image.mobile.png['3x'], menuData.promo.name, 230, 210).submenu__promo-image
-    each item in menuData.list
-      li.main-menu__list-item
-        a.main-menu__link.link(href=item.url)= item.text
+    each link, i in menuData.list
+      li.main-menu__list-item(class=(i >= 3 ? 'main-menu__list-item_hidden' : false))
+        a.main-menu__link.link(href=link.url)= link.text
+      if i === 2
+        li.main-menu__list-item.main-menu__additional.dropdown(data-on='hover')
+          span.dropdown__trigger Ещё
+          ul.main-menu__hidden-list.dropdown__body
+            each link, i in menuData.list
+              if i >= 3
+                li.main-menu__hidden-item
+                  a.main-menu__hidden-link.link(href=menuData.list[i].url)= menuData.list[i].text

@@ -1,8 +1,10 @@
+'use strict';
+
 module.exports = {
   env: {
     browser: true,
     commonjs: true,
-    es6: true,
+    es2020: true,
     node: true
   },
   plugins: ['import', 'promise', 'compat', 'node'],
@@ -11,15 +13,6 @@ module.exports = {
     'standard'
   ],
   parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 9,
-    ecmaFeatures: {
-      sourceType: 'module',
-      jsx: true
-    },
-    allowImportExportEverywhere: true
-  },
   rules: {
     'promise/always-return': 0,
     'promise/avoid-new': 0,
@@ -34,8 +27,14 @@ module.exports = {
     'no-console': 1,
     'curly': 0,
     //
+    'no-unused-vars': 1,
+    'promise/catch-or-return': 0,
     'space-before-function-paren': 0,
     'semi': 0,
-    'no-unused-vars': 1
+    'quote-props': ['error', 'consistent'],
+    'quotes': ['error', 'single', {
+      'avoidEscape': true,
+      'allowTemplateLiterals': true
+    }]
   }
 };

@@ -25,6 +25,7 @@ body {
   font-weight: 400;
   font-size: $main-font-size;
   line-height: 1.2;
+  color: $default-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -59,6 +60,12 @@ img {
 
   &_mobile-tablet {
     @media (max-width: $tablet-portrait-max-width) {
+      display: none !important;
+    }
+  }
+
+  &_tablet {
+    @media (min-width: $tablet-min-width) and (max-width: $tablet-portrait-max-width) {
       display: none !important;
     }
   }

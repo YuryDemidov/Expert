@@ -48,3 +48,7 @@ mixin picture-tag(imagesArray, fallbackImage, altText, width, height)
                   computedSrcSet = computedSrcSet.slice(0, -1)
               source(srcset=computedSrcSet media=deviceAttribute type=mimeType)
       img(src=fallbackImage alt!=altText width=width height=height)
+
+mixin svg-icon(id)
+  svg&attributes(attributes)
+    use(xlink:href=id)

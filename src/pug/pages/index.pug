@@ -13,9 +13,9 @@ block variables
       canonical: 'http://expert-massage-clinic.ru/',
       pageClass: 'index-page',
       theme: 'main',
-      mainScreenHeading: 'EXPERT — первая клиника профессионального массажа',
-      mainScreenSubheading: `Мы избавляем от болей в спине, целлюлита и отёков, подтягиваем лицо без операций и лечим
-        массажем`,
+      mainScreenHeading: 'EXPERT&nbsp;— первая клиника профессионального массажа',
+      mainScreenSubheading: `Мы избавляем от&nbsp;болей в&nbsp;спине, целлюлита и&nbsp;отёков, подтягиваем лицо без
+        операций и&nbsp;лечим массажем`,
       mainScreenFeatures: [
         {
           bigText: `${globalData.company.businessDuration} лет`,
@@ -34,7 +34,7 @@ block variables
     }
 
 block content
-  section
-    .container
+  .container
+    include ../includes/modules/content/application-form
 
 block script

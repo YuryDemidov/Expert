@@ -31,13 +31,14 @@ if locals.data.pageData.url === '/'
 header.page-header
   a.page-header__logo-link(href=(locals.data.pageData.url === '/' ? false : 'index.html'))
     +picture-tag(globalData.company.logoImages, globalData.company.logoImages.desktop.png['2x'], 'Клиника профессионального массажа Expert').page-header__logo-image
-  include main-menu
-  button.page-header__menu-trigger.burger-icon.hidden_desktop-tablet(data-state='initial' aria-label='Открыть меню')
-    span.burger-icon__center
-  ul.page-header__phones.phones-list
-    each phone in globalData.company.phones
-      - var phoneNumber = phone.replace(/[()\s-]/g, '')
-      li.phones-list__phone
-        a.phones-list__phone-number.link.undeline.underline_dotted.underline_gray-dotted(href=`tel:${phoneNumber}`)= phone
-  button.page-header__appointment-button.button.button_primary
-    span.button__content Записаться
+  .page-header__panel
+    include main-menu
+    button.page-header__menu-trigger.burger-icon.hidden_desktop-tablet(data-state='initial' aria-label='Открыть меню')
+      span.burger-icon__center
+    ul.page-header__phones.phones-list
+      each phone in globalData.company.phones
+        - var phoneNumber = phone.replace(/[()\s-]/g, '')
+        li.phones-list__phone
+          a.phones-list__phone-number.link.undeline.underline_dotted.underline_gray-dotted(href=`tel:${phoneNumber}`)= phone
+    button.page-header__appointment-button.button.button_primary
+      span.button__content Записаться

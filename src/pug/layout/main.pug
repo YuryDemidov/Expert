@@ -49,6 +49,7 @@ html(lang='ru')
     block head
 
   body.page(class=`${(locals.data.pageData.pageClass ? locals.data.pageData.pageClass : '')} ${locals.data.pageData.theme ? `theme-${locals.data.pageData.theme}` : ''}`)
+    include ../includes/modules/svg-sprite/svg-sprite
     .page__wrapper
       .page__header
         include ../includes/modules/header/header

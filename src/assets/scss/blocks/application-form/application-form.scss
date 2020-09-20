@@ -1,0 +1,37 @@
+@use '../../tools' as *;
+
+.application-form {
+  padding-bottom: 10rem;
+
+  &__title {
+    margin-bottom: 1.2rem;
+
+    font-size: 2.2rem;
+  }
+
+  &__text {
+    margin-bottom: 3rem;
+
+    font-size: 1.4rem;
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1.2rem 2rem;
+
+    font-size: 1.4rem;
+
+    background-color: $x-lightgray-color;
+    border: none;
+    border-radius: 100px;
+  }
+
+  &__submit {
+    width: 100%;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+
+    font-size: 1.4rem;
+  }
+}

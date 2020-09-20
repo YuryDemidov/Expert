@@ -1,0 +1,18 @@
+@use '../../tools' as *;
+
+.heading {
+  font-family: $title-font-family;
+  font-weight: 500;
+
+  &_primary {
+    @include themify() {
+      color: $color-primary;
+    }
+  }
+
+  &_secondary {
+    @include themify() {
+      color: $color-secondary;
+    }
+  }
+}

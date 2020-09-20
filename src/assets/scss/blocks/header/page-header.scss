@@ -1,23 +1,81 @@
 @use '../../tools' as *;
 
 .page-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
+  padding-bottom: calc(25rem + 12vh);
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: calc(105rem + 5vw);
-  width: 100%;
+  @include themify() {
+    background-color: $color-background;
 
-  background-color: $alt-default-color;
+    @if ($header-image-2 != null) {
+      background-image:
+        #{url(map-deep-get($header-image-1, 'small', '1x'))},
+        #{url(map-deep-get($header-image-2, 'small', '1x'))};
+      background-position:
+        left top 4.5rem,
+        right top 4.5rem;
+
+      @include retina() {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'small', '2x'))},
+          #{url(map-deep-get($header-image-2, 'small', '2x'))};
+      }
+
+      @include retina(3) {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'small', '3x'))},
+          #{url(map-deep-get($header-image-2, 'small', '3x'))};
+      }
+    }
+    @else {
+      background-image: #{url(map-deep-get($header-image-1, 'small', '1x'))};
+      background-position: right top 4.5rem;
+
+      @include retina() {
+        background-image: #{url(map-deep-get($header-image-1, 'small', '2x'))};
+      }
+
+      @include retina(3) {
+        background-image: #{url(map-deep-get($header-image-1, 'small', '3x'))};
+      }
+    }
+  }
+
+  background-repeat: no-repeat;
+  background-size: auto calc(25rem + 12vh);
+
+  &__panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: calc(104rem + 4vw);
+    width: 100%;
+
+    background-color: $alt-default-color;
+    box-shadow: 0 4px 10px $x-light-dim-color;
+
+    &::before {
+      @include box(100%, 100%);
+
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+
+      background-color: $alt-default-color;
+      border-bottom: 1px solid $x-light-dim-color;
+    }
+  }
 
   &__logo-link {
     @include horizontally-centered();
 
-    top: 15rem;
+    top: calc(12rem + 6vh - 5vw);
 
     max-width: 150px;
     width: 33vw;
@@ -33,36 +91,94 @@
 
     font-size: 1.5rem;
   }
+
+  &[data-state='menu'] {
+    .page-header {
+      &__menu {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .page-header {
+    padding-bottom: calc(30rem + 15vh);
+
+    background-size: auto calc(30rem + 15vh);
+
+    &__logo-link {
+      top: calc(10rem + 10vh);
+    }
+  }
 }
 
 @media (min-width: $tablet-min-width) {
   .page-header {
-    padding: 0 1.5rem;
+    padding-bottom: 0;
+
+    &__panel {
+      padding: 0.8rem 1.6rem;
+
+      &::before {
+        content: none;
+      }
+    }
 
     &__logo-link {
-      top: 8rem;
+      top: 10rem;
     }
 
     &__appointment-button {
       margin-right: 0;
     }
   }
+
+  .page .page-header {
+    background: none;
+  }
 }
 
 @media (min-width: $s-desktop-min-width) {
   .page-header {
-    @include horizontally-centered();
+    @include centered-block(calc(98rem + 5vw));
 
-    padding: 0 1vw;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    padding: 1vw;
     padding-top: 2.5rem;
+
     @include themify() {
-      @if ($header-image-2 == null) {
-        padding-right: 3vw;
-        padding-left: 0;
+      @if ($header-image-2 != null) {
+        background-position:
+          left top,
+          right top;
+      }
+      @else {
+        padding-right: 10rem;
+
+        background-position: right top;
       }
     }
 
-    background: none;
+    &__panel {
+      position: static;
+
+      margin-left: 0.5vw;
+      padding: 0;
+
+      @include themify() {
+        @if ($header-image-2 == null) {
+          padding-right: 3vw;
+          padding-left: 0;
+        }
+      }
+
+      background: none;
+      box-shadow: none;
+    }
 
     &__logo-link {
       position: relative;
@@ -73,14 +189,34 @@
     }
 
     &__appointment-button {
+      margin-left: 0.5rem;
+
       font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .page-header {
+    align-items: flex-start;
+    max-width: calc(95rem + 5vw);
+    padding-right: 0;
+    padding-left: 2vw;
+
+    &__panel {
+      align-items: flex-start;
+      padding-top: 0.5rem;
     }
   }
 }
 
 @media (min-width: $l-desktop-min-width) {
   .page-header {
-    padding-right: 2rem;
-    padding-left: 2rem;
+    @include centered-block(calc(100rem + 5vw));
+
+    &__panel {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
   }
 }

@@ -16,6 +16,8 @@ $button-padding-size: 0.6 * $button-main-size;
     top: $button-padding-size + 0.5 * $button-padding-size + $button-line-size;
     left: $button-padding-size;
 
+    transition: background-color 0.4s;
+
     &,
     &::before,
     &::after {
@@ -30,6 +32,9 @@ $button-padding-size: 0.6 * $button-main-size;
     &::after {
       content: '';
       left: 0;
+
+      transition-property: all;
+      transition-duration: 0.4s;
     }
 
     &::before {
@@ -47,11 +52,11 @@ $button-padding-size: 0.6 * $button-main-size;
 
   &[data-state='active'] {
     .burger-icon__center {
-      visibility: hidden;
+      background-color: $alt-default-color;
 
       &::before,
       &::after {
-        visibility: visible;
+        transition-property: transform;
       }
 
       &::before {
