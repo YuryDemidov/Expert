@@ -28,12 +28,30 @@ block variables
           smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
         }
-      ]
+      ],
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;массажа Асахи-Зоган',
+        features: [
+          {
+            title: 'Улучшится качество кожи, уменьшатся морщины',
+            text: `Японский массаж работает сразу по&nbsp;всем фронтам&nbsp;— над&nbsp;контурами лица, качеством кожи,
+              общими чертами лица. Уже после первого сеанса вы заметите, что&nbsp;кожа подтянулась`
+          },
+          {
+            title: 'Подтянутся контуры и&nbsp;овал лица, проявятся скулы',
+            text: `Массаж Асахи-Зоган направлен на&nbsp;формирование лица, поэтому если у&nbsp;вас есть такие проблемы
+              как&nbsp;поплывший овал лица, невыразительные скулы и&nbsp;подбородок, после курса они исчезнут`
+          },
+          {
+            title: 'Процедура улучшит вашу внешность, безопасно и&nbsp;в&nbsp;любом возрасте',
+            text: `Все массажи лица в&nbsp;нашей клинике полностью безопасны, в&nbsp;отличие от&nbsp;пластики.
+              В&nbsp;Японии массаж Асахи-Зоган делают уже с&nbsp;20&nbsp;лет и&nbsp;до&nbsp;глубокой старости`
+          }
+        ]
+      }
     }
 
 block content
-  section
-    .container
-      h1
+  include ../includes/modules/content/features-list
 
 block script

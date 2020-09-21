@@ -28,12 +28,30 @@ block variables
           smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
         }
-      ]
+      ],
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;антицеллюлитного массажа',
+        features: [
+          {
+            title: 'Целлюлит пропадёт совсем или&nbsp;сильно уменьшится',
+            text: `Если ваш целлюлит не&nbsp;достиг последних стадий, после курса вы полностью о&nbsp;нём забудете.
+              Но&nbsp;даже если у&nbsp;вас 4&nbsp;стадия целлюлита, кожа подтянется и&nbsp;будет выглядеть хорошо`
+          },
+          {
+            title: 'Подтянутся именно те места, которые вам не&nbsp;нравятся',
+            text: `Укрепится внутренняя и&nbsp;внешняя сторона бедра, целлюлит разгладится сзади и&nbsp;не&nbsp;будет
+              виден, когда вы кладёте ногу на&nbsp;ногу. Сгладятся недостатки фигуры, уйдут «ушки»`
+          },
+          {
+            title: 'Вы будете нравиться себе в&nbsp;купальнике и&nbsp;белье',
+            text: `Изменения после курса очень заметные, вам захочется носить короткие платья и&nbsp;покупать красивое
+              бельё. Вы будете чувствовать себя лучше, и&nbsp;больше наслаждаться жизнью`
+          }
+        ]
+      }
     }
 
 block content
-  section
-    .container
-      h1
+  include ../includes/modules/content/features-list
 
 block script

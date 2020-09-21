@@ -1,7 +1,12 @@
 @use '../../tools' as *;
 
 .application-form {
-  padding-bottom: 10rem;
+  &__content {
+    @include centered-block(65rem);
+
+    margin-bottom: 12rem;
+    padding: 0 1rem;
+  }
 
   &__title {
     margin-bottom: 1.2rem;
@@ -15,23 +20,94 @@
     font-size: 1.4rem;
   }
 
+  &__form {
+    @include centered-block(40rem);
+  }
+
   &__input {
     width: 100%;
     margin-bottom: 2rem;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
 
-    font-size: 1.4rem;
-
-    background-color: $x-lightgray-color;
-    border: none;
+    background-color: $lightgray-color;
+    border: 1px solid $transparent-color;
     border-radius: 100px;
+
+    &:focus {
+      border-color: $light-dim-color;
+      outline: none;
+    }
   }
 
   &__submit {
     width: 100%;
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
+  }
 
-    font-size: 1.4rem;
+  &__message {
+    text-align: center;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .application-form {
+    &__content {
+      @include centered-block(85rem);
+
+      margin-bottom: 10rem;
+      padding: 0 5.5rem;
+    }
+
+    &__title {
+      margin-bottom: 0.8rem;
+    }
+
+    &__text {
+      margin-bottom: 2.5rem;
+    }
+
+    &__form {
+      display: flex;
+      align-items: center;
+      max-width: initial;
+    }
+
+    &__input {
+      margin-right: 2vw;
+      margin-bottom: 0;
+      padding-top: 0.8rem;
+      padding-bottom: 0.8rem;
+    }
+
+    &__submit {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .application-form {
+    &__content {
+      margin-bottom: 8rem;
+    }
+
+    &__title {
+      font-size: 2.6rem;
+    }
+
+    &__text {
+      font-size: 1.6rem;
+    }
+
+    &__input,
+    &__submit {
+      font-size: 1.8rem;
+    }
+
+    &__submit {
+      line-height: 1;
+    }
   }
 }

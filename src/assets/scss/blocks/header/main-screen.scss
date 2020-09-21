@@ -1,6 +1,8 @@
 @use '../../tools' as *;
 
 .main-screen {
+  margin-bottom: 7rem;
+
   &__content {
     text-align: center;
 
@@ -34,7 +36,6 @@
     position: relative;
 
     margin-top: 2rem;
-    padding-bottom: 7rem;
   }
 
   @include themify() {
@@ -99,6 +100,7 @@
 
 @media (min-width: $tablet-min-width) {
   .main-screen {
+    margin-bottom: 9rem;
     padding-top: 22rem;
 
     background-repeat: no-repeat;
@@ -175,6 +177,7 @@
 
 @media (min-width: $s-desktop-min-width) {
   .main-screen {
+    margin-bottom: 6rem;
     padding-top: 9vw;
     padding-bottom: 6vw;
 

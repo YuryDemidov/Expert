@@ -28,12 +28,29 @@ block variables
           smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
         }
-      ]
+      ],
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;массажа шейно-воротниковой зоны',
+        features: [
+          {
+            title: 'Снятие боли в&nbsp;шее, восстановление подвижности головы',
+            text: `Массаж шейного отдела не&nbsp;справится с&nbsp;запущенными проблемами, но&nbsp;отлично снимет
+              несложные зажимы и&nbsp;мышечную усталость шейного отдела`
+          },
+          {
+            title: 'Благотворное действие на&nbsp;мозг и&nbsp;нервную систему',
+            text: `Снятие мышечного усталости и&nbsp;зажимов восстановит поток кислорода к&nbsp;мозгу, нормализует сон
+              и&nbsp;повысит общий тонус`
+          },
+          {
+            title: 'Профилактика последствий сидячей работы',
+            text: `Массаж шейно-воротниковой зоны помогает в&nbsp;профилактике заболеваний шейного отдела позвоночника`
+          }
+        ]
+      }
     }
 
 block content
-  section
-    .container
-      h1
+  include ../includes/modules/content/features-list
 
 block script

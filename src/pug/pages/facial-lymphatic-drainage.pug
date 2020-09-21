@@ -28,12 +28,27 @@ block variables
           smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
         }
-      ]
+      ],
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;лимфодренажного массажа',
+        features: [
+          {
+            title: 'Пропадут отёки и&nbsp;мешки под&nbsp;глазами',
+            text: ``
+          },
+          {
+            title: 'Цвет лица станет здоровым и&nbsp;однородным',
+            text: ``
+          },
+          {
+            title: 'Уменьшится жирность и&nbsp;проблемы кожи',
+            text: ``
+          }
+        ]
+      }
     }
 
 block content
-  section
-    .container
-      h1
+  include ../includes/modules/content/features-list
 
 block script

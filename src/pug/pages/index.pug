@@ -30,11 +30,36 @@ block variables
           smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
         }
-      ]
+      ],
+      featuresBlock: {
+        heading: 'Почему нам доверяют',
+        link: {
+          url: 'about.html',
+          text: 'Больше о нас'
+        },
+        features: [
+          {
+            title: 'Первая клиника профессионального массажа в&nbsp;России',
+            text: `Не&nbsp;салон красоты и&nbsp;не&nbsp;поликлиника, где один массажист работает со&nbsp;всеми
+              по&nbsp;одному шаблону, а&nbsp;клиника со&nbsp;специализацией и&nbsp;врачами. Для нас это не&nbsp;просто
+              бизнес, мы верим в&nbsp;своё дело`
+          },
+          {
+            title: 'Работаем так, чтобы нас хотелось советовать близким',
+            text: `Нам важно, чтобы вы были довольны, и&nbsp;у&nbsp;нас неплохо получается: почти 70% клиентов приходят
+              по&nbsp;совету друзей. Многие ходят к&nbsp;нам семьями. Почитайте отзывы, чтобы узнать о&nbsp;нас побольше`
+          },
+          {
+            title: 'Гарантируем безопасность, результат и&nbsp;честность. Для нас важно помочь',
+            text: `Следуем принципу «Не&nbsp;навреди». Не&nbsp;завышаем количество сеансов, не&nbsp;продаём ненужные
+              процедуры и&nbsp;гарантируем результат. Мы не&nbsp;хотим зарабатывать в&nbsp;ущерб репутации`
+          }
+        ]
+      }
     }
 
 block content
-  .container
-    include ../includes/modules/content/application-form
+  include ../includes/modules/content/application-form
+  include ../includes/modules/content/features-list
 
 block script

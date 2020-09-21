@@ -26,32 +26,32 @@ $theme-main-alt: hsl(0, 78%, 72%);
 $theme-main-background: hsl(200, 100%, 97%);
 $theme-main-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/main/main-bg-1_small@1x.jpg',
-    '2x': '../../../img/main-screen/main/main-bg-1_small@2x.jpg',
-    '3x': '../../../img/main-screen/main/main-bg-1_small@3x.jpg'
+    '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-1_small@2x.jpg',
+    '3x': '../../../img/main-screen/main-bg-1_small@3x.jpg'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/main/main-bg-1_normal@1x.jpg',
-    '2x': '../../../img/main-screen/main/main-bg-1_normal@2x.jpg'
+    '1x': '../../../img/main-screen/main-bg-1_normal@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-1_normal@2x.jpg'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/main/main-bg-1_xl@1x.jpg',
-    '2x': '../../../img/main-screen/main/main-bg-1_xl@2x.jpg'
+    '1x': '../../../img/main-screen/main-bg-1_xl@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-1_xl@2x.jpg'
   )
 );
 $theme-main-header-image-2: (
   'small': (
-    '1x': '../../../img/main-screen/main/main-bg-2_normal@1x.jpg',
-    '2x': '../../../img/main-screen/main/main-bg-2_normal@2x.jpg',
-    '3x': '../../../img/main-screen/main/main-bg-2_normal@2x.jpg'
+    '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg',
+    '3x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/main/main-bg-2_normal@1x.jpg',
-    '2x': '../../../img/main-screen/main/main-bg-2_normal@2x.jpg'
+    '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/main/main-bg-2_xl@1x.jpg',
-    '2x': '../../../img/main-screen/main/main-bg-2_xl@2x.jpg'
+    '1x': '../../../img/main-screen/main-bg-2_xl@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
   )
 );
 
@@ -64,17 +64,17 @@ $theme-1-alt: hsl(0, 78%, 72%);
 $theme-1-background: hsl(0, 100%, 95%);
 $theme-1-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/1/1-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/1/1-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/1/1-bg-1_small@3x.png'
+    '1x': '../../../img/main-screen/1-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/1-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/1-bg-1_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/1/1-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/1/1-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/1-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/1-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/1/1-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/1/1-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/1-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/1-bg-1_xl@2x.png'
   )
 );
 
@@ -87,17 +87,17 @@ $theme-2-alt: hsl(338, 100%, 66%);
 $theme-2-background: hsl(7, 100%, 96%);
 $theme-2-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/2/2-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/2/2-bg-1@1x.jpg',
-    '3x': '../../../img/main-screen/2/2-bg-1@2x.jpg'
+    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '3x': '../../../img/main-screen/2-bg-1@2x.jpg'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/2/2-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/2/2-bg-1@2x.jpg'
+    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/2/2-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/2/2-bg-1@2x.jpg'
+    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
   )
 );
 
@@ -110,17 +110,17 @@ $theme-3-alt: hsl(258, 100%, 62%);
 $theme-3-background: hsl(25, 95%, 92%);
 $theme-3-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/3/3-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/3/3-bg-1_normal@2x.png',
-    '3x': '../../../img/main-screen/3/3-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/3-bg-1_normal@2x.png',
+    '3x': '../../../img/main-screen/3-bg-1_normal@2x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/3/3-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/3/3-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/3-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/3/3-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/3/3-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/3-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/3-bg-1_xl@2x.png'
   )
 );
 
@@ -133,17 +133,17 @@ $theme-4-alt: hsl(173, 62%, 53%);
 $theme-4-background: hsl(173, 100%, 92%);
 $theme-4-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/4/4-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/4/4-bg-1_normal@2x.png',
-    '3x': '../../../img/main-screen/4/4-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/4-bg-1_normal@2x.png',
+    '3x': '../../../img/main-screen/4-bg-1_normal@2x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/4/4-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/4/4-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/4-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/4/4-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/4/4-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/4-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/4-bg-1_xl@2x.png'
   )
 );
 
@@ -156,17 +156,17 @@ $theme-5-alt: hsl(286, 39%, 48%);
 $theme-5-background: hsl(250, 100%, 91%);
 $theme-5-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/5/5-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/5/5-bg-1_normal@2x.png',
-    '3x': '../../../img/main-screen/5/5-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/5-bg-1_normal@2x.png',
+    '3x': '../../../img/main-screen/5-bg-1_normal@2x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/5/5-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/5/5-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/5-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/5/5-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/5/5-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/5-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/5-bg-1_xl@2x.png'
   )
 );
 
@@ -179,32 +179,32 @@ $theme-6-alt: hsl(356, 99%, 40%);
 $theme-6-background: hsl(201, 100%, 75%);
 $theme-6-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/6/6-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/6/6-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/6/6-bg-1_small@3x.png'
+    '1x': '../../../img/main-screen/6-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/6-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/6-bg-1_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/6/6-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/6/6-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/6-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/6-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/6/6-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/6/6-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/6-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/6-bg-1_xl@2x.png'
   )
 );
 $theme-6-header-image-2: (
   'small': (
-    '1x': '../../../img/main-screen/6/6-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/6/6-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/6/6-bg-2_small@3x.png'
+    '1x': '../../../img/main-screen/6-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/6-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/6-bg-2_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/6/6-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/6/6-bg-2_normal@2x.png'
+    '1x': '../../../img/main-screen/6-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/6-bg-2_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/6/6-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/6/6-bg-2_xl@2x.png'
+    '1x': '../../../img/main-screen/6-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/6-bg-2_xl@2x.png'
   )
 );
 
@@ -217,17 +217,17 @@ $theme-7-alt: hsl(265, 100%, 73%);
 $theme-7-background: hsl(314, 92%, 90%);
 $theme-7-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/7/7-bg-1@1x.png',
-    '2x': '../../../img/main-screen/7/7-bg-1@1x.png',
-    '3x': '../../../img/main-screen/7/7-bg-1@2x.png'
+    '1x': '../../../img/main-screen/7-bg-1@1x.png',
+    '2x': '../../../img/main-screen/7-bg-1@1x.png',
+    '3x': '../../../img/main-screen/7-bg-1@2x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/7/7-bg-1@1x.png',
-    '2x': '../../../img/main-screen/7/7-bg-1@2x.png'
+    '1x': '../../../img/main-screen/7-bg-1@1x.png',
+    '2x': '../../../img/main-screen/7-bg-1@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/7/7-bg-1@1x.png',
-    '2x': '../../../img/main-screen/7/7-bg-1@2x.png'
+    '1x': '../../../img/main-screen/7-bg-1@1x.png',
+    '2x': '../../../img/main-screen/7-bg-1@2x.png'
   )
 );
 
@@ -240,32 +240,32 @@ $theme-8-alt: hsl(22, 90%, 73%);
 $theme-8-background: hsl(25, 95%, 92%);
 $theme-8-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/8/8-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/8/8-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/8/8-bg-1_small@3x.png'
+    '1x': '../../../img/main-screen/8-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/8-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/8-bg-1_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/8/8-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/8/8-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/8-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/8-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/8/8-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/8/8-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/8-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/8-bg-1_xl@2x.png'
   )
 );
 $theme-8-header-image-2: (
   'small': (
-    '1x': '../../../img/main-screen/8/8-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/8/8-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/8/8-bg-2_small@3x.png'
+    '1x': '../../../img/main-screen/8-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/8-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/8-bg-2_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/8/8-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/8/8-bg-2_normal@2x.png'
+    '1x': '../../../img/main-screen/8-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/8-bg-2_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/8/8-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/8/8-bg-2_xl@2x.png'
+    '1x': '../../../img/main-screen/8-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/8-bg-2_xl@2x.png'
   )
 );
 
@@ -278,32 +278,32 @@ $theme-9-alt: hsl(195, 100%, 50%);
 $theme-9-background: hsl(325, 68%, 85%);
 $theme-9-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/9/9-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/9/9-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/9/9-bg-1_small@3x.png'
+    '1x': '../../../img/main-screen/9-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/9-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/9-bg-1_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/9/9-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/9/9-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/9-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/9-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/9/9-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/9/9-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/9-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/9-bg-1_xl@2x.png'
   )
 );
 $theme-9-header-image-2: (
   'small': (
-    '1x': '../../../img/main-screen/9/9-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/9/9-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/9/9-bg-2_small@3x.png'
+    '1x': '../../../img/main-screen/9-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/9-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/9-bg-2_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/9/9-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/9/9-bg-2_normal@2x.png'
+    '1x': '../../../img/main-screen/9-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/9-bg-2_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/9/9-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/9/9-bg-2_xl@2x.png'
+    '1x': '../../../img/main-screen/9-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/9-bg-2_xl@2x.png'
   )
 );
 
@@ -316,17 +316,17 @@ $theme-10-alt: hsl(202, 100%, 62%);
 $theme-10-background: hsl(0, 0%, 95%);
 $theme-10-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/10/10-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/10/10-bg-1@1x.jpg',
-    '3x': '../../../img/main-screen/10/10-bg-1@2x.jpg'
+    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '3x': '../../../img/main-screen/10-bg-1@2x.jpg'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/10/10-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/10/10-bg-1@2x.jpg'
+    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/10/10-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/10/10-bg-1@2x.jpg'
+    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
   )
 );
 
@@ -339,32 +339,32 @@ $theme-11-alt: hsl(26, 96%, 67%);
 $theme-11-background: hsl(26, 100%, 87%);
 $theme-11-header-image-1: (
   'small': (
-    '1x': '../../../img/main-screen/11/11-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/11/11-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/11/11-bg-1_small@3x.png'
+    '1x': '../../../img/main-screen/11-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/11-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/11-bg-1_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/11/11-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/11/11-bg-1_normal@2x.png'
+    '1x': '../../../img/main-screen/11-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/11-bg-1_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/11/11-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/11/11-bg-1_xl@2x.png'
+    '1x': '../../../img/main-screen/11-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/11-bg-1_xl@2x.png'
   )
 );
 $theme-11-header-image-2: (
   'small': (
-    '1x': '../../../img/main-screen/11/11-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/11/11-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/11/11-bg-2_small@3x.png'
+    '1x': '../../../img/main-screen/11-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/11-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/11-bg-2_small@3x.png'
   ),
   'normal': (
-    '1x': '../../../img/main-screen/11/11-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/11/11-bg-2_normal@2x.png'
+    '1x': '../../../img/main-screen/11-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/11-bg-2_normal@2x.png'
   ),
   'xl': (
-    '1x': '../../../img/main-screen/11/11-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/11/11-bg-2_xl@2x.png'
+    '1x': '../../../img/main-screen/11-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/11-bg-2_xl@2x.png'
   )
 );
 
