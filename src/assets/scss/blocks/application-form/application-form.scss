@@ -1,10 +1,11 @@
 @use '../../tools' as *;
 
 .application-form {
+  margin-bottom: 12rem;
+
   &__content {
     @include centered-block(65rem);
 
-    margin-bottom: 12rem;
     padding: 0 1rem;
   }
 
@@ -12,6 +13,7 @@
     margin-bottom: 1.2rem;
 
     font-size: 2.2rem;
+    text-align: left;
   }
 
   &__text {
@@ -52,10 +54,11 @@
 
 @media (min-width: $tablet-min-width) {
   .application-form {
+    margin-bottom: 10rem;
+
     &__content {
       @include centered-block(85rem);
 
-      margin-bottom: 10rem;
       padding: 0 5.5rem;
     }
 
@@ -89,9 +92,7 @@
 
 @media (min-width: $s-desktop-min-width) {
   .application-form {
-    &__content {
-      margin-bottom: 8rem;
-    }
+    margin-bottom: 8rem;
 
     &__title {
       font-size: 2.6rem;
