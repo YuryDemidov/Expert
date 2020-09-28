@@ -2,7 +2,9 @@
 
 .message {
   margin: 0;
-  margin-top: 0.6rem;
+  margin-top: 0.8rem;
+
+  font-size: 1.4rem;
 
   &_error {
     color: $error-color;

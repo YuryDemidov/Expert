@@ -1,24 +1,65 @@
 extends ../layout/main
 
 block variables
-  - var yearsDifference = locals.data.globalData.currentYear - locals.data.globalData.startYear
+  - var globalData = locals.data.globalData
   -
     locals.data.pageData = {
-      title: `Массаж в Москве. ${yearsDifference} лет успешной работы. Медицинский подход`,
+      url: 'index.html',
+      title: `Массаж в Москве. ${globalData.company.businessDuration} лет успешной работы. Медицинский подход`,
       description: `Массаж, Москва - услуги профессиональных массажистов с медицинской лицензией - более
-        ${yearsDifference} лет успешной работы, эффективные классические и авторские методики.`,
+        ${globalData.company.businessDuration} лет успешной работы, эффективные классические и авторские методики.`,
       keywords: `массаж в Москве, массаж, Москва, услуги, антицеллюлитный массаж, массаж спины, медицинский массаж,
         массаж от целлюлита`,
+      canonical: 'http://expert-massage-clinic.ru/',
       pageClass: 'index-page',
-      canonical: 'http://expert-massage-clinic.ru/'
+      theme: 'main',
+      mainScreenHeading: 'EXPERT&nbsp;— первая клиника профессионального массажа',
+      mainScreenSubheading: `Мы избавляем от&nbsp;болей в&nbsp;спине, целлюлита и&nbsp;отёков, подтягиваем лицо без
+        операций и&nbsp;лечим массажем`,
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ],
+      featuresBlock: {
+        heading: 'Почему нам доверяют',
+        link: {
+          url: 'about.html',
+          text: 'Больше о нас'
+        },
+        features: [
+          {
+            title: 'Первая клиника профессионального массажа в&nbsp;России',
+            text: `Не&nbsp;салон красоты и&nbsp;не&nbsp;поликлиника, где один массажист работает со&nbsp;всеми
+              по&nbsp;одному шаблону, а&nbsp;клиника со&nbsp;специализацией и&nbsp;врачами. Для нас это не&nbsp;просто
+              бизнес, мы верим в&nbsp;своё дело`
+          },
+          {
+            title: 'Работаем так, чтобы нас хотелось советовать близким',
+            text: `Нам важно, чтобы вы были довольны, и&nbsp;у&nbsp;нас неплохо получается: почти 70% клиентов приходят
+              по&nbsp;совету друзей. Многие ходят к&nbsp;нам семьями. Почитайте отзывы, чтобы узнать о&nbsp;нас побольше`
+          },
+          {
+            title: 'Гарантируем безопасность, результат и&nbsp;честность. Для нас важно помочь',
+            text: `Следуем принципу «Не&nbsp;навреди». Не&nbsp;завышаем количество сеансов, не&nbsp;продаём ненужные
+              процедуры и&nbsp;гарантируем результат. Мы не&nbsp;хотим зарабатывать в&nbsp;ущерб репутации`
+          }
+        ]
+      }
     }
 
 block content
-  section
-    .container
-      p= locals.data.globalData.startYear
-      p(style='font-family: MuseoSans, sans-serif')= locals.data.globalData.currentYear
-      img(src='assets/img/test/chrome.png')
-      img(src='assets/img/test/arro1.jpg')
+  include ../includes/modules/content/application-form
+  include ../includes/modules/content/features-list
 
 block script

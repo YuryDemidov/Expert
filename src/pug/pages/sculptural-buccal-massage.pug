@@ -1,0 +1,58 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: 'sculptural-buccal-massage.html',
+      title: `Скульптурно-буккальный массаж лица в Москве по низким ценам`,
+      description: `Скульптурно-буккальный массаж&nbsp;— процедура, сравнимая по&nbsp;эффекту с&nbsp;пластикой.
+        Результат заметен после первого сеанса`,
+      keywords: `скульптурно-буккальный, массаж лица, Москва, услуга, описание, цена, стоимость`,
+      canonical: 'http://expert-massage-clinic.ru/sculptural-buccal-massage.html',
+      pageClass: 'sculptural-buccal-massage-page',
+      theme: '1',
+      mainScreenHeading: 'Скульптурно-буккальный массаж лица',
+      mainScreenSubheading: `Полная альтернатива пластике, стирает морщинки и&nbsp;отёки, корректирует овал лица`,
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ],
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;скульптурно-буккального массажа',
+        features: [
+          {
+            title: 'Вы будете выглядеть моложе, пропадут морщины, подтянется овал лица',
+            text: `Исчезнет второй подбородок, кожа станет упругой и&nbsp;свежей, время как будто пойдёт для&nbsp;вас
+              вспять. Все возрастные изменения пропадут или&nbsp;сильно уменьшатся`
+          },
+          {
+            title: 'Черты вашего лица станут красивее и&nbsp;изящнее, удлинится шея',
+            text: `Скульптурно-буккальный массаж не&nbsp;только убирает недостатки, но&nbsp;и&nbsp;подчёркивает
+              достоинства. Он сделает вас красивее, даже если у&nbsp;вас совсем нет возрастных изменений и&nbsp;отёков`
+          },
+          {
+            title: 'Абсолютно безопасный результат, травмы и ухудшения исключены',
+            text: `Пластика&nbsp;— это лотерея, что-то может пойти не&nbsp;так во&nbsp;время процедуры,
+              или&nbsp;сказаться через несколько лет. С&nbsp;массажем этого не&nbsp;случится, ваше преображение будет
+              безопасным и&nbsp;естественным`
+          }
+        ]
+      }
+    }
+
+block content
+  include ../includes/modules/content/features-list
+
+block script

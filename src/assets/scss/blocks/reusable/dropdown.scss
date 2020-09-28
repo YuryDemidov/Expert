@@ -19,8 +19,11 @@
 
       content: '';
       position: absolute;
-      top: 0.2em;
-      right: 7px;
+      top: 0.25em;
+      right: 5px;
+
+      transition-property: top, transform;
+      transition-duration: 0.4s;
     }
   }
 
@@ -38,19 +41,26 @@
     display: none;
 
     background: $alt-default-color;
-    border-radius: 3px;
+    border-radius: 5px;
 
     &:hover {
       display: block;
     }
   }
 
+  &[data-state='opened'] .dropdown__body,
   &[data-on='hover'] .dropdown__trigger:hover + .dropdown__body {
     display: block;
   }
 
-  &__list {
-    @include reset-list();
+  &[data-state='opened'] {
+    .dropdown__trigger {
+      &::before {
+        top: 0.5em;
+
+        transform: rotate(-135deg);
+      }
+    }
   }
 }
 
@@ -60,18 +70,8 @@
       @include horizontally-centered();
 
       min-width: 14rem;
-      padding: 1.2rem;
-      padding-bottom: 0.4rem;
 
-      box-shadow: 0 3px 8px 1px $x-light-dim-color;
-    }
-
-    &__list {
-      text-align: center;
-    }
-
-    &__list-item {
-      margin-bottom: 1.4rem;
+      box-shadow: 0 4px 16px $x-light-dim-color;
     }
   }
 }

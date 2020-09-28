@@ -8,7 +8,33 @@
   transition: border-bottom-color 0.4s ease-out;
 
   @include in-focus() {
+    color: currentColor;
+
     border-bottom-color: $x-dark-dim-color;
+  }
+
+  &_primary.underline {
+    @include themify() {
+      color: $color-primary;
+
+      border-bottom-color: $color-primary-x-transparent;
+
+      @include in-focus() {
+        border-bottom-color: $color-primary;
+      }
+    }
+  }
+
+  &_secondary.underline {
+    @include themify() {
+      color: $color-secondary;
+
+      border-bottom-color: $color-secondary-x-transparent;
+
+      @include in-focus() {
+        border-bottom-color: $color-secondary;
+      }
+    }
   }
 }
 

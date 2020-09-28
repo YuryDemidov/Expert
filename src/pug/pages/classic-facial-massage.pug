@@ -1,0 +1,54 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: 'classic-facial-massage.html',
+      title: `Классический массаж лица - Москва`,
+      description: `Классический массаж лица, Москва - ${globalData.company.businessDuration} лет успешной работы!
+        Профессиональная методика, лучшие цены`,
+      keywords: `классический массаж лица, Москва, услуга, описание, цена, стоимость`,
+      canonical: 'http://expert-massage-clinic.ru/classic-facial-massage.html',
+      pageClass: 'classic-facial-massage-page',
+      theme: '2',
+      mainScreenHeading: 'Классический массаж лица',
+      mainScreenSubheading: `Снимает спазмы и&nbsp;усталость мышц, улучшает цвет и&nbsp;тонус лица`,
+      mainScreenFeatures: [
+        {
+          bigText: `${globalData.company.businessDuration} лет`,
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+        },
+        {
+          bigText: '10 лет',
+          smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
+        },
+        {
+          bigText: '800',
+          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+            ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ],
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;классического массажа',
+        features: [
+          {
+            title: 'Снимется спазм и&nbsp;усталость мышц',
+            text: ``
+          },
+          {
+            title: 'Цвет лица станет здоровым и&nbsp;однородным',
+            text: ``
+          },
+          {
+            title: 'Улучшится тонус кожи и&nbsp;мышц',
+            text: ``
+          }
+        ]
+      }
+    }
+
+block content
+  include ../includes/modules/content/features-list
+
+block script

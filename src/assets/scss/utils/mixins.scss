@@ -121,8 +121,8 @@
   transform: $manual-transform;
 }
 
-@mixin retina() {
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@mixin retina($dpr: 2) {
+  @media (-webkit-min-device-pixel-ratio: $dpr), (min-resolution: #{$dpr * 96}dpi) {
     @content;
   }
 }
@@ -258,13 +258,8 @@
   }
 }
 
-@mixin button($width: 180px, $height: null, $color: vars.$default-color, $font-size: vars.$main-font-size, $font-weight: 700, $uppercase: true, $border: vars.$default-color, $border-radius: 3px, $background) {
+@mixin button($width: null, $height: null, $color: vars.$default-color, $font-size: vars.$main-font-size, $font-weight: 700, $uppercase: false, $border-radius: 20px, $background: null) {
   @include reset-button();
-  @include in-focus() {
-    &::before {
-      transform: scale(1.05);
-    }
-  }
 
   position: relative;
 
@@ -277,7 +272,7 @@
     min-height: $height;
   }
   margin: 0;
-  padding: 1.6rem 1.4rem;
+  padding: 1rem 2rem;
 
   text-align: center;
   vertical-align: middle;
@@ -292,27 +287,11 @@
   white-space: nowrap;
   color: $color;
 
-  border-radius: calc(#{$border-radius} + 1px);
-
+  @if ($background) {
+    background-color: $background;
+  }
+  border-radius: $border-radius;
   cursor: pointer;
 
-  &::before {
-    @include box(100%);
-
-    content: '';
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    @if ($background) {
-      background-color: $background;
-    }
-    border: 1px solid $border;
-    border-radius: $border-radius;
-
-    pointer-events: none;
-
-    transition: all 0.4s ease;
-  }
+  transition: all 0.3s;
 }

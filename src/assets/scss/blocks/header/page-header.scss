@@ -1,0 +1,361 @@
+@use '../../tools' as *;
+
+.page-header {
+  padding-bottom: calc(25rem + 12vh);
+
+  @include themify() {
+    background-color: $color-background;
+
+    @if ($header-image-2 != null) {
+      background-image:
+        #{url(map-deep-get($header-image-1, 'small', '1x'))},
+        #{url(map-deep-get($header-image-2, 'small', '1x'))};
+      background-position:
+        left top 5rem,
+        right top 5rem;
+
+      @include retina() {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'small', '2x'))},
+          #{url(map-deep-get($header-image-2, 'small', '2x'))};
+      }
+
+      @include retina(3) {
+        background-image:
+          #{url(map-deep-get($header-image-1, 'small', '3x'))},
+          #{url(map-deep-get($header-image-2, 'small', '3x'))};
+      }
+    }
+    @else {
+      background-image: #{url(map-deep-get($header-image-1, 'small', '1x'))};
+      background-position: right top 5rem;
+
+      @include retina() {
+        background-image: #{url(map-deep-get($header-image-1, 'small', '2x'))};
+      }
+
+      @include retina(3) {
+        background-image: #{url(map-deep-get($header-image-1, 'small', '3x'))};
+      }
+    }
+  }
+
+  background-repeat: no-repeat;
+  background-size: auto calc(25rem + 12vh);
+
+  &__panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: calc(104rem + 4vw);
+    width: 100%;
+
+    background-color: $alt-default-color;
+    box-shadow: 0 4px 10px $x-light-dim-color;
+
+    &::before {
+      @include box(100%, 100%);
+
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+
+      background-color: $alt-default-color;
+      border-bottom: 1px solid $x-light-dim-color;
+    }
+  }
+
+  &__logo-link {
+    @include horizontally-centered();
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        top: calc(10rem + 6vh - 5vw);
+        left: 30%;
+
+        width: 30vw;
+      }
+    }
+
+    top: calc(12rem + 6vh - 5vw);
+
+    max-width: 15rem;
+    width: 33vw;
+  }
+
+  &__phones {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  &__appointment-button {
+    margin-right: 1rem;
+
+    font-size: 1.5rem;
+  }
+}
+
+.theme-1 {
+  .page-header {
+    background-size: auto calc(20rem + 12vh);
+  }
+}
+
+.theme-2 {
+  .page-header {
+    background-position: right -5rem top 5rem;
+    background-size: auto calc(20rem + 14vh);
+  }
+}
+
+.theme-4 {
+  .page-header {
+    background-size: auto calc(20rem + 12vh);
+  }
+}
+
+.theme-5 {
+  .page-header {
+    background-size: auto calc(20rem + 12vh);
+  }
+}
+
+.theme-6 {
+  .page-header {
+    background-position:
+      left top 10rem,
+      right -2rem top 9rem;
+    background-size: auto calc(18rem + 10vh);
+  }
+}
+
+.theme-8 {
+  .page-header {
+    background-position:
+      left -1rem top -2rem,
+      right top 5rem;
+  }
+}
+
+.theme-9 {
+  .page-header {
+    background-position:
+      left top 5rem,
+      right -6rem top 5rem;
+  }
+}
+
+.theme-10 {
+  .page-header {
+    background-position: right -4rem top 7rem;
+    background-size: auto calc(18rem + 12vh);
+  }
+}
+
+.theme-11 {
+  .page-header {
+    background-position:
+      left top 5rem,
+      right -3rem top 5rem;
+    background-size:
+      auto calc(18rem + 14vh),
+      contain;
+  }
+}
+
+.page-header[data-state='menu'] {
+  .page-header__menu {
+    display: block;
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .page-header {
+    padding-bottom: calc(30rem + 15vh);
+
+    background-size: auto calc(30rem + 15vh);
+
+    &__logo-link {
+      top: calc(10rem + 10vh);
+
+      @include themify() {
+        @if ($header-image-2 == null) {
+          top: calc(15rem + 6vh - 5vw);
+          left: 35%;
+        }
+      }
+    }
+  }
+
+  .theme-1 {
+    .page-header {
+      background-size: auto calc(25rem + 16vh);
+    }
+  }
+
+  .theme-2 {
+    .page-header {
+      background-position: right top 5rem;
+      background-size: calc(28rem + 14vh);
+    }
+  }
+
+  .theme-4 {
+    .page-header {
+      background-size: auto calc(25rem + 15vh);
+    }
+  }
+
+  .theme-5 {
+    .page-header {
+      background-size: auto calc(25rem + 15vh);
+    }
+  }
+
+  .theme-6 {
+    .page-header {
+      background-size: auto calc(22rem + 15vh);
+    }
+  }
+
+  .theme-10 {
+    .page-header {
+      background-size: auto calc(24rem + 15vh);
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .page-header {
+    padding-bottom: 0;
+
+    &__panel {
+      padding: 0.8rem 1.6rem;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    &__logo-link {
+      top: 12rem;
+
+      @include themify() {
+        @if ($header-image-2 == null) {
+          top: 12rem;
+
+          max-width: 20rem;
+        }
+      }
+    }
+
+    &__appointment-button {
+      margin-right: 0;
+    }
+  }
+
+  .page .page-header {
+    background: none;
+  }
+
+  .theme-main .page-header {
+    &__logo-link {
+      top: 10rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .page-header {
+    @include centered-block(calc(98rem + 5vw));
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1.6rem 1vw;
+
+    &__panel {
+      position: static;
+
+      margin-left: 0.5vw;
+      padding: 0;
+
+      background: none;
+      box-shadow: none;
+    }
+
+    &__appointment-button {
+      margin-left: 0.5rem;
+
+      font-size: 1.6rem;
+    }
+  }
+
+  .page .page-header {
+    &__logo-link {
+      position: relative;
+      top: auto;
+      left: auto;
+
+      max-width: 15rem;
+
+      transform: none;
+    }
+  }
+
+  .theme-main .page-header {
+    &__logo-link {
+      top: auto;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .page-header {
+    align-items: flex-start;
+    max-width: calc(95rem + 5vw);
+    padding-top: 2.5rem;
+    padding-right: 0;
+    padding-bottom: 1vw;
+    padding-left: 2vw;
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        margin-right: 16vw;
+        margin-left: auto;
+      }
+    }
+
+    &__panel {
+      align-items: flex-start;
+      padding-top: 0.5rem;
+    }
+  }
+}
+
+@media (min-width: $l-desktop-min-width) {
+  .page-header {
+    @include centered-block(calc(100rem + 5vw));
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        @include centered-block(calc(100rem + 5vw + 5%));
+        padding-right: 5%;
+      }
+    }
+
+    &__panel {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+}

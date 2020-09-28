@@ -1,0 +1,13 @@
+@use '../../tools' as *;
+
+.phones-list {
+  @include reset-list();
+
+  &__phone-number {
+    font-weight: 700;
+
+    @include in-focus() {
+      color: currentColor;
+    }
+  }
+}

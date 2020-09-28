@@ -1,0 +1,73 @@
+@use '../../tools' as *;
+
+$button-main-size: 2.5rem;
+$button-line-size: 0.3rem;
+$button-padding-size: 0.6 * $button-main-size;
+
+.burger-icon {
+  @include reset-button();
+  @include box($button-main-size + 2 * $button-padding-size);
+
+  position: relative;
+
+  padding: $button-padding-size;
+
+  &__center {
+    top: $button-padding-size + 0.5 * $button-padding-size + $button-line-size;
+    left: $button-padding-size;
+
+    transition: background-color 0.4s;
+
+    &,
+    &::before,
+    &::after {
+      @include box($button-main-size, $button-line-size);
+
+      position: absolute;
+
+      background-color: $default-color;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      left: 0;
+
+      transition-property: all;
+      transition-duration: 0.4s;
+    }
+
+    &::before {
+      bottom: $button-line-size + 0.2 * $button-main-size;
+    }
+
+    &::after {
+      top: $button-line-size + 0.2 * $button-main-size;
+    }
+  }
+
+  @include in-focus() {
+    outline: none;
+  }
+
+  &[data-state='active'] {
+    .burger-icon__center {
+      background-color: $alt-default-color;
+
+      &::before,
+      &::after {
+        transition-property: transform;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+        transform-origin: 3px 6px;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        transform-origin: 3px -3px;
+      }
+    }
+  }
+}

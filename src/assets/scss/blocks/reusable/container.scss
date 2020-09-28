@@ -1,0 +1,7 @@
+@use '../../tools' as *;
+
+.container {
+  @include centered-block(124rem);
+
+  padding: 0 2rem;
+}

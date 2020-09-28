@@ -1,0 +1,12 @@
+section.features-list
+  .container
+    .features-list__content
+      h2.heading!= locals.data.pageData.featuresBlock.heading
+      ul.features-list__list
+        each feature in locals.data.pageData.featuresBlock.features
+          li.features-list__item
+            .features-list__image
+            h3.features-list__feature-title!= feature.title
+            p.features-list__feature-description!= feature.text
+      if locals.data.pageData.theme === 'main'
+        a.features-list__link.link.underline.link_arrow(href=locals.data.pageData.featuresBlock.link.url)!= locals.data.pageData.featuresBlock.link.text

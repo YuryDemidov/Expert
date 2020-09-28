@@ -1,0 +1,13 @@
+section.application-form
+  .container
+    .application-form__content
+      h2.application-form__title.heading.heading_secondary Оставьте заявку и получите скидку 20% на первый сеанс
+      p.application-form__text
+        | Вы увидите, как работает массажист, получите профессиональную консультацию и&nbsp;сможете определиться
+        | с&nbsp;планом лечения. Если вам не&nbsp;понравится, мы вернём деньги за&nbsp;сеанс
+      form.application-form__form(action='#' method='post')
+        input.application-form__input(name='name' type='text' placeholder='Имя' aria-label='Имя')
+        input.application-form__input(name='phone' type='text' placeholder='Телефон' aria-label='Телефон')
+        button.application-form__submit.button.button_primary(type='submit')
+          span.button__content Оставить заявку
+        p.application-form__message.message.hidden

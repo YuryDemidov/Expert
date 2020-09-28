@@ -1,0 +1,554 @@
+// Themes
+$xxx-low-lightness: 28%;
+$xx-low-lightness: 37%;
+$x-low-lightness: 46%;
+$low-lightness: 55%;
+$medium-lightness: 64%;
+$high-lightness: 73%;
+$x-high-lightness: 82%;
+$xx-high-lightness: 91%;
+$xxx-high-lightness: 100%;
+
+$xx-low-saturation: 40%;
+$x-low-saturation: 50%;
+$low-saturation: 60%;
+$medium-saturation: 70%;
+$high-saturation: 80%;
+$x-high-saturation: 90%;
+$xx-high-saturation: 100%;
+
+// Theme main
+$theme-main-hue: 202;
+$theme-main-saturation: 100%;
+$theme-main-lightness: 62%;
+$theme-main: hsl(202, 100%, 62%);
+$theme-main-alt: hsl(0, 78%, 72%);
+$theme-main-background: hsl(200, 100%, 97%);
+$theme-main-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-1_small@2x.jpg',
+    '3x': '../../../img/main-screen/main-bg-1_small@3x.jpg'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/main-bg-1_normal@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-1_normal@2x.jpg'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/main-bg-1_xl@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-1_xl@2x.jpg'
+  )
+);
+$theme-main-header-image-2: (
+  'small': (
+    '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg',
+    '3x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/main-bg-2_xl@1x.jpg',
+    '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
+  )
+);
+
+// Theme 1 - Sculptural-buccal massage
+$theme-1-hue: 229;
+$theme-1-saturation: 100%;
+$theme-1-lightness: 27%;
+$theme-1: hsl(229, 100%, 27%);
+$theme-1-alt: hsl(0, 78%, 72%);
+$theme-1-background: hsl(0, 100%, 95%);
+$theme-1-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/1-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/1-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/1-bg-1_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/1-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/1-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/1-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/1-bg-1_xl@2x.png'
+  )
+);
+
+// Theme 2 - Classic facial massage
+$theme-2-hue: 338;
+$theme-2-saturation: 100%;
+$theme-2-lightness: 66%;
+$theme-2: hsl(338, 100%, 66%);
+$theme-2-alt: hsl(338, 100%, 66%);
+$theme-2-background: hsl(7, 100%, 96%);
+$theme-2-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '3x': '../../../img/main-screen/2-bg-1@2x.jpg'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
+  )
+);
+
+// Theme 3 - Facial lymphatic drainage
+$theme-3-hue: 258;
+$theme-3-saturation: 100%;
+$theme-3-lightness: 62%;
+$theme-3: hsl(258, 100%, 62%);
+$theme-3-alt: hsl(258, 100%, 62%);
+$theme-3-background: hsl(25, 95%, 92%);
+$theme-3-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/3-bg-1_normal@2x.png',
+    '3x': '../../../img/main-screen/3-bg-1_normal@2x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/3-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/3-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/3-bg-1_xl@2x.png'
+  )
+);
+
+// Theme 4 - Japanese Asahi massage
+$theme-4-hue: 356;
+$theme-4-saturation: 93%;
+$theme-4-lightness: 82%;
+$theme-4: hsl(356, 93%, 82%);
+$theme-4-alt: hsl(173, 62%, 53%);
+$theme-4-background: hsl(173, 100%, 92%);
+$theme-4-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/4-bg-1_normal@2x.png',
+    '3x': '../../../img/main-screen/4-bg-1_normal@2x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/4-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/4-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/4-bg-1_xl@2x.png'
+  )
+);
+
+// Theme 5 - Chiromassage
+$theme-5-hue: 286;
+$theme-5-saturation: 39%;
+$theme-5-lightness: 48%;
+$theme-5: hsl(286, 39%, 48%);
+$theme-5-alt: hsl(286, 39%, 48%);
+$theme-5-background: hsl(250, 100%, 91%);
+$theme-5-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/5-bg-1_normal@2x.png',
+    '3x': '../../../img/main-screen/5-bg-1_normal@2x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/5-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/5-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/5-bg-1_xl@2x.png'
+  )
+);
+
+// Theme 6 - Sports massage
+$theme-6-hue: 356;
+$theme-6-saturation: 99%;
+$theme-6-lightness: 40%;
+$theme-6: hsl(356, 99%, 40%);
+$theme-6-alt: hsl(356, 99%, 40%);
+$theme-6-background: hsl(201, 100%, 75%);
+$theme-6-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/6-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/6-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/6-bg-1_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/6-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/6-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/6-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/6-bg-1_xl@2x.png'
+  )
+);
+$theme-6-header-image-2: (
+  'small': (
+    '1x': '../../../img/main-screen/6-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/6-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/6-bg-2_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/6-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/6-bg-2_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/6-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/6-bg-2_xl@2x.png'
+  )
+);
+
+// Theme 7 - Figure modeling
+$theme-7-hue: 338;
+$theme-7-saturation: 100%;
+$theme-7-lightness: 58%;
+$theme-7: hsl(338, 100%, 58%);
+$theme-7-alt: hsl(265, 100%, 73%);
+$theme-7-background: hsl(295, 63%, 84%);
+$theme-7-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/7-bg-1@1x.png',
+    '2x': '../../../img/main-screen/7-bg-1@1x.png',
+    '3x': '../../../img/main-screen/7-bg-1@2x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/7-bg-1@1x.png',
+    '2x': '../../../img/main-screen/7-bg-1@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/7-bg-1@1x.png',
+    '2x': '../../../img/main-screen/7-bg-1@2x.png'
+  )
+);
+
+// Theme 8 - Body lymphatic-drainage
+$theme-8-hue: 258;
+$theme-8-saturation: 100%;
+$theme-8-lightness: 61%;
+$theme-8: hsl(258, 100%, 61%);
+$theme-8-alt: hsl(22, 90%, 73%);
+$theme-8-background: hsl(25, 95%, 92%);
+$theme-8-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/8-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/8-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/8-bg-1_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/8-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/8-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/8-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/8-bg-1_xl@2x.png'
+  )
+);
+$theme-8-header-image-2: (
+  'small': (
+    '1x': '../../../img/main-screen/8-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/8-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/8-bg-2_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/8-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/8-bg-2_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/8-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/8-bg-2_xl@2x.png'
+  )
+);
+
+// Theme 9 - Anti-cellulite massage
+$theme-9-hue: 195;
+$theme-9-saturation: 100%;
+$theme-9-lightness: 50%;
+$theme-9: hsl(195, 100%, 50%);
+$theme-9-alt: hsl(195, 100%, 50%);
+$theme-9-background: hsl(325, 68%, 85%);
+$theme-9-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/9-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/9-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/9-bg-1_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/9-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/9-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/9-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/9-bg-1_xl@2x.png'
+  )
+);
+$theme-9-header-image-2: (
+  'small': (
+    '1x': '../../../img/main-screen/9-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/9-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/9-bg-2_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/9-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/9-bg-2_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/9-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/9-bg-2_xl@2x.png'
+  )
+);
+
+// Theme 10 - Neck massage
+$theme-10-hue: 202;
+$theme-10-saturation: 100%;
+$theme-10-lightness: 62%;
+$theme-10: hsl(202, 100%, 62%);
+$theme-10-alt: hsl(202, 100%, 62%);
+$theme-10-background: hsl(0, 0%, 94%);
+$theme-10-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '3x': '../../../img/main-screen/10-bg-1@2x.jpg'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+    '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
+  )
+);
+
+// Theme 11 - Fullbody massage
+$theme-11-hue: 26;
+$theme-11-saturation: 96%;
+$theme-11-lightness: 67%;
+$theme-11: hsl(26, 96%, 67%);
+$theme-11-alt: hsl(26, 96%, 67%);
+$theme-11-background: hsl(42, 100%, 91%);
+$theme-11-header-image-1: (
+  'small': (
+    '1x': '../../../img/main-screen/11-bg-1_small@1x.png',
+    '2x': '../../../img/main-screen/11-bg-1_small@2x.png',
+    '3x': '../../../img/main-screen/11-bg-1_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/11-bg-1_normal@1x.png',
+    '2x': '../../../img/main-screen/11-bg-1_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/11-bg-1_xl@1x.png',
+    '2x': '../../../img/main-screen/11-bg-1_xl@2x.png'
+  )
+);
+$theme-11-header-image-2: (
+  'small': (
+    '1x': '../../../img/main-screen/11-bg-2_small@1x.png',
+    '2x': '../../../img/main-screen/11-bg-2_small@2x.png',
+    '3x': '../../../img/main-screen/11-bg-2_small@3x.png'
+  ),
+  'normal': (
+    '1x': '../../../img/main-screen/11-bg-2_normal@1x.png',
+    '2x': '../../../img/main-screen/11-bg-2_normal@2x.png'
+  ),
+  'xl': (
+    '1x': '../../../img/main-screen/11-bg-2_xl@1x.png',
+    '2x': '../../../img/main-screen/11-bg-2_xl@2x.png'
+  )
+);
+
+$themes: (
+  'main': (
+    'primary': hsl($theme-main-hue, $theme-main-saturation, $theme-main-lightness),
+    'primary-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.3),
+    'secondary': hsl(0, 78%, 72%),
+    'secondary-transparent': hsla(0, 78%, 72%, 0.7),
+    'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
+    'background': $theme-main-background,
+    'header-image-1': $theme-main-header-image-1,
+    'header-image-2': $theme-main-header-image-2
+  ),
+  '1': (
+    'primary': hsl($theme-1-hue, $theme-1-saturation, $theme-1-lightness),
+    'primary-transparent': hsla($theme-1-hue, $theme-1-saturation, $theme-1-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-1-hue, $theme-1-saturation, $theme-1-lightness, 0.3),
+    'secondary': hsl(0, 78%, 72%),
+    'secondary-transparent': hsla(0, 78%, 72%, 0.7),
+    'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
+    'background': $theme-1-background,
+    'header-image-1': $theme-1-header-image-1
+  ),
+  '2': (
+    'primary': hsl($theme-2-hue, $theme-2-saturation, $theme-2-lightness),
+    'primary-transparent': hsla($theme-2-hue, $theme-2-saturation, $theme-2-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-2-hue, $theme-2-saturation, $theme-2-lightness, 0.3),
+    'secondary': hsl(338, 100%, 66%),
+    'secondary-transparent': hsla(338, 100%, 66%, 0.7),
+    'secondary-x-transparent': hsla(338, 100%, 66%, 0.3),
+    'background': $theme-2-background,
+    'header-image-1': $theme-2-header-image-1
+  ),
+  '3': (
+    'primary': hsl($theme-3-hue, $theme-3-saturation, $theme-3-lightness),
+    'primary-transparent': hsla($theme-3-hue, $theme-3-saturation, $theme-3-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-3-hue, $theme-3-saturation, $theme-3-lightness, 0.3),
+    'secondary': hsl(258, 100%, 62%),
+    'secondary-transparent': hsla(258, 100%, 62%, 0.7),
+    'secondary-x-transparent': hsla(258, 100%, 62%, 0.3),
+    'background': $theme-3-background,
+    'header-image-1': $theme-3-header-image-1
+  ),
+  '4': (
+    'primary': hsl($theme-4-hue, $theme-4-saturation, $theme-4-lightness),
+    'primary-transparent': hsla($theme-4-hue, $theme-4-saturation, $theme-4-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-4-hue, $theme-4-saturation, $theme-4-lightness, 0.3),
+    'secondary': hsl(173, 62%, 53%),
+    'secondary-transparent': hsla(173, 62%, 53%, 0.7),
+    'secondary-x-transparent': hsla(173, 62%, 53%, 0.3),
+    'background': $theme-4-background,
+    'header-image-1': $theme-4-header-image-1
+  ),
+  '5': (
+    'primary': hsl($theme-5-hue, $theme-5-saturation, $theme-5-lightness),
+    'primary-transparent': hsla($theme-5-hue, $theme-5-saturation, $theme-5-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-5-hue, $theme-5-saturation, $theme-5-lightness, 0.3),
+    'secondary': hsl(286, 39%, 48%),
+    'secondary-transparent': hsla(286, 39%, 48%, 0.7),
+    'secondary-x-transparent': hsla(286, 39%, 48%, 0.3),
+    'background': $theme-5-background,
+    'header-image-1': $theme-5-header-image-1
+  ),
+  '6': (
+    'primary': hsl($theme-6-hue, $theme-6-saturation, $theme-6-lightness),
+    'primary-transparent': hsla($theme-6-hue, $theme-6-saturation, $theme-6-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-6-hue, $theme-6-saturation, $theme-6-lightness, 0.3),
+    'secondary': hsl(356, 99%, 40%),
+    'secondary-transparent': hsla(356, 99%, 40%, 0.7),
+    'secondary-x-transparent': hsla(356, 99%, 40%, 0.3),
+    'background': $theme-6-background,
+    'header-image-1': $theme-6-header-image-1,
+    'header-image-2': $theme-6-header-image-2
+  ),
+  '7': (
+    'primary': hsl($theme-7-hue, $theme-7-saturation, $theme-7-lightness),
+    'primary-transparent': hsla($theme-7-hue, $theme-7-saturation, $theme-7-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-7-hue, $theme-7-saturation, $theme-7-lightness, 0.3),
+    'secondary': hsl(265, 100%, 73%),
+    'secondary-transparent': hsla(265, 100%, 73%, 0.7),
+    'secondary-x-transparent': hsla(265, 100%, 73%, 0.3),
+    'background': $theme-7-background,
+    'header-image-1': $theme-7-header-image-1
+  ),
+  '8': (
+    'primary': hsl($theme-8-hue, $theme-8-saturation, $theme-8-lightness),
+    'primary-transparent': hsla($theme-8-hue, $theme-8-saturation, $theme-8-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-8-hue, $theme-8-saturation, $theme-8-lightness, 0.3),
+    'secondary': hsl(22, 90%, 73%),
+    'secondary-transparent': hsla(22, 90%, 73%, 0.7),
+    'secondary-x-transparent': hsla(22, 90%, 73%, 0.3),
+    'background': $theme-8-background,
+    'header-image-1': $theme-8-header-image-1,
+    'header-image-2': $theme-8-header-image-2
+  ),
+  '9': (
+    'primary': hsl($theme-9-hue, $theme-9-saturation, $theme-9-lightness),
+    'primary-transparent': hsla($theme-9-hue, $theme-9-saturation, $theme-9-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-9-hue, $theme-9-saturation, $theme-9-lightness, 0.3),
+    'secondary': hsl(195, 100%, 50%),
+    'secondary-transparent': hsla(195, 100%, 50%, 0.7),
+    'secondary-x-transparent': hsla(195, 100%, 50%, 0.3),
+    'background': $theme-9-background,
+    'header-image-1': $theme-9-header-image-1,
+    'header-image-2': $theme-9-header-image-2
+  ),
+  '10': (
+    'primary': hsl($theme-10-hue, $theme-10-saturation, $theme-10-lightness),
+    'primary-transparent': hsla($theme-10-hue, $theme-10-saturation, $theme-10-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-10-hue, $theme-10-saturation, $theme-10-lightness, 0.3),
+    'secondary': hsl(202, 100%, 62%),
+    'secondary-transparent': hsla(202, 100%, 62%, 0.7),
+    'secondary-x-transparent': hsla(202, 100%, 62%, 0.3),
+    'background': $theme-10-background,
+    'header-image-1': $theme-10-header-image-1
+  ),
+  '11': (
+    'primary': hsl($theme-11-hue, $theme-11-saturation, $theme-11-lightness),
+    'primary-transparent': hsla($theme-11-hue, $theme-11-saturation, $theme-11-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-11-hue, $theme-11-saturation, $theme-11-lightness, 0.3),
+    'secondary': hsl(26, 96%, 67%),
+    'secondary-transparent': hsla(26, 96%, 67%, 0.7),
+    'secondary-x-transparent': hsla(26, 96%, 67%, 0.3),
+    'background': $theme-11-background,
+    'header-image-1': $theme-11-header-image-1,
+    'header-image-2': $theme-11-header-image-2
+  ),
+  '12': (
+    'primary': hsl($theme-main-hue, $theme-main-saturation, $theme-main-lightness),
+    'primary-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.7),
+    'primary-x-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.3),
+    'secondary': hsl(0, 78%, 72%),
+    'secondary-transparent': hsla(0, 78%, 72%, 0.7),
+    'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
+    'background': $theme-main-background,
+    'header-image-1': $theme-main-header-image-1,
+    'header-image-2': $theme-main-header-image-2
+  )
+) !default;
+
+// Инициализируем наши переменные как `null`, таким образом,
+// при использовании вне `themify`, они ничего не выведут.
+$color-primary: null;
+$color-primary-transparent: null;
+$color-primary-x-transparent: null;
+$color-secondary: null;
+$color-secondary-transparent: null;
+$color-secondary-x-transparent: null;
+$color-background: null;
+$header-image-1: null;
+$header-image-2: null;
+
+/// Миксин Themify
+/// @author Hugo Giraudel
+/// @param {Map} $themes [$themes] - ассоциативный массив с темами
+@mixin themify($themes: $themes) {
+  // Проход по темам
+  @each $theme, $colors in $themes {
+    // Создание селектора (типа `.theme-main .class`)
+    .theme-#{$theme} & {
+      // Задание переменных темы как глобальных с `!global`
+      $color-primary: map-get($colors, 'primary') !global;
+      $color-primary-transparent: map-get($colors, 'primary-transparent') !global;
+      $color-primary-x-transparent: map-get($colors, 'primary-x-transparent') !global;
+      $color-secondary: map-get($colors, 'secondary') !global;
+      $color-secondary-transparent: map-get($colors, 'secondary-transparent') !global;
+      $color-secondary-x-transparent: map-get($colors, 'secondary-x-transparent') !global;
+      $color-background: map-get($colors, 'background') !global;
+      $header-image-1: map-get($colors, 'header-image-1') !global;
+      $header-image-2: map-get($colors, 'header-image-2') !global;
+
+      // Вывод пользовательского контента
+      @content;
+
+      // Глобальное отключение переменных темы с `!global`
+      $color-primary: null !global;
+      $color-primary-transparent: null !global;
+      $color-primary-x-transparent: null !global;
+      $color-secondary: null !global;
+      $color-secondary-transparent: null !global;
+      $color-secondary-x-transparent: null !global;
+      $color-background: null !global;
+    }
+  }
+}

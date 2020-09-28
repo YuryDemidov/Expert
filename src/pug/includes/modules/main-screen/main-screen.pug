@@ -1,0 +1,13 @@
+section.main-screen
+  .main-screen__content
+    .main-screen__heading
+      h1.page__title.main-screen__title!= locals.data.pageData.mainScreenHeading
+      span.main-screen__subtitle!= locals.data.pageData.mainScreenSubheading
+    .main-screen__features
+      +svg-icon('#bg-wave-1').main-screen__wave.main-screen__wave_top.hidden_desktop-tablet(width=375 height=81)
+      ul.main-screen__features-list
+        each feature in locals.data.pageData.mainScreenFeatures
+          li.main-screen__feature-item
+            b.main-screen__feature-main-text= feature.bigText
+            span.main-screen__feature-text!= feature.smallText
+      +svg-icon('#bg-wave-2').main-screen__wave.main-screen__wave_bottom.hidden_desktop-tablet(width=375 height=55)
