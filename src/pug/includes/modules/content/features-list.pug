@@ -9,4 +9,4 @@ section.features-list
             h3.features-list__feature-title!= feature.title
             p.features-list__feature-description!= feature.text
       if locals.data.pageData.theme === 'main'
-        a.features-list__link.link.underline.link_arrow(href=locals.data.pageData.featuresBlock.link.url)!= locals.data.pageData.featuresBlock.link.text
+        a.features-list__link.link.link_arrow.link_primary.underline(href=locals.data.pageData.featuresBlock.link.url)!= locals.data.pageData.featuresBlock.link.text

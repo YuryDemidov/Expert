@@ -54,6 +54,11 @@ $theme-main-header-image-2: (
     '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
   )
 );
+$theme-main-features-icons: (
+  '../../../img/feature-icons/main-feature-icon_1.svg',
+  '../../../img/feature-icons/main-feature-icon_2.svg',
+  '../../../img/feature-icons/main-feature-icon_3.svg'
+);
 
 // Theme 1 - Sculptural-buccal massage
 $theme-1-hue: 229;
@@ -76,6 +81,11 @@ $theme-1-header-image-1: (
     '1x': '../../../img/main-screen/1-bg-1_xl@1x.png',
     '2x': '../../../img/main-screen/1-bg-1_xl@2x.png'
   )
+);
+$theme-1-features-icons: (
+  '../../../img/feature-icons/1-feature-icon_1.svg',
+  '../../../img/feature-icons/1-feature-icon_2.svg',
+  '../../../img/feature-icons/1-feature-icon_3.svg'
 );
 
 // Theme 2 - Classic facial massage
@@ -100,6 +110,11 @@ $theme-2-header-image-1: (
     '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
   )
 );
+$theme-2-features-icons: (
+  '../../../img/feature-icons/2-feature-icon_1.svg',
+  '../../../img/feature-icons/2-feature-icon_2.svg',
+  '../../../img/feature-icons/2-feature-icon_3.svg'
+);
 
 // Theme 3 - Facial lymphatic drainage
 $theme-3-hue: 258;
@@ -122,6 +137,11 @@ $theme-3-header-image-1: (
     '1x': '../../../img/main-screen/3-bg-1_xl@1x.png',
     '2x': '../../../img/main-screen/3-bg-1_xl@2x.png'
   )
+);
+$theme-3-features-icons: (
+  '../../../img/feature-icons/3-feature-icon_1.svg',
+  '../../../img/feature-icons/3-feature-icon_2.svg',
+  '../../../img/feature-icons/3-feature-icon_3.svg'
 );
 
 // Theme 4 - Japanese Asahi massage
@@ -146,6 +166,11 @@ $theme-4-header-image-1: (
     '2x': '../../../img/main-screen/4-bg-1_xl@2x.png'
   )
 );
+$theme-4-features-icons: (
+  '../../../img/feature-icons/4-feature-icon_1.svg',
+  '../../../img/feature-icons/4-feature-icon_2.svg',
+  '../../../img/feature-icons/4-feature-icon_3.svg'
+);
 
 // Theme 5 - Chiromassage
 $theme-5-hue: 286;
@@ -168,6 +193,11 @@ $theme-5-header-image-1: (
     '1x': '../../../img/main-screen/5-bg-1_xl@1x.png',
     '2x': '../../../img/main-screen/5-bg-1_xl@2x.png'
   )
+);
+$theme-5-features-icons: (
+  '../../../img/feature-icons/5-feature-icon_1.svg',
+  '../../../img/feature-icons/5-feature-icon_2.svg',
+  '../../../img/feature-icons/5-feature-icon_3.svg'
 );
 
 // Theme 6 - Sports massage
@@ -207,6 +237,11 @@ $theme-6-header-image-2: (
     '2x': '../../../img/main-screen/6-bg-2_xl@2x.png'
   )
 );
+$theme-6-features-icons: (
+  '../../../img/feature-icons/6-feature-icon_1.svg',
+  '../../../img/feature-icons/6-feature-icon_2.svg',
+  '../../../img/feature-icons/6-feature-icon_3.svg'
+);
 
 // Theme 7 - Figure modeling
 $theme-7-hue: 338;
@@ -229,6 +264,11 @@ $theme-7-header-image-1: (
     '1x': '../../../img/main-screen/7-bg-1@1x.png',
     '2x': '../../../img/main-screen/7-bg-1@2x.png'
   )
+);
+$theme-7-features-icons: (
+  '../../../img/feature-icons/7-feature-icon_1.svg',
+  '../../../img/feature-icons/7-feature-icon_2.svg',
+  '../../../img/feature-icons/7-feature-icon_3.svg'
 );
 
 // Theme 8 - Body lymphatic-drainage
@@ -268,6 +308,11 @@ $theme-8-header-image-2: (
     '2x': '../../../img/main-screen/8-bg-2_xl@2x.png'
   )
 );
+$theme-8-features-icons: (
+  '../../../img/feature-icons/8-feature-icon_1.svg',
+  '../../../img/feature-icons/8-feature-icon_2.svg',
+  '../../../img/feature-icons/8-feature-icon_3.svg'
+);
 
 // Theme 9 - Anti-cellulite massage
 $theme-9-hue: 195;
@@ -306,6 +351,11 @@ $theme-9-header-image-2: (
     '2x': '../../../img/main-screen/9-bg-2_xl@2x.png'
   )
 );
+$theme-9-features-icons: (
+  '../../../img/feature-icons/9-feature-icon_1.svg',
+  '../../../img/feature-icons/9-feature-icon_2.svg',
+  '../../../img/feature-icons/9-feature-icon_3.svg'
+);
 
 // Theme 10 - Neck massage
 $theme-10-hue: 202;
@@ -328,6 +378,11 @@ $theme-10-header-image-1: (
     '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
     '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
   )
+);
+$theme-10-features-icons: (
+  '../../../img/feature-icons/10-feature-icon_1.svg',
+  '../../../img/feature-icons/10-feature-icon_2.svg',
+  '../../../img/feature-icons/10-feature-icon_3.svg'
 );
 
 // Theme 11 - Fullbody massage
@@ -367,6 +422,11 @@ $theme-11-header-image-2: (
     '2x': '../../../img/main-screen/11-bg-2_xl@2x.png'
   )
 );
+$theme-11-features-icons: (
+  '../../../img/feature-icons/11-feature-icon_1.svg',
+  '../../../img/feature-icons/11-feature-icon_2.svg',
+  '../../../img/feature-icons/11-feature-icon_3.svg'
+);
 
 $themes: (
   'main': (
@@ -378,7 +438,8 @@ $themes: (
     'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
     'background': $theme-main-background,
     'header-image-1': $theme-main-header-image-1,
-    'header-image-2': $theme-main-header-image-2
+    'header-image-2': $theme-main-header-image-2,
+    'features-icons': $theme-main-features-icons
   ),
   '1': (
     'primary': hsl($theme-1-hue, $theme-1-saturation, $theme-1-lightness),
@@ -388,7 +449,8 @@ $themes: (
     'secondary-transparent': hsla(0, 78%, 72%, 0.7),
     'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
     'background': $theme-1-background,
-    'header-image-1': $theme-1-header-image-1
+    'header-image-1': $theme-1-header-image-1,
+    'features-icons': $theme-1-features-icons
   ),
   '2': (
     'primary': hsl($theme-2-hue, $theme-2-saturation, $theme-2-lightness),
@@ -398,7 +460,8 @@ $themes: (
     'secondary-transparent': hsla(338, 100%, 66%, 0.7),
     'secondary-x-transparent': hsla(338, 100%, 66%, 0.3),
     'background': $theme-2-background,
-    'header-image-1': $theme-2-header-image-1
+    'header-image-1': $theme-2-header-image-1,
+    'features-icons': $theme-2-features-icons
   ),
   '3': (
     'primary': hsl($theme-3-hue, $theme-3-saturation, $theme-3-lightness),
@@ -408,7 +471,8 @@ $themes: (
     'secondary-transparent': hsla(258, 100%, 62%, 0.7),
     'secondary-x-transparent': hsla(258, 100%, 62%, 0.3),
     'background': $theme-3-background,
-    'header-image-1': $theme-3-header-image-1
+    'header-image-1': $theme-3-header-image-1,
+    'features-icons': $theme-3-features-icons
   ),
   '4': (
     'primary': hsl($theme-4-hue, $theme-4-saturation, $theme-4-lightness),
@@ -418,7 +482,8 @@ $themes: (
     'secondary-transparent': hsla(173, 62%, 53%, 0.7),
     'secondary-x-transparent': hsla(173, 62%, 53%, 0.3),
     'background': $theme-4-background,
-    'header-image-1': $theme-4-header-image-1
+    'header-image-1': $theme-4-header-image-1,
+    'features-icons': $theme-4-features-icons
   ),
   '5': (
     'primary': hsl($theme-5-hue, $theme-5-saturation, $theme-5-lightness),
@@ -428,7 +493,8 @@ $themes: (
     'secondary-transparent': hsla(286, 39%, 48%, 0.7),
     'secondary-x-transparent': hsla(286, 39%, 48%, 0.3),
     'background': $theme-5-background,
-    'header-image-1': $theme-5-header-image-1
+    'header-image-1': $theme-5-header-image-1,
+    'features-icons': $theme-5-features-icons
   ),
   '6': (
     'primary': hsl($theme-6-hue, $theme-6-saturation, $theme-6-lightness),
@@ -439,7 +505,8 @@ $themes: (
     'secondary-x-transparent': hsla(356, 99%, 40%, 0.3),
     'background': $theme-6-background,
     'header-image-1': $theme-6-header-image-1,
-    'header-image-2': $theme-6-header-image-2
+    'header-image-2': $theme-6-header-image-2,
+    'features-icons': $theme-6-features-icons
   ),
   '7': (
     'primary': hsl($theme-7-hue, $theme-7-saturation, $theme-7-lightness),
@@ -449,7 +516,8 @@ $themes: (
     'secondary-transparent': hsla(265, 100%, 73%, 0.7),
     'secondary-x-transparent': hsla(265, 100%, 73%, 0.3),
     'background': $theme-7-background,
-    'header-image-1': $theme-7-header-image-1
+    'header-image-1': $theme-7-header-image-1,
+    'features-icons': $theme-7-features-icons
   ),
   '8': (
     'primary': hsl($theme-8-hue, $theme-8-saturation, $theme-8-lightness),
@@ -460,7 +528,8 @@ $themes: (
     'secondary-x-transparent': hsla(22, 90%, 73%, 0.3),
     'background': $theme-8-background,
     'header-image-1': $theme-8-header-image-1,
-    'header-image-2': $theme-8-header-image-2
+    'header-image-2': $theme-8-header-image-2,
+    'features-icons': $theme-8-features-icons
   ),
   '9': (
     'primary': hsl($theme-9-hue, $theme-9-saturation, $theme-9-lightness),
@@ -471,7 +540,8 @@ $themes: (
     'secondary-x-transparent': hsla(195, 100%, 50%, 0.3),
     'background': $theme-9-background,
     'header-image-1': $theme-9-header-image-1,
-    'header-image-2': $theme-9-header-image-2
+    'header-image-2': $theme-9-header-image-2,
+    'features-icons': $theme-9-features-icons
   ),
   '10': (
     'primary': hsl($theme-10-hue, $theme-10-saturation, $theme-10-lightness),
@@ -481,7 +551,8 @@ $themes: (
     'secondary-transparent': hsla(202, 100%, 62%, 0.7),
     'secondary-x-transparent': hsla(202, 100%, 62%, 0.3),
     'background': $theme-10-background,
-    'header-image-1': $theme-10-header-image-1
+    'header-image-1': $theme-10-header-image-1,
+    'features-icons': $theme-10-features-icons
   ),
   '11': (
     'primary': hsl($theme-11-hue, $theme-11-saturation, $theme-11-lightness),
@@ -492,7 +563,8 @@ $themes: (
     'secondary-x-transparent': hsla(26, 96%, 67%, 0.3),
     'background': $theme-11-background,
     'header-image-1': $theme-11-header-image-1,
-    'header-image-2': $theme-11-header-image-2
+    'header-image-2': $theme-11-header-image-2,
+    'features-icons': $theme-11-features-icons
   ),
   '12': (
     'primary': hsl($theme-main-hue, $theme-main-saturation, $theme-main-lightness),
@@ -503,7 +575,8 @@ $themes: (
     'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
     'background': $theme-main-background,
     'header-image-1': $theme-main-header-image-1,
-    'header-image-2': $theme-main-header-image-2
+    'header-image-2': $theme-main-header-image-2,
+    'features-icons': $theme-main-features-icons
   )
 ) !default;
 
@@ -518,25 +591,27 @@ $color-secondary-x-transparent: null;
 $color-background: null;
 $header-image-1: null;
 $header-image-2: null;
+$features-icons: null;
 
 /// Миксин Themify
 /// @author Hugo Giraudel
 /// @param {Map} $themes [$themes] - ассоциативный массив с темами
 @mixin themify($themes: $themes) {
   // Проход по темам
-  @each $theme, $colors in $themes {
+  @each $theme, $props in $themes {
     // Создание селектора (типа `.theme-main .class`)
     .theme-#{$theme} & {
       // Задание переменных темы как глобальных с `!global`
-      $color-primary: map-get($colors, 'primary') !global;
-      $color-primary-transparent: map-get($colors, 'primary-transparent') !global;
-      $color-primary-x-transparent: map-get($colors, 'primary-x-transparent') !global;
-      $color-secondary: map-get($colors, 'secondary') !global;
-      $color-secondary-transparent: map-get($colors, 'secondary-transparent') !global;
-      $color-secondary-x-transparent: map-get($colors, 'secondary-x-transparent') !global;
-      $color-background: map-get($colors, 'background') !global;
-      $header-image-1: map-get($colors, 'header-image-1') !global;
-      $header-image-2: map-get($colors, 'header-image-2') !global;
+      $color-primary: map-get($props, 'primary') !global;
+      $color-primary-transparent: map-get($props, 'primary-transparent') !global;
+      $color-primary-x-transparent: map-get($props, 'primary-x-transparent') !global;
+      $color-secondary: map-get($props, 'secondary') !global;
+      $color-secondary-transparent: map-get($props, 'secondary-transparent') !global;
+      $color-secondary-x-transparent: map-get($props, 'secondary-x-transparent') !global;
+      $color-background: map-get($props, 'background') !global;
+      $header-image-1: map-get($props, 'header-image-1') !global;
+      $header-image-2: map-get($props, 'header-image-2') !global;
+      $features-icons: map-get($props, 'features-icons') !global;
 
       // Вывод пользовательского контента
       @content;
@@ -549,6 +624,9 @@ $header-image-2: null;
       $color-secondary-transparent: null !global;
       $color-secondary-x-transparent: null !global;
       $color-background: null !global;
+      $header-image-1: null !global;
+      $header-image-2: null !global;
+      $features-icons: null !global;
     }
   }
 }

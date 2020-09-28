@@ -1,0 +1,142 @@
+@use '../../tools' as *;
+@use 'sass:list';
+
+.features-list {
+  margin-bottom: 8rem;
+
+  &__content {
+    padding: 0 1rem;
+
+    text-align: center;
+  }
+
+  .heading {
+    margin-bottom: 4rem;
+  }
+
+  &__list {
+    @include reset-list();
+
+    text-align: left;
+  }
+
+  &__item {
+    @include centered-block(50rem);
+
+    margin-bottom: 6rem;
+
+    @include themify() {
+      @for $i from 1 through list.length($features-icons) {
+        &:nth-of-type(#{$i}) {
+          .features-list__image {
+            background-image: #{url(list.nth($features-icons, $i))};
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    @include box(50vw);
+
+    max-width: 20rem;
+    max-height: 20rem;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__feature-title {
+    font-family: $title-font-family;
+    font-size: 1.7rem;
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+}
+
+.theme-2,
+.theme-3 {
+  .features-list {
+    &__list {
+      padding: 0 10rem;
+    }
+
+    &__item {
+      max-width: 22%;
+
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .features-list {
+    margin-bottom: 12rem;
+
+    .heading {
+      margin-bottom: 5rem;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__item {
+      max-width: 45%;
+      margin-right: 2.5%;
+      margin-left: 2.5%;
+    }
+
+    &__image {
+      @include box(18vw);
+
+      max-width: 16rem;
+      max-height: 16rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .features-list {
+    margin-bottom: 15rem;
+
+    &__content {
+      padding: 0;
+    }
+
+    .heading {
+      margin-bottom: 6rem;
+    }
+
+    &__list {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    &__item {
+      max-width: 32%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .features-list {
+    &__list {
+      padding: 0 3rem;
+    }
+
+    &__item {
+      max-width: 30%;
+    }
+  }
+}

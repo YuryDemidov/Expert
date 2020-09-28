@@ -13,26 +13,53 @@
     border-bottom-color: $x-dark-dim-color;
   }
 
-  &_primary.underline {
+  &_arrow {
+    position: relative;
+
+    &::before {
+      @include stroke-arrow($size: 0.9rem, $color: currentColor, $direction: 'right');
+
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 0.6rem);
+
+      transform: rotate(-45deg) translateY(-50%);
+    }
+  }
+
+  &_primary {
     @include themify() {
       color: $color-primary;
 
-      border-bottom-color: $color-primary-x-transparent;
-
       @include in-focus() {
-        border-bottom-color: $color-primary;
+        color: $color-primary;
+      }
+
+      &.underline {
+        border-bottom-color: $color-primary-x-transparent;
+
+        @include in-focus() {
+          border-bottom-color: $color-primary;
+        }
       }
     }
   }
 
-  &_secondary.underline {
+  &_secondary {
     @include themify() {
       color: $color-secondary;
 
-      border-bottom-color: $color-secondary-x-transparent;
-
       @include in-focus() {
-        border-bottom-color: $color-secondary;
+        color: $color-secondary;
+      }
+
+      &.underline {
+        border-bottom-color: $color-secondary-x-transparent;
+
+        @include in-focus() {
+          border-bottom-color: $color-secondary;
+        }
       }
     }
   }
