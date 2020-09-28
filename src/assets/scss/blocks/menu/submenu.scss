@@ -72,7 +72,7 @@
     &__list-item {
       margin-bottom: 1.4rem;
 
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
 
     &__list-heading {
@@ -81,6 +81,26 @@
 
     &__promo-link {
       max-width: 30%;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .submenu {
+    &::before {
+      height: 4rem;
+    }
+
+    &__list-item {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .submenu {
+    &::before {
+      height: 2.5rem;
     }
   }
 }

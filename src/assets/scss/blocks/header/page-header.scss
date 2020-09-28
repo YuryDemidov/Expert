@@ -11,8 +11,8 @@
         #{url(map-deep-get($header-image-1, 'small', '1x'))},
         #{url(map-deep-get($header-image-2, 'small', '1x'))};
       background-position:
-        left top 4.5rem,
-        right top 4.5rem;
+        left top 5rem,
+        right top 5rem;
 
       @include retina() {
         background-image:
@@ -28,7 +28,7 @@
     }
     @else {
       background-image: #{url(map-deep-get($header-image-1, 'small', '1x'))};
-      background-position: right top 4.5rem;
+      background-position: right top 5rem;
 
       @include retina() {
         background-image: #{url(map-deep-get($header-image-1, 'small', '2x'))};
@@ -75,9 +75,18 @@
   &__logo-link {
     @include horizontally-centered();
 
+    @include themify() {
+      @if ($header-image-2 == null) {
+        top: calc(10rem + 6vh - 5vw);
+        left: 30%;
+
+        width: 30vw;
+      }
+    }
+
     top: calc(12rem + 6vh - 5vw);
 
-    max-width: 150px;
+    max-width: 15rem;
     width: 33vw;
   }
 
@@ -91,13 +100,79 @@
 
     font-size: 1.5rem;
   }
+}
 
-  &[data-state='menu'] {
-    .page-header {
-      &__menu {
-        display: block;
-      }
-    }
+.theme-1 {
+  .page-header {
+    background-size: auto calc(20rem + 12vh);
+  }
+}
+
+.theme-2 {
+  .page-header {
+    background-position: right -5rem top 5rem;
+    background-size: auto calc(20rem + 14vh);
+  }
+}
+
+.theme-4 {
+  .page-header {
+    background-size: auto calc(20rem + 12vh);
+  }
+}
+
+.theme-5 {
+  .page-header {
+    background-size: auto calc(20rem + 12vh);
+  }
+}
+
+.theme-6 {
+  .page-header {
+    background-position:
+      left top 10rem,
+      right -2rem top 9rem;
+    background-size: auto calc(18rem + 10vh);
+  }
+}
+
+.theme-8 {
+  .page-header {
+    background-position:
+      left -1rem top -2rem,
+      right top 5rem;
+  }
+}
+
+.theme-9 {
+  .page-header {
+    background-position:
+      left top 5rem,
+      right -6rem top 5rem;
+  }
+}
+
+.theme-10 {
+  .page-header {
+    background-position: right -4rem top 7rem;
+    background-size: auto calc(18rem + 12vh);
+  }
+}
+
+.theme-11 {
+  .page-header {
+    background-position:
+      left top 5rem,
+      right -3rem top 5rem;
+    background-size:
+      auto calc(18rem + 14vh),
+      contain;
+  }
+}
+
+.page-header[data-state='menu'] {
+  .page-header__menu {
+    display: block;
   }
 }
 
@@ -109,6 +184,50 @@
 
     &__logo-link {
       top: calc(10rem + 10vh);
+
+      @include themify() {
+        @if ($header-image-2 == null) {
+          top: calc(15rem + 6vh - 5vw);
+          left: 35%;
+        }
+      }
+    }
+  }
+
+  .theme-1 {
+    .page-header {
+      background-size: auto calc(25rem + 16vh);
+    }
+  }
+
+  .theme-2 {
+    .page-header {
+      background-position: right top 5rem;
+      background-size: calc(28rem + 14vh);
+    }
+  }
+
+  .theme-4 {
+    .page-header {
+      background-size: auto calc(25rem + 15vh);
+    }
+  }
+
+  .theme-5 {
+    .page-header {
+      background-size: auto calc(25rem + 15vh);
+    }
+  }
+
+  .theme-6 {
+    .page-header {
+      background-size: auto calc(22rem + 15vh);
+    }
+  }
+
+  .theme-10 {
+    .page-header {
+      background-size: auto calc(24rem + 15vh);
     }
   }
 }
@@ -126,7 +245,15 @@
     }
 
     &__logo-link {
-      top: 10rem;
+      top: 12rem;
+
+      @include themify() {
+        @if ($header-image-2 == null) {
+          top: 12rem;
+
+          max-width: 20rem;
+        }
+      }
     }
 
     &__appointment-button {
@@ -136,6 +263,12 @@
 
   .page .page-header {
     background: none;
+  }
+
+  .theme-main .page-header {
+    &__logo-link {
+      top: 10rem;
+    }
   }
 }
 
@@ -147,21 +280,8 @@
 
     display: flex;
     align-items: center;
-    padding: 1vw;
-    padding-top: 2.5rem;
-
-    @include themify() {
-      @if ($header-image-2 != null) {
-        background-position:
-          left top,
-          right top;
-      }
-      @else {
-        padding-right: 10rem;
-
-        background-position: right top;
-      }
-    }
+    margin: 0 auto;
+    padding: 1.6rem 1vw;
 
     &__panel {
       position: static;
@@ -169,23 +289,8 @@
       margin-left: 0.5vw;
       padding: 0;
 
-      @include themify() {
-        @if ($header-image-2 == null) {
-          padding-right: 3vw;
-          padding-left: 0;
-        }
-      }
-
       background: none;
       box-shadow: none;
-    }
-
-    &__logo-link {
-      position: relative;
-      top: initial;
-      left: initial;
-
-      transform: none;
     }
 
     &__appointment-button {
@@ -194,14 +299,41 @@
       font-size: 1.6rem;
     }
   }
+
+  .page .page-header {
+    &__logo-link {
+      position: relative;
+      top: auto;
+      left: auto;
+
+      max-width: 15rem;
+
+      transform: none;
+    }
+  }
+
+  .theme-main .page-header {
+    &__logo-link {
+      top: auto;
+    }
+  }
 }
 
 @media (min-width: $desktop-min-width) {
   .page-header {
     align-items: flex-start;
     max-width: calc(95rem + 5vw);
+    padding-top: 2.5rem;
     padding-right: 0;
+    padding-bottom: 1vw;
     padding-left: 2vw;
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        margin-right: 16vw;
+        margin-left: auto;
+      }
+    }
 
     &__panel {
       align-items: flex-start;
@@ -213,6 +345,13 @@
 @media (min-width: $l-desktop-min-width) {
   .page-header {
     @include centered-block(calc(100rem + 5vw));
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        @include centered-block(calc(100rem + 5vw + 5%));
+        padding-right: 5%;
+      }
+    }
 
     &__panel {
       padding-right: 1rem;

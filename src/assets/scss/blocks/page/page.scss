@@ -15,9 +15,24 @@
 @media (min-width: $s-desktop-min-width) {
   .page {
     &__header {
-      position: absolute;
+      position: fixed;
+      z-index: 100;
 
       width: 100%;
+
+      background-color: $alt-default-color;
+      box-shadow: 0 4px 10px $x-light-dim-color;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .page {
+    &__header {
+      position: absolute;
+
+      background-color: $transparent-color;
+      box-shadow: none;
     }
   }
 }

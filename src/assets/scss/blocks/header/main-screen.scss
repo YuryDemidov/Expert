@@ -10,25 +10,23 @@
   }
 
   &__heading {
-    padding: 3.5rem 2rem;
+    padding: 4rem 2rem;
   }
 
   &__title,
   &__subtitle {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: baseline;
   }
 
   &__title {
     margin-bottom: 2rem;
 
-    font-weight: 400;
+    font-weight: 700;
     font-size: 2.4rem;
   }
 
   &__subtitle {
-    padding: 0 6rem;
-
     font-size: 1.8rem;
   }
 
@@ -87,14 +85,16 @@
   }
 }
 
-.theme-main .main-screen {
-  &__title,
-  &__subtitle {
-    display: block;
-  }
+.theme-main {
+  .main-screen {
+    &__title,
+    &__subtitle {
+      display: block;
+    }
 
-  &__title {
-    font-weight: 700;
+    &__subtitle {
+      padding: 0 6rem;
+    }
   }
 }
 
@@ -104,7 +104,7 @@
     padding-top: 22rem;
 
     background-repeat: no-repeat;
-    background-size: auto 60rem;
+    background-size: auto 78%;
 
     @include themify() {
       background-color: $color-background;
@@ -114,8 +114,8 @@
           #{url(map-deep-get($header-image-1, 'normal', '1x'))},
           #{url(map-deep-get($header-image-2, 'normal', '1x'))};
         background-position:
-          left top 4.5rem,
-          right top 4.5rem;
+          left top 5rem,
+          right top 5rem;
 
         @include retina() {
           background-image:
@@ -124,8 +124,10 @@
         }
       }
       @else {
+        padding-top: 24rem;
+
         background-image: #{url(map-deep-get($header-image-1, 'normal', '1x'))};
-        background-position: right top 4.5rem;
+        background-position: right top 5rem;
 
         @include retina() {
           background-image: #{url(map-deep-get($header-image-1, 'normal', '2x'))};
@@ -135,6 +137,15 @@
 
     &__heading {
       @include centered-block(60%);
+
+      @include themify() {
+        @if ($header-image-2 == null) {
+          max-width: initial;
+          margin: 0;
+          padding-right: 40%;
+          padding-left: 10%;
+        }
+      }
     }
 
     &__title,
@@ -142,8 +153,16 @@
       font-size: 2.2rem;
     }
 
-    &__subtitle {
-      padding: 0 5rem;
+    &__title {
+      margin-bottom: 0;
+
+      font-weight: 400;
+
+      &::after {
+        content: '. ';
+
+        white-space: pre;
+      }
     }
 
     &__content,
@@ -173,13 +192,117 @@
       background: none;
     }
   }
+
+  .theme-main {
+    .main-screen {
+      &__title {
+        margin-bottom: 2rem;
+
+        font-weight: 700;
+
+        &::after {
+          content: none;
+        }
+      }
+
+      &__subtitle {
+        padding: 0 5rem;
+      }
+    }
+  }
+
+  .theme-1 {
+    .main-screen {
+      background-image: #{url(map-deep-get($theme-1-header-image-1, 'small', '2x'))};
+      background-size: auto 73%;
+
+      @include retina() {
+        background-image: #{url(map-deep-get($theme-1-header-image-1, 'small', '3x'))};
+      }
+
+      &__title,
+      &__subtitle {
+        display: inline;
+      }
+    }
+  }
+
+  .theme-6 {
+    .main-screen {
+      background-position:
+        left bottom 11rem,
+        right -2rem bottom 12rem;
+      background-size: auto 60%;
+    }
+  }
+
+  .theme-2 {
+    .main-screen {
+      background-size: auto 70%;
+    }
+  }
+
+  .theme-4 {
+    .main-screen {
+      background-position: right -6rem top 5rem;
+      background-size: auto 72%;
+    }
+  }
+
+  .theme-5 {
+    .main-screen {
+      &__title,
+      &__subtitle {
+        display: inline;
+      }
+    }
+  }
+
+  .theme-7 {
+    .main-screen {
+      &__feature-item {
+        margin: 0 2.4vw;
+      }
+    }
+  }
+
+  .theme-8 {
+    .main-screen {
+      background-position:
+        left top -2rem,
+        right top 5rem;
+    }
+  }
+
+  .theme-9 {
+    .main-screen {
+      background-position:
+        left top 5rem,
+        left 79vw top 5rem;
+    }
+  }
+
+  .theme-10 {
+    .main-screen {
+      background-position: left 65vw top 10rem;
+      background-size: auto 65%;
+    }
+  }
+
+  .theme-11 {
+    .main-screen {
+      background-position:
+        left -2rem top,
+        right -5rem top 5rem;
+    }
+  }
 }
 
 @media (min-width: $s-desktop-min-width) {
   .main-screen {
     margin-bottom: 6rem;
     padding-top: 9vw;
-    padding-bottom: 6vw;
+    padding-bottom: 8vw;
 
     &__content {
       @include centered-block(100rem);
@@ -189,11 +312,22 @@
       max-width: 75%;
 
       line-height: 1.2;
+
+      @include themify() {
+        @if ($header-image-2 == null) {
+          padding-right: 35%;
+          padding-left: 5%;
+        }
+      }
     }
 
     &__title,
     &__subtitle {
       font-size: 3.2rem;
+    }
+
+    &__subtitle {
+      display: inline;
     }
 
     &__features {
@@ -206,6 +340,33 @@
     &__features-list {
       margin: 0;
     }
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        padding-top: 10rem;
+
+        &__subtitle,
+        &__title {
+          font-size: 2.8rem;
+        }
+
+        &__features {
+          margin-top: 0;
+        }
+
+        &__features-list {
+          flex-direction: column;
+          max-width: initial;
+          margin-top: 0;
+          padding-right: 35%;
+          padding-left: 5%;
+        }
+
+        &__feature-item {
+          margin-bottom: 2.5rem;
+        }
+      }
+    }
   }
 
   .page .main-screen {
@@ -213,17 +374,123 @@
     background-size: contain;
   }
 
-  .index-page .main-screen {
-    background-position:
-      left -20px top,
-      right top;
+  .theme-main {
+    .main-screen {
+      background-position:
+        left -20px top,
+        right top;
+    }
+  }
+
+  .theme-1 {
+    .main-screen {
+      background-image: #{url(map-deep-get($theme-1-header-image-1, 'normal', '1x'))};
+
+      @include retina() {
+        background-image: #{url(map-deep-get($theme-1-header-image-1, 'normal', '2x'))};
+      }
+
+      &__title,
+      &__subtitle {
+        display: inline-block;
+      }
+    }
+  }
+
+  .theme-2 {
+    .main-screen {
+      background-position: right -10rem bottom;
+
+      &__subtitle {
+        display: inline-block;
+      }
+    }
+  }
+
+  .theme-3 {
+    .main-screen {
+      background-position: right bottom;
+      background-size: auto 90%;
+
+      &__heading {
+        padding-right: 40%;
+        padding-left: 10%;
+      }
+    }
+  }
+
+  .theme-5 {
+    .main-screen {
+      &__heading {
+        padding-right: 40%;
+        padding-left: 10%;
+      }
+    }
+  }
+
+  .theme-6 {
+    .main-screen {
+      background-position:
+        left -2rem bottom,
+        right -2rem bottom;
+      background-size: auto 40vw;
+
+      &__heading {
+        padding: 4rem;
+      }
+    }
+  }
+
+  .theme-8 {
+    .main-screen {
+      background-position:
+        left -2rem top -2rem,
+        right top;
+
+      &__heading {
+        padding: 4rem 6rem;
+      }
+    }
+  }
+
+  .theme-9 {
+    .main-screen {
+      background-position:
+        left top,
+        left 82vw top;
+
+      &__heading {
+        padding: 4rem 8rem;
+      }
+    }
+  }
+
+  .theme-10 {
+    .main-screen {
+      background-position-y: bottom;
+      background-size: auto 85%;
+
+      &__subtitle {
+        display: inline-block;
+      }
+    }
+  }
+
+  .theme-11 {
+    .main-screen {
+      background-position:
+        left -2rem top,
+        right -5rem top;
+
+      &__heading {
+        padding: 4rem 6rem;
+      }
+    }
   }
 }
 
 @media (min-width: $desktop-min-width) {
   .main-screen {
-    padding-bottom: 8vw;
-
     &__heading {
       max-width: initial;
 
@@ -233,10 +500,6 @@
     &__title,
     &__subtitle {
       font-size: calc(1rem + 1.6vw);
-    }
-
-    &__title {
-      margin-bottom: 0;
     }
 
     &__features {
@@ -250,6 +513,151 @@
 
     &__feature-main-text {
       font-size: 3.6vw;
+    }
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        background-position: right -4rem top;
+
+        &__content {
+          max-width: 102rem;
+          margin-right: 11vw;
+        }
+
+        &__heading {
+          padding-right: 15%;
+          padding-left: 0;
+        }
+
+        &__subtitle,
+        &__title {
+          font-size: 3.6rem;
+        }
+
+        &__features-list {
+          flex-direction: row;
+          margin-top: 3rem;
+          padding-right: 15%;
+          padding-left: 0;
+        }
+
+        &__feature-item {
+          margin: 0 1.8vw;
+        }
+      }
+    }
+  }
+
+  .theme-main {
+    .main-screen {
+      &__title {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .theme-1 {
+    .main-screen {
+      background-position: right top;
+
+      &__heading,
+      &__features-list {
+        padding-right: 5%;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .theme-2 {
+    .main-screen {
+      background-position: right -10rem top;
+
+      &__heading {
+        padding-right: 20%;
+        padding-left: 5%;
+      }
+    }
+  }
+
+  .theme-3 {
+    .main-screen {
+      background-size: contain;
+
+      &__heading {
+        padding-right: 20%;
+        padding-left: 5%;
+      }
+
+      &__subtitle {
+        display: inline-block;
+      }
+    }
+  }
+
+  .theme-4 {
+    .main-screen {
+      &__title,
+      &__subtitle {
+        display: inline-block;
+      }
+    }
+  }
+
+  .theme-5 {
+    .main-screen {
+      background-position: right top;
+    }
+  }
+
+  .theme-6 {
+    .main-screen {
+      &__heading {
+        padding: 4rem 11rem;
+      }
+    }
+  }
+
+  .theme-8 {
+    .main-screen {
+      &__heading {
+        padding: 4rem 12rem;
+      }
+    }
+  }
+
+  .theme-9 {
+    .main-screen {
+      background-position:
+        left top,
+        left 83vw top;
+
+      &__heading {
+        padding: 4rem 10rem;
+      }
+    }
+  }
+
+  .theme-10 {
+    .main-screen {
+      background-position: right -6rem bottom;
+      background-size: auto 98%;
+
+      &__heading,
+      &__features-list {
+        padding-right: 20%;
+      }
+    }
+  }
+
+  .theme-11 {
+    .main-screen {
+      background-position:
+        left top,
+        right top;
+
+      &__heading {
+        padding: 4rem 14rem;
+      }
     }
   }
 }
@@ -275,6 +683,76 @@
     &__feature-main-text {
       font-size: 5.4rem;
     }
+
+    @include themify() {
+      @if ($header-image-2 == null) {
+        &__content {
+          margin: 0 auto;
+        }
+
+        &__feature-item {
+          margin-right: 2.5rem;
+          margin-left: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .theme-main {
+    .main-screen {
+      &__subtitle {
+        padding: 0;
+      }
+    }
+  }
+
+  .theme-4 {
+    .main-screen {
+      background-position: right -8rem top;
+    }
+  }
+
+  .theme-6 {
+    .main-screen {
+      background-position:
+        left bottom,
+        right bottom;
+      background-size: auto 60rem;
+    }
+  }
+
+  .theme-8 {
+    .main-screen {
+      &__heading {
+        padding: 4rem 8rem;
+      }
+    }
+  }
+
+  .theme-9 {
+    .main-screen {
+      background-position:
+        left top,
+        right -4rem top;
+    }
+  }
+
+  .theme-10 {
+    .main-screen {
+      &__heading,
+      &__features-list {
+        padding-right: 16%;
+        padding-left: 6%;
+      }
+    }
+  }
+
+  .theme-11 {
+    .main-screen {
+      &__heading {
+        padding: 4rem 8rem;
+      }
+    }
   }
 }
 
@@ -285,6 +763,9 @@
         background-image:
           #{url(map-deep-get($header-image-1, 'xl', '1x'))},
           #{url(map-deep-get($header-image-2, 'xl', '1x'))};
+        background-position:
+          right calc(55vw + 50rem) top,
+          left calc(55vw + 50rem) top;
 
         @include retina() {
           background-image:
@@ -294,11 +775,48 @@
       }
       @else {
         background-image: #{url(map-deep-get($header-image-1, 'xl', '1x'))};
+        background-position: left calc(50vw + 45rem) top;
 
         @include retina() {
           background-image: #{url(map-deep-get($header-image-1, 'xl', '2x'))};
         }
       }
+    }
+  }
+
+  .theme-2 {
+    .main-screen {
+      background-position: left calc(50vw + 30rem) top;
+    }
+  }
+
+  .theme-6 {
+    .main-screen {
+      background-position:
+        right calc(50vw + 50rem) bottom,
+        left calc(50vw + 50rem) bottom;
+    }
+  }
+
+  .theme-8 {
+    .main-screen {
+      background-position:
+        right calc(55vw + 50rem) top -2rem,
+        left calc(55vw + 50rem) top;
+    }
+  }
+
+  .theme-10 {
+    .main-screen {
+      background-position: left calc(50vw + 45rem) top 3rem;
+    }
+  }
+
+  .theme-11 {
+    .main-screen {
+      background-position:
+        right calc(50vw + 50rem) top -3rem,
+        left calc(55vw + 50rem) top;
     }
   }
 }
