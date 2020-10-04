@@ -1,591 +1,616 @@
-// Themes
-$xxx-low-lightness: 28%;
-$xx-low-lightness: 37%;
-$x-low-lightness: 46%;
-$low-lightness: 55%;
-$medium-lightness: 64%;
-$high-lightness: 73%;
-$x-high-lightness: 82%;
-$xx-high-lightness: 91%;
-$xxx-high-lightness: 100%;
-
-$xx-low-saturation: 40%;
-$x-low-saturation: 50%;
-$low-saturation: 60%;
-$medium-saturation: 70%;
-$high-saturation: 80%;
-$x-high-saturation: 90%;
-$xx-high-saturation: 100%;
-
 // Theme main
-$theme-main-hue: 202;
-$theme-main-saturation: 100%;
-$theme-main-lightness: 62%;
-$theme-main: hsl(202, 100%, 62%);
-$theme-main-alt: hsl(0, 78%, 72%);
-$theme-main-background: hsl(200, 100%, 97%);
-$theme-main-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
-    '2x': '../../../img/main-screen/main-bg-1_small@2x.jpg',
-    '3x': '../../../img/main-screen/main-bg-1_small@3x.jpg'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/main-bg-1_normal@1x.jpg',
-    '2x': '../../../img/main-screen/main-bg-1_normal@2x.jpg'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/main-bg-1_xl@1x.jpg',
-    '2x': '../../../img/main-screen/main-bg-1_xl@2x.jpg'
-  )
-);
-$theme-main-header-image-2: (
-  'small': (
-    '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
-    '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg',
-    '3x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
-    '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/main-bg-2_xl@1x.jpg',
-    '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
-  )
-);
-$theme-main-features-icons: (
-  '../../../img/feature-icons/main-feature-icon_1.svg',
-  '../../../img/feature-icons/main-feature-icon_2.svg',
-  '../../../img/feature-icons/main-feature-icon_3.svg'
-);
+$theme-main-h: 202;
+$theme-main-s: 100%;
+$theme-main-l: 62%;
+$theme-main-alt-h: 0;
+$theme-main-alt-s: 78%;
+$theme-main-alt-l: 72%;
 
 // Theme 1 - Sculptural-buccal massage
-$theme-1-hue: 229;
-$theme-1-saturation: 100%;
-$theme-1-lightness: 27%;
-$theme-1: hsl(229, 100%, 27%);
-$theme-1-alt: hsl(0, 78%, 72%);
-$theme-1-background: hsl(0, 100%, 95%);
-$theme-1-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/1-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/1-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/1-bg-1_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/1-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/1-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/1-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/1-bg-1_xl@2x.png'
-  )
-);
-$theme-1-features-icons: (
-  '../../../img/feature-icons/1-feature-icon_1.svg',
-  '../../../img/feature-icons/1-feature-icon_2.svg',
-  '../../../img/feature-icons/1-feature-icon_3.svg'
-);
+$theme-1-h: 229;
+$theme-1-s: 100%;
+$theme-1-l: 27%;
+$theme-1-alt-h: 0;
+$theme-1-alt-s: 78%;
+$theme-1-alt-l: 72%;
 
 // Theme 2 - Classic facial massage
-$theme-2-hue: 338;
-$theme-2-saturation: 100%;
-$theme-2-lightness: 66%;
-$theme-2: hsl(338, 100%, 66%);
-$theme-2-alt: hsl(338, 100%, 66%);
-$theme-2-background: hsl(7, 100%, 96%);
-$theme-2-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/2-bg-1@1x.jpg',
-    '3x': '../../../img/main-screen/2-bg-1@2x.jpg'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
-  )
-);
-$theme-2-features-icons: (
-  '../../../img/feature-icons/2-feature-icon_1.svg',
-  '../../../img/feature-icons/2-feature-icon_2.svg',
-  '../../../img/feature-icons/2-feature-icon_3.svg'
-);
+$theme-2-h: 338;
+$theme-2-s: 100%;
+$theme-2-l: 66%;
+$theme-2-alt-h: 338;
+$theme-2-alt-s: 100%;
+$theme-2-alt-l: 66%;
 
 // Theme 3 - Facial lymphatic drainage
-$theme-3-hue: 258;
-$theme-3-saturation: 100%;
-$theme-3-lightness: 62%;
-$theme-3: hsl(258, 100%, 62%);
-$theme-3-alt: hsl(258, 100%, 62%);
-$theme-3-background: hsl(25, 95%, 92%);
-$theme-3-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/3-bg-1_normal@2x.png',
-    '3x': '../../../img/main-screen/3-bg-1_normal@2x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/3-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/3-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/3-bg-1_xl@2x.png'
-  )
-);
-$theme-3-features-icons: (
-  '../../../img/feature-icons/3-feature-icon_1.svg',
-  '../../../img/feature-icons/3-feature-icon_2.svg',
-  '../../../img/feature-icons/3-feature-icon_3.svg'
-);
+$theme-3-h: 258;
+$theme-3-s: 100%;
+$theme-3-l: 62%;
+$theme-3-alt-h: 258;
+$theme-3-alt-s: 100%;
+$theme-3-alt-l: 62%;
 
 // Theme 4 - Japanese Asahi massage
-$theme-4-hue: 356;
-$theme-4-saturation: 93%;
-$theme-4-lightness: 82%;
-$theme-4: hsl(356, 93%, 82%);
-$theme-4-alt: hsl(173, 62%, 53%);
-$theme-4-background: hsl(173, 100%, 92%);
-$theme-4-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/4-bg-1_normal@2x.png',
-    '3x': '../../../img/main-screen/4-bg-1_normal@2x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/4-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/4-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/4-bg-1_xl@2x.png'
-  )
-);
-$theme-4-features-icons: (
-  '../../../img/feature-icons/4-feature-icon_1.svg',
-  '../../../img/feature-icons/4-feature-icon_2.svg',
-  '../../../img/feature-icons/4-feature-icon_3.svg'
-);
+$theme-4-h: 356;
+$theme-4-s: 93%;
+$theme-4-l: 82%;
+$theme-4-alt-h: 173;
+$theme-4-alt-s: 62%;
+$theme-4-alt-l: 53%;
 
 // Theme 5 - Chiromassage
-$theme-5-hue: 286;
-$theme-5-saturation: 39%;
-$theme-5-lightness: 48%;
-$theme-5: hsl(286, 39%, 48%);
-$theme-5-alt: hsl(286, 39%, 48%);
-$theme-5-background: hsl(250, 100%, 91%);
-$theme-5-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/5-bg-1_normal@2x.png',
-    '3x': '../../../img/main-screen/5-bg-1_normal@2x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/5-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/5-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/5-bg-1_xl@2x.png'
-  )
-);
-$theme-5-features-icons: (
-  '../../../img/feature-icons/5-feature-icon_1.svg',
-  '../../../img/feature-icons/5-feature-icon_2.svg',
-  '../../../img/feature-icons/5-feature-icon_3.svg'
-);
+$theme-5-h: 286;
+$theme-5-s: 39%;
+$theme-5-l: 48%;
+$theme-5-alt-h: 286;
+$theme-5-alt-s: 39%;
+$theme-5-alt-l: 48%;
 
 // Theme 6 - Sports massage
-$theme-6-hue: 356;
-$theme-6-saturation: 99%;
-$theme-6-lightness: 40%;
-$theme-6: hsl(356, 99%, 40%);
-$theme-6-alt: hsl(356, 99%, 40%);
-$theme-6-background: hsl(201, 100%, 75%);
-$theme-6-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/6-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/6-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/6-bg-1_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/6-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/6-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/6-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/6-bg-1_xl@2x.png'
-  )
-);
-$theme-6-header-image-2: (
-  'small': (
-    '1x': '../../../img/main-screen/6-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/6-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/6-bg-2_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/6-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/6-bg-2_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/6-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/6-bg-2_xl@2x.png'
-  )
-);
-$theme-6-features-icons: (
-  '../../../img/feature-icons/6-feature-icon_1.svg',
-  '../../../img/feature-icons/6-feature-icon_2.svg',
-  '../../../img/feature-icons/6-feature-icon_3.svg'
-);
+$theme-6-h: 356;
+$theme-6-s: 99%;
+$theme-6-l: 40%;
+$theme-6-alt-h: 356;
+$theme-6-alt-s: 99%;
+$theme-6-alt-l: 40%;
 
 // Theme 7 - Figure modeling
-$theme-7-hue: 338;
-$theme-7-saturation: 100%;
-$theme-7-lightness: 58%;
-$theme-7: hsl(338, 100%, 58%);
-$theme-7-alt: hsl(265, 100%, 73%);
-$theme-7-background: hsl(295, 63%, 84%);
-$theme-7-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/7-bg-1@1x.png',
-    '2x': '../../../img/main-screen/7-bg-1@1x.png',
-    '3x': '../../../img/main-screen/7-bg-1@2x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/7-bg-1@1x.png',
-    '2x': '../../../img/main-screen/7-bg-1@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/7-bg-1@1x.png',
-    '2x': '../../../img/main-screen/7-bg-1@2x.png'
-  )
-);
-$theme-7-features-icons: (
-  '../../../img/feature-icons/7-feature-icon_1.svg',
-  '../../../img/feature-icons/7-feature-icon_2.svg',
-  '../../../img/feature-icons/7-feature-icon_3.svg'
-);
+$theme-7-h: 338;
+$theme-7-s: 100%;
+$theme-7-l: 58%;
+$theme-7-alt-h: 265;
+$theme-7-alt-s: 100%;
+$theme-7-alt-l: 73%;
 
 // Theme 8 - Body lymphatic-drainage
-$theme-8-hue: 258;
-$theme-8-saturation: 100%;
-$theme-8-lightness: 61%;
-$theme-8: hsl(258, 100%, 61%);
-$theme-8-alt: hsl(22, 90%, 73%);
-$theme-8-background: hsl(25, 95%, 92%);
-$theme-8-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/8-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/8-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/8-bg-1_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/8-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/8-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/8-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/8-bg-1_xl@2x.png'
-  )
-);
-$theme-8-header-image-2: (
-  'small': (
-    '1x': '../../../img/main-screen/8-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/8-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/8-bg-2_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/8-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/8-bg-2_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/8-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/8-bg-2_xl@2x.png'
-  )
-);
-$theme-8-features-icons: (
-  '../../../img/feature-icons/8-feature-icon_1.svg',
-  '../../../img/feature-icons/8-feature-icon_2.svg',
-  '../../../img/feature-icons/8-feature-icon_3.svg'
-);
+$theme-8-h: 258;
+$theme-8-s: 100%;
+$theme-8-l: 61%;
+$theme-8-alt-h: 22;
+$theme-8-alt-s: 98%;
+$theme-8-alt-l: 73%;
 
 // Theme 9 - Anti-cellulite massage
-$theme-9-hue: 195;
-$theme-9-saturation: 100%;
-$theme-9-lightness: 50%;
-$theme-9: hsl(195, 100%, 50%);
-$theme-9-alt: hsl(195, 100%, 50%);
-$theme-9-background: hsl(325, 68%, 85%);
-$theme-9-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/9-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/9-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/9-bg-1_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/9-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/9-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/9-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/9-bg-1_xl@2x.png'
-  )
-);
-$theme-9-header-image-2: (
-  'small': (
-    '1x': '../../../img/main-screen/9-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/9-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/9-bg-2_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/9-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/9-bg-2_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/9-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/9-bg-2_xl@2x.png'
-  )
-);
-$theme-9-features-icons: (
-  '../../../img/feature-icons/9-feature-icon_1.svg',
-  '../../../img/feature-icons/9-feature-icon_2.svg',
-  '../../../img/feature-icons/9-feature-icon_3.svg'
-);
+$theme-9-h: 195;
+$theme-9-s: 100%;
+$theme-9-l: 50%;
+$theme-9-alt-h: 195;
+$theme-9-alt-s: 100%;
+$theme-9-alt-l: 50%;
 
 // Theme 10 - Neck massage
-$theme-10-hue: 202;
-$theme-10-saturation: 100%;
-$theme-10-lightness: 62%;
-$theme-10: hsl(202, 100%, 62%);
-$theme-10-alt: hsl(202, 100%, 62%);
-$theme-10-background: hsl(0, 0%, 94%);
-$theme-10-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/10-bg-1@1x.jpg',
-    '3x': '../../../img/main-screen/10-bg-1@2x.jpg'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
-    '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
-  )
-);
-$theme-10-features-icons: (
-  '../../../img/feature-icons/10-feature-icon_1.svg',
-  '../../../img/feature-icons/10-feature-icon_2.svg',
-  '../../../img/feature-icons/10-feature-icon_3.svg'
-);
+$theme-10-h: 202;
+$theme-10-s: 100%;
+$theme-10-l: 62%;
+$theme-10-alt-h: 202;
+$theme-10-alt-s: 100%;
+$theme-10-alt-l: 62%;
 
 // Theme 11 - Fullbody massage
-$theme-11-hue: 26;
-$theme-11-saturation: 96%;
-$theme-11-lightness: 67%;
-$theme-11: hsl(26, 96%, 67%);
-$theme-11-alt: hsl(26, 96%, 67%);
-$theme-11-background: hsl(42, 100%, 91%);
-$theme-11-header-image-1: (
-  'small': (
-    '1x': '../../../img/main-screen/11-bg-1_small@1x.png',
-    '2x': '../../../img/main-screen/11-bg-1_small@2x.png',
-    '3x': '../../../img/main-screen/11-bg-1_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/11-bg-1_normal@1x.png',
-    '2x': '../../../img/main-screen/11-bg-1_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/11-bg-1_xl@1x.png',
-    '2x': '../../../img/main-screen/11-bg-1_xl@2x.png'
-  )
-);
-$theme-11-header-image-2: (
-  'small': (
-    '1x': '../../../img/main-screen/11-bg-2_small@1x.png',
-    '2x': '../../../img/main-screen/11-bg-2_small@2x.png',
-    '3x': '../../../img/main-screen/11-bg-2_small@3x.png'
-  ),
-  'normal': (
-    '1x': '../../../img/main-screen/11-bg-2_normal@1x.png',
-    '2x': '../../../img/main-screen/11-bg-2_normal@2x.png'
-  ),
-  'xl': (
-    '1x': '../../../img/main-screen/11-bg-2_xl@1x.png',
-    '2x': '../../../img/main-screen/11-bg-2_xl@2x.png'
-  )
-);
-$theme-11-features-icons: (
-  '../../../img/feature-icons/11-feature-icon_1.svg',
-  '../../../img/feature-icons/11-feature-icon_2.svg',
-  '../../../img/feature-icons/11-feature-icon_3.svg'
-);
+$theme-11-h: 26;
+$theme-11-s: 96%;
+$theme-11-l: 67%;
+$theme-11-alt-h: 26;
+$theme-11-alt-s: 96%;
+$theme-11-alt-l: 67%;
 
 $themes: (
+  // Theme main
   'main': (
-    'primary': hsl($theme-main-hue, $theme-main-saturation, $theme-main-lightness),
-    'primary-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.3),
-    'secondary': hsl(0, 78%, 72%),
-    'secondary-transparent': hsla(0, 78%, 72%, 0.7),
-    'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
-    'background': $theme-main-background,
-    'header-image-1': $theme-main-header-image-1,
-    'header-image-2': $theme-main-header-image-2,
-    'features-icons': $theme-main-features-icons
+    'primary': hsl($theme-main-h, $theme-main-s, $theme-main-l),
+    'primary-light': hsl($theme-main-h, $theme-main-s, $theme-main-l + 10%),
+    'primary-transparent': hsla($theme-main-h, $theme-main-s, $theme-main-l, 0.7),
+    'primary-x-transparent': hsla($theme-main-h, $theme-main-s, $theme-main-l, 0.3),
+    'secondary': hsl($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l),
+    'secondary-light': hsl($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l + 10%),
+    'secondary-transparent': hsla($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l, 0.3),
+    'background': hsl(200, 100%, 97%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-1_small@2x.jpg',
+        '3x': '../../../img/main-screen/main-bg-1_small@3x.jpg'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/main-bg-1_normal@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-1_normal@2x.jpg'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/main-bg-1_xl@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-1_xl@2x.jpg'
+      )
+    ),
+    'header-image-2': (
+      'small': (
+        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg',
+        '3x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/main-bg-2_xl@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/main-feature-icon_1.svg',
+      '../../../img/feature-icons/main-feature-icon_2.svg',
+      '../../../img/feature-icons/main-feature-icon_3.svg'
+    )
   ),
+  // Theme 1 - Sculptural-buccal massage
   '1': (
-    'primary': hsl($theme-1-hue, $theme-1-saturation, $theme-1-lightness),
-    'primary-transparent': hsla($theme-1-hue, $theme-1-saturation, $theme-1-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-1-hue, $theme-1-saturation, $theme-1-lightness, 0.3),
-    'secondary': hsl(0, 78%, 72%),
-    'secondary-transparent': hsla(0, 78%, 72%, 0.7),
-    'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
-    'background': $theme-1-background,
-    'header-image-1': $theme-1-header-image-1,
-    'features-icons': $theme-1-features-icons
+    'primary': hsl($theme-1-h, $theme-1-s, $theme-1-l),
+    'primary-light': hsl($theme-1-h, $theme-1-s, $theme-1-l + 8%),
+    'primary-transparent': hsla($theme-1-h, $theme-1-s, $theme-1-l, 0.7),
+    'primary-x-transparent': hsla($theme-1-h, $theme-1-s, $theme-1-l, 0.3),
+    'secondary': hsl($theme-1-alt-h, $theme-1-alt-s, $theme-1-alt-l),
+    'secondary-light': hsl($theme-1-alt-h, $theme-1-alt-s, $theme-1-alt-l + 10%),
+    'secondary-transparent': hsla($theme-1-alt-h, $theme-1-alt-s, $theme-1-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-1-alt-h, $theme-1-alt-s, $theme-1-alt-l, 0.3),
+    'background': hsl(0, 100%, 95%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/1-bg-1_small@1x.png',
+        '2x': '../../../img/main-screen/1-bg-1_small@2x.png',
+        '3x': '../../../img/main-screen/1-bg-1_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/1-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/1-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/1-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/1-bg-1_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/1-feature-icon_1.svg',
+      '../../../img/feature-icons/1-feature-icon_2.svg',
+      '../../../img/feature-icons/1-feature-icon_3.svg'
+    )
   ),
+  // Theme 2 - Classic facial massage
   '2': (
-    'primary': hsl($theme-2-hue, $theme-2-saturation, $theme-2-lightness),
-    'primary-transparent': hsla($theme-2-hue, $theme-2-saturation, $theme-2-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-2-hue, $theme-2-saturation, $theme-2-lightness, 0.3),
-    'secondary': hsl(338, 100%, 66%),
-    'secondary-transparent': hsla(338, 100%, 66%, 0.7),
-    'secondary-x-transparent': hsla(338, 100%, 66%, 0.3),
-    'background': $theme-2-background,
-    'header-image-1': $theme-2-header-image-1,
-    'features-icons': $theme-2-features-icons
+    'primary': hsl($theme-2-h, $theme-2-s, $theme-2-l),
+    'primary-light': hsl($theme-2-h, $theme-2-s, $theme-2-l + 10%),
+    'primary-transparent': hsla($theme-2-h, $theme-2-s, $theme-2-l, 0.7),
+    'primary-x-transparent': hsla($theme-2-h, $theme-2-s, $theme-2-l, 0.3),
+    'secondary': hsl($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l),
+    'secondary-light': hsl($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l + 10%),
+    'secondary-transparent': hsla($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l, 0.3),
+    'background': hsl(7, 100%, 96%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+        '2x': '../../../img/main-screen/2-bg-1@1x.jpg',
+        '3x': '../../../img/main-screen/2-bg-1@2x.jpg'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+        '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
+        '2x': '../../../img/main-screen/2-bg-1@2x.jpg'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/2-feature-icon_1.svg',
+      '../../../img/feature-icons/2-feature-icon_2.svg',
+      '../../../img/feature-icons/2-feature-icon_3.svg'
+    )
   ),
+  // Theme 3 - Facial lymphatic drainage
   '3': (
-    'primary': hsl($theme-3-hue, $theme-3-saturation, $theme-3-lightness),
-    'primary-transparent': hsla($theme-3-hue, $theme-3-saturation, $theme-3-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-3-hue, $theme-3-saturation, $theme-3-lightness, 0.3),
-    'secondary': hsl(258, 100%, 62%),
-    'secondary-transparent': hsla(258, 100%, 62%, 0.7),
-    'secondary-x-transparent': hsla(258, 100%, 62%, 0.3),
-    'background': $theme-3-background,
-    'header-image-1': $theme-3-header-image-1,
-    'features-icons': $theme-3-features-icons
+    'primary': hsl($theme-3-h, $theme-3-s, $theme-3-l),
+    'primary-light': hsl($theme-3-h, $theme-3-s, $theme-3-l + 10%),
+    'primary-transparent': hsla($theme-3-h, $theme-3-s, $theme-3-l, 0.7),
+    'primary-x-transparent': hsla($theme-3-h, $theme-3-s, $theme-3-l, 0.3),
+    'secondary': hsl($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l),
+    'secondary-light': hsl($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l + 10%),
+    'secondary-transparent': hsla($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l, 0.3),
+    'background': hsl(25, 95%, 92%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/3-bg-1_normal@2x.png',
+        '3x': '../../../img/main-screen/3-bg-1_normal@2x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/3-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/3-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/3-bg-1_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/3-feature-icon_1.svg',
+      '../../../img/feature-icons/3-feature-icon_2.svg',
+      '../../../img/feature-icons/3-feature-icon_3.svg'
+    )
   ),
+  // Theme 4 - Japanese Asahi massage
   '4': (
-    'primary': hsl($theme-4-hue, $theme-4-saturation, $theme-4-lightness),
-    'primary-transparent': hsla($theme-4-hue, $theme-4-saturation, $theme-4-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-4-hue, $theme-4-saturation, $theme-4-lightness, 0.3),
-    'secondary': hsl(173, 62%, 53%),
-    'secondary-transparent': hsla(173, 62%, 53%, 0.7),
-    'secondary-x-transparent': hsla(173, 62%, 53%, 0.3),
-    'background': $theme-4-background,
-    'header-image-1': $theme-4-header-image-1,
-    'features-icons': $theme-4-features-icons
+    'primary': hsl($theme-4-h, $theme-4-s, $theme-4-l),
+    'primary-light': hsl($theme-4-h, $theme-4-s, $theme-4-l + 6%),
+    'primary-transparent': hsla($theme-4-h, $theme-4-s, $theme-4-l, 0.7),
+    'primary-x-transparent': hsla($theme-4-h, $theme-4-s, $theme-4-l, 0.3),
+    'secondary': hsl($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l),
+    'secondary-light': hsl($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l + 10%),
+    'secondary-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.3),
+    'background': hsl(173, 100%, 92%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/4-bg-1_normal@2x.png',
+        '3x': '../../../img/main-screen/4-bg-1_normal@2x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/4-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/4-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/4-bg-1_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/4-feature-icon_1.svg',
+      '../../../img/feature-icons/4-feature-icon_2.svg',
+      '../../../img/feature-icons/4-feature-icon_3.svg'
+    )
   ),
+  // Theme 5 - Chiromassage
   '5': (
-    'primary': hsl($theme-5-hue, $theme-5-saturation, $theme-5-lightness),
-    'primary-transparent': hsla($theme-5-hue, $theme-5-saturation, $theme-5-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-5-hue, $theme-5-saturation, $theme-5-lightness, 0.3),
-    'secondary': hsl(286, 39%, 48%),
-    'secondary-transparent': hsla(286, 39%, 48%, 0.7),
-    'secondary-x-transparent': hsla(286, 39%, 48%, 0.3),
-    'background': $theme-5-background,
-    'header-image-1': $theme-5-header-image-1,
-    'features-icons': $theme-5-features-icons
+    'primary': hsl($theme-5-h, $theme-5-s, $theme-5-l),
+    'primary-light': hsl($theme-5-h, $theme-5-s, $theme-5-l + 10%),
+    'primary-transparent': hsla($theme-5-h, $theme-5-s, $theme-5-l, 0.7),
+    'primary-x-transparent': hsla($theme-5-h, $theme-5-s, $theme-5-l, 0.3),
+    'secondary': hsl($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l),
+    'secondary-light': hsl($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l + 10%),
+    'secondary-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.3),
+    'background': hsl(250, 100%, 91%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/5-bg-1_normal@2x.png',
+        '3x': '../../../img/main-screen/5-bg-1_normal@2x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/5-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/5-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/5-bg-1_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/5-feature-icon_1.svg',
+      '../../../img/feature-icons/5-feature-icon_2.svg',
+      '../../../img/feature-icons/5-feature-icon_3.svg'
+    )
   ),
+  // Theme 6 - Sports massage
   '6': (
-    'primary': hsl($theme-6-hue, $theme-6-saturation, $theme-6-lightness),
-    'primary-transparent': hsla($theme-6-hue, $theme-6-saturation, $theme-6-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-6-hue, $theme-6-saturation, $theme-6-lightness, 0.3),
-    'secondary': hsl(356, 99%, 40%),
-    'secondary-transparent': hsla(356, 99%, 40%, 0.7),
-    'secondary-x-transparent': hsla(356, 99%, 40%, 0.3),
-    'background': $theme-6-background,
-    'header-image-1': $theme-6-header-image-1,
-    'header-image-2': $theme-6-header-image-2,
-    'features-icons': $theme-6-features-icons
+    'primary': hsl($theme-6-h, $theme-6-s, $theme-6-l),
+    'primary-light': hsl($theme-6-h, $theme-6-s, $theme-6-l + 8%),
+    'primary-transparent': hsla($theme-6-h, $theme-6-s, $theme-6-l, 0.7),
+    'primary-x-transparent': hsla($theme-6-h, $theme-6-s, $theme-6-l, 0.3),
+    'secondary': hsl($theme-6-alt-h, $theme-6-alt-s, $theme-6-alt-l),
+    'secondary-light': hsl($theme-6-alt-h, $theme-6-alt-s, $theme-6-alt-l + 8%),
+    'secondary-transparent': hsla($theme-6-alt-h, $theme-6-alt-s, $theme-6-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-6-alt-h, $theme-6-alt-s, $theme-6-alt-l, 0.3),
+    'background': hsl(201, 100%, 75%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/6-bg-1_small@1x.png',
+        '2x': '../../../img/main-screen/6-bg-1_small@2x.png',
+        '3x': '../../../img/main-screen/6-bg-1_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/6-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/6-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/6-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/6-bg-1_xl@2x.png'
+      )
+    ),
+    'header-image-2': (
+      'small': (
+        '1x': '../../../img/main-screen/6-bg-2_small@1x.png',
+        '2x': '../../../img/main-screen/6-bg-2_small@2x.png',
+        '3x': '../../../img/main-screen/6-bg-2_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/6-bg-2_normal@1x.png',
+        '2x': '../../../img/main-screen/6-bg-2_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/6-bg-2_xl@1x.png',
+        '2x': '../../../img/main-screen/6-bg-2_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/6-feature-icon_1.svg',
+      '../../../img/feature-icons/6-feature-icon_2.svg',
+      '../../../img/feature-icons/6-feature-icon_3.svg'
+    )
   ),
+  // Theme 7 - Figure modeling
   '7': (
-    'primary': hsl($theme-7-hue, $theme-7-saturation, $theme-7-lightness),
-    'primary-transparent': hsla($theme-7-hue, $theme-7-saturation, $theme-7-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-7-hue, $theme-7-saturation, $theme-7-lightness, 0.3),
-    'secondary': hsl(265, 100%, 73%),
-    'secondary-transparent': hsla(265, 100%, 73%, 0.7),
-    'secondary-x-transparent': hsla(265, 100%, 73%, 0.3),
-    'background': $theme-7-background,
-    'header-image-1': $theme-7-header-image-1,
-    'features-icons': $theme-7-features-icons
+    'primary': hsl($theme-7-h, $theme-7-s, $theme-7-l),
+    'primary-light': hsl($theme-7-h, $theme-7-s, $theme-7-l + 10%),
+    'primary-transparent': hsla($theme-7-h, $theme-7-s, $theme-7-l, 0.7),
+    'primary-x-transparent': hsla($theme-7-h, $theme-7-s, $theme-7-l, 0.3),
+    'secondary': hsl($theme-7-alt-h, $theme-7-alt-s, $theme-7-alt-l),
+    'secondary-light': hsl($theme-7-alt-h, $theme-7-alt-s, $theme-7-alt-l + 10%),
+    'secondary-transparent': hsla($theme-7-alt-h, $theme-7-alt-s, $theme-7-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-7-alt-h, $theme-7-alt-s, $theme-7-alt-l, 0.3),
+    'background': hsl(295, 63%, 84%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/7-bg-1@1x.png',
+        '2x': '../../../img/main-screen/7-bg-1@1x.png',
+        '3x': '../../../img/main-screen/7-bg-1@2x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/7-bg-1@1x.png',
+        '2x': '../../../img/main-screen/7-bg-1@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/7-bg-1@1x.png',
+        '2x': '../../../img/main-screen/7-bg-1@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/7-feature-icon_1.svg',
+      '../../../img/feature-icons/7-feature-icon_2.svg',
+      '../../../img/feature-icons/7-feature-icon_3.svg'
+    )
   ),
+  // Theme 8 - Body lymphatic-drainage
   '8': (
-    'primary': hsl($theme-8-hue, $theme-8-saturation, $theme-8-lightness),
-    'primary-transparent': hsla($theme-8-hue, $theme-8-saturation, $theme-8-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-8-hue, $theme-8-saturation, $theme-8-lightness, 0.3),
-    'secondary': hsl(22, 90%, 73%),
-    'secondary-transparent': hsla(22, 90%, 73%, 0.7),
-    'secondary-x-transparent': hsla(22, 90%, 73%, 0.3),
-    'background': $theme-8-background,
-    'header-image-1': $theme-8-header-image-1,
-    'header-image-2': $theme-8-header-image-2,
-    'features-icons': $theme-8-features-icons
+    'primary': hsl($theme-8-h, $theme-8-s, $theme-8-l),
+    'primary-light': hsl($theme-8-h, $theme-8-s, $theme-8-l + 10%),
+    'primary-transparent': hsla($theme-8-h, $theme-8-s, $theme-8-l, 0.7),
+    'primary-x-transparent': hsla($theme-8-h, $theme-8-s, $theme-8-l, 0.3),
+    'secondary': hsl($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l),
+    'secondary-light': hsl($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l + 10%),
+    'secondary-transparent': hsla($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l, 0.3),
+    'background': hsl(25, 95%, 92%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/8-bg-1_small@1x.png',
+        '2x': '../../../img/main-screen/8-bg-1_small@2x.png',
+        '3x': '../../../img/main-screen/8-bg-1_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/8-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/8-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/8-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/8-bg-1_xl@2x.png'
+      )
+    ),
+    'header-image-2': (
+      'small': (
+        '1x': '../../../img/main-screen/8-bg-2_small@1x.png',
+        '2x': '../../../img/main-screen/8-bg-2_small@2x.png',
+        '3x': '../../../img/main-screen/8-bg-2_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/8-bg-2_normal@1x.png',
+        '2x': '../../../img/main-screen/8-bg-2_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/8-bg-2_xl@1x.png',
+        '2x': '../../../img/main-screen/8-bg-2_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/8-feature-icon_1.svg',
+      '../../../img/feature-icons/8-feature-icon_2.svg',
+      '../../../img/feature-icons/8-feature-icon_3.svg'
+    )
   ),
+  // Theme 9 - Anti-cellulite massage
   '9': (
-    'primary': hsl($theme-9-hue, $theme-9-saturation, $theme-9-lightness),
-    'primary-transparent': hsla($theme-9-hue, $theme-9-saturation, $theme-9-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-9-hue, $theme-9-saturation, $theme-9-lightness, 0.3),
-    'secondary': hsl(195, 100%, 50%),
-    'secondary-transparent': hsla(195, 100%, 50%, 0.7),
-    'secondary-x-transparent': hsla(195, 100%, 50%, 0.3),
-    'background': $theme-9-background,
-    'header-image-1': $theme-9-header-image-1,
-    'header-image-2': $theme-9-header-image-2,
-    'features-icons': $theme-9-features-icons
+    'primary': hsl($theme-9-h, $theme-9-s, $theme-9-l),
+    'primary-light': hsl($theme-9-h, $theme-9-s, $theme-9-l + 10%),
+    'primary-transparent': hsla($theme-9-h, $theme-9-s, $theme-9-l, 0.7),
+    'primary-x-transparent': hsla($theme-9-h, $theme-9-s, $theme-9-l, 0.3),
+    'secondary': hsl($theme-9-alt-h, $theme-9-alt-s, $theme-9-alt-l),
+    'secondary-light': hsl($theme-9-alt-h, $theme-9-alt-s, $theme-9-alt-l + 10%),
+    'secondary-transparent': hsla($theme-9-alt-h, $theme-9-alt-s, $theme-9-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-9-alt-h, $theme-9-alt-s, $theme-9-alt-l, 0.3),
+    'background': hsl(325, 68%, 85%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/9-bg-1_small@1x.png',
+        '2x': '../../../img/main-screen/9-bg-1_small@2x.png',
+        '3x': '../../../img/main-screen/9-bg-1_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/9-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/9-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/9-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/9-bg-1_xl@2x.png'
+      )
+    ),
+    'header-image-2': (
+      'small': (
+        '1x': '../../../img/main-screen/9-bg-2_small@1x.png',
+        '2x': '../../../img/main-screen/9-bg-2_small@2x.png',
+        '3x': '../../../img/main-screen/9-bg-2_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/9-bg-2_normal@1x.png',
+        '2x': '../../../img/main-screen/9-bg-2_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/9-bg-2_xl@1x.png',
+        '2x': '../../../img/main-screen/9-bg-2_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/9-feature-icon_1.svg',
+      '../../../img/feature-icons/9-feature-icon_2.svg',
+      '../../../img/feature-icons/9-feature-icon_3.svg'
+    )
   ),
+  // Theme 10 - Neck massage
   '10': (
-    'primary': hsl($theme-10-hue, $theme-10-saturation, $theme-10-lightness),
-    'primary-transparent': hsla($theme-10-hue, $theme-10-saturation, $theme-10-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-10-hue, $theme-10-saturation, $theme-10-lightness, 0.3),
-    'secondary': hsl(202, 100%, 62%),
-    'secondary-transparent': hsla(202, 100%, 62%, 0.7),
-    'secondary-x-transparent': hsla(202, 100%, 62%, 0.3),
-    'background': $theme-10-background,
-    'header-image-1': $theme-10-header-image-1,
-    'features-icons': $theme-10-features-icons
+    'primary': hsl($theme-10-h, $theme-10-s, $theme-10-l),
+    'primary-light': hsl($theme-10-h, $theme-10-s, $theme-10-l + 10%),
+    'primary-transparent': hsla($theme-10-h, $theme-10-s, $theme-10-l, 0.7),
+    'primary-x-transparent': hsla($theme-10-h, $theme-10-s, $theme-10-l, 0.3),
+    'secondary': hsl($theme-10-alt-h, $theme-10-alt-s, $theme-10-alt-l),
+    'secondary-light': hsl($theme-10-alt-h, $theme-10-alt-s, $theme-10-alt-l + 10%),
+    'secondary-transparent': hsla($theme-10-alt-h, $theme-10-alt-s, $theme-10-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-10-alt-h, $theme-10-alt-s, $theme-10-alt-l, 0.3),
+    'background': hsl(0, 0%, 94%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+        '2x': '../../../img/main-screen/10-bg-1@1x.jpg',
+        '3x': '../../../img/main-screen/10-bg-1@2x.jpg'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+        '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/10-bg-1@1x.jpg',
+        '2x': '../../../img/main-screen/10-bg-1@2x.jpg'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/10-feature-icon_1.svg',
+      '../../../img/feature-icons/10-feature-icon_2.svg',
+      '../../../img/feature-icons/10-feature-icon_3.svg'
+    )
   ),
+  // Theme 11 - Fullbody massage
   '11': (
-    'primary': hsl($theme-11-hue, $theme-11-saturation, $theme-11-lightness),
-    'primary-transparent': hsla($theme-11-hue, $theme-11-saturation, $theme-11-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-11-hue, $theme-11-saturation, $theme-11-lightness, 0.3),
-    'secondary': hsl(26, 96%, 67%),
-    'secondary-transparent': hsla(26, 96%, 67%, 0.7),
-    'secondary-x-transparent': hsla(26, 96%, 67%, 0.3),
-    'background': $theme-11-background,
-    'header-image-1': $theme-11-header-image-1,
-    'header-image-2': $theme-11-header-image-2,
-    'features-icons': $theme-11-features-icons
+    'primary': hsl($theme-11-h, $theme-11-s, $theme-11-l),
+    'primary-light': hsl($theme-11-h, $theme-11-s, $theme-11-l + 10%),
+    'primary-transparent': hsla($theme-11-h, $theme-11-s, $theme-11-l, 0.7),
+    'primary-x-transparent': hsla($theme-11-h, $theme-11-s, $theme-11-l, 0.3),
+    'secondary': hsl($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l),
+    'secondary-light': hsl($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l + 10%),
+    'secondary-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.3),
+    'background': hsl(42, 100%, 91%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/11-bg-1_small@1x.png',
+        '2x': '../../../img/main-screen/11-bg-1_small@2x.png',
+        '3x': '../../../img/main-screen/11-bg-1_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/11-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/11-bg-1_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/11-bg-1_xl@1x.png',
+        '2x': '../../../img/main-screen/11-bg-1_xl@2x.png'
+      )
+    ),
+    'header-image-2': (
+      'small': (
+        '1x': '../../../img/main-screen/11-bg-2_small@1x.png',
+        '2x': '../../../img/main-screen/11-bg-2_small@2x.png',
+        '3x': '../../../img/main-screen/11-bg-2_small@3x.png'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/11-bg-2_normal@1x.png',
+        '2x': '../../../img/main-screen/11-bg-2_normal@2x.png'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/11-bg-2_xl@1x.png',
+        '2x': '../../../img/main-screen/11-bg-2_xl@2x.png'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/11-feature-icon_1.svg',
+      '../../../img/feature-icons/11-feature-icon_2.svg',
+      '../../../img/feature-icons/11-feature-icon_3.svg'
+    )
   ),
+  // Theme 12 - Back massage
   '12': (
-    'primary': hsl($theme-main-hue, $theme-main-saturation, $theme-main-lightness),
-    'primary-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.7),
-    'primary-x-transparent': hsla($theme-main-hue, $theme-main-saturation, $theme-main-lightness, 0.3),
-    'secondary': hsl(0, 78%, 72%),
-    'secondary-transparent': hsla(0, 78%, 72%, 0.7),
-    'secondary-x-transparent': hsla(0, 78%, 72%, 0.3),
-    'background': $theme-main-background,
-    'header-image-1': $theme-main-header-image-1,
-    'header-image-2': $theme-main-header-image-2,
-    'features-icons': $theme-main-features-icons
+    'primary': hsl($theme-main-h, $theme-main-s, $theme-main-l),
+    'primary-light': hsl($theme-main-h, $theme-main-s, $theme-main-l + 10%),
+    'primary-transparent': hsla($theme-main-h, $theme-main-s, $theme-main-l, 0.7),
+    'primary-x-transparent': hsla($theme-main-h, $theme-main-s, $theme-main-l, 0.3),
+    'secondary': hsl($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l),
+    'secondary-light': hsl($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l + 10%),
+    'secondary-transparent': hsla($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l, 0.3),
+    'background': hsl(200, 100%, 97%),
+    'header-image-1': (
+      'small': (
+        '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-1_small@2x.jpg',
+        '3x': '../../../img/main-screen/main-bg-1_small@3x.jpg'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/main-bg-1_normal@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-1_normal@2x.jpg'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/main-bg-1_xl@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-1_xl@2x.jpg'
+      )
+    ),
+    'header-image-2': (
+      'small': (
+        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg',
+        '3x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
+      ),
+      'normal': (
+        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
+      ),
+      'xl': (
+        '1x': '../../../img/main-screen/main-bg-2_xl@1x.jpg',
+        '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
+      )
+    ),
+    'features-icons': (
+      '../../../img/feature-icons/main-feature-icon_1.svg',
+      '../../../img/feature-icons/main-feature-icon_2.svg',
+      '../../../img/feature-icons/main-feature-icon_3.svg'
+    )
   )
 ) !default;
 
 // Инициализируем наши переменные как `null`, таким образом,
 // при использовании вне `themify`, они ничего не выведут.
 $color-primary: null;
+$color-primary-light: null;
 $color-primary-transparent: null;
 $color-primary-x-transparent: null;
 $color-secondary: null;
+$color-secondary-light: null;
 $color-secondary-transparent: null;
 $color-secondary-x-transparent: null;
 $color-background: null;
@@ -603,9 +628,11 @@ $features-icons: null;
     .theme-#{$theme} & {
       // Задание переменных темы как глобальных с `!global`
       $color-primary: map-get($props, 'primary') !global;
+      $color-primary-light: map-get($props, 'primary-light') !global;
       $color-primary-transparent: map-get($props, 'primary-transparent') !global;
       $color-primary-x-transparent: map-get($props, 'primary-x-transparent') !global;
       $color-secondary: map-get($props, 'secondary') !global;
+      $color-secondary-light: map-get($props, 'secondary-light') !global;
       $color-secondary-transparent: map-get($props, 'secondary-transparent') !global;
       $color-secondary-x-transparent: map-get($props, 'secondary-x-transparent') !global;
       $color-background: map-get($props, 'background') !global;
@@ -618,9 +645,11 @@ $features-icons: null;
 
       // Глобальное отключение переменных темы с `!global`
       $color-primary: null !global;
+      $color-primary-light: null !global;
       $color-primary-transparent: null !global;
       $color-primary-x-transparent: null !global;
       $color-secondary: null !global;
+      $color-secondary-light: null !global;
       $color-secondary-transparent: null !global;
       $color-secondary-x-transparent: null !global;
       $color-background: null !global;

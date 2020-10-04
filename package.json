@@ -19,8 +19,8 @@
   },
   "browserslist": [
     "last 1 version",
-    "chrome > 20",
-    "and_chr > 20",
+    "chrome > 25",
+    "and_chr > 25",
     "safari > 6",
     "iOS >= 7",
     "firefox > 27",
