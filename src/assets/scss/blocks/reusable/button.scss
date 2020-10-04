@@ -4,21 +4,23 @@
   @include reset-button();
   @include button($color: $alt-default-color);
 
-  @include in-focus() {
-    @include themify() {
-      background-color: $color-primary-transparent;
-    }
-  }
-
   &_primary {
     @include themify() {
       background-color: $color-primary;
+
+      @include in-focus() {
+        background-color: $color-primary-light;
+      }
     }
   }
 
   &_secondary {
     @include themify() {
       background-color: $color-secondary;
+
+      @include in-focus() {
+        background-color: $color-secondary-light;
+      }
     }
   }
 }
