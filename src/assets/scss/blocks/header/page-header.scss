@@ -4,8 +4,6 @@
   padding-bottom: calc(25rem + 12vh);
 
   @include themify() {
-    background-color: $color-background;
-
     @if ($header-image-2 != null) {
       background-image:
         #{url(map-deep-get($header-image-1, 'small', '1x'))},
@@ -43,6 +41,16 @@
   background-repeat: no-repeat;
   background-size: auto calc(25rem + 12vh);
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5.5rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
   &__panel {
     position: fixed;
     top: 0;
@@ -78,9 +86,9 @@
     @include themify() {
       @if ($header-image-2 == null) {
         top: calc(10rem + 6vh - 5vw);
-        left: 30%;
+        left: 32%;
 
-        width: 30vw;
+        width: 32vw;
       }
     }
 
@@ -105,6 +113,10 @@
 .theme-1 {
   .page-header {
     background-size: auto calc(20rem + 12vh);
+
+    &::before {
+      background-image: linear-gradient(180deg, #fcd4d4 0%, #f9eded 100%);
+    }
   }
 }
 
@@ -112,18 +124,38 @@
   .page-header {
     background-position: right -5rem top 5rem;
     background-size: auto calc(20rem + 14vh);
+
+    &::before {
+      background-color: map-deep-get($themes, '2', 'background');
+    }
+  }
+}
+
+.theme-3 {
+  .page-header {
+    &::before {
+      background-image: linear-gradient(180deg, #ffe3ce 0%, #fef3eb 100%);
+    }
   }
 }
 
 .theme-4 {
   .page-header {
     background-size: auto calc(20rem + 12vh);
+
+    &::before {
+      background-image: linear-gradient(180deg, #d9fffa 0%, #ecfffc 100%);
+    }
   }
 }
 
 .theme-5 {
   .page-header {
     background-size: auto calc(20rem + 12vh);
+
+    &::before {
+      background-image: linear-gradient(180deg, #efecff 0%, #e6ecff 100%);
+    }
   }
 }
 
@@ -133,6 +165,18 @@
       left top 10rem,
       right -2rem top 9rem;
     background-size: auto calc(18rem + 10vh);
+
+    &::before {
+      background-image: linear-gradient(180deg, #a2e0ff 0%, #66c9ff 100%);
+    }
+  }
+}
+
+.theme-7 {
+  .page-header {
+    &::before {
+      background-image: linear-gradient(180deg, #c08ef0 0%, #f2c2f1 100%);
+    }
   }
 }
 
@@ -141,6 +185,10 @@
     background-position:
       left -1rem top -2rem,
       right top 5rem;
+
+    &::before {
+      background-image: linear-gradient(180deg, #fee0cf 0%, #feebe0 100%);
+    }
   }
 }
 
@@ -149,6 +197,10 @@
     background-position:
       left top 5rem,
       right -6rem top 5rem;
+
+    &::before {
+      background-image: linear-gradient(180deg, #f3c1d9 0%, #f8cce1 100%);
+    }
   }
 }
 
@@ -156,6 +208,10 @@
   .page-header {
     background-position: right -4rem top 7rem;
     background-size: auto calc(18rem + 12vh);
+
+    &::before {
+      background-color: map-deep-get($themes, '10', 'background');
+    }
   }
 }
 
@@ -167,6 +223,10 @@
     background-size:
       auto calc(18rem + 14vh),
       contain;
+
+    &::before {
+      background-image: linear-gradient(180deg, #fff2d1 0%, #fff5df 100%);
+    }
   }
 }
 
@@ -235,6 +295,10 @@
 @media (min-width: $tablet-min-width) {
   .page-header {
     padding-bottom: 0;
+
+    &::before {
+      content: none;
+    }
 
     &__panel {
       padding: 0.8rem 1.6rem;

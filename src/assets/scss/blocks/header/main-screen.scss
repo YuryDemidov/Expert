@@ -100,15 +100,25 @@
 
 @media (min-width: $tablet-min-width) {
   .main-screen {
+    position: relative;
+
     margin-bottom: 9rem;
     padding-top: 22rem;
 
     background-repeat: no-repeat;
     background-size: auto 78%;
 
-    @include themify() {
-      background-color: $color-background;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+    }
 
+    @include themify() {
       @if ($header-image-2 != null) {
         background-image:
           #{url(map-deep-get($header-image-1, 'normal', '1x'))},
@@ -195,6 +205,10 @@
 
   .theme-main {
     .main-screen {
+      &::before {
+        background-color: map-deep-get($themes, 'main', 'background');
+      }
+
       &__title {
         margin-bottom: 2rem;
 
@@ -213,11 +227,57 @@
 
   .theme-1 {
     .main-screen {
-      background-image: #{url(map-deep-get($theme-1-header-image-1, 'small', '2x'))};
+      background-image: #{url(map-deep-get($themes, '1', 'header-image-1', 'small', '2x'))};
       background-size: auto 73%;
 
       @include retina() {
-        background-image: #{url(map-deep-get($theme-1-header-image-1, 'small', '3x'))};
+        background-image: #{url(map-deep-get($themes, '1', 'header-image-1', 'small', '3x'))};
+      }
+
+      &::before {
+        background-image: linear-gradient(128deg, #fcd4d4 0%, #faeaea 50%);
+      }
+
+      &__title,
+      &__subtitle {
+        display: inline;
+      }
+    }
+  }
+
+  .theme-2 {
+    .main-screen {
+      background-size: auto 70%;
+
+      &::before {
+        background-color: map-deep-get($themes, '2', 'background');
+      }
+    }
+  }
+
+  .theme-3 {
+    .main-screen {
+      &::before {
+        background-image: linear-gradient(128deg, #ffe3cc 0%, #fef1e7 50%);
+      }
+    }
+  }
+
+  .theme-4 {
+    .main-screen {
+      background-position: right -6rem top 5rem;
+      background-size: auto 72%;
+
+      &::before {
+        background-image: linear-gradient(128deg, #d5fffa 0%, #e5fffc 50%);
+      }
+    }
+  }
+
+  .theme-5 {
+    .main-screen {
+      &::before {
+        background-image: linear-gradient(121deg, #efecff 8%, #e1ecff 52%);
       }
 
       &__title,
@@ -233,33 +293,19 @@
         left bottom 11rem,
         right -2rem bottom 12rem;
       background-size: auto 60%;
-    }
-  }
 
-  .theme-2 {
-    .main-screen {
-      background-size: auto 70%;
-    }
-  }
-
-  .theme-4 {
-    .main-screen {
-      background-position: right -6rem top 5rem;
-      background-size: auto 72%;
-    }
-  }
-
-  .theme-5 {
-    .main-screen {
-      &__title,
-      &__subtitle {
-        display: inline;
+      &::before {
+        background-image: linear-gradient(94deg, #3fbaff 4%, #d4f2ff 53%, #48bdff 100%);
       }
     }
   }
 
   .theme-7 {
     .main-screen {
+      &::before {
+        background-image: linear-gradient(104deg, #f8c8f1 4%, #f6c5f1 4%, #ca98f1 100%);
+      }
+
       &__feature-item {
         margin: 0 2.4vw;
       }
@@ -271,6 +317,10 @@
       background-position:
         left top -2rem,
         right top 5rem;
+
+      &::before {
+        background-image: linear-gradient(85deg, #fee0cf 19%, #fff0e8 50%, #feeadf 100%);
+      }
     }
   }
 
@@ -279,6 +329,10 @@
       background-position:
         left top 5rem,
         left 79vw top 5rem;
+
+      &::before {
+        background-image: linear-gradient(85deg, #f3c1d9 22%, #fbd2e6 100%);
+      }
     }
   }
 
@@ -286,6 +340,10 @@
     .main-screen {
       background-position: left 65vw top 10rem;
       background-size: auto 65%;
+
+      &::before {
+        background-color: map-deep-get($themes, '10', 'background');
+      }
     }
   }
 
@@ -294,6 +352,10 @@
       background-position:
         left -2rem top,
         right -5rem top 5rem;
+
+      &::before {
+        background-image: linear-gradient(94deg, #ffedbf 4%, #fff6e2 41%, #fff0cb 100%);
+      }
     }
   }
 }
@@ -384,10 +446,14 @@
 
   .theme-1 {
     .main-screen {
-      background-image: #{url(map-deep-get($theme-1-header-image-1, 'normal', '1x'))};
+      background-image: #{url(map-deep-get($themes, '1', 'header-image-1', 'normal', '1x'))};
 
       @include retina() {
-        background-image: #{url(map-deep-get($theme-1-header-image-1, 'normal', '2x'))};
+        background-image: #{url(map-deep-get($themes, '1', 'header-image-1', 'normal', '2x'))};
+      }
+
+      &::before {
+        background-image: linear-gradient(85deg, #fcd4d4 22%, #ffe8e8 59%, #ffe4e4 100%);
       }
 
       &__title,
@@ -412,6 +478,10 @@
       background-position: right bottom;
       background-size: auto 90%;
 
+      &::before {
+        background-image: linear-gradient(80.29deg, #ffe3ce 25%, #fef2eb 55%, #ffe3ce 80%);
+      }
+
       &__heading {
         padding-right: 40%;
         padding-left: 10%;
@@ -419,8 +489,20 @@
     }
   }
 
+  .theme-4 {
+    .main-screen {
+      &::before {
+        background-image: linear-gradient(82deg, #d0fffa 11%, #edfffd 40%, #d0fffa 83%);
+      }
+    }
+  }
+
   .theme-5 {
     .main-screen {
+      &::before {
+        background-image: linear-gradient(81deg, #f0ecff 20%, #ddedff 72%);
+      }
+
       &__heading {
         padding-right: 40%;
         padding-left: 10%;
@@ -437,6 +519,14 @@
 
       &__heading {
         padding: 4rem;
+      }
+    }
+  }
+
+  .theme-7 {
+    .main-screen {
+      &::before {
+        background-image: linear-gradient(85deg, #f5c5f1 22%, #ae7bf0 100%);
       }
     }
   }
