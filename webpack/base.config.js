@@ -18,6 +18,21 @@ const PATHS = {
   assets: 'assets/'
 };
 
+const MASSAGE_PAGE_TEMPLATES = [
+  `anti-cellulite-massage.pug`,
+  `back-massage.pug`,
+  `body-lymphatic-drainage.pug`,
+  `chiromassage.pug`,
+  `classic-facial-massage.pug`,
+  `facial-lymphatic-drainage.pug`,
+  `figure-modeling.pug`,
+  `fullbody-massage.pug`,
+  `japanese-asahi-massage.pug`,
+  `neck-massage.pug`,
+  `sculptural-buccal-massage.pug`,
+  `sports-massage.pug`
+]
+
 const filename = ext => isDev ? `[name].${ext}` : `[name].[contenthash:8].${ext}`;
 
 // Pages const for HTMLWebpackPlugin
@@ -53,6 +68,8 @@ const plugins = () => {
     // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
     // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
     ...PAGES.map(page => new HTMLWebpackPlugin({
+      inject: true,
+      chunks: injectChunks(page),
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/\.pug/, '.html')}`,
       minify: {
@@ -86,10 +103,10 @@ const cssLoaders = (...extras) => {
     {
       loader: 'postcss-loader',
       options: {
-        sourceMap: true,
-        config: {
-          path: `./postcss.config.js`
-        }
+        postcssOptions: {
+          config: path.resolve(__dirname, `../postcss.config.js`)
+        },
+        sourceMap: true
       }
     }
   ];
@@ -110,7 +127,7 @@ const babelOptions = (preset, plugin) => {
       '@babel/preset-env',
         {
           'useBuiltIns': 'usage',
-          'corejs': 3
+          'corejs': 3.6
         }
       ]
     ],
@@ -148,6 +165,18 @@ const jsLoaders = () => {
   }
 
   return loaders;
+};
+
+const injectChunks = page => {
+  const chunksArray = ['app'];
+
+  if (page === 'index.pug') {
+    chunksArray.push(`pages/index`);
+  } else if (~MASSAGE_PAGE_TEMPLATES.indexOf(page)) {
+    chunksArray.push(`pages/massages`);
+  }
+
+  return chunksArray;
 };
 
 const optimization = () => {
@@ -246,7 +275,9 @@ module.exports = {
     paths: PATHS
   },
   entry: {
-    app: [`${PATHS.src}/app.js`]
+    app: [`${PATHS.src}/app.js`],
+    'pages/index': `${PATHS.src}/js/pages/index/index.js`,
+    'pages/massages': `${PATHS.src}/js/pages/massages/index.js`,
     // module: `${PATHS.src}/your-module.js`,
   },
   output: {

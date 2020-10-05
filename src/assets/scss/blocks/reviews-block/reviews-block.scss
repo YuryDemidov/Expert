@@ -1,1 +1,188 @@
 @use '../../tools' as *;
+
+.reviews-block {
+  position: relative;
+
+  margin-bottom: 6rem;
+
+  text-align: center;
+
+  &__wrapper {
+    position: relative;
+
+    padding: 0;
+    padding-top: 3rem;
+
+    background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      height: 4rem;
+
+      background-color: $alt-default-color;
+    }
+  }
+
+  &__title {
+    margin-bottom: 2.5rem;
+  }
+
+  &__slider {
+    margin-top: 3rem;
+
+    .tns-ovh {
+      margin-top: -1.5rem; // Hack for showing box-shadow children
+      padding-top: 1.5rem; // of parent with hidden overflow
+    }
+
+    .tns-nav {
+      margin-bottom: 2.5rem;
+
+      line-height: 1;
+
+      button {
+        @include reset-button();
+        @include box(1.8rem);
+
+        position: relative;
+
+        margin: 0 0.2rem;
+
+        &::before {
+          @include absolute-centered();
+          @include box(1.2rem);
+
+          content: '';
+
+          background-color: #c7c7c7;
+          border-radius: 50%;
+        }
+
+        &.tns-nav-active {
+          &::before {
+            background-color: #9f9f9f;
+          }
+        }
+      }
+    }
+  }
+
+  &__reviews-list {
+    @include reset-list();
+  }
+
+  &__review {
+    margin-bottom: 3rem;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 2rem;
+
+    font-weight: 700;
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .reviews-block {
+    margin-bottom: 10rem;
+
+    &__wrapper {
+      padding: 0 5rem;
+      padding-top: 4rem;
+
+      &::before {
+        height: 5rem;
+      }
+    }
+
+    &__slider {
+      position: relative;
+
+      .tns-nav {
+        margin-bottom: 4.5rem;
+      }
+
+      .slider__button {
+        @include reset-button();
+        @include box(5rem, 12rem);
+
+        position: absolute;
+        top: calc(50% - 2.5rem);
+
+        transform: translateY(-50%);
+
+        &::before {
+          @include absolute-centered();
+          @include themify() {
+            @include stroke-arrow(3rem, 0.4rem, $color-primary, null);
+          }
+
+          content: '';
+          position: absolute;
+        }
+
+        &_prev {
+          right: 100%;
+
+          &::before {
+            transform: translate(-30%, -50%) rotate(135deg);
+          }
+        }
+
+        &_next {
+          left: 100%;
+
+          &::before {
+            transform: translate(-70%, -50%) rotate(-45deg);
+          }
+        }
+      }
+    }
+
+    &__review {
+      margin-bottom: 4rem;
+    }
+
+    &__link {
+      margin-top: 3rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .reviews-block {
+    margin-bottom: 12rem;
+
+    background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
+
+    &__wrapper {
+      padding-top: 5.5rem;
+
+      background: none;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    &__slider {
+      margin-top: 4rem;
+
+      .tns-nav {
+        margin-bottom: 0;
+      }
+    }
+
+    &__link {
+      margin-top: 5rem;
+      margin-bottom: 3rem;
+    }
+  }
+}

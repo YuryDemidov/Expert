@@ -110,6 +110,14 @@
   }
 }
 
+.theme-main {
+  .page-header {
+    &::before {
+      background-color: map-deep-get($themes, 'main', 'background');
+    }
+  }
+}
+
 .theme-1 {
   .page-header {
     background-size: auto calc(20rem + 12vh);

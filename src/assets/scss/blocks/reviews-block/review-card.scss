@@ -1,1 +1,63 @@
 @use '../../tools' as *;
+
+.review-card {
+  padding: 2rem;
+
+  font-size: 1.4rem;
+
+  background-color: $alt-default-color;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.4rem 2rem $x-light-dim-color;
+
+  &__text {
+    overflow: hidden;
+    height: 24rem;
+    margin-bottom: 2rem;
+
+    text-align: left;
+  }
+
+  &__info {
+    margin-bottom: 0.4rem;
+
+    font-weight: 700;
+  }
+
+  &__source {
+    margin-bottom: 0;
+
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .review-card {
+    &__text {
+      height: 16rem;
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .review-card {
+    &__text {
+      height: 21rem;
+      margin-bottom: 3rem;
+
+      font-size: 1.6rem;
+    }
+
+    &__info {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .review-card {
+    &__text {
+      height: 26.5rem;
+      margin-bottom: 5rem;
+    }
+  }
+}

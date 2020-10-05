@@ -1,29 +1,33 @@
 section.reviews-block
-  .container
-    if locals.data.pageData.reviewsBlock.showFactoid
-      article.reviews-block__factoid.reviews-factoid
-        b.reviews-factoid__pre-number более
-        b.reviews-factoid__number!= `10&thinsp;000`
-        span.reviews-factoid__text клиентов уже получили помощь от наших врачей
+  .reviews-block__wrapper.container
     .reviews-block__content
       h2.heading.reviews-block__title= locals.data.pageData.reviewsBlock.title
       .reviews-block__rating.rating-block
         b.rating-block__number 5
-        +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44')
+        +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44' aria-label='звёзд')
         p.rating-block__text
           | наш рейтинг
-          img.rating-block__yandex-logo(src='../../../../assets/img/reviews-block/yandex-logo.svg' alt='Яндекс' width='46' height='22')
-      ul.reviews-block__reviews-slider.slider
-        button.slider__button.slider__button_prev(aria-label='Предыдущий отзыв')
-        each review in locals.data.pageData.reviewsBlock.reviews
-          li.reviews-block__review
-            article.review-card(data-id=review.id data-type=review.type)
-              p.review-card__text= review.text
-              p.review-card__info= `${review.author}, ${review.date}`
-              p.review-card__source
-                if review.source === 'yandex'
-                  img.review-card__yandex-logo(src='../../../../assets/img/reviews-block/yandex-logo.svg' alt='Отзыв из Яндекса' width='46' height='22')
-                else
-                  span Сделан на сайте
-        button.slider__button.slider__button_next(aria-label='Следующий отзыв')
-      a.link.link_primary.link_arrow.underline(href='/reviews.html') Читать все отзывы или оставить свой
+          img.rating-block__yandex-logo(src='../../../../assets/img/reviews-block/yandex-logo.svg' alt='Яндекс' width='40' height='15')
+      .reviews-block__slider
+        button.slider__button.slider__button_prev.hidden_mobile(aria-label='Предыдущий отзыв')
+        ul.reviews-block__reviews-list.slider
+          each review in locals.data.pageData.reviewsBlock.reviews
+            li.reviews-block__review
+              article.review-card(data-id=review.id data-type=review.type)
+                p.review-card__text= review.text
+                p.review-card__info= `${review.author}, ${review.date}`
+                p.review-card__source
+                  if review.source === 'yandex'
+                    img.review-card__yandex-logo(src='../../../../assets/img/reviews-block/yandex-logo.svg' alt='Отзыв из Яндекса' width='40' height='15')
+                  else
+                    span отзыв с сайта
+        button.slider__button.slider__button_next.hidden_mobile(aria-label='Следующий отзыв')
+      - var linkColorClass = 'link_primary'
+        if ((locals.data.pageData.theme === 'main') || (locals.data.pageData.theme === '1'))
+          - linkColorClass = 'link_secondary'
+      a.reviews-block__link.link.link_arrow.underline(class=linkColorClass href='/reviews.html') Читать все отзывы или оставить свой
+  if locals.data.pageData.reviewsBlock.showFactoid
+    article.reviews-block__factoid.reviews-factoid
+      b.reviews-factoid__pre-number более
+      b.reviews-factoid__number!= `10&thinsp;000`
+      span.reviews-factoid__text клиентов уже получили помощь от&nbsp;наших врачей
