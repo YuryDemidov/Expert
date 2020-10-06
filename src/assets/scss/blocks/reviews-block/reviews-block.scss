@@ -63,6 +63,10 @@
           border-radius: 50%;
         }
 
+        &:focus::before {
+          border: 1px solid $xx-dark-dim-color;
+        }
+
         &.tns-nav-active {
           &::before {
             background-color: #9f9f9f;
@@ -117,6 +121,12 @@
         top: calc(50% - 2.5rem);
 
         transform: translateY(-50%);
+
+        transition: top, transform 0.4s;
+
+        @include in-focus() {
+          transform: translateY(-50%) scale(1.2);
+        }
 
         &::before {
           @include absolute-centered();
