@@ -191,5 +191,5 @@ import './banners/menu/menu-promo@1x.webp'
 import './banners/menu/menu-promo@2x.webp'
 import './banners/menu/menu-promo@3x.webp'
 
-import './mock/chrome.png'
-import './mock/arro1.jpg'
+// Reviews-block
+import './reviews-block/yandex-logo.svg'

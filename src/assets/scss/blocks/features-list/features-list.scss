@@ -66,6 +66,8 @@
   }
 
   &__feature-title {
+    margin-bottom: 1rem;
+
     font-family: $title-font-family;
     font-size: 1.7rem;
   }
@@ -73,6 +75,10 @@
   &__link {
     font-weight: 700;
     font-size: 1.8rem;
+
+    &::before {
+      transform: rotate(-45deg) translateY(-60%);
+    }
   }
 }
 

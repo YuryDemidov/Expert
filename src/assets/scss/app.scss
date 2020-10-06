@@ -24,6 +24,7 @@
 @use 'blocks/reusable/message';
 @use 'blocks/reusable/picture';
 @use 'blocks/reusable/preloader';
+@use 'blocks/reusable/slider';
 @use 'blocks/reusable/table';
 @use 'blocks/reusable/text-input';
 @use 'blocks/reusable/text-on-icon';
@@ -42,5 +43,10 @@
 @use 'blocks/application-form/application-form';
 
 @use 'blocks/features-list/features-list';
+
+@use 'blocks/reviews-block/reviews-block';
+@use 'blocks/reviews-block/reviews-factoid';
+@use 'blocks/reviews-block/rating-block';
+@use 'blocks/reviews-block/review-card';
 
 @use 'blocks/footer/page-footer';
