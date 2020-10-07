@@ -1,7 +1,7 @@
 section.reviews-block
   .reviews-block__wrapper.container
     .reviews-block__content
-      h2.heading.reviews-block__title= locals.data.pageData.reviewsBlock.title
+      h2.heading.reviews-block__title!= locals.data.pageData.reviewsBlock.title
       .reviews-block__rating.rating-block
         b.rating-block__number 5
         +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44' aria-label='звёзд')
@@ -18,7 +18,7 @@ section.reviews-block
                 p.review-card__info= `${review.author}, ${review.date}`
                 p.review-card__source
                   if review.source === 'yandex'
-                    img.review-card__yandex-logo(src='../../../../assets/img/reviews-block/yandex-logo.svg' alt='Отзыв из Яндекса' width='40' height='15')
+                    img.review-card__yandex-logo(src='assets/img/reviews-block/yandex-logo.svg' alt='Отзыв из Яндекса' width='40' height='15')
                   else
                     span отзыв с сайта
         button.slider__button.slider__button_next.hidden_mobile(aria-label='Следующий отзыв')

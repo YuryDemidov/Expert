@@ -13,8 +13,6 @@
     padding: 0;
     padding-top: 3rem;
 
-    background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
-
     &::before {
       content: '';
       position: absolute;
@@ -30,6 +28,7 @@
 
   &__title {
     margin-bottom: 2.5rem;
+    padding: 0 2.5rem;
   }
 
   &__slider {
@@ -93,6 +92,14 @@
   }
 }
 
+.theme-main {
+  .reviews-block {
+    &__wrapper {
+      background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
+    }
+  }
+}
+
 @media (min-width: $tablet-min-width) {
   .reviews-block {
     margin-bottom: 10rem;
@@ -122,7 +129,7 @@
 
         transform: translateY(-50%);
 
-        transition: top, transform 0.4s;
+        transition: transform 0.4s;
 
         @include in-focus() {
           transform: translateY(-50%) scale(1.2);
@@ -170,8 +177,6 @@
   .reviews-block {
     margin-bottom: 12rem;
 
-    background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
-
     &__wrapper {
       padding-top: 5.5rem;
 
@@ -193,6 +198,12 @@
     &__link {
       margin-top: 5rem;
       margin-bottom: 3rem;
+    }
+  }
+
+  .theme-main {
+    .reviews-block {
+      background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
     }
   }
 }
