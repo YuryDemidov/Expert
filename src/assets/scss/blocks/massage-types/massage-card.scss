@@ -1,0 +1,159 @@
+@use '../../tools' as *;
+
+.massage-card {
+  padding: 2rem 1.5rem;
+
+  background-color: $lightgray-color;
+  border-radius: 0.3rem;
+
+  &__tags {
+    @include horizontal-list();
+  }
+
+  &__tag {
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.8rem;
+
+    font-size: 1.2rem;
+
+    color: $xx-dark-dim-color;
+
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 3px;
+
+    + .massage-card__tag {
+      margin-left: 0.8rem;
+    }
+
+    @media (max-width: $phone-portrait-max-width) {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.8rem;
+
+    font-size: 2rem;
+  }
+
+  &__text {
+    margin-bottom: 1.6rem;
+
+    font-size: 1.4rem;
+    color: $xx-dark-dim-color;
+  }
+
+  &__link {
+    font-weight: 700;
+  }
+
+  &__image {
+    max-width: 28rem;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2.8rem;
+    padding-bottom: 60%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__sticker {
+    @include box(120px);
+
+    position: absolute;
+    bottom: 5rem;
+    left: 58%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: $title-font-family;
+    font-size: 2.4rem;
+
+    background-image: url('../../../img/util/icons/polystar_2.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__sticker-text {
+    transform: rotate(10deg);
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .massage-card {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .massage-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    padding-right: 10rem;
+    padding-left: 6vw;
+
+    &__content {
+      max-width: 50rem;
+      padding-top: 3.2rem;
+      padding-bottom: 4rem;
+    }
+
+    &__image {
+      margin: 0 2vw;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 2.8rem;
+    }
+
+    &__text {
+      font-size: 1.7rem;
+    }
+
+    &__sticker {
+      @include box(14vw);
+
+      top: -5rem;
+      right: -1.5rem;
+      bottom: auto;
+      left: auto;
+
+      max-width: 18rem;
+      max-height: 18rem;
+
+      font-size: 3.2rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .massage-card {
+    &__sticker {
+      top: -8rem;
+      right: -6rem;
+
+      font-size: 3.6rem;
+    }
+  }
+}
+
+@media (min-width: $l-desktop-min-width) {
+  .massage-card {
+    padding-left: 8rem;
+
+    &__image {
+      margin-right: 3rem;
+      margin-left: 3rem;
+    }
+  }
+}

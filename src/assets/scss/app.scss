@@ -45,8 +45,11 @@
 @use 'blocks/features-list/features-list';
 
 @use 'blocks/reviews-block/reviews-block';
-@use 'blocks/reviews-block/reviews-factoid';
+@use 'blocks/reviews-block/reviews-sticker';
 @use 'blocks/reviews-block/rating-block';
 @use 'blocks/reviews-block/review-card';
+
+@use 'blocks/massage-types/massage-types';
+@use 'blocks/massage-types/massage-card';
 
 @use 'blocks/footer/page-footer';

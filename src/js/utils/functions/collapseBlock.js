@@ -1,12 +1,12 @@
 /**
- * Expands blocks height by changing its CSS max-height property
+ * Collapses blocks height by changing its CSS max-height property
  * No animation provided. Transition should be added via CSS or block will change it's height immediately
  *
  * @param {HTMLElement} node - Node which should expand it's vertical size
  * @param {Boolean} [clearStyles] - if true, clears max-height and style attribute (if empty) after transition ends
  */
-export default function expandBlock(node, clearStyles) {
-  if (node.scrollHeight === node.clientHeight) {
+export default function collapseBlock(node, clearStyles) {
+  if (node.clientHeight === 0) {
     return;
   }
 
@@ -14,7 +14,7 @@ export default function expandBlock(node, clearStyles) {
     node.addEventListener(`transitionend`, nodeTransitionHandler);
   }
 
-  node.style.maxHeight = `${node.scrollHeight}px`;
+  node.style.maxHeight = `0px`;
 
   function nodeTransitionHandler() {
     node.style.maxHeight = null;

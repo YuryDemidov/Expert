@@ -1,0 +1,459 @@
+@use '../../tools' as *;
+
+.massage-types {
+  margin-bottom: 7rem;
+
+  &__section {
+    margin-bottom: 6rem;
+
+    text-align: center;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+    padding: 0 6rem;
+  }
+
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1.5rem;
+
+    font-size: 2rem;
+    vertical-align: top;
+
+    background-color: $lightgray-color;
+    border-radius: 3px;
+  }
+
+  .accordion {
+    &__trigger {
+      @include reset-button();
+
+      width: 100%;
+      padding: 1.4rem 1rem;
+
+      font-weight: 700;
+      color: map-deep-get($themes, 'main', 'secondary');
+    }
+
+    &__trigger-text {
+      position: relative;
+
+      display: inline-block;
+      padding-right: 1.6rem;
+
+      &::before {
+        @include stroke-arrow(0.9rem, 0.3rem, map-deep-get($themes, 'main', 'secondary'));
+
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+        transform: translateY(-70%) rotate(45deg);
+
+        transition: transform 0.4s;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    max-width: 48rem;
+    margin: 2rem auto;
+
+    text-align: left;
+
+    &_2,
+    &_4,
+    &_7,
+    &_9,
+    &_13 {
+      .accordion__trigger {
+        background-image: linear-gradient(90deg, #eef1f5 0%, #f1f3f4 100%);
+      }
+    }
+
+    &_1,
+    &_11,
+    &_13 {
+      .massage-card {
+        background-image: linear-gradient(270deg, #f1f3f4 3%, #dfe2e7 63%);
+      }
+    }
+
+    &_2,
+    &_7,
+    &_9 {
+      .massage-card {
+        background-image: linear-gradient(270deg, #f1f3f4 0%, #f7f7f7 44%, #f5f8fa 79%);
+      }
+    }
+
+    &_3,
+    &_8,
+    &_12 {
+      .accordion__trigger {
+        background-image: linear-gradient(90deg, #ffe6e6 0%, #fff5f5 100%);
+      }
+
+      .massage-card {
+        background-image: linear-gradient(270deg, #faf7f7 0%, #f5f5f4 44%, #f4f4f4 100%);
+      }
+    }
+
+    &_4 {
+      .massage-card {
+        background-image: linear-gradient(270deg, #eef1f5 5%, #f7f7f7 66%);
+      }
+    }
+
+    &_5 {
+      .massage-card {
+        background-image: linear-gradient(270deg, #f5f5f5 0%, #ccecff 100%);
+      }
+
+      .accordion__trigger {
+        background-image: linear-gradient(90deg, #cdeefe 0%, #effaff 100%);
+      }
+    }
+
+    &_6 {
+      .massage-card {
+        padding-bottom: 0;
+
+        background-image: linear-gradient(270deg, #f1f3f4 5%, #dfe2e7 100%);
+
+        &__image {
+          width: 23rem;
+          height: 19rem;
+          margin-right: 30%;
+          padding-bottom: 0;
+
+          background-image: url('../../../img/massage-types/massage-types-image-6_mobile@1x.png');
+
+          @include retina() {
+            background-image: url('../../../img/massage-types/massage-types-image-6_mobile@2x.png');
+          }
+
+          @include retina(3) {
+            background-image: url('../../../img/massage-types/massage-types-image-6_mobile@3x.png');
+          }
+        }
+      }
+    }
+
+    &_7 {
+      .massage-card {
+        &__image {
+          background-image: url('../../../img/massage-types/massage-types-image-7_mobile@1x.png');
+
+          @include retina() {
+            background-image: url('../../../img/massage-types/massage-types-image-7_mobile@2x.png');
+          }
+
+          @include retina(3) {
+            background-image: url('../../../img/massage-types/massage-types-image-7_mobile@3x.png');
+          }
+        }
+      }
+    }
+
+    &_9 {
+      .massage-card {
+        &__image {
+          background-image: url('../../../img/massage-types/massage-types-image-9_mobile@1x.png');
+
+          @include retina() {
+            background-image: url('../../../img/massage-types/massage-types-image-9_mobile@2x.png');
+          }
+
+          @include retina(3) {
+            background-image: url('../../../img/massage-types/massage-types-image-9_mobile@3x.png');
+          }
+        }
+      }
+    }
+
+    &_10 {
+      .massage-card {
+        background-image: linear-gradient(270deg, #f1f3f4 0%, #edf0f5 63%);
+      }
+
+      .accordion__trigger {
+        background-image: linear-gradient(270deg, #cdeefe 0%, #effaff 100%);
+      }
+    }
+
+    @for $i from 1 through 12 {
+      @if $i != 6 and $i != 7 and $i != 9 {
+        &_#{$i} .massage-card__image {
+          background-image: url('../../../img/massage-types/massage-types-image-#{$i}@1x.png');
+
+          @include retina() {
+            background-image: url('../../../img/massage-types/massage-types-image-#{$i}@2x.png');
+          }
+
+          @include retina(3) {
+            background-image: url('../../../img/massage-types/massage-types-image-#{$i}@3x.png');
+          }
+        }
+      }
+    }
+
+    &_13 {
+      .massage-card {
+        &__image {
+          background-image: url('../../../img/massage-types/massage-types-image-3@1x.png');
+
+          @include retina() {
+            background-image: url('../../../img/massage-types/massage-types-image-3@2x.png');
+          }
+
+          @include retina(3) {
+            background-image: url('../../../img/massage-types/massage-types-image-3@3x.png');
+          }
+        }
+      }
+    }
+
+    .accordion {
+      .massage-card {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &[data-state='opened'] {
+        .accordion__trigger {
+          background-image: linear-gradient(90deg, #eef1f5 0%, #f1f3f4 100%);
+        }
+
+        .accordion__trigger-text {
+          &::before {
+            transform: translateY(-25%) rotate(-135deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .massage-types {
+    &__title {
+      margin-bottom: 3.5rem;
+    }
+
+    &__subtitle {
+      font-size: 2.4rem;
+    }
+
+    &__section {
+      margin-bottom: 10rem;
+    }
+
+    &__item {
+      max-width: 105rem;
+      margin: 2.6rem auto;
+
+      &_1,
+      &_3,
+      &_5,
+      &_7,
+      &_9,
+      &_11,
+      &_13 {
+        .massage-card {
+          flex-direction: row-reverse;
+
+          &__image {
+            margin-right: 3vw;
+            margin-left: 1vw;
+          }
+        }
+      }
+
+      &_2,
+      &_4,
+      &_6,
+      &_8,
+      &_10,
+      &_12 {
+        .massage-card {
+          &__image {
+            margin-right: 1vw;
+            margin-left: 3vw;
+          }
+        }
+      }
+
+      &_2,
+      &_7,
+      &_9 {
+        .massage-card {
+          background-image: linear-gradient(270deg, #f1f3f4 0%, #f7f7f7 44%, #f3fbff 79%);
+        }
+      }
+
+      &_3,
+      &_8,
+      &_12 {
+        .massage-card {
+          background-image: linear-gradient(270deg, #fff3f3 0%, #f5f5f4 44%, #f4f4f4 100%);
+        }
+      }
+
+      &_3,
+      &_13 {
+        .massage-card {
+          padding-left: 5rem;
+
+          &__content {
+            max-width: 54rem;
+          }
+        }
+      }
+
+      &_6,
+      &_7,
+      &_9 {
+        .massage-card {
+          &__image {
+            position: absolute;
+
+            max-width: initial;
+            margin: 0;
+          }
+        }
+      }
+
+      &_8,
+      &_10,
+      &_11,
+      &_12 {
+        .massage-card {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+
+          &__image {
+            max-width: 24rem;
+          }
+        }
+      }
+
+      &_5 {
+        .massage-card {
+          &__image {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+
+      &_6 {
+        .massage-card {
+          padding-right: 2rem;
+
+          &__content {
+            max-width: 55rem;
+          }
+
+          &__image {
+            right: 5vw;
+            bottom: 0;
+
+            width: 38rem;
+            height: 30rem;
+
+            background-image: url('../../../img/massage-types/massage-types-image-6_desktop@1x.png');
+
+            @include retina() {
+              background-image: url('../../../img/massage-types/massage-types-image-6_desktop@2x.png');
+            }
+          }
+        }
+      }
+
+      &_7 {
+        .massage-card {
+          position: relative;
+
+          &__image {
+            @include box(32rem, 25rem);
+
+            top: 0;
+            left: 0;
+
+            background-image: url('../../../img/massage-types/massage-types-image-7_desktop@1x.png');
+            background-size: cover;
+
+            @include retina() {
+              background-image: url('../../../img/massage-types/massage-types-image-7_desktop@2x.png');
+            }
+          }
+        }
+      }
+
+      &_9 {
+        .massage-card {
+          position: relative;
+
+          &__image {
+            @include box(29.5rem, 24rem);
+
+            top: 3rem;
+            left: 0;
+
+            background-image: url('../../../img/massage-types/massage-types-image-9_desktop@1x.png');
+            background-size: cover;
+
+            @include retina() {
+              background-image: url('../../../img/massage-types/massage-types-image-9_desktop@2x.png');
+            }
+          }
+        }
+      }
+
+      &_12 {
+        .massage-card {
+          &__content {
+            max-width: 49rem;
+          }
+        }
+      }
+    }
+
+    .accordion {
+      &__trigger {
+        padding: 1.8rem;
+
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .massage-types {
+    &__item {
+      &_6 {
+        .massage-card {
+          &__image {
+            right: 3.5rem;
+
+            max-width: 41rem;
+            width: 36vw;
+            max-height: 34rem;
+            height: 28vw;
+          }
+        }
+      }
+    }
+  }
+}

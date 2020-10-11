@@ -1,6 +1,6 @@
 @use '../../tools' as *;
 
-.reviews-factoid {
+.reviews-sticker {
   @include box(24rem, 24.6rem);
 
   display: flex;
@@ -14,7 +14,7 @@
 
   text-align: center;
 
-  background-image: url('../../../img/util/icons/polystar.svg');
+  background-image: url('../../../img/util/icons/polystar_1.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,7 +36,7 @@
 }
 
 @media (min-width: $tablet-min-width) {
-  .reviews-factoid {
+  .reviews-sticker {
     position: absolute;
     top: -11rem;
     left: 68%;
@@ -48,7 +48,7 @@
 }
 
 @media (min-width: $s-desktop-min-width) {
-  .reviews-factoid {
+  .reviews-sticker {
     transform: none;
   }
 }

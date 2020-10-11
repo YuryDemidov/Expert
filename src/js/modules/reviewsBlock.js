@@ -82,7 +82,6 @@ function sliderResizeHandler() {
 function cutReviewText(node) {
   const STRING_LENGTH_GAP = 50;
   const initialText = node.textContent;
-  let cuttedText = ``;
 
   node.textContent = initialText.slice(0, Math.round((node.clientHeight / node.scrollHeight) * initialText.length) + STRING_LENGTH_GAP);
 
@@ -93,7 +92,7 @@ function cutReviewText(node) {
   node.textContent = node.textContent.slice(0, node.textContent.length - EXPANDING_BUTTON_TEXT.length - 1);
   node.textContent = node.textContent.trim();
   node.textContent = cutLastWord(node.textContent);
-  cuttedText = initialText.slice(node.textContent.length);
+  const cuttedText = initialText.slice(node.textContent.length);
   node.textContent += `.. `;
   const remainingText = node.textContent;
   node.textContent = ``;
@@ -133,7 +132,7 @@ function expandingButtonClickHandler(evt) {
   remainingText.textContent = remainingText.textContent.slice(0, remainingText.textContent.lastIndexOf(`..`));
   evt.target.classList.add(`hidden`);
   hiddenText.classList.remove(`hidden`);
-  expandBlock(review);
+  expandBlock(review, true);
   delete review.dataset.cutted;
 }
 

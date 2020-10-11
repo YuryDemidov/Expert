@@ -1,9 +1,10 @@
 -
   locals.data.globalData = {
     currentYear: new Date().getFullYear(),
-    massages: [
-      {
+    massages: {
+      'back-massage': {
         name: 'Лечебный массаж спины',
+        fullName: 'Лечебный массаж спины',
         url: 'back-massage.html',
         menuType: 'body',
         priceListType: 'body',
@@ -17,8 +18,9 @@
         },
         duration: 50
       },
-      {
+      'body-lymphatic-drainage': {
         name: 'Лимфодренажный',
+        fullName: 'Лимфодренажный массаж тела',
         url: 'body-lymphatic-drainage.html',
         menuType: 'body',
         priceListType: 'body',
@@ -28,8 +30,9 @@
         },
         duration: 60
       },
-      {
+      'figure-modeling': {
         name: 'Ручное моделирование фигуры',
+        fullName: 'Ручное моделирование фигуры',
         url: 'figure-modeling.html',
         menuType: 'body',
         priceListType: 'figure',
@@ -39,8 +42,9 @@
         },
         duration: 60
       },
-      {
+      'fullbody-massage': {
         name: 'Общий массаж тела',
+        fullName: 'Общий массаж тела',
         url: 'fullbody-massage.html',
         menuType: 'body',
         priceListType: 'body',
@@ -50,8 +54,9 @@
         },
         duration: 60
       },
-      {
+      'sports-massage': {
         name: 'Спортивный',
+        fullName: 'Спортивный массаж',
         url: 'sports-massage.html',
         menuType: 'body',
         priceListType: 'body',
@@ -61,8 +66,9 @@
         },
         duration: 60
       },
-      {
+      'anti-cellulite-massage': {
         name: 'Антицеллюлитный',
+        fullName: 'Антицеллюлитный массаж',
         url: 'anti-cellulite-massage.html',
         menuType: 'body',
         priceListType: 'figure',
@@ -72,8 +78,9 @@
         },
         duration: 60
       },
-      {
+      'neck-massage': {
         name: 'Шейно-воротниковой зоны',
+        fullName: 'Массаж шейно-воротниковой зоны',
         url: 'neck-massage.html',
         menuType: 'body',
         priceListType: 'body',
@@ -83,8 +90,9 @@
         },
         duration: 15
       },
-      {
+      'sculptural-buccal-massage': {
         name: 'Скульптурно-буккальный',
+        fullName: 'Скульптурно-буккальный массаж лица',
         url: 'sculptural-buccal-massage.html',
         menuType: 'face',
         priceListType: 'face',
@@ -98,8 +106,9 @@
         },
         duration: 50
       },
-      {
+      'facial-lymphatic-drainage': {
         name: 'Лимфодренажный',
+        fullName: 'Лимфодренажный массаж лица',
         url: 'facial-lymphatic-drainage.html',
         menuType: 'face',
         priceListType: 'face',
@@ -109,8 +118,9 @@
         },
         duration: 60
       },
-      {
+      'classic-facial-massage': {
         name: 'Классический',
+        fullName: 'Классический массаж лица',
         url: 'classic-facial-massage.html',
         menuType: 'face',
         priceListType: 'face',
@@ -120,8 +130,9 @@
         },
         duration: 50
       },
-      {
+      'chiromassage': {
         name: 'Хиромассаж',
+        fullName: 'Хиромассаж лица',
         url: 'chiromassage.html',
         menuType: 'face',
         priceListType: 'face',
@@ -131,8 +142,9 @@
         },
         duration: 60
       },
-      {
-        name: 'Асахи (Зоган)',
+      'japanese-asahi-massage': {
+        name: 'Японский массаж Асахи',
+        fullName: 'Массаж лица Асахи-Зоган',
         url: 'japanese-asahi-massage.html',
         menuType: 'face',
         priceListType: 'face',
@@ -142,7 +154,7 @@
         },
         duration: 60
       }
-    ],
+    },
     company: {
       foundationYear: 2008,
       phones: [

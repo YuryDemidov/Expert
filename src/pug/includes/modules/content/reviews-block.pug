@@ -26,8 +26,8 @@ section.reviews-block
         if ((locals.data.pageData.theme === 'main') || (locals.data.pageData.theme === '1'))
           - linkColorClass = 'link_secondary'
       a.reviews-block__link.link.link_arrow.underline(class=linkColorClass href='/reviews.html') Читать все отзывы или оставить свой
-  if locals.data.pageData.reviewsBlock.showFactoid
-    article.reviews-block__factoid.reviews-factoid
-      b.reviews-factoid__pre-number более
-      b.reviews-factoid__number!= `10&thinsp;000`
-      span.reviews-factoid__text клиентов уже получили помощь от&nbsp;наших врачей
+  if locals.data.pageData.reviewsBlock.showSticker
+    article.reviews-block__sticker.reviews-sticker
+      b.reviews-sticker__pre-number более
+      b.reviews-sticker__number!= `10&thinsp;000`
+      span.reviews-sticker__text клиентов уже получили помощь от&nbsp;наших врачей
