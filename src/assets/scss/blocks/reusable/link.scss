@@ -22,9 +22,9 @@
       content: '';
       position: absolute;
       top: 50%;
-      left: calc(100% + 0.6rem);
+      left: calc(100% + 0.3rem);
 
-      transform: rotate(-45deg) translateY(-65%);
+      transform: translateY(-50%) rotate(-45deg);
     }
   }
 

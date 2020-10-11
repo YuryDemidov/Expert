@@ -10,6 +10,7 @@
   &__wrapper {
     position: relative;
 
+    overflow: hidden;
     padding: 0;
     padding-top: 3rem;
 
@@ -204,6 +205,10 @@
   .theme-main {
     .reviews-block {
       background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
+
+      &__wrapper {
+        background-image: none;
+      }
     }
   }
 }

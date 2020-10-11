@@ -52,3 +52,10 @@ mixin picture-tag(imagesArray, fallbackImage, altText, width, height)
 mixin svg-icon(id)
   svg&attributes(attributes)
     use(xlink:href=id)
+
+mixin accordion(triggerText, triggerId, bodyId, isExpanded)
+  .accordion(data-state=(isExpanded ? 'opened' : 'closed') class=attributes.class)
+    button.accordion__trigger(type='button' id=triggerId aria-controls=bodyId aria-expanded=(isExpanded ? 'true' : 'false'))
+      span.accordion__trigger-text!= triggerText
+    .accordion__body(id=bodyId role='region' aria-labelledby=triggerId)
+      block
