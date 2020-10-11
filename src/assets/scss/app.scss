@@ -27,7 +27,6 @@
 @use 'blocks/reusable/slider';
 @use 'blocks/reusable/table';
 @use 'blocks/reusable/text-input';
-@use 'blocks/reusable/text-on-icon';
 @use 'blocks/reusable/tooltip';
 @use 'blocks/reusable/underline';
 
@@ -51,5 +50,7 @@
 
 @use 'blocks/massage-types/massage-types';
 @use 'blocks/massage-types/massage-card';
+
+@use 'blocks/massage-choosing-quiz/massage-choosing-quiz';
 
 @use 'blocks/footer/page-footer';
