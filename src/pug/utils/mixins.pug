@@ -59,3 +59,24 @@ mixin accordion(triggerText, triggerId, bodyId, isExpanded)
       span.accordion__trigger-text!= triggerText
     .accordion__body(id=bodyId role='region' aria-labelledby=triggerId)
       block
+
+mixin text-input(placeholder, hasMessage, wrapClass)
+  .text-input(class=wrapClass)
+    input.text-input__input(value=(attributes.value || ''))&attributes(attributes)
+    if placeholder
+      label.text-input__placeholder(for=attributes.id)!= placeholder
+    block
+    if hasMessage
+      p.message.hidden
+
+mixin custom-checkbox()
+  .custom-checkbox(class=attributes.class)
+    input.custom-checkbox__input.visually-hidden(id=attributes.id type='checkbox' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false))
+    label.custom-checkbox__label(for=attributes.id)
+      block
+
+mixin custom-radio()
+  .custom-radio(class=attributes.class)
+    input.custom-radio__input.visually-hidden(id=attributes.id type='radio' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false))
+    label.custom-radio__label(for=attributes.id)
+      block

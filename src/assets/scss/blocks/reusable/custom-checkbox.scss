@@ -4,7 +4,8 @@
   &__label {
     position: relative;
 
-    padding-left: 22px;
+    margin-bottom: 0;
+    padding-left: 3.2rem;
 
     color: $default-color;
 
@@ -13,45 +14,43 @@
 
     &::before,
     &::after {
+      @include vertically-centered();
+
       content: '';
-      position: absolute;
-      top: 0;
 
       transition: all 0.4s;
     }
 
     &::before {
-      @include box(15px);
+      @include box(1.6rem);
 
-      left: 0;
+      left: 0.5rem;
 
-      border: 1px solid $light-dim-color;
+      border: 0.1rem solid $light-dim-color;
+      border-radius: 0.2rem;
     }
 
     &::after {
-      @include check-mark(6px, 11px, 2px, $alt-default-color);
+      @include check-mark(1rem, 1.8rem, 0.3rem, $default-color);
+      @include themify() {
+        border-color: $color-primary;
+      }
 
-      left: 5px;
+      left: 1.7rem;
+
+      border-radius: 1px;
 
       opacity: 0;
+
+      transform: translateY(-80%) rotate(50deg) skew(12deg, 0deg);
     }
   }
 
-  &__checkbox_invalid + .custom-checkbox__label::before {
-    border-color: $transparent-error-color;
-    box-shadow: 0 0 5px $transparent-error-color;
-  }
-
-  &__checkbox:focus + .custom-checkbox__label::before {
+  &__input:focus + .custom-checkbox__label::before {
     border-color: $dark-dim-color;
   }
 
-  &__checkbox:checked + .custom-checkbox__label {
-    &::before {
-      background-color: $default-color;
-      border-color: $default-color;
-    }
-
+  &__input:checked + .custom-checkbox__label {
     &::after {
       opacity: 1;
     }

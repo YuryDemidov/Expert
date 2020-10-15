@@ -1,0 +1,26 @@
+@use '../../tools' as *;
+
+.test-progress {
+  text-align: right;
+  font-size: 1.4rem;
+
+  &__background,
+  &__bar {
+    height: 1rem;
+
+    border-radius: 2rem;
+  }
+
+  &__background {
+    margin-bottom: 0.6rem;
+
+    background-color: $x-light-dim-color;
+  }
+
+  &__bar {
+    min-width: 1.4rem;
+    width: 0;
+
+    background-color: map-deep-get($themes, 'main', 'primary');
+  }
+}

@@ -3,18 +3,17 @@
 .text-input {
   position: relative;
 
-  padding-top: 1.2rem;
+  padding-top: 1.6rem;
 
   &__input {
     @include reset-indents();
 
     width: 100%;
-    padding: 0.4rem;
+    padding: 0.6rem;
 
-    font-size: 16px;
+    font-size: 1.6rem;
 
     border: none;
-    border-bottom: 1px solid $dim-color;
     border-radius: 0;
 
     &:focus {
@@ -24,18 +23,28 @@
     @include active-custom-placeholder() {
       top: 0;
 
-      transform: scale(0.85);
+      transform: scale(0.8);
+    }
+
+    &[type='tel'] {
+      color: $dark-dim-color;
+    }
+
+    &[type='tel']:focus,
+    &_focused[type='tel'] {
+      color: $default-color;
     }
   }
 
   &__placeholder {
     position: absolute;
-    top: 20px;
-    left: 0;
+    top: 2.3rem;
+    left: 0.4rem;
 
     padding-left: 0.4rem;
 
-    font-size: 14px;
+    font-size: 1.6rem;
+    color: $dark-dim-color;
 
     pointer-events: none;
 
@@ -43,6 +52,51 @@
     transition-duration: 0.4s;
     transition-timing-function: ease;
     transform-origin: top left;
+  }
+
+  &_line {
+    .text-input {
+      &__input {
+        border-bottom: 0.1rem solid $dark-dim-color;
+      }
+    }
+  }
+
+  &_border {
+    .text-input {
+      &__input {
+        border: 0.1rem solid $dark-dim-color;
+        border-radius: 0.3rem;
+      }
+    }
+  }
+
+  .text-input__input {
+    &_invalid {
+      border-color: $error-color;
+    }
+  }
+
+  &_fill {
+    .text-input {
+      &__input {
+        padding: 0.8rem;
+
+        background-color: $lightgray-color;
+        border: 0.1rem solid $lightgray-color;
+        border-radius: 0.5rem;
+
+        &_invalid {
+          background-color: rgba(255, 0, 0, 0.15);
+          border-color: $transparent-error-color;
+        }
+      }
+
+      &__placeholder {
+        top: 2.5rem;
+        left: 0.6rem;
+      }
+    }
   }
 
   &_halfwidth {
@@ -61,7 +115,7 @@
 
     .text-input__postscript {
       font-weight: 400;
-      font-size: 14px;
+      font-size: 1.4rem;
       color: $dim-color;
     }
   }

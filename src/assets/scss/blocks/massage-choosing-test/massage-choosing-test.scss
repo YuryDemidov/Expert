@@ -1,6 +1,6 @@
 @use '../../tools' as *;
 
-.massage-choosing-quiz {
+.massage-choosing-test {
   margin-bottom: 8rem;
 
   background-image: linear-gradient(88deg, #eef1f5 0%, #fefefe 51%, #f6f6f6 85%);
@@ -37,26 +37,27 @@
 
   &__image {
     width: 100%;
-    padding-bottom: 42%;
+    padding-bottom: 44%;
 
-    background-image: url('../../../img/massage-choosing-quiz/massage-choosing-quiz_mobile@1x.jpg');
+    background-color: $alt-default-color;
+    background-image: url('../../../img/massage-choosing-test/massage-choosing-test_mobile@1x.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 2px 2px 6px $x-light-dim-color;
 
     @include retina() {
-      background-image: url('../../../img/massage-choosing-quiz/massage-choosing-quiz_mobile@2x.jpg');
+      background-image: url('../../../img/massage-choosing-test/massage-choosing-test_mobile@2x.jpg');
     }
 
     @include retina(3) {
-      background-image: url('../../../img/massage-choosing-quiz/massage-choosing-quiz_mobile@3x.jpg');
+      background-image: url('../../../img/massage-choosing-test/massage-choosing-test_mobile@3x.jpg');
     }
   }
 }
 
 @media (min-width: $tablet-min-width) {
-  .massage-choosing-quiz {
+  .massage-choosing-test {
     &__wrapper {
       display: flex;
       justify-content: space-between;
@@ -82,28 +83,32 @@
     }
 
     &__image {
-      padding-bottom: 26%;
+      width: 50%;
+      padding-bottom: 27.5%;
 
-      background-image: url('../../../img/massage-choosing-quiz/massage-choosing-quiz_desktop@1x.png');
+      background-color: $transparent-color;
+      background-image: url('../../../img/massage-choosing-test/massage-choosing-test_desktop@1x.png');
       box-shadow: none;
 
       @include retina() {
-        background-image: url('../../../img/massage-choosing-quiz/massage-choosing-quiz_desktop@2x.png');
+        background-image: url('../../../img/massage-choosing-test/massage-choosing-test_desktop@2x.png');
       }
     }
   }
 }
 
 @media (min-width: $s-desktop-min-width) {
-  .massage-choosing-quiz {
+  .massage-choosing-test {
+    background-image: linear-gradient(88deg, #eef1f5 0%, #fefefe 29%, #f6f6f6 85%);
+
     &__wrapper {
       max-width: 124rem;
     }
 
     &__content {
-      width: 42%;
-      margin-left: 4%;
-      margin-right: 4%;
+      width: 35vw;
+      margin-left: 4vw;
+      margin-right: 2vw;
     }
 
     &__title,
@@ -115,13 +120,40 @@
     }
 
     &__link {
+      @include centered-block(28rem);
+
+      display: block;
       margin-top: 3rem;
-      margin-right: 8vw;
-      margin-left: 8vw;
     }
 
     &__image {
-      max-width: 52rem;
+      flex-shrink: 0;
+      width: 54rem;
+      height: 29.7rem;
+      margin-right: 2vw;
+      padding-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .massage-choosing-test {
+    &__content {
+      width: 46%;
+      margin: 0 2%;
+    }
+
+    &__title,
+    &__description {
+      font-size: 2.4rem;
+    }
+
+    &__link {
+      font-size: 1.8rem;
+    }
+
+    &__image {
+      margin-right: 2rem;
     }
   }
 }
