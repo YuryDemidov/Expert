@@ -1,0 +1,58 @@
+@use '../../tools' as *;
+
+.popups-wrap {
+  z-index: 100;
+
+  overflow: auto;
+  overflow-x: hidden;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  @media (orientation: landscape) and (max-height: 500px) {
+    align-items: flex-start;
+  }
+
+  &,
+  &__bg-close {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__bg-close {
+    z-index: -1;
+
+    background-color: $dark-dim-color;
+
+    animation-duration: 0.5s;
+  }
+}
+
+.page[data-state='show-popup'] {
+  overflow: hidden;
+
+  .popups-wrap {
+    display: flex;
+  }
+}
+
+[data-popup='closed'] {
+  display: none;
+}
+
+[data-popup='opened'] {
+  display: block;
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .page[data-state='show-popup'] {
+    .page__header,
+    .page__content,
+    .page__footer {
+      filter: blur(2px);
+    }
+  }
+}

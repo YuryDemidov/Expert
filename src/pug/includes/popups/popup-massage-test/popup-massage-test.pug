@@ -1,0 +1,66 @@
+-
+  var logoPictureSrc = {
+    desktop: false,
+    tablet: false,
+    mobile: globalData.company.logoImages.desktop
+  }
+
+section.popup.popup-massage-test(data-popup='closed' data-popup-name='massage-test')
+  .popup__container
+    button.popup__close-button.popup-message-test__close(type='button' data-close-popup='massage-test' aria-label='Закрыть модальное окно')
+    h2.popup-massage-test__title.visually-hidden Тест для подбора массажа
+    .popup-massage-test__content
+      header.popup-massage-test__header
+        p.popup-massage-test__description
+          | Ответьте на&nbsp;6&nbsp;вопросов всего за&nbsp;минуту и&nbsp;узнайте какой массаж подходит именно&nbsp;вам
+        .popup-massage-test__progress.test-progress
+          .test-progress__background
+            .test-progress__bar
+          b.test-progress__caption
+            | Готово
+            |
+            span.test-progress__passed-questions-output 0
+            |/6
+      form#massageChoosingTest.popup-massage-test__form(action='/' method='post')
+        section.test-slide.test-slide_1
+          h3.test-slide__title Сколько вам лет?
+          .test-slide__inputs
+            each value, i in ['до 25', '25-35', '35-45', '45-55', 'больше 55']
+              +custom-radio().test-slide__input.test-slide__input_border(id=`test-quest1-ans${i + 1}` name='test-question-1' value=value)= value
+        section.test-slide.test-slide_2.hidden
+          h3.test-slide__title Какие из этих проблем есть у вас?
+          .test-slide__inputs
+            each value, i in ['Боли в спине или других частях тела', 'Целлюлит', 'Лишний вес, дряблость кожи', 'Морщины на лице, возрастные изменения, потеря тонуса кожи', 'Отёки, тяжесть в ногах', 'Бессоница, стресс, головные боли', 'Ничего из этого']
+              +custom-checkbox().test-slide__input.test-slide__input_border(id=`test-quest2-ans${i + 1}` name='test-question-2' value=value)= value
+        section.test-slide.test-slide_3.hidden
+          h3.test-slide__title Есть ли у вас заболевания позвоночника?
+          +custom-radio().test-slide__input(id=`test-quest3-ans1` name='test-question-3' value='yes') Да
+          +text-input('Напишите какие', false, 'text-input_line hidden')#massageChoosingTestSpineDiseases(type='text' name='spine-disease' autocomplete='off' aria-label='Опишите свои заболевания позвоночника')
+          +custom-radio().test-slide__input(id=`test-quest3-ans2` name='test-question-3' value='no') Нет
+        section.test-slide.test-slide_4.hidden
+          h3.test-slide__title Чего вы хотите добиться массажем?
+          .test-slide__inputs
+            each value, i in ['Избавиться от боли в спине, мышцах, головной боли', 'Избавиться от целлюлита', 'Похудеть, подтянуть кожу', 'Избавиться от недо&shy;статков лица: морщин, второго под&shy;бородка, дряблости кожи', 'Избавиться от отёков', 'Наладить сон, поднять иммунитет', 'Снять напряжение в мышцах']
+              +custom-checkbox().test-slide__input.test-slide__input_border(id=`test-quest4-ans${i + 1}` name='test-question-4' value=value)!= value
+        section.test-slide.test-slide_5.hidden
+          h3.test-slide__title Отметьте пункты, которые можно применить&nbsp;к&nbsp;вам
+          .test-slide__inputs
+            each value, i in ['У меня сидячая работа, малоподвижный образ жизни', 'Занимаюсь спортом 2-3 раза в неделю', 'Совсем не занимаюсь спортом', 'Плохо сплю', 'Занимаюсь физическим трудом', 'Неправильно питаюсь', 'Мне больше 55 лет', 'Ничего из этого']
+              +custom-checkbox().test-slide__input.test-slide__input_border(id=`test-quest5-ans${i + 1}` name='test-question-5' value=value)= value
+        section.test-slide.test-slide_6.hidden
+          h3.test-slide__title Делали ли вы массаж ранее?
+          +custom-radio().test-slide__input(id=`test-quest6-ans1` name='test-question-6' value='yes') Да
+          +text-input('Напишите какой', false, 'text-input_line hidden')#massageChoosingTestPreviousExperience(type='text' name='previous-experience' autocomplete='off' aria-label='Какие курсы массажа вы проходили ранее')
+          +custom-radio().test-slide__input(id=`test-quest6-ans2` name='test-question-6' value='no') Нет
+        section.test-slide.test-slide_7.hidden
+          h3.test-slide__title Пожалуйста, оставьте контактные данные, чтобы&nbsp;получить&nbsp;результаты
+          +text-input('Имя', true, 'text-input_fill test-slide__input')#massageChoosingTestName(type='text' name='name' autocomplete='off' required)
+          +text-input('Телефон', true, 'text-input_fill test-slide__input')#massageChoosingTestPhone(type='tel' name='phone' placeholder='+7(___)___-__-__' value='+7' autocomplete='off' required)
+      footer.popup-massage-test__footer
+        button.button.popup-massage-test__previous.hidden(type='button' aria-label='Предыдущий вопрос')
+        button.button.button_primary.popup-massage-test__next(form='massageChoosingTest') Далее
+        p.popup-massage-test__message.message.hidden
+  .popup-massage-test__success-message.test-success.hidden
+    +picture-tag(logoPictureSrc, logoPictureSrc.mobile.png['2x'], 'Клиника Expert', 150, 36).test-success__image
+    p.test-success__text Отлично! Мы перезвоним вам, рас&shy;ска&shy;жем всё в&nbsp;подробностях и&nbsp;от&shy;ветим на&nbsp;любые вопросы
+    button.test-success__button.button.button_primary(type='button' data-close-popup='massage-test') Закрыть

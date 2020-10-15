@@ -16,6 +16,7 @@
 @use 'blocks/reusable/button';
 @use 'blocks/reusable/container';
 @use 'blocks/reusable/custom-checkbox';
+@use 'blocks/reusable/custom-radio';
 @use 'blocks/reusable/dropdown';
 @use 'blocks/reusable/heading';
 @use 'blocks/reusable/inline-icon';
@@ -27,12 +28,18 @@
 @use 'blocks/reusable/slider';
 @use 'blocks/reusable/table';
 @use 'blocks/reusable/text-input';
-@use 'blocks/reusable/text-on-icon';
 @use 'blocks/reusable/tooltip';
 @use 'blocks/reusable/underline';
 
+// Common page styles
 @use 'blocks/page/page';
 
+// Popups
+@use 'blocks/popups/popups-wrap';
+@use 'blocks/popups/popup';
+@use 'blocks/popups/popup-massage-test';
+
+// Different blocks
 @use 'blocks/header/page-header';
 @use 'blocks/header/phones-list';
 @use 'blocks/header/main-screen';
@@ -51,5 +58,10 @@
 
 @use 'blocks/massage-types/massage-types';
 @use 'blocks/massage-types/massage-card';
+
+@use 'blocks/massage-choosing-test/massage-choosing-test';
+@use 'blocks/massage-choosing-test/test-progress';
+@use 'blocks/massage-choosing-test/test-slide';
+@use 'blocks/massage-choosing-test/test-success';
 
 @use 'blocks/footer/page-footer';

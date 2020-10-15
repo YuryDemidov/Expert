@@ -4,6 +4,10 @@
   @include reset-button();
   @include button($color: $alt-default-color);
 
+  @include in-focus() {
+    color: $alt-default-color;
+  }
+
   &_primary {
     @include themify() {
       background-color: $color-primary;
