@@ -1,7 +1,19 @@
 @use '../../tools' as *;
 
 .application-form {
+  position: relative;
+
   margin-bottom: 12rem;
+
+  &__background {
+    max-width: 116rem;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+
+    @include themify() {
+      background-color: $color-background;
+    }
+  }
 
   &__content {
     @include centered-block(65rem);
@@ -31,9 +43,12 @@
     margin-bottom: 2rem;
     padding: 1rem 2rem;
 
-    background-color: $lightgray-color;
-    border: 1px solid $transparent-color;
-    border-radius: 100px;
+    border: 0.1rem solid $transparent-color;
+    border-radius: 10rem;
+
+    &_invalid {
+      border-color: $error-color;
+    }
 
     &:focus {
       border-color: $light-dim-color;
@@ -47,14 +62,186 @@
     padding-bottom: 1.2rem;
   }
 
-  &__message {
+  &__personal-data {
+    margin-top: 1.2rem;
+
+    font-size: 1.2rem;
     text-align: center;
+
+    .custom-checkbox {
+      &__label {
+        padding-left: 2.2rem;
+
+        color: $dark-dim-color;
+
+        &::before {
+          left: 0;
+
+          background-color: $alt-default-color;
+        }
+
+        &::after {
+          left: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &__message {
+    margin-top: 1.4rem;
+
+    text-align: center;
+
+    animation-name: bounce-in;
+    animation-duration: 0.4s;
+  }
+}
+
+.theme-main,
+.theme-8 {
+  .application-form {
+    &__background {
+      padding: 0;
+
+      background: none;
+    }
+
+    &__input {
+      background-color: $lightgray-color;
+    }
+  }
+}
+
+.theme-1,
+.theme-7,
+.theme-9 {
+  .application-form {
+    .sticker {
+      @include box(24rem, 24.6rem);
+
+      position: relative;
+
+      margin: 0 auto;
+      margin-bottom: 4rem;
+      padding: 4.5rem;
+      padding-bottom: 5rem;
+
+      font-family: $title-font-family;
+      color: $alt-default-color;
+
+      &__image {
+        fill: #fe2c78;
+      }
+
+      &__main-text {
+        font-size: 5rem;
+      }
+
+      &__secondary-text {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+.theme-1 {
+  .application-form {
+    &__background {
+      background-color: $x-lightgray-color;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__title,
+    &__text {
+      text-align: center;
+    }
+
+    .sticker {
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+
+      color: $default-color;
+
+      &__image {
+        fill: #ffe9e9;
+      }
+
+      &__secondary-text {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.theme-4 {
+  .application-form {
+    .custom-checkbox {
+      &__label {
+        &::after {
+          border-color: map-deep-get($themes, '4', 'secondary');
+        }
+      }
+    }
+  }
+}
+
+.theme-7 {
+  .application-form {
+    &__background {
+      background-color: map-deep-get($themes, '7', 'alt-background');
+    }
+
+    .custom-checkbox {
+      &__label {
+        &::after {
+          border-color: map-deep-get($themes, '7', 'secondary');
+        }
+      }
+    }
+  }
+}
+
+.theme-9 {
+  .application-form {
+    &__background {
+      background-color: #ffedf6;
+    }
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .theme-1 {
+    .application-form {
+      &__background {
+        @include centered-block(58rem);
+
+        padding: 9.5vw;
+        padding-top: 4rem;
+      }
+
+      &__title {
+        font-size: 2.2rem;
+      }
+
+      &__title,
+      &__text {
+        text-align: left;
+      }
+    }
   }
 }
 
 @media (min-width: $tablet-min-width) {
   .application-form {
     margin-bottom: 10rem;
+
+    &__background {
+      padding-top: 4.5rem;
+      padding-bottom: 6rem;
+    }
 
     &__content {
       @include centered-block(85rem);
@@ -71,9 +258,12 @@
     }
 
     &__form {
+      max-width: initial;
+    }
+
+    &__inputs {
       display: flex;
       align-items: center;
-      max-width: initial;
     }
 
     &__input {
@@ -87,12 +277,54 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
+
+    &__personal-data {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .theme-1 {
+    .application-form {
+      &__background {
+        padding-right: 8rem;
+        padding-left: 8rem;
+      }
+
+      &__content {
+        padding: 0;
+      }
+
+      &__title {
+        margin-bottom: 1.5rem;
+      }
+
+      &__text {
+        font-size: 1.6rem;
+      }
+
+      &__inputs {
+        @include centered-block(35rem);
+
+        display: block;
+      }
+
+      &__input {
+        margin-right: 0;
+        margin-bottom: 2rem;
+        padding: 1rem 2rem;
+      }
+    }
   }
 }
 
 @media (min-width: $s-desktop-min-width) {
   .application-form {
-    margin-bottom: 9rem;
+    margin-bottom: 10rem;
+
+    &__content {
+      max-width: 90rem;
+      padding: 0 5rem;
+    }
 
     &__title {
       font-size: 2.6rem;
@@ -107,8 +339,187 @@
       font-size: 1.8rem;
     }
 
+    &__input {
+      max-width: 22rem;
+    }
+
     &__submit {
       line-height: 1;
+    }
+
+    &__personal-data {
+      text-align: right;
+    }
+
+    &__message {
+      max-width: 31rem;
+      margin-left: auto;
+    }
+  }
+
+  .theme-1,
+  .theme-7,
+  .theme-9 {
+    .application-form {
+      overflow: hidden;
+      padding-top: 10rem;
+
+      .sticker {
+        position: absolute;
+        top: 0;
+      }
+
+      &__input {
+        margin-right: 2.5rem;
+      }
+    }
+  }
+
+  .theme-1 {
+    .application-form {
+      .sticker {
+        right: 1%;
+
+        width: 21vw;
+      }
+
+      &__background {
+        max-width: 116rem;
+        padding: 8rem;
+        padding-top: 6rem;
+        padding-left: 6rem;
+      }
+
+      &__content {
+        padding: 0 5rem;
+      }
+
+      &__title {
+        font-size: 2.6rem;
+      }
+
+      &__inputs {
+        max-width: initial;
+        display: flex;
+      }
+
+      &__input {
+        margin-bottom: 0;
+        padding: 0.8rem 1rem;
+      }
+    }
+  }
+
+  .theme-7,
+  .theme-9 {
+    .application-form {
+      .sticker {
+        @include box(20vw);
+
+        left: calc(60% + 20rem);
+
+        padding-right: 3.6rem;
+        padding-left: 3.6rem;
+
+        transform: rotate(10deg);
+      }
+
+      &__content {
+        padding-right: 10rem;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .theme-1 {
+    .application-form {
+      margin-bottom: 0;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+
+      &::before {
+        @include box(26vw);
+
+        content: '';
+        position: absolute;
+        top: calc(60% - 6vw);
+        left: calc(54% + 30rem);
+
+        background-image: url(../../../img/application-form/branch@1x.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include retina() {
+          background-image: url(../../../img/application-form/branch@2x.png);
+        }
+      }
+
+      &__background {
+        padding-left: calc(45rem - 22vw);
+        padding-bottom: 9rem;
+      }
+
+      .sticker {
+        top: 2rem;
+        right: 80%;
+
+        width: 24rem;
+      }
+
+      &__personal-data {
+        margin-bottom: 1.4rem;
+      }
+
+      &__message {
+        max-height: 0; // For not affecting the parent height after appending on the page
+        margin-top: 0;
+      }
+    }
+  }
+
+  .theme-7,
+  .theme-9 {
+    .application-form {
+      .sticker {
+        @include box(22rem);
+      }
+    }
+  }
+}
+
+@media (min-width: $l-desktop-min-width) {
+  .theme-1,
+  .theme-7,
+  .theme-9 {
+    .application-form {
+      max-width: 140rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .theme-1 {
+    .application-form {
+      padding-top: 6rem;
+
+      &::before {
+        @include box(34rem);
+
+        top: 42%;
+        left: 75%;
+      }
+
+      &__background {
+        padding-bottom: 6rem;
+        padding-left: 14rem;
+      }
+
+      .sticker {
+        @include box(25rem);
+      }
     }
   }
 }

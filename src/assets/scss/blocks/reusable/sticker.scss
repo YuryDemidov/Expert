@@ -1,0 +1,27 @@
+@use '../../tools' as *;
+
+.sticker {
+  position: absolute;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  &__image {
+    @include box(100%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__main-text,
+  &__secondary-text {
+    font-weight: 700;
+  }
+}

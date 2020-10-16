@@ -1,13 +1,38 @@
+- var formHeading = 'Оставьте заявку и получите скидку 20% на первый сеанс'
+- var formText = 'Вы увидите, как работает специалист, получи&shy;те профессиональную консультацию и&nbsp;сможе&shy;те определиться с&nbsp;планом процедур. Если вам не&nbsp;понравится, мы вернём деньги за&nbsp;сеанс'
+if locals.data.pageData.theme === '1'
+  - formHeading = 'Акция на март и апрель. Любое количество сеансов скульптурно-буккального массажа со скидкой 25%'
+  - formText = 'Мы хотим подарить большему количеству клиентов возможность стать прекраснее и запускаем акцию на самый популярный массаж лица в нашей клинике. Не откладывайте преображение — если первый сеанс вам не понравится, мы вернём деньги'
+
+mixin sticker(mainText, secondaryText)
+  article.application-form__sticker.sticker
+    +svg-icon('#polystar').sticker__image
+    b.sticker__main-text= mainText
+    span.sticker__secondary-text= secondaryText
+
 section.application-form
-  .container
+  case locals.data.pageData.theme
+    when '1'
+      +sticker('1 год', 'держится результат одного курса, а при поддержке остаётся навсегда')
+    when '7'
+      +sticker('3 в 1', 'за стоимость одной процедуры')
+    when '9'
+      +sticker('10', 'сеансов надолго обеспечат вам гладкую кожу')
+  .container.application-form__background
     .application-form__content
-      h2.application-form__title.heading.heading_secondary Оставьте заявку и получите скидку 20% на первый сеанс
-      p.application-form__text
-        | Вы увидите, как работает специалист, получите профессиональную консультацию и&nbsp;сможете определиться
-        | с&nbsp;планом процедур. Если вам не&nbsp;понравится, мы вернём деньги за&nbsp;сеанс
+      h2.application-form__title.heading.heading_secondary!= formHeading
+      p.application-form__text!= formText
       form.application-form__form(action='#' method='post')
-        input.application-form__input(name='name' type='text' placeholder='Имя' aria-label='Имя')
-        input.application-form__input(name='phone' type='text' placeholder='Телефон' aria-label='Телефон')
-        button.application-form__submit.button.button_primary(type='submit')
-          span.button__content Оставить заявку
+        .application-form__inputs
+          input.application-form__input(name='name' type='text' placeholder='Имя' aria-label='Имя' required)
+          input.application-form__input(name='phone' type='tel' placeholder='Телефон' aria-label='Телефон' required)
+          - var colorModifier = 'primary'
+          if ((locals.data.pageData.theme === '7') || (locals.data.pageData.theme === '4'))
+            - colorModifier = 'secondary'
+          button.application-form__submit.button(class=`button_${colorModifier}` type='submit')
+            span.button__content Оставить заявку
+        +custom-checkbox()#applicationFormPersonalData.application-form__personal-data(name='personal-data-agreement' checked required)
+          | Даю согласие на обработку
+          |
+          a.link.underline(class=`link_${colorModifier}` href='/personal-data-agreement.pdf') персональных данных
         p.application-form__message.message.hidden

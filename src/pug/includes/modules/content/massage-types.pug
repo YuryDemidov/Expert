@@ -56,8 +56,9 @@ section.massage-types
       .massage-types__section
         h3.massage-types__subtitle Для красоты лица
         .massage-types__item.massage-types__item_6
-          .massage-card__sticker
-            span.massage-card__sticker-text Хит
+          article.sticker
+            +svg-icon('#polystar').sticker__image
+            b.sticker__main-text Хит
           +massage-card(
             globalData.massages['sculptural-buccal-massage'],
             ['Замена пластике', 'Улучшение черт лица', 'Без противопоказаний'],

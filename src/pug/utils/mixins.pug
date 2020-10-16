@@ -71,12 +71,12 @@ mixin text-input(placeholder, hasMessage, wrapClass)
 
 mixin custom-checkbox()
   .custom-checkbox(class=attributes.class)
-    input.custom-checkbox__input.visually-hidden(id=attributes.id type='checkbox' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false))
+    input.custom-checkbox__input.visually-hidden(id=attributes.id type='checkbox' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false) required=attributes.required)
     label.custom-checkbox__label(for=attributes.id)
       block
 
 mixin custom-radio()
   .custom-radio(class=attributes.class)
-    input.custom-radio__input.visually-hidden(id=attributes.id type='radio' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false))
+    input.custom-radio__input.visually-hidden(id=attributes.id type='radio' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false) required=attributes.required)
     label.custom-radio__label(for=attributes.id)
       block
