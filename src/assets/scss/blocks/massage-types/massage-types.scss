@@ -62,6 +62,25 @@
     }
   }
 
+  .sticker {
+    @include box(120px);
+
+    bottom: 5rem;
+    left: 58%;
+    z-index: 1;
+
+    font-family: $title-font-family;
+    font-size: 2.4rem;
+
+    &__image {
+      fill: #d4e5f1;
+    }
+
+    &__main-text {
+      transform: rotate(10deg);
+    }
+  }
+
   &__item {
     position: relative;
 
@@ -260,6 +279,20 @@
       margin-bottom: 10rem;
     }
 
+    .sticker {
+      @include box(14vw);
+
+      top: -5rem;
+      right: -1.5rem;
+      bottom: auto;
+      left: auto;
+
+      max-width: 18rem;
+      max-height: 18rem;
+
+      font-size: 3.2rem;
+    }
+
     &__item {
       max-width: 105rem;
       margin: 2.6rem auto;
@@ -443,6 +476,13 @@
 
 @media (min-width: $desktop-min-width) {
   .massage-types {
+    .sticker {
+      top: -8rem;
+      right: -6rem;
+
+      font-size: 3.6rem;
+    }
+
     &__item {
       &_6 {
         .massage-card {

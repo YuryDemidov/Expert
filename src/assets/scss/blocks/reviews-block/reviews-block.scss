@@ -11,8 +11,8 @@
     position: relative;
 
     overflow: hidden;
+    max-width: 126rem;
     padding: 0;
-    padding-top: 3rem;
 
     &::before {
       content: '';
@@ -96,6 +96,8 @@
 .theme-main {
   .reviews-block {
     &__wrapper {
+      padding-top: 3rem;
+
       background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
     }
   }
@@ -107,7 +109,6 @@
 
     &__wrapper {
       padding: 0 5rem;
-      padding-top: 4rem;
 
       &::before {
         height: 5rem;
@@ -172,6 +173,14 @@
       margin-top: 3rem;
     }
   }
+
+  .theme-main {
+    .reviews-block {
+      &__wrapper {
+        padding-top: 4rem;
+      }
+    }
+  }
 }
 
 @media (min-width: $s-desktop-min-width) {
@@ -179,8 +188,6 @@
     margin-bottom: 12rem;
 
     &__wrapper {
-      padding-top: 5.5rem;
-
       background: none;
 
       &::before {
@@ -207,6 +214,8 @@
       background-image: linear-gradient(93deg, #eef1f5 6%, #ffffff 51%, #f6f6f6 94%);
 
       &__wrapper {
+        padding-top: 5.5rem;
+
         background-image: none;
       }
     }

@@ -15,7 +15,7 @@ export default class MessageManager {
       return;
     }
 
-    messageNode.textContent = text;
+    messageNode.innerHTML = text;
     messageNode.classList.add(`message_${type}`);
     messageNode.classList.remove(`hidden`);
   }

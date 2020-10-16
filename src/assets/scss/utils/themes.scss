@@ -248,7 +248,7 @@ $themes: (
     'secondary-light': hsl($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l + 10%),
     'secondary-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.3),
-    'background': hsl(173, 100%, 92%),
+    'background': hsl(173, 85%, 95%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/4-bg-1_normal@1x.png',
@@ -280,7 +280,7 @@ $themes: (
     'secondary-light': hsl($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l + 10%),
     'secondary-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.3),
-    'background': hsl(250, 100%, 91%),
+    'background': hsl(232, 100%, 96%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
@@ -360,6 +360,7 @@ $themes: (
     'secondary-transparent': hsla($theme-7-alt-h, $theme-7-alt-s, $theme-7-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-7-alt-h, $theme-7-alt-s, $theme-7-alt-l, 0.3),
     'background': hsl(295, 63%, 84%),
+    'alt-background': hsl(259, 91%, 97%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/7-bg-1@1x.png',
@@ -517,7 +518,7 @@ $themes: (
     'secondary-light': hsl($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l + 10%),
     'secondary-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.3),
-    'background': hsl(42, 100%, 91%),
+    'background': hsl(42, 100%, 93%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/11-bg-1_small@1x.png',

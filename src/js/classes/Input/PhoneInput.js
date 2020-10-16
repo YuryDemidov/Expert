@@ -13,7 +13,7 @@ export default class PhoneInput extends TextInput {
     super.init();
     this.createMask();
     this.mask.on(`accept`, () => {
-      if (this.mask.value === this.input.placeholder || !REGEXPS.NUMBER.test(this.mask.value)) {
+      if (this.mask.value === this.input.placeholder || !REGEXPS.HAS_DIGIT.test(this.mask.value)) {
         this.input.classList.remove(`text-input__input_focused`);
       } else {
         this.input.classList.add(`text-input__input_focused`);

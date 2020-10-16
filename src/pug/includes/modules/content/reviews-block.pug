@@ -27,7 +27,8 @@ section.reviews-block
           - linkColorClass = 'link_secondary'
       a.reviews-block__link.link.link_arrow.underline(class=linkColorClass href='/reviews.html') Читать все отзывы или оставить свой
   if locals.data.pageData.reviewsBlock.showSticker
-    article.reviews-block__sticker.reviews-sticker
-      b.reviews-sticker__pre-number более
-      b.reviews-sticker__number!= `10&thinsp;000`
+    article.reviews-block__sticker.reviews-sticker.sticker
+      +svg-icon('#polystar').sticker__image
+      b.reviews-sticker__pre-number.sticker__secondary-text более
+      b.reviews-sticker__number.sticker__main-text!= `10&thinsp;000`
       span.reviews-sticker__text клиентов уже получили помощь от&nbsp;наших врачей

@@ -36,7 +36,7 @@
         border-color: $color-primary;
       }
 
-      left: 1.7rem;
+      left: 1rem;
 
       border-radius: 1px;
 
@@ -46,13 +46,23 @@
     }
   }
 
-  &__input:focus + .custom-checkbox__label::before {
-    border-color: $dark-dim-color;
-  }
+  &__input {
+    &_invalid + .custom-checkbox__label {
+      &::before {
+        border-color: $error-color;
+      }
+    }
 
-  &__input:checked + .custom-checkbox__label {
-    &::after {
-      opacity: 1;
+    &:focus + .custom-checkbox__label {
+      &::before {
+        border-color: $dark-dim-color;
+      }
+    }
+
+    &:checked + .custom-checkbox__label {
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }

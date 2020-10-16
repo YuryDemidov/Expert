@@ -3,21 +3,18 @@
 .reviews-sticker {
   @include box(24rem, 24.6rem);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+
   margin: 0 auto;
   margin-top: 5rem;
   padding: 4rem;
   padding-bottom: 5rem;
 
-  text-align: center;
+  .sticker__image {
+    z-index: -1;
 
-  background-image: url('../../../img/util/icons/polystar_1.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    fill: #e5f5ff;
+  }
 
   &__pre-number,
   &__number {
@@ -40,6 +37,7 @@
     position: absolute;
     top: -11rem;
     left: 68%;
+    z-index: 1;
 
     margin: 0;
 
