@@ -1,0 +1,98 @@
+@use '../../tools' as *;
+
+.video-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding-bottom: 7rem;
+
+  text-align: center;
+
+  background-image: url('../../../img/video-reviews/gradient-wave-1_mobile.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  &__content {
+    padding: 0 2.75rem;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__video {
+    max-width: 40rem;
+    margin-bottom: 3rem;
+  }
+
+  .video-block {
+    &__video {
+      width: 100%;
+
+      border-radius: 0.8rem;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .video-reviews {
+    margin-bottom: 6rem;
+    padding-top: 4rem;
+
+    background-image: url('../../../img/video-reviews/gradient-wave-1_tablet.jpg');
+
+    &__title {
+      margin-bottom: 4rem;
+    }
+
+    &__video {
+      max-width: 44rem;
+      margin-bottom: 4.5rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .video-reviews {
+    margin-bottom: 5rem;
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+
+    background-image: url('../../../img/video-reviews/gradient-wave-1_desktop.jpg');
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__title,
+    &__link {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__video {
+      width: 31%;
+      margin-bottom: 5rem;
+      margin-right: 3.5%;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+    }
+
+    &__link {
+      font-size: 1.8rem;
+    }
+  }
+}

@@ -336,8 +336,15 @@ module.exports = {
         options: imageOptimOptions('[ext]')
       }]
     }, {
+      test: /\.(mp4|ogv|webm)$/,
+      loader: 'file-loader',
+      options: {
+        name: filename('[ext]'),
+        outputPath: (url, resourcePath, context) => path.relative(context, resourcePath)
+      }
+    }, {
       test: /\.xml$/,
-      use: ['xml-loader']
+      loader: 'xml-loader'
     }]
   }
 };
