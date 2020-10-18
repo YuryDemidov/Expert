@@ -80,3 +80,14 @@ mixin custom-radio()
     input.custom-radio__input.visually-hidden(id=attributes.id type='radio' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false) required=attributes.required)
     label.custom-radio__label(for=attributes.id)
       block
+
+mixin video(videoConfig, wrapClass)
+  .video-block(class=wrapClass)
+    video.video-block__video&attributes(attributes)
+      each source, extension in videoConfig.sources
+        source(src=source type=`video/${extension}`)
+      | Тег video не поддерживается вашим браузером.
+      |
+      a(href=videoConfig.sources.mp4) Скачайте видео
+    .video-block__poster(style=`background-image: url('${attributes.poster}')`)
+    a.video-block__play-button(href='#' aria-label='Запустить видео')
