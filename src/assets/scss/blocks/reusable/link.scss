@@ -81,6 +81,16 @@
   }
 }
 
+button.link {
+  border-bottom: 1px solid $transparent-color;
+
+  @include in-focus() {
+    color: currentColor;
+
+    border-bottom-color: $x-dark-dim-color;
+  }
+}
+
 .link.button {
   border-bottom: none;
 }

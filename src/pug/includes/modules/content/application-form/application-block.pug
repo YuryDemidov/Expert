@@ -22,17 +22,4 @@ section.application-form
     .application-form__content
       h2.application-form__title.heading.heading_secondary!= formHeading
       p.application-form__text!= formText
-      form.application-form__form(action='#' method='post')
-        .application-form__inputs
-          input.application-form__input(name='name' type='text' placeholder='Имя' aria-label='Имя' required)
-          input.application-form__input(name='phone' type='tel' placeholder='Телефон' aria-label='Телефон' required)
-          - var colorModifier = 'primary'
-          if ((locals.data.pageData.theme === '7') || (locals.data.pageData.theme === '4'))
-            - colorModifier = 'secondary'
-          button.application-form__submit.button(class=`button_${colorModifier}` type='submit')
-            span.button__content Оставить заявку
-        +custom-checkbox()#applicationFormPersonalData.application-form__personal-data(name='personal-data-agreement' checked required)
-          | Даю согласие на обработку
-          |
-          a.link.underline(class=`link_${colorModifier}` href='/personal-data-agreement.pdf') персональных данных
-        p.application-form__message.message.hidden
+      include application-form

@@ -1,0 +1,287 @@
+@use '../../tools' as *;
+
+.price-list {
+  margin-bottom: 7rem;
+
+  &__content {
+    padding: 0;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__promotion {
+    @include centered-block(35rem);
+
+    margin-bottom: 7rem;
+  }
+
+  &__type-caption,
+  &__first-price,
+  .table__cell_heading {
+    @include themify() {
+      color: $color-primary;
+    }
+  }
+
+  &__section {
+    position: relative;
+
+    margin-bottom: 6rem;
+    padding-top: 5rem;
+  }
+
+  &__type-caption {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+
+    font-family: $title-font-family;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__massage-name {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+
+    white-space: nowrap;
+  }
+
+  .table {
+    &__row {
+      &:nth-child(even) {
+        background-color: #f4f7f9;
+      }
+
+      &_highlight {
+        @include themify() {
+          background-color: $color-background;
+        }
+      }
+
+      &_promo {
+        .table__cell::after {
+          content: '*';
+        }
+      }
+
+      &_promo ~ .table__row_promo {
+        .table__cell::after {
+          content: '**';
+        }
+      }
+
+      &_promo ~ .table__row_promo ~ .table__row_promo {
+        .table__cell::after {
+          content: '***';
+        }
+      }
+
+      @for $i from 1 to 4 {
+        &_promo-#{$i} {
+          .table__cell:not(:nth-child(#{$i}))::after {
+            content: none;
+          }
+        }
+      }
+    }
+
+    &__cell {
+      padding: 1rem 2rem;
+      padding-top: 3.5rem;
+
+      &:first-of-type {
+        position: relative;
+
+        padding: 0;
+      }
+
+      &:nth-of-type(3) {
+        text-align: center;
+      }
+
+      &:nth-of-type(4) {
+        text-align: right;
+      }
+
+      &_heading {
+        padding-top: 0;
+        padding-bottom: 1.5rem;
+
+        &:first-of-type {
+          position: static;
+        }
+      }
+    }
+  }
+
+  &__promo-text {
+    margin-top: 2rem;
+    padding: 0 2rem;
+
+    @include themify() {
+      color: $color-primary;
+    }
+
+    &:empty {
+      display: none;
+    }
+
+    &::before {
+      content: '*';
+    }
+  }
+
+  &__promo-text + .price-list__promo-text::before {
+    content: '**';
+  }
+
+  &__promo-text + .price-list__promo-text + .price-list__promo-text::before {
+    content: '***';
+  }
+
+  &__callback {
+    @include centered-block(35rem);
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .price-list {
+    margin-bottom: 10rem;
+
+    &__wrap {
+      @include centered-block(40rem);
+    }
+
+    &__title {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .price-list {
+    margin-bottom: 14rem;
+
+    &__content {
+      padding: 0 2rem;
+    }
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-width: initial;
+      max-height: 100rem;
+    }
+
+    &__promotion,
+    &__callback {
+      max-width: 39rem;
+      width: 38%;
+      margin-left: 0;
+      margin-right: 2%;
+    }
+
+    &__promotion {
+      order: 1;
+    }
+
+    &__callback {
+      order: 2;
+    }
+
+    &__prices {
+      order: 3;
+      width: 60%;
+    }
+
+    &__section {
+      padding-top: 0;
+    }
+
+    &__type-caption {
+      position: static;
+
+      margin: 0;
+
+      font-family: $main-font-family;
+      font-size: 1.6rem;
+      text-align: left;
+    }
+
+    &__massage-name {
+      position: static;
+
+      display: inline-block;
+      min-width: 24.5rem;
+
+      font-weight: 400;
+      vertical-align: baseline;
+    }
+
+    &__first-price {
+      font-weight: 700;
+    }
+
+    .table {
+      margin-bottom: 2rem;
+
+      &__row {
+        &:nth-child(even) {
+          background-color: $alt-default-color;
+        }
+      }
+
+      &__cell {
+        &,
+        &:first-of-type {
+          padding: 0.7rem 1rem;
+        }
+      }
+    }
+
+    &__promo-text {
+      display: inline;
+      margin: 0;
+      padding-right: 0.4rem;
+      padding-left: 0.4rem;
+
+      @include themify() {
+        background-color: $color-background;
+        border-bottom: 2px solid $color-background;
+      }
+    }
+  }
+
+  .page {
+    .price-list {
+      &__type-caption,
+      &__first-price {
+        color: $default-color;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .price-list {
+    &__promotion,
+    &__callback {
+      margin-left: 6%;
+      margin-right: 4%;
+    }
+
+    &__prices {
+      width: 52%;
+    }
+  }
+}
