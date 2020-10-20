@@ -46,6 +46,8 @@
   &__wrap {
     padding-top: 3.8rem;
     padding-bottom: 3.8rem;
+
+    background-color: inherit;
   }
 
   .application-form {
@@ -66,6 +68,18 @@
       margin-right: auto;
       margin-left: auto;
       padding: 0 3rem;
+    }
+
+    &__success-message {
+      text-align: center;
+
+      background-color: inherit;
+    }
+
+    &__success-text {
+      max-width: 90%;
+
+      font-size: 2.2rem;
     }
   }
 }
@@ -114,6 +128,10 @@
 
       &__personal-data {
         text-align: center;
+      }
+
+      &__success-text {
+        font-size: 2.4rem;
       }
     }
   }

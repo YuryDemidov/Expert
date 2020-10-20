@@ -16,6 +16,10 @@
       padding: 0 2rem;
     }
 
+    &__input {
+      background-color: $lightgray-color;
+    }
+
     &__personal-data {
       padding: 0 1.2rem;
     }
@@ -23,12 +27,24 @@
     &__message {
       padding: 0 2rem;
     }
+
+    &__success-message {
+      background-color: $alt-default-color;
+    }
+
+    &__success-text {
+      font-size: 2.2rem;
+    }
   }
 }
 
 @media (min-width: $tablet-min-width) {
   .popup-appointment {
     max-width: 40rem;
+
+    &__content {
+      padding: 1.5rem 1rem;
+    }
 
     .application-form {
       &__inputs {
@@ -64,6 +80,14 @@
 
       &__personal-data {
         text-align: center;
+      }
+
+      &__message {
+        max-width: initial;
+      }
+
+      &__success-text {
+        font-size: 2.4rem;
       }
     }
   }

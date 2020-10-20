@@ -23,3 +23,10 @@ section.application-form
       h2.application-form__title.heading.heading_secondary!= formHeading
       p.application-form__text!= formText
       include application-form
+      .application-form__success-message.hidden
+        p.application-form__success-text
+          | Спасибо! Скидка ваша :)
+          |
+          br
+          | Мы скоро перезвоним
+        button.application-form__repeat.button.underline.underline_dotted.underline_gray-dotted(type='button') Оставить ещё одну заявку

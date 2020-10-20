@@ -7,15 +7,19 @@ import { REGEXPS } from '../utils/constants/regexps';
 import toggleMaskPlaceholderOption from '../utils/functions/mask/toggleMaskPlaceholderOption';
 
 export default class AppointmentForm {
-  constructor(form) {
+  constructor(form, successBlock) {
     this.INITIAL_PHONE_INPUT = `+7(`;
+    this.SUCCESS_MESSAGE_SHOW_TIME = 12000; // ms
     this.form = form;
+    this.successBlock = successBlock;
     this.nameInput = form.querySelector(`[name=name]`);
     this.phoneInput = form.querySelector(`[name=phone]`);
     this.personalDataCheckbox = form.querySelector(`[name=personal-data-agreement]`);
     this.submitButton = form.querySelector(`.application-form__submit`);
+    this.repeatButton = successBlock.querySelector(`.application-form__repeat`);
     this.maskedPhoneInput = null;
     this.formManager = null;
+    this.messageTimeout = null;
   }
 
   init() {
@@ -23,8 +27,15 @@ export default class AppointmentForm {
       form: this.form,
       dataCollector: () => new FormData(this.form),
       requestFormat: `FormData`,
-      responseDataHandler: data => messageManager.showMessage(`Форма отправлена и получен ответ: ${data}`, `success`, this.form),
-      errorHandler: error => messageManager.showMessage(`Форма отправлена, но ответ не получен. Ошибка: ${error}`, `error`, this.form)
+      responseDataHandler: data => {
+        messageManager.showMessage(`Форма отправлена и получен ответ: ${data}`, `success`, this.form);
+      },
+      errorHandler: error => {
+        // messageManager.showMessage(`Форма отправлена, но ответ не получен. Ошибка: ${error}`, `error`, this.form);
+        console.log(error);
+        this.clearForm();
+        this.showSuccessMessage();
+      }
     });
 
     this.initPhoneMask();
@@ -33,6 +44,10 @@ export default class AppointmentForm {
     this.nameInput.addEventListener(`input`, evt => this.hideErrors(evt));
     this.phoneInput.addEventListener(`input`, evt => this.hideErrors(evt));
     this.personalDataCheckbox.addEventListener(`change`, evt => this.hideErrors(evt));
+    this.repeatButton?.addEventListener(`click`, evt => {
+      this.hideSuccessMessage(evt);
+      clearTimeout(this.messageTimeout);
+    });
   }
 
   formSubmitHandler(evt) {
@@ -114,6 +129,26 @@ export default class AppointmentForm {
         this.maskedPhoneInput.value = ``;
       }
     });
+  }
+
+  clearForm() {
+    this.nameInput.value = ``;
+    this.maskedPhoneInput.value = ``;
+  }
+
+  showSuccessMessage() {
+    this.successBlock.classList.remove(`hidden`);
+    this.form.classList.add(`application-form__form_hidden`);
+    this.setSuccessMessageTimeout();
+  }
+
+  hideSuccessMessage() {
+    this.successBlock.classList.add(`hidden`);
+    this.form.classList.remove(`application-form__form_hidden`);
+  }
+
+  setSuccessMessageTimeout() {
+    this.messageTimeout = setTimeout(() => this.hideSuccessMessage(), this.SUCCESS_MESSAGE_SHOW_TIME);
   }
 
   showErrorHighlight(input) {

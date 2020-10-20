@@ -36,6 +36,10 @@
 
   &__form {
     @include centered-block(40rem);
+
+    &_hidden {
+      visibility: hidden;
+    }
   }
 
   &__input {
@@ -94,6 +98,50 @@
 
     animation-name: bounce-in;
     animation-duration: 0.4s;
+  }
+
+  &__success-message {
+    @include horizontally-centered();
+    @include box(100%);
+
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90rem;
+    padding: 2rem;
+
+    background-color: $x-lightgray-color;
+  }
+
+  &__success-text {
+    @include centered-block(90%);
+    margin-bottom: 2rem;
+
+    font-family: $title-font-family;
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    @include themify() {
+      color: $color-secondary;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  &__repeat {
+    padding: 0.4rem 0;
+
+    font-weight: 400;
+    color: $default-color;
+
+    @include in-focus() {
+      color: $default-color;
+    }
   }
 }
 
@@ -207,12 +255,20 @@
 .theme-9 {
   .application-form {
     &__background {
-      background-color: #ffedf6;
+      background-color: map-deep-get($themes, '9', 'alt-background');
     }
   }
 }
 
 @media (min-width: $phone-landscape-min-width) {
+  .application-form {
+    &__success-text {
+      max-width: 85%;
+
+      font-size: 2.4rem;
+    }
+  }
+
   .theme-1 {
     .application-form {
       &__background {
@@ -354,6 +410,14 @@
     &__message {
       max-width: 31rem;
       margin-left: auto;
+    }
+
+    &__success-text {
+      font-size: 3rem;
+
+      br {
+        display: block;
+      }
     }
   }
 
