@@ -46,6 +46,24 @@
     }
   }
 
+  &_primary-dark {
+    @include themify() {
+      color: $color-primary-dark;
+
+      @include in-focus() {
+        color: $color-primary-dark;
+      }
+
+      &.underline {
+        border-bottom-color: $color-primary-x-transparent;
+
+        @include in-focus() {
+          border-bottom-color: $color-primary-dark;
+        }
+      }
+    }
+  }
+
   &_secondary {
     @include themify() {
       color: $color-secondary;
@@ -78,6 +96,16 @@
     .inline-icon__text {
       border-bottom-color: $x-dark-dim-color;
     }
+  }
+}
+
+button.link {
+  border-bottom: 1px solid $transparent-color;
+
+  @include in-focus() {
+    color: currentColor;
+
+    border-bottom-color: $x-dark-dim-color;
   }
 }
 

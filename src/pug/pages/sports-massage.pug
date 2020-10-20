@@ -12,6 +12,7 @@ block variables
       canonical: 'http://expert-massage-clinic.ru/sports-massage.html',
       pageClass: 'sports-massage-page',
       theme: '6',
+      massage: globalData.massages['sports-massage'],
       mainScreenHeading: 'Спортивный массаж',
       mainScreenSubheading: `Снятие боли в&nbsp;мышцах, ускоренное восстановление, улучшение результатов. Возвращение
         в&nbsp;спорт после травм`,
@@ -105,12 +106,16 @@ block variables
             date: '20.01.2020'
           }
         ]
+      },
+      priceList: {
+        showPromo: true
       }
     }
 
 block content
-  include ../includes/modules/content/application-form
+  include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/features-list
+  include ../includes/modules/content/price-list
 
 block script

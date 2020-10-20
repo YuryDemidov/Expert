@@ -55,4 +55,10 @@
       }
     }
   }
+
+  &__video {
+    &:focus {
+      outline: none;
+    }
+  }
 }

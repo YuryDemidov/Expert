@@ -50,6 +50,37 @@ video {
   height: auto;
 }
 
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  padding: 0;
+
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+table {
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+}
+
+input,
+textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
 .hidden {
   display: none !important;
 

@@ -12,6 +12,7 @@ block variables
       canonical: 'http://expert-massage-clinic.ru/japanese-asahi-massage.html',
       pageClass: 'japanese-asahi-massage-page',
       theme: '4',
+      massage: globalData.massages['japanese-asahi-massage'],
       mainScreenHeading: 'Японский массаж лица Асахи-Зоган',
       mainScreenSubheading: `Глубокая, интенсивная проработка. Формирует красивый овал, омолаживает`,
       mainScreenFeatures: [
@@ -101,12 +102,16 @@ block variables
             date: '20.01.2020'
           }
         ]
+      },
+      priceList: {
+        showPromo: true
       }
     }
 
 block content
-  include ../includes/modules/content/application-form
+  include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/features-list
+  include ../includes/modules/content/price-list
 
 block script

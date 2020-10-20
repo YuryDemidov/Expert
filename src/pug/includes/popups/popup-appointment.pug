@@ -1,0 +1,9 @@
+section.popup.popup-appointment(data-popup='closed' data-popup-name='appointment')
+  .popup__container
+    button.popup__close-button.popup-appointment__close(type='button' data-close-popup='appointment' aria-label='Закрыть модальное окно')
+    h2.popup-appointment__title.visually-hidden Запись на приём
+    .popup-appointment__content
+      include ../modules/content/application-form/application-form
+      .application-form__success-message.hidden
+        p.application-form__success-text Спасибо, заявка принята! Мы&nbsp;скоро&nbsp;перезвоним
+        button.application-form__repeat.button.underline.underline_dotted.underline_gray-dotted(type='button') Оставить ещё одну заявку

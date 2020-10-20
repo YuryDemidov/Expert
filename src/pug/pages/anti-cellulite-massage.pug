@@ -12,6 +12,7 @@ block variables
       canonical: 'http://expert-massage-clinic.ru/anti-cellulite-massage.html',
       pageClass: 'anti-cellulite-massage-page',
       theme: '9',
+      massage: globalData.massages['anti-cellulite-massage'],
       mainScreenHeading: 'Антицеллюлитный массаж',
       mainScreenSubheading: `Избавляет от&nbsp;целлюлита, разглаживает кожу. Подтягивает ягодицы, уменьшает «ушки»
         и&nbsp;бока`,
@@ -102,12 +103,16 @@ block variables
             date: '20.01.2020'
           }
         ]
+      },
+      priceList: {
+        showPromo: true
       }
     }
 
 block content
-  include ../includes/modules/content/application-form
+  include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/features-list
+  include ../includes/modules/content/price-list
 
 block script

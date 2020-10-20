@@ -7,7 +7,6 @@
         fullName: 'Лечебный массаж спины',
         url: 'back-massage.html',
         menuType: 'body',
-        priceListType: 'body',
         tag: {
           text: 'От боли',
           color: 'main'
@@ -23,7 +22,6 @@
         fullName: 'Лимфодренажный массаж тела',
         url: 'body-lymphatic-drainage.html',
         menuType: 'body',
-        priceListType: 'body',
         price: {
           first: 1900,
           standard: 2400
@@ -35,19 +33,21 @@
         fullName: 'Ручное моделирование фигуры',
         url: 'figure-modeling.html',
         menuType: 'body',
-        priceListType: 'figure',
         price: {
           first: 1900,
           standard: 2400
         },
-        duration: 60
+        duration: 60,
+        promo: {
+          text: 'Акция — скидка на первый сеанс 25%',
+          starPlacement: 2 // 1 - massage name, 2 - first price, 3 - second price, 4 - duration
+        }
       },
       'fullbody-massage': {
         name: 'Общий массаж тела',
         fullName: 'Общий массаж тела',
         url: 'fullbody-massage.html',
         menuType: 'body',
-        priceListType: 'body',
         price: {
           first: 1900,
           standard: 2400
@@ -59,7 +59,6 @@
         fullName: 'Спортивный массаж',
         url: 'sports-massage.html',
         menuType: 'body',
-        priceListType: 'body',
         price: {
           first: 1900,
           standard: 2400
@@ -71,7 +70,6 @@
         fullName: 'Антицеллюлитный массаж',
         url: 'anti-cellulite-massage.html',
         menuType: 'body',
-        priceListType: 'figure',
         price: {
           first: 1900,
           standard: 2400
@@ -83,7 +81,6 @@
         fullName: 'Массаж шейно-воротниковой зоны',
         url: 'neck-massage.html',
         menuType: 'body',
-        priceListType: 'body',
         price: {
           first: 800,
           standard: 800
@@ -95,7 +92,6 @@
         fullName: 'Скульптурно-буккальный массаж лица',
         url: 'sculptural-buccal-massage.html',
         menuType: 'face',
-        priceListType: 'face',
         tag: {
           text: 'Хит',
           color: 'alt'
@@ -104,14 +100,17 @@
           first: 1500,
           standard: 2600
         },
-        duration: 50
+        duration: 50,
+        promo: {
+          text: 'Акция — скидка на июль и август 25%',
+          starPlacement: 3 // 1 - massage name, 2 - first price, 3 - second price, 4 - duration
+        }
       },
       'facial-lymphatic-drainage': {
         name: 'Лимфодренажный',
         fullName: 'Лимфодренажный массаж лица',
         url: 'facial-lymphatic-drainage.html',
         menuType: 'face',
-        priceListType: 'face',
         price: {
           first: 1900,
           standard: 2400
@@ -123,7 +122,6 @@
         fullName: 'Классический массаж лица',
         url: 'classic-facial-massage.html',
         menuType: 'face',
-        priceListType: 'face',
         price: {
           first: 1800,
           standard: 2300
@@ -135,7 +133,6 @@
         fullName: 'Хиромассаж лица',
         url: 'chiromassage.html',
         menuType: 'face',
-        priceListType: 'face',
         price: {
           first: 1900,
           standard: 2400
@@ -147,13 +144,23 @@
         fullName: 'Массаж лица Асахи-Зоган',
         url: 'japanese-asahi-massage.html',
         menuType: 'face',
-        priceListType: 'face',
         price: {
           first: 2100,
           standard: 2800
         },
         duration: 60
       }
+    },
+    mainPromo: {
+      title: '20%&nbsp;скидка на&nbsp;1-ый&nbsp;сеанс',
+      subtitle: 'На&nbsp;всё, кроме массажа шейно-воротниковой зоны',
+      text: `Мы знаем, как важно, чтобы массажист вам подходил и&nbsp;было комфортно. Приходите на&nbsp;первый сеанс
+        со&nbsp;скидкой, чтобы познакомиться и&nbsp;обсудить цели.
+        <br>
+        <br>
+        И&nbsp;пожалуйста, не&nbsp;стесняйтесь говорить нашим
+        специалистам, если что-то&nbsp;не&nbsp;так`,
+      buttonText: 'Получить скидку'
     },
     company: {
       foundationYear: 2008,
