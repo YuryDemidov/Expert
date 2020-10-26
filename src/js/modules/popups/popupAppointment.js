@@ -20,3 +20,5 @@ appointmentPopup.init();
 
 const appointmentPopupForm = new AppointmentForm(popupForm, formSuccessBlock);
 appointmentPopupForm.init();
+
+export { appointmentPopup };

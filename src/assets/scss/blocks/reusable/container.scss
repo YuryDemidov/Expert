@@ -5,3 +5,9 @@
 
   padding: 0 2rem;
 }
+
+@media (min-width: $desktop-min-width) {
+  .container {
+    padding: 0 3rem;
+  }
+}

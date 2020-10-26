@@ -7,3 +7,4 @@ import '../../modules/massageChoosingTest/massageChoosingTest';
 import '../../modules/videoPlayers';
 import '../../modules/priceListForm';
 import '../../modules/popups/popupAppointment';
+import '../../modules/specialistsSlider';

@@ -11,7 +11,6 @@
     position: relative;
 
     overflow: hidden;
-    max-width: 126rem;
     padding: 0;
 
     &::before {
@@ -34,46 +33,6 @@
 
   &__slider {
     margin-top: 3rem;
-
-    .tns-ovh {
-      margin-top: -1.5rem; // Hack for showing box-shadow children
-      padding-top: 1.5rem; // of parent with hidden overflow
-    }
-
-    .tns-nav {
-      margin-bottom: 2.5rem;
-
-      line-height: 1;
-
-      button {
-        @include reset-button();
-        @include box(1.8rem);
-
-        position: relative;
-
-        margin: 0 0.2rem;
-
-        &::before {
-          @include absolute-centered();
-          @include box(1.2rem);
-
-          content: '';
-
-          background-color: #c7c7c7;
-          border-radius: 50%;
-        }
-
-        &:focus::before {
-          border: 1px solid $xx-dark-dim-color;
-        }
-
-        &.tns-nav-active {
-          &::before {
-            background-color: #9f9f9f;
-          }
-        }
-      }
-    }
   }
 
   &__reviews-list {
@@ -117,52 +76,6 @@
 
     &__slider {
       position: relative;
-
-      .tns-nav {
-        margin-bottom: 4.5rem;
-      }
-
-      .slider__button {
-        @include reset-button();
-        @include box(5rem, 12rem);
-
-        position: absolute;
-        top: calc(50% - 2.5rem);
-
-        transform: translateY(-50%);
-
-        transition: transform 0.4s;
-
-        @include in-focus() {
-          transform: translateY(-50%) scale(1.2);
-        }
-
-        &::before {
-          @include absolute-centered();
-          @include themify() {
-            @include stroke-arrow(3rem, 0.4rem, $color-primary, null);
-          }
-
-          content: '';
-          position: absolute;
-        }
-
-        &_prev {
-          right: 100%;
-
-          &::before {
-            transform: translate(-30%, -50%) rotate(135deg);
-          }
-        }
-
-        &_next {
-          left: 100%;
-
-          &::before {
-            transform: translate(-70%, -50%) rotate(-45deg);
-          }
-        }
-      }
     }
 
     &__review {
@@ -197,10 +110,6 @@
 
     &__slider {
       margin-top: 4rem;
-
-      .tns-nav {
-        margin-bottom: 0;
-      }
     }
 
     &__link {
