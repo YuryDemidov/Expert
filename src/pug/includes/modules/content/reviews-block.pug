@@ -8,9 +8,9 @@ section.reviews-block
         p.rating-block__text
           | наш рейтинг
           img.rating-block__yandex-logo(src='assets/img/reviews-block/yandex-logo.svg' alt='Яндекс' width='40' height='15')
-      .reviews-block__slider
+      .reviews-block__slider.slider
         button.slider__button.slider__button_prev.hidden_mobile(aria-label='Предыдущий отзыв')
-        ul.reviews-block__reviews-list.slider
+        ul.reviews-block__reviews-list
           each review in locals.data.pageData.reviewsBlock.reviews
             li.reviews-block__review
               article.review-card(data-id=review.id data-type=review.type)

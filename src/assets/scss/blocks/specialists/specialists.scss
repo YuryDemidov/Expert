@@ -1,0 +1,59 @@
+@use '../../tools' as *;
+
+.specialists {
+  margin-bottom: 6rem;
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__list {
+    @include reset-list();
+  }
+
+  &__list-item {
+    margin-bottom: 2rem;
+  }
+
+  .slider {
+    @include centered-block(48rem);
+
+    &__button {
+      &::before {
+        transition: border-color 0.4s;
+      }
+
+      @include in-focus() {
+        transform: translateY(-50%);
+
+        &::before {
+          border-color: map-deep-get($themes, 'main', 'secondary');
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .specialists {
+    margin-bottom: 10rem;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .specialists {
+    margin-bottom: 12rem;
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__content {
+      padding: 0 3rem;
+    }
+
+    .slider {
+      max-width: initial;
+    }
+  }
+}
