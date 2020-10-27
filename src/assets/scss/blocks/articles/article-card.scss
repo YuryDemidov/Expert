@@ -43,6 +43,10 @@
 
       top: 55%;
     }
+
+    @include in-focus() {
+      border-bottom-color: map-deep-get($themes, 'main', 'secondary');
+    }
   }
 }
 
