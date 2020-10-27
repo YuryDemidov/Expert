@@ -24,7 +24,6 @@ const reviewsSliderOptions = {
   navPosition: `bottom`,
   loop: true,
   mouseDrag: true,
-  swipeAngle: false,
   speed: 400,
   responsive: {
     0: calcSliderResponsiveParams(1),

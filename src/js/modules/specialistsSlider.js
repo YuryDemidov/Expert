@@ -17,8 +17,8 @@ const specialistsSlider = tns({
   items: 1,
   loop: true,
   mouseDrag: true,
-  swipeAngle: false,
-  speed: 500,
+  autoplay: false,
+  speed: 800,
   edgePadding: 10,
   gutter: 40
 });
@@ -30,7 +30,12 @@ specialistsSliderNode.querySelectorAll(`.specialist-card`).forEach(card => {
     appendExpandButton(descriptionNode);
   }
 
-  appointmentButton.addEventListener(`click`, evt => addSpecialistId(appointmentButton.dataset.specialistId));
+  appointmentButton.addEventListener(`click`, () => addSpecialistId(appointmentButton.dataset.specialistId));
+});
+
+specialistsSlider.events.on(`indexChanged`, () => {
+  const sliderInfo = specialistsSlider.getInfo();
+  collapseDescription(sliderInfo.slideItems[sliderInfo.indexCached]);
 });
 
 function appendExpandButton(place) {
@@ -45,16 +50,23 @@ function appendExpandButton(place) {
   expandButtonWrap.appendChild(expandButton);
   place.appendChild(expandButtonWrap);
 
-  expandButtonWrap.addEventListener(`click`, expandDescription);
+  place.addEventListener(`click`, expandDescription);
+}
+
+function collapseDescription(descriptionWrap) {
+  descriptionWrap.querySelector(`.specialist-card__description`).style.maxHeight = null;
+  if (descriptionWrap.getAttribute(`style`) === ``) {
+    descriptionWrap.removeAttribute(`style`);
+  }
+
+  descriptionWrap.querySelector(`.specialist-card__expand-button`)?.classList.remove(`hidden`);
 }
 
 function expandDescription(evt) {
   evt.preventDefault();
 
-  const description = this.closest(`.specialist-card__description`);
-
-  expandBlock(description, false);
-  this.parentNode.removeChild(this);
+  expandBlock(this, false);
+  this.querySelector(`.specialist-card__expand-button`).classList.add(`hidden`);
 }
 
 function addSpecialistId(id) {
