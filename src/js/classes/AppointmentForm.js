@@ -5,6 +5,7 @@ import { MESSAGES } from '../utils/constants/messages';
 import { PHONE_MASKS } from '../utils/constants/phoneMasks';
 import { REGEXPS } from '../utils/constants/regexps';
 import toggleMaskPlaceholderOption from '../utils/functions/mask/toggleMaskPlaceholderOption';
+import { logManager } from '../utils/managers/logManager';
 
 export default class AppointmentForm {
   constructor(form, successBlock) {
@@ -31,8 +32,8 @@ export default class AppointmentForm {
         messageManager.showMessage(`Форма отправлена и получен ответ: ${data}`, `success`, this.form);
       },
       errorHandler: error => {
-        // messageManager.showMessage(`Форма отправлена, но ответ не получен. Ошибка: ${error}`, `error`, this.form);
-        console.log(error);
+        messageManager.showMessage(`Форма отправлена, но ответ не получен. Ошибка: ${error}`, `error`, this.form);
+        logManager.logError(error);
         this.clearForm();
         this.showSuccessMessage();
       }
