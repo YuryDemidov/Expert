@@ -1,0 +1,8 @@
+section.map-block
+  .container
+    h2.visually-hidden Наш адрес
+    .map-block__wrap
+      #map(style='width: 100%; height: 420px;')
+      .map-block__info
+        p.map-block__text!= locals.data.globalData.company.address
+        p.map-block__text!=locals.data.globalData.company.workingHours

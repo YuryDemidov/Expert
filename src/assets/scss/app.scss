@@ -78,9 +78,11 @@
 
 @use 'blocks/certiificate/certificate';
 
-@use 'blocks/socials/socials';
-
 @use 'blocks/articles/articles';
 @use 'blocks/articles/article-card';
+
+@use 'blocks/socials/socials';
+
+@use 'blocks/map-block/map-block';
 
 @use 'blocks/footer/page-footer';
