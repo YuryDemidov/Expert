@@ -70,13 +70,11 @@ function expandDescription(evt) {
 }
 
 function addSpecialistId(id) {
-  const appointmentForm = appointmentPopup.node.querySelector(`.application-form__form`);
-  let specialistInput = appointmentForm.querySelector(`[name=specialist-id]`);
-  if (!specialistInput) {
-    specialistInput = document.createElement(`input`);
-    specialistInput.name = `specialist-id`;
-    specialistInput.type = `hidden`;
-    appointmentForm.appendChild(specialistInput);
-  }
-  specialistInput.value = id;
+  appointmentPopup.node.querySelector(`[name=specialist-id]`).value = id;
+  appointmentPopup.onClose = clearSpecialistId;
+}
+
+function clearSpecialistId() {
+  appointmentPopup.node.querySelector(`[name=specialist-id]`).value = ``;
+  appointmentPopup.onClose = null;
 }

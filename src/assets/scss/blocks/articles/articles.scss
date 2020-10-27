@@ -1,0 +1,20 @@
+@use '../../tools' as *;
+
+.articles {
+  position: relative;
+
+  margin-top: -4rem; // Prevent cutting of the background of the above section
+  margin-bottom: 8rem;
+}
+
+@media (min-width: $tablet-min-width) {
+  .articles {
+    margin-bottom: 10rem;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .articles {
+    margin-bottom: 12rem;
+  }
+}

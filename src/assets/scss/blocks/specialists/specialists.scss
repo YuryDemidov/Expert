@@ -1,7 +1,7 @@
 @use '../../tools' as *;
 
 .specialists {
-  margin-bottom: 6rem;
+  margin-bottom: 7rem;
 
   &__title {
     margin-bottom: 3rem;
@@ -36,13 +36,17 @@
 
 @media (min-width: $tablet-min-width) {
   .specialists {
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
+
+    &__title {
+      padding: 0 2rem;
+    }
   }
 }
 
 @media (min-width: $s-desktop-min-width) {
   .specialists {
-    margin-bottom: 12rem;
+    margin-bottom: 9rem;
 
     &__title {
       margin-bottom: 6rem;

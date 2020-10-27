@@ -3,8 +3,10 @@
 
 form.application-form__form(action='#' method='post')
   .application-form__inputs
-    input.application-form__input(name='name' type='text' placeholder='Имя' aria-label='Имя' required)
-    input.application-form__input(name='phone' type='tel' placeholder='Телефон' aria-label='Телефон' required)
+    input(type='hidden' name='specialist-id')
+    input(type='hidden' name='need-certificate')
+    input.application-form__input(type='text' name='name' placeholder='Имя' aria-label='Имя' required)
+    input.application-form__input(type='tel' name='phone' placeholder='Телефон' aria-label='Телефон' required)
     - var colorModifier = 'primary'
     if ((locals.data.pageData.theme === '7') || (locals.data.pageData.theme === '4'))
       - colorModifier = 'secondary'
