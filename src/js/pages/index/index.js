@@ -8,3 +8,4 @@ import '../../modules/videoPlayers';
 import '../../modules/priceListForm';
 import '../../modules/popups/popupAppointment';
 import '../../modules/specialistsSlider';
+import '../../modules/certificateBlock';
