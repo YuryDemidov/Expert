@@ -1,4 +1,34 @@
+-
+  var articles = [
+    {
+      id: 1,
+      tag: 'Авторская статья клиники',
+      title: '12 шагов к здоровью',
+      description: 'Как хорошо себя чувствовать, почти не&nbsp;болеть и&nbsp;быть счастливым, грамотно подойдя к&nbsp;своему&nbsp;здоровью'
+    },
+    {
+      id: 2,
+      title: 'Показания к массажу',
+      description: 'Расскажем о&nbsp;первых признаках, при&nbsp;ко&shy;торых стоит обратиться к&nbsp;массажисту, чтобы избавиться от&nbsp;проблемы проще и&nbsp;быстрее'
+    },
+    {
+      id: 3,
+      title: 'Омоложение массажем',
+      description: 'Почему это работает? Когда массаж может заменить операции и&nbsp;уколы красоты? (Подсказка&nbsp;— почти всегда)'
+    }
+  ]
+
 section.articles
-  .container
-    .articles__content
-      h2.articles__title.heading Читайте также
+  .articles__content.container
+    h2.articles__title.heading Читайте также
+    ul.articles__list
+      each article in articles
+        li.articles__list-item
+          article.article-card
+            .article-card__tag-wrap
+              if article.tag
+                span.article-card__tag= article.tag
+            h3.article-card__title= article.title
+            p.article-card__description!= article.description
+            a.article-card__link.link.link_secondary.link_arrow(href=`articles/${article.id}`) Читать
+    a.articles__common-link.link.link_secondary.link_arrow.underline(href='articles.html') Все наши статьи

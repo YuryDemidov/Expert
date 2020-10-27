@@ -3,18 +3,100 @@
 .articles {
   position: relative;
 
-  margin-top: -4rem; // Prevent cutting of the background of the above section
+  margin-top: -4rem; // According to the background of the above section
   margin-bottom: 8rem;
+
+  text-align: center;
+
+  &__content {
+    padding: 0;
+  }
+
+  &__list {
+    @include reset-list();
+
+    display: flex;
+    align-items: flex-start;
+    overflow: scroll;
+
+    text-align: left;
+  }
+
+  &__list-item {
+    flex-shrink: 0;
+    max-width: 36rem;
+    width: 72%;
+    padding: 2rem;
+    padding-left: 0;
+
+    &:first-of-type {
+      margin-left: 2rem;
+
+      article {
+        background-image: url('../../../img/decor/branch-2@2x.jpg');
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        background-size: 9rem;
+      }
+    }
+  }
+
+  .link {
+    font-weight: 700;
+  }
+
+  &__common-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+
+    vertical-align: middle;
+
+    &::before {
+      top: 55%;
+    }
+  }
 }
 
 @media (min-width: $tablet-min-width) {
   .articles {
     margin-bottom: 10rem;
+
+    &__list-item {
+      max-width: 38rem;
+      width: 40%;
+      padding-right: 4.5rem;
+
+      &:first-of-type {
+        margin-left: 4.5rem;
+      }
+    }
   }
 }
 
 @media (min-width: $s-desktop-min-width) {
   .articles {
     margin-bottom: 12rem;
+
+    &__list {
+      justify-content: center;
+    }
+
+    &__list-item {
+      width: 32%;
+      padding-right: 2%;
+      padding-left: 2%;
+
+      &:first-of-type {
+        margin-left: 0;
+
+        article {
+          background-size: 11rem;
+        }
+      }
+    }
+
+    &__common-link {
+      font-size: 1.8rem;
+    }
   }
 }
