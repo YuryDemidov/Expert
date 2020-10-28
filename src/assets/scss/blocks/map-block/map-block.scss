@@ -26,6 +26,20 @@
     border-radius: 0.5rem;
   }
 
+  &__image {
+    @include box(100%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    img {
+      @include absolute-centered();
+    }
+  }
+
   &__text {
     &:last-of-type {
       margin: 0;

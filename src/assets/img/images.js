@@ -247,3 +247,15 @@ import './certificate/certificate_desktop@1x.png'
 import './certificate/certificate_desktop@1x.webp'
 import './certificate/certificate_desktop@2x.png'
 import './certificate/certificate_desktop@2x.webp'
+
+// Map
+import './map/static-map_mobile.jpg'
+import './map/static-map_desktop.jpg'
+
+// Footer
+import './logo/logo_gray@1x.jpg'
+import './logo/logo_gray@1x.webp'
+import './logo/logo_gray@2x.jpg'
+import './logo/logo_gray@2x.webp'
+import './logo/logo_gray@3x.jpg'
+import './logo/logo_gray@3x.webp'

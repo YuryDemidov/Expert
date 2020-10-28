@@ -1,6 +1,10 @@
 /* eslint-disable no-undef */
 
-ymaps.ready(init);
+ymaps.ready(() => {
+  init();
+  hideStaticMap();
+});
+
 function init() {
   const map = new ymaps.Map(`map`, {
     center: [55.776, 37.6177],
@@ -20,4 +24,8 @@ function init() {
 
   map.geoObjects
     .add(placemark);
+}
+
+function hideStaticMap() {
+  document.querySelector(`.map-block__image`).classList.add(`hidden`);
 }
