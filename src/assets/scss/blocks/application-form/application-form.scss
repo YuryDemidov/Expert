@@ -511,13 +511,13 @@
         top: calc(60% - 6vw);
         left: calc(54% + 30rem);
 
-        background-image: url(../../../img/application-form/branch@1x.png);
+        background-image: url(../../../img/decor/branch-1@1x.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
 
         @include retina() {
-          background-image: url(../../../img/application-form/branch@2x.png);
+          background-image: url(../../../img/decor/branch-1@2x.png);
         }
       }
 
