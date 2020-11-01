@@ -25,6 +25,11 @@ const reviewsSliderOptions = {
   loop: true,
   mouseDrag: true,
   speed: 400,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  preventScrollOnTouch: `auto`,
+  autoplayButtonOutput: false,
+  autoplayHoverPause: false,
   responsive: {
     0: calcSliderResponsiveParams(1),
     768: {
@@ -54,6 +59,7 @@ const debouncedSliderResizeHandler = debounce(sliderResizeHandler, SLIDER_RESIZE
 reviewsSliderNode.addEventListener(`click`, expandingButtonClickHandler);
 reviewsSlider.events.on(`indexChanged`, collapseReviews);
 globalThis.addEventListener(`resize`, debouncedSliderResizeHandler);
+globalThis.addEventListener(`click`, toggleSliderAutoplay);
 
 function calcSliderResponsiveParams(items) {
   const params = {
@@ -76,6 +82,12 @@ function sliderResizeHandler() {
   reviewsSliderOptions.responsive[`0`] = calcSliderResponsiveParams(1);
   reviewsSlider.destroy();
   reviewsSlider = reviewsSlider.rebuild();
+}
+
+function toggleSliderAutoplay(evt) {
+  if (evt.target.closest(`.reviews-block__slider`)) {
+    reviewsSlider.pause();
+  }
 }
 
 function cutReviewText(node) {

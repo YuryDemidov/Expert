@@ -20,7 +20,8 @@ const specialistsSlider = tns({
   autoplay: false,
   speed: 800,
   edgePadding: 10,
-  gutter: 40
+  gutter: 40,
+  preventScrollOnTouch: `auto`
 });
 
 specialistsSliderNode.querySelectorAll(`.specialist-card`).forEach(card => {
