@@ -1,0 +1,15 @@
+- var figureResults = locals.data.pageData.massageResults.figure
+
+mixin figure-slide(number)
+  .figure-results__slide(class=(number === 1 ? 'figure-results__slide_main' : `figure-results__slide_${number}`))
+    case number
+      when 1
+        p Фигура
+
+if figureResults
+  section#figureResults.massage-results__section.figure-results(class=(locals.data.pageData.theme === 'main' ? 'hidden' : false))
+    .figure-results__slider.slider
+      ul.figure-results__slides
+        each slideNumber in figureResults.slidesOrder
+          li.figure-results__slide-wrap
+            +figure-slide(slideNumber)

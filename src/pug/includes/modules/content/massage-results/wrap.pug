@@ -2,8 +2,11 @@ section.massage-results
   .massage-results__content.container
     h2.massage-results__title.heading= locals.data.pageData.massageResults.title
     if locals.data.pageData.theme === 'main'
-      nav.massage-results__sections.tab-nav
+      nav.massage-results__nav.tab-nav
         ul.tab-nav__list
-          each type in [{ id: 'faceResults', name: 'Лицо'}, { id: 'backResults', name: 'Спина' }, { id: 'figureResults', name: 'Фигура' }]
+          each type, i in [{ id: 'faceResults', name: 'Лицо'}, { id: 'backResults', name: 'Спина' }, { id: 'figureResults', name: 'Фигура' }]
             li.tab-nav__item
-              a.tab-nav__link(href='#' data-section-id=type.id)= type.name
+              a.tab-nav__link(data-active=(i === 0 ? `` : false) href='#' data-section-id=type.id)= type.name
+    include ./face
+    include ./back
+    include ./figure

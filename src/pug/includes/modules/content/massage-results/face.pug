@@ -1,0 +1,89 @@
+- var faceResults = locals.data.pageData.massageResults.face
+
+mixin face-slide(number)
+  .face-results__slide(class=(number === 1 ? 'face-results__slide_main' : `face-results__slide_${number}`))
+    case number
+      when 1
+        -
+          var photo1 = {
+            desktop: {
+              webp: {
+                '1x': `assets/img/results/face-results-1-1_desktop@1x.webp`,
+                '2x': `assets/img/results/face-results-1-1_desktop@2x.webp`
+              },
+              png: {
+                '1x': `assets/img/results/face-results-1-1_desktop@1x.png`,
+                '2x': `assets/img/results/face-results-1-1_desktop@2x.png`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `assets/img/results/face-results-1-1_mobile@1x.webp`,
+                '2x': `assets/img/results/face-results-1-1_mobile@2x.webp`,
+                '3x': `assets/img/results/face-results-1-1_mobile@3x.webp`
+              },
+              png: {
+                '1x': `assets/img/results/face-results-1-1_mobile@1x.png`,
+                '2x': `assets/img/results/face-results-1-1_mobile@2x.png`,
+                '3x': `assets/img/results/face-results-1-1_mobile@3x.png`
+              }
+            }
+          }
+          var photo2 = {
+            desktop: {
+              webp: {
+                '1x': `assets/img/results/face-results-1-2_desktop@1x.webp`,
+                '2x': `assets/img/results/face-results-1-2_desktop@2x.webp`
+              },
+              png: {
+                '1x': `assets/img/results/face-results-1-2_desktop@1x.png`,
+                '2x': `assets/img/results/face-results-1-2_desktop@2x.png`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `assets/img/results/face-results-1-2_mobile@1x.webp`,
+                '2x': `assets/img/results/face-results-1-2_mobile@2x.webp`,
+                '3x': `assets/img/results/face-results-1-2_mobile@3x.webp`
+              },
+              png: {
+                '1x': `assets/img/results/face-results-1-2_mobile@1x.png`,
+                '2x': `assets/img/results/face-results-1-2_mobile@2x.png`,
+                '3x': `assets/img/results/face-results-1-2_mobile@3x.png`
+              }
+            }
+          }
+        h3.massage-results__slide-title 10 процедур скульпутрно-буккального массажа
+        .massage-results__photos
+          .massage-results__before
+            h4.massage-results__label.hidden_desktop До
+            +picture-tag(photo1, photo1.mobile.png['3x'], 'До курса массажа лица').massage-results__photo.massage-results__photo_before
+          .massage-results__after
+            h4.massage-results__label.hidden_desktop После
+            +picture-tag(photo2, photo2.mobile.png['3x'], 'Результат после курса массажа лица').massage-results__photo.massage-results__photo_after
+        .face-results__presentation
+          +picture-tag(photo2, photo2.mobile.png['3x'], 'Результат после курса массажа лица', 210, 227).hidden_desktop
+          .face-results__description.face-results__description_one
+            | Взгляд “распахивается” после первой же процедуры
+          .face-results__description.face-results__description_two
+            | Такие морщинки сложны в коррекции, но за курс мы убрали их почти полностью
+          .face-results__description.face-results__description_three
+            | Носогубки и так были в неплохом состоянии, но теперь совсем не видны
+          .face-results__description.face-results__description_four
+            | Врач всегда тщательно прорабатывает шею и овал лица, так как они выдают возраст
+          .face-results__description.face-results__description_five.hidden_mobile-tablet
+            | Часть физиологических особенностей не убрать массажем, но они и не портят внешность
+        .massage-results__link
+          a(href='sculptural-buccal-massage.html').button.button_primary Читать о процедуре
+
+if faceResults
+  section#faceResults.massage-results__section.face-results
+    .face-results__slider.slider(data-state='presentation')
+      button.slider__button.slider__button_prev(aria-label="Предыдущий слайд")
+      ul.face-results__slides
+        each slideNumber in faceResults.slidesOrder
+          li.face-results__slide-wrap
+            +face-slide(slideNumber)
+      button.slider__button.slider__button_next(aria-label="Следующий слайд")

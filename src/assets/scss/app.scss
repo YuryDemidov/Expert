@@ -28,6 +28,7 @@
 @use 'blocks/reusable/slider';
 @use 'blocks/reusable/sticker';
 @use 'blocks/reusable/table';
+@use 'blocks/reusable/tab-nav';
 @use 'blocks/reusable/text-input';
 @use 'blocks/reusable/tooltip';
 @use 'blocks/reusable/underline';
@@ -42,7 +43,7 @@
 @use 'blocks/popups/popup-massage-test';
 @use 'blocks/popups/popup-appointment';
 
-// Different blocks
+// Content blocks
 @use 'blocks/header/page-header';
 @use 'blocks/header/phones-list';
 @use 'blocks/header/main-screen';
@@ -66,6 +67,11 @@
 @use 'blocks/massage-choosing-test/test-progress';
 @use 'blocks/massage-choosing-test/test-slide';
 @use 'blocks/massage-choosing-test/test-success';
+
+@use 'blocks/results/massage-results';
+@use 'blocks/results/face-results';
+@use 'blocks/results/back-results';
+@use 'blocks/results/figure-results';
 
 @use 'blocks/famous-clients/famous-clients';
 

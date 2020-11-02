@@ -4,6 +4,7 @@ import '../../modules/reviewsBlock';
 import '../../modules/applicationForm';
 import '../../modules/massageTypesBlock';
 import '../../modules/massageChoosingTest/massageChoosingTest';
+import '../../modules/massageResults/massageResults';
 import '../../modules/famousClientsSlider';
 import '../../modules/videoPlayers';
 import '../../modules/priceListForm';
