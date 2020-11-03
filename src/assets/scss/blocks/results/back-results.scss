@@ -8,6 +8,11 @@
 
     text-align: center;
 
+    .tns-ovh {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
     .tns-nav {
       margin-top: 1rem;
     }
@@ -43,10 +48,6 @@
     img {
       width: 100%;
     }
-  }
-
-  .tns-horizontal.tns-subpixel > .tns-item {
-    vertical-align: middle;
   }
 
   &__description {

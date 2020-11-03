@@ -77,6 +77,51 @@ mixin face-slide(number)
             | Часть физиологических особенностей не убрать массажем, но они и не портят внешность
         .massage-results__link
           a(href='sculptural-buccal-massage.html').button.button_primary Читать о процедуре
+      default
+        -
+          var photoFaceResult = {
+            desktop: {
+              webp: {
+                '1x': `assets/img/results/face-results-${number}_desktop@1x.webp`,
+                '2x': `assets/img/results/face-results-${number}_desktop@2x.webp`
+              },
+              jpg: {
+                '1x': `assets/img/results/face-results-${number}_desktop@1x.jpg`,
+                '2x': `assets/img/results/face-results-${number}_desktop@2x.jpg`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `assets/img/results/face-results-${number}_mobile@1x.webp`,
+                '2x': `assets/img/results/face-results-${number}_mobile@2x.webp`,
+                '3x': `assets/img/results/face-results-${number}_mobile@3x.webp`
+              },
+              jpg: {
+                '1x': `assets/img/results/face-results-${number}_mobile@1x.jpg`,
+                '2x': `assets/img/results/face-results-${number}_mobile@2x.jpg`,
+                '3x': `assets/img/results/face-results-${number}_mobile@3x.jpg`
+              }
+            }
+          }
+        - var title = 'Курс скульптурно-буккального массажа'
+        - var slideClass = 'massage-results__simple-slide_1'
+        if (number === 5) || (number === 6)
+          - title = 'Курс массажа Асахи-Зоган'
+          - slideClass = 'massage-results__simple-slide_4'
+        if (number === 7) || (number === 8)
+          - title = 'Курс хиромассажа'
+          - slideClass = 'massage-results__simple-slide_5'
+        h3.massage-results__slide-title= title
+        .massage-results__labels
+          h4.massage-results__label.hidden_desktop До
+          h4.massage-results__label.hidden_desktop После
+        .massage-results__simple-slide(class=slideClass)
+          +picture-tag(photoFaceResult, photoFaceResult.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
+        .massage-results__link
+          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+
+
 
 if faceResults
   section#faceResults.massage-results__section.face-results

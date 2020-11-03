@@ -13,8 +13,8 @@
     padding-top: 2.4rem;
     padding-bottom: 5.5rem;
 
-    &_main {
-      background-color: map-deep-get($themes, 'main', 'background');
+    @include themify() {
+      background-color: $color-background;
     }
   }
 
@@ -137,6 +137,8 @@
     }
 
     &__slide {
+      position: relative;
+
       padding-top: 4rem;
       padding-bottom: 0;
     }
@@ -175,28 +177,228 @@
       &_two {
         top: 12rem;
 
-        &::before,
+        &::before {
+          top: 12.5vw;
+          right: 81%;
+          left: auto;
+
+          width: 23.5vw;
+
+          transform: rotate(-47deg);
+        }
+
         &::after {
+          @include box(17vw, 0.1rem);
+
           content: '';
           position: absolute;
-          top: 50%;
-          left: 0;
-          width: 10vw;
-          transform: skewY(56deg);
+          top: 11vw;
+          right: 80%;
+          z-index: 1;
+
+          background-color: $light-dim-color;
+
+          transform: rotate(-56deg);
         }
       }
 
       &_three {
-        top: 22rem;
+        top: 21.5vw;
+
+        &::before {
+          @include box(11.5vw, 0.1rem);
+
+          position: absolute;
+          top: 5.2vw;
+          right: auto;
+          left: calc(10rem + 5vw);
+
+          transform: rotate(16deg);
+          transform-origin: center;
+        }
       }
 
       &_four {
-        top: 32rem;
+        top: calc(15vw + 15rem);
+
+        &::before {
+          top: -20%;
+          bottom: auto;
+          left: 125%;
+
+          height: calc(8rem + 5vw);
+
+          transform: rotate(107deg);
+        }
       }
 
       &_five {
-        top: calc(14rem + 14vw);
+        top: calc(12rem + 14vw);
         left: 42vw;
+
+        &::before {
+          @include box(10vw, 0.1rem);
+
+          top: 4vw;
+          right: 100%;
+
+          transform: rotate(155deg);
+        }
+      }
+    }
+
+    &__slide:not(.face-results__slide_main) {
+      padding-top: 0;
+
+      .massage-results {
+        &__single-image {
+          margin-right: 31%;
+          margin-left: auto;
+        }
+
+        &__slide-title {
+          position: absolute;
+          top: 4rem;
+          right: 2rem;
+        }
+
+        &__link {
+          right: 6rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .face-results {
+    position: relative;
+
+    &::before {
+      @include absolute-centered();
+      @include box(100vw, 100%);
+
+      content: '';
+
+      @include themify() {
+        background-color: $color-background;
+      }
+    }
+
+    &__slide {
+      padding-top: 3rem;
+    }
+
+    &__slide:not(.face-results__slide_main) {
+      .massage-results {
+        &__single-image {
+          margin-left: 12%;
+        }
+
+        &__slide-title {
+          top: 4rem;
+          right: 5rem;
+        }
+
+        &__link {
+          top: 7rem;
+          right: 9rem;
+        }
+      }
+    }
+
+    .massage-results__simple-slide {
+      &_4 + .massage-results__link,
+      &_5 + .massage-results__link {
+        top: 5rem;
+      }
+    }
+
+    &__presentation {
+      left: 37%;
+    }
+
+    &__description {
+      font-size: 1.4rem;
+
+      &_one {
+        top: 5rem;
+
+        &::before {
+          top: 3.5rem;
+          left: 11.5rem;
+
+          width: 23rem;
+
+          transform: rotate(44deg);
+          transform-origin: left top;
+        }
+      }
+
+      &_two {
+        top: 15rem;
+
+        &::before,
+        &::after {
+          top: 4rem;
+          right: calc(100% + 0.5rem);
+          left: auto;
+
+          transform-origin: right;
+        }
+
+        &::before {
+          width: 32rem;
+
+          transform: rotate(-44deg);
+        }
+
+        &::after {
+          width: 24rem;
+
+          transform: rotate(-50deg);
+        }
+      }
+
+      &_three {
+        top: 26rem;
+
+        &::before {
+          top: 3.5rem;
+          left: calc(100% + 0.5rem);
+
+          width: 16rem;
+
+          transform: rotate(24deg);
+          transform-origin: left top;
+        }
+      }
+
+      &_four {
+        top: 36rem;
+
+        &::before {
+          @include box(16rem, 0.1rem);
+
+          top: 3rem;
+          left: calc(100% - 1rem);
+
+          transform: rotate(24deg);
+          transform-origin: left top;
+        }
+      }
+
+      &_five {
+        top: 33rem;
+        left: 54rem;
+
+        &::before {
+          top: 4rem;
+
+          width: 12.5rem;
+
+          transform: rotate(155deg);
+        }
       }
     }
   }

@@ -1,4 +1,7 @@
-const massageResultsBlock = document.querySelector(`.massage-results`);
+import { backResultsSlider } from './backResultsSlider';
+import { figureResultsSlider } from './figureResultsSlider';
+
+export const massageResultsBlock = document.querySelector(`.massage-results`);
 const navWrap = massageResultsBlock.querySelector(`.massage-results__nav`);
 const navConfig = new Map();
 const navLinks = navWrap.querySelectorAll(`[data-section-id]`);
@@ -14,19 +17,30 @@ navLinks.forEach(link => {
   }
 });
 
-navWrap.addEventListener(`click`, switchTab);
+navWrap.addEventListener(`click`, navClickHandler);
 
-function switchTab(evt) {
+function navClickHandler(evt) {
   evt.preventDefault();
 
   if (navConfig.has(evt.target) && evt.target !== activeLink) {
-    delete activeLink.dataset.active;
-    activeSection.classList.add(`hidden`);
+    switchTab(evt.target);
 
-    activeLink = evt.target;
-    activeSection = navConfig.get(evt.target);
-
-    activeLink.dataset.active = ``;
-    activeSection.classList.remove(`hidden`);
+    if (activeSection.id === `backResults`) {
+      backResultsSlider && backResultsSlider.updateSliderHeight();
+    }
+    if (activeSection.id === `figureResults`) {
+      figureResultsSlider && figureResultsSlider.updateSliderHeight();
+    }
   }
+}
+
+function switchTab(tabTrigger) {
+  delete activeLink.dataset.active;
+  activeSection.classList.add(`hidden`);
+
+  activeLink = tabTrigger;
+  activeSection = navConfig.get(tabTrigger);
+
+  activeLink.dataset.active = ``;
+  activeSection.classList.remove(`hidden`);
 }
