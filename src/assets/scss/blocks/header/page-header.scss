@@ -423,9 +423,17 @@
       background-color: white;
       box-shadow: 0 4px 20px $x-light-dim-color;
 
-      .page-header__wrap {
-        margin: 0 auto;
-        padding: 1.6rem 0;
+      .page-header {
+        &__wrap {
+          align-items: center;
+          margin: 0 auto;
+          padding: 1.5rem 0;
+        }
+
+        &__panel {
+          align-items: center;
+          padding-top: 0;
+        }
       }
     }
   }

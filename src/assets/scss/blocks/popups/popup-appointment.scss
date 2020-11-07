@@ -45,22 +45,25 @@
     &__content {
       padding: 1.5rem 1rem;
     }
+  }
 
-    .application-form {
-      &__inputs {
-        display: block;
-      }
+  .page {
+    .popup-appointment {
+      .application-form {
+        &__inputs {
+          display: block;
+        }
 
-      &__input {
-        margin-right: 0;
-        margin-bottom: 2rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-      }
+        &__input {
+          margin-right: 0;
+          margin-bottom: 2rem;
+          padding: 1rem 2rem;
+        }
 
-      &__submit {
-        padding-top: 1.2rem;
-        padding-bottom: 1.2rem;
+        &__submit {
+          padding-top: 1.2rem;
+          padding-bottom: 1.2rem;
+        }
       }
     }
   }

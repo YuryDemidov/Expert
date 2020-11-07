@@ -74,10 +74,6 @@
     padding: 3rem;
 
     .sticker {
-      &__image {
-        fill: map-deep-get($themes, 'main', 'background');
-      }
-
       &__secondary-text {
         font-size: 1.4rem;
         line-height: 1.3;
