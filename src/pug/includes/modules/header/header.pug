@@ -41,4 +41,4 @@ header.page-header(data-state='static')
           - var phoneNumber = phone.replace(/[()\s-]/g, '')
           li.phones-list__phone
             a.phones-list__phone-number.link.undeline.underline_dotted.underline_gray-dotted(href=`tel:${phoneNumber}`)= phone
-      button.page-header__appointment-button.button.button_primary Записаться
+      button.page-header__appointment-button.button.button_primary(data-open-popup='appointment') Записаться

@@ -62,7 +62,15 @@
     }
   }
 
-  .sticker {
+  &__sticker_first {
+    @include box(24rem, 24.6rem, 2.5rem);
+
+    position: relative;
+
+    margin: 4rem auto;
+  }
+
+  .sticker:not(.massage-types__sticker_first) {
     @include box(120px);
 
     bottom: 5rem;
@@ -72,11 +80,7 @@
     font-family: $title-font-family;
     font-size: 2.4rem;
 
-    &__image {
-      fill: #d4e5f1;
-    }
-
-    &__main-text {
+    .sticker__main-text {
       transform: rotate(10deg);
     }
   }
@@ -265,6 +269,9 @@
 
 @media (min-width: $s-desktop-min-width) {
   .massage-types {
+    position: relative;
+
+    overflow: hidden;
     margin-bottom: 9rem;
 
     &__title {
@@ -279,7 +286,19 @@
       margin-bottom: 10rem;
     }
 
-    .sticker {
+    &__sticker_first {
+      @include box(20rem, 20.5rem, 1.5rem);
+
+      position: absolute;
+      top: 1rem;
+      left: calc(100vw - 20.5rem);
+
+      font-size: 1.5rem;
+
+      transform: rotate(8deg);
+    }
+
+    .sticker:not(.massage-types__sticker_first) {
       @include box(14vw);
 
       top: -5rem;
@@ -476,7 +495,17 @@
 
 @media (min-width: $desktop-min-width) {
   .massage-types {
-    .sticker {
+    &__sticker_first {
+      @include box(24rem, 24.6rem, 2.5rem);
+
+      top: -1rem;
+      right: calc(50% - 60rem);
+      left: auto;
+
+      font-size: 1.6rem;
+    }
+
+    .sticker:not(.massage-types__sticker_first) {
       top: -8rem;
       right: -6rem;
 
