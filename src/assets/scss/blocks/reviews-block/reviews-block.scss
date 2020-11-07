@@ -78,6 +78,12 @@
       position: relative;
     }
 
+    .slider {
+      &__button {
+        top: 17.5rem;
+      }
+    }
+
     &__review {
       margin-bottom: 4rem;
     }
@@ -110,6 +116,12 @@
 
     &__slider {
       margin-top: 4rem;
+    }
+
+    .slider {
+      &__button {
+        top: 21.5rem;
+      }
     }
 
     &__link {

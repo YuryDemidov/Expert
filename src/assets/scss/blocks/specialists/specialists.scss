@@ -1,6 +1,7 @@
 @use '../../tools' as *;
 
 .specialists {
+  overflow: hidden;
   margin-bottom: 7rem;
 
   &__title {
@@ -19,6 +20,8 @@
     @include centered-block(48rem);
 
     &__button {
+      @include box(3.5rem, 12rem);
+
       &::before {
         transition: border-color 0.4s;
       }
@@ -29,6 +32,14 @@
         &::before {
           border-color: map-deep-get($themes, 'main', 'secondary');
         }
+      }
+
+      &_prev {
+        right: calc(100% - 1rem);
+      }
+
+      &_next {
+        left: calc(100% - 1rem);
       }
     }
   }
@@ -58,6 +69,18 @@
 
     .slider {
       max-width: initial;
+
+      &__button {
+        top: calc(50% - 1.5rem);
+
+        &_prev {
+          right: 100%;
+        }
+
+        &_next {
+          left: 100%;
+        }
+      }
     }
   }
 }

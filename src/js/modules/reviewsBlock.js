@@ -25,11 +25,7 @@ const reviewsSliderOptions = {
   loop: true,
   mouseDrag: true,
   speed: 400,
-  autoplay: true,
-  autoplayTimeout: 5000,
   preventScrollOnTouch: `auto`,
-  autoplayButtonOutput: false,
-  autoplayHoverPause: false,
   responsive: {
     0: calcSliderResponsiveParams(1),
     768: {
