@@ -158,7 +158,7 @@
   transform: rotate(45deg);
 }
 
-@mixin stroke-arrow($size: 8px, $thickness: 2px, $color: vars.$default-color, $direction: 'down') {
+@mixin stroke-arrow($size: 0.8rem, $thickness: 0.2rem, $color: vars.$default-color, $direction: 'down') {
   @include box($size);
 
   border-bottom: $thickness solid $color;
@@ -197,8 +197,8 @@
   @else if ($direction == 'left') { border-right-color: $color; }
 }
 
-@mixin cross($size: 20px, $stroke-width: 2px, $color: vars.$default-color) {
-  @include box(calc(#{$size} + 4px));
+@mixin cross($size: 2rem, $stroke-width: 0.2rem, $color: vars.$default-color) {
+  @include box(calc(#{$size} + 0.4rem));
 
   position: relative;
 

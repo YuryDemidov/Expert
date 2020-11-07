@@ -108,6 +108,12 @@
 
     font-size: 1.5rem;
   }
+
+  &[data-state='menu'] {
+    .page-header__menu {
+      display: block;
+    }
+  }
 }
 
 .theme-main {
@@ -238,12 +244,6 @@
   }
 }
 
-.page-header[data-state='menu'] {
-  .page-header__menu {
-    display: block;
-  }
-}
-
 @media (min-width: $phone-landscape-min-width) {
   .page-header {
     padding-bottom: calc(30rem + 15vh);
@@ -346,14 +346,16 @@
 
 @media (min-width: $s-desktop-min-width) {
   .page-header {
-    @include centered-block(calc(98rem + 5vw));
+    &__wrap {
+      @include centered-block(calc(98rem + 5vw));
 
-    position: relative;
+      position: relative;
 
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    padding: 1.6rem 1vw;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      padding: 1.6rem 1vw;
+    }
 
     &__panel {
       position: static;
@@ -383,27 +385,23 @@
       transform: none;
     }
   }
-
-  .theme-main .page-header {
-    &__logo-link {
-      top: auto;
-    }
-  }
 }
 
 @media (min-width: $desktop-min-width) {
   .page-header {
-    align-items: flex-start;
-    max-width: calc(95rem + 5vw);
-    padding-top: 2.5rem;
-    padding-right: 0;
-    padding-bottom: 1vw;
-    padding-left: 2vw;
+    &__wrap {
+      align-items: flex-start;
+      max-width: calc(95rem + 5vw);
+      padding-top: 2.5rem;
+      padding-right: 0;
+      padding-bottom: 1vw;
+      padding-left: 2vw;
 
-    @include themify() {
-      @if ($header-image-2 == null) {
-        margin-right: 16vw;
-        margin-left: auto;
+      @include themify() {
+        @if ($header-image-2 == null) {
+          margin-right: 16vw;
+          margin-left: auto;
+        }
       }
     }
 
@@ -411,17 +409,38 @@
       align-items: flex-start;
       padding-top: 0.5rem;
     }
+
+    &[data-state='static'] {
+      animation: none;
+    }
+
+    &[data-state='fixed'] {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      background-color: white;
+      box-shadow: 0 4px 20px $x-light-dim-color;
+
+      .page-header__wrap {
+        margin: 0 auto;
+        padding: 1.6rem 0;
+      }
+    }
   }
 }
 
 @media (min-width: $l-desktop-min-width) {
   .page-header {
-    @include centered-block(calc(100rem + 5vw));
+    &__wrap {
+      @include centered-block(calc(100rem + 5vw));
 
-    @include themify() {
-      @if ($header-image-2 == null) {
-        @include centered-block(calc(100rem + 5vw + 5%));
-        padding-right: 5%;
+      @include themify() {
+        @if ($header-image-2 == null) {
+          @include centered-block(calc(100rem + 5vw + 5%));
+          padding-right: 5%;
+        }
       }
     }
 

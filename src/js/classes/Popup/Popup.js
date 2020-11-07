@@ -1,4 +1,5 @@
 import animateCss from '../../utils/functions/animateCss';
+import { BODY_STATES } from '../../utils/constants/enums/bodyStates';
 
 export default class Popup {
   constructor(options) {
@@ -42,10 +43,10 @@ export default class Popup {
 
     this.node.dataset.popup = `opened`;
     if (this.isBodyFixed) {
-      document.body.dataset.state = `noscroll`;
+      document.body.dataset.state = BODY_STATES.noscroll;
     }
     if (this.isOverlay) {
-      document.body.dataset.state = `show-popup`;
+      document.body.dataset.state = BODY_STATES.popup;
       animateCss(`[data-close-popup='all']`, `fade-in`);
     }
 
@@ -93,12 +94,8 @@ export default class Popup {
   _popupCloseHandler() {
     this.node.dataset.popup = `closed`;
     this._configureButtonListeners(this.openButtons, this.open);
-
-    if (this.isBodyFixed) {
-      delete document.body.dataset.state;
-    }
+    document.body.dataset.state = BODY_STATES.initial;
     if (this.isOverlay) {
-      delete document.body.dataset.state;
       globalThis.removeEventListener(`keyup`, this.boundedEscapePressHandler);
     }
   }
