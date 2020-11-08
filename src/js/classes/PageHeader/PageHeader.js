@@ -13,7 +13,7 @@ export default class PageHeader {
   }
 
   set state(state) {
-    if (globalThis.innerWidth < this.HEADER_STATE_CHANGE_WIDTH) {
+    if (globalThis.innerWidth < this.HEADER_STATE_CHANGE_WIDTH && state !== HEADER_STATES.menu) {
       return;
     }
 

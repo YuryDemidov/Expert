@@ -1,0 +1,140 @@
+@use '../../tools' as *;
+
+.about-massage {
+  margin-bottom: 9rem;
+
+  &__title {
+    margin-bottom: 3.5rem;
+  }
+
+  &__content {
+    padding: 0 3rem;
+  }
+
+  &__card {
+    @include centered-block(40rem);
+
+    margin-bottom: 5rem;
+    padding: 3.2rem;
+    padding-top: 2.8rem;
+
+    box-shadow: 0 0.4rem 2.5rem $x-light-dim-color;
+
+    @for $i from 1 to 4 {
+      &_#{$i} {
+        .about-massage__image {
+          margin: 0 auto;
+          margin-top: 2.4rem;
+
+          background-repeat: no-repeat;
+          background-size: contain;
+
+          @if ($i == 2) {
+            width: 100%;
+            padding-bottom: 18rem;
+
+            background-position: bottom;
+          }
+          @else {
+            @include box(calc(10rem + 8vw));
+
+            max-width: 16.3rem;
+            max-height: 16.3rem;
+
+            border-radius: 50%;
+          }
+
+          @include themify() {
+            @if $theme-id != 'main' {
+              background-image: url('../../../img/about-massage/#{$theme-id}-about-massage_#{$i}@1x.jpg');
+
+              @include retina(2) {
+                background-image: url('../../../img/about-massage/#{$theme-id}-about-massage_#{$i}@2x.jpg');
+              }
+
+              @include retina(3) {
+                background-image: url('../../../img/about-massage/#{$theme-id}-about-massage_#{$i}@3x.jpg');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__caption {
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    margin-bottom: 1.8rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .about-massage {
+    margin-bottom: 12rem;
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 0 1.5rem;
+    }
+
+    &__title {
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+
+    &__card {
+      width: 44%;
+
+      &_1 {
+        flex-shrink: 0;
+        margin-right: 100%;
+        margin-left: 100%;
+      }
+
+      &_2 {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1.5rem;
+        padding-bottom: 0;
+        padding-left: 1.5rem;
+
+        .about-massage__caption,
+        .about-massage__text {
+          padding: 0 2.5rem;
+        }
+
+        .about-massage__image {
+          margin-top: auto;
+          padding-bottom: 70%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .about-massage {
+    margin-bottom: 15rem;
+
+    &__title {
+      margin-bottom: 6.5rem;
+    }
+
+    &__card {
+      width: 31%;
+      margin-right: 1rem;
+      margin-left: 1rem;
+
+      &_1 {
+        flex-shrink: 1;
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+    }
+  }
+}

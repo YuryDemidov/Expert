@@ -18,7 +18,7 @@ block variables
       mainScreenFeatures: [
         {
           bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
         },
         {
           bigText: '10 лет',
@@ -26,8 +26,29 @@ block variables
         },
         {
           bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ],
+      aboutMassage: [
+        {
+          title: 'Что это за процедура?',
+          text: [
+            'Скульптурно-буккальный массаж лица -— революционная процедура, которую по эффекту называют «безоперационной пластикой». За счёт проработки мышц сразу с двух сторон - внешней и внутренней, эффект настолько сильный, что после курса массажа сравним с хирургической подтяжкой.',
+            'За 60 минут массажа мастер формирует правильный контур лица, убирает отёки, укрепляет лицевые мышцы, и стирает морщинки. Результат будет заметен уже после 1 сеанса.'
+          ]
+        },
+        {
+          title: 'Какой будет результат?',
+          text: [
+            'Ваши мимические морщинки исчезнут, а глубокие значительно сгладятся. Уйдут отёки, мешки под глазами, второй подбородок. Процесс старения замедлится, ваши черта лица станут изящнее, а признаки старения пропадут.'
+          ]
+        },
+        {
+          title: 'Это больно, долго, дорого?',
+          text: [
+            'Процедура массажа приятная и расслабляющая, некоторые засыпают. Если у вас очень забитые мышцы, будет чувстви&shy;тельно, но точно не больно. Для устойчивого результата обычно хватает 6-10 процедур, но разницу видно и после первой. А стоимость в разы меньше, чем при попытках добиться похожего результата пластикой.'
+          ]
         }
       ],
       featuresBlock: {
@@ -110,6 +131,7 @@ block variables
     }
 
 block content
+  include ../includes/modules/content/about-massage
   include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/features-list

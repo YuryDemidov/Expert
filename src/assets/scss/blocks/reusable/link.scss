@@ -34,6 +34,8 @@
 
       @include in-focus() {
         color: $color-primary;
+
+        border-bottom-color: $color-primary-transparent;
       }
 
       &.underline {

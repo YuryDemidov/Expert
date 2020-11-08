@@ -97,6 +97,7 @@ $theme-11-alt-l: 67%;
 $themes: (
   // Theme main
   'main': (
+    'id': 'main',
     'primary': hsl($theme-main-h, $theme-main-s, $theme-main-l),
     'primary-dark': hsl($theme-main-h, $theme-main-s, $theme-main-l - 10%),
     'primary-light': hsl($theme-main-h, $theme-main-s, $theme-main-l + 10%),
@@ -146,6 +147,7 @@ $themes: (
   ),
   // Theme 1 - Sculptural-buccal massage
   '1': (
+    'id': '1',
     'primary': hsl($theme-1-h, $theme-1-s, $theme-1-l),
     'primary-dark': hsl($theme-1-h, $theme-1-s, $theme-1-l - 8%),
     'primary-light': hsl($theme-1-h, $theme-1-s, $theme-1-l + 8%),
@@ -180,6 +182,7 @@ $themes: (
   ),
   // Theme 2 - Classic facial massage
   '2': (
+    'id': '2',
     'primary': hsl($theme-2-h, $theme-2-s, $theme-2-l),
     'primary-dark': hsl($theme-2-h, $theme-2-s, $theme-2-l - 10%),
     'primary-light': hsl($theme-2-h, $theme-2-s, $theme-2-l + 10%),
@@ -214,6 +217,7 @@ $themes: (
   ),
   // Theme 3 - Facial lymphatic drainage
   '3': (
+    'id': '3',
     'primary': hsl($theme-3-h, $theme-3-s, $theme-3-l),
     'primary-dark': hsl($theme-3-h, $theme-3-s, $theme-3-l - 10%),
     'primary-light': hsl($theme-3-h, $theme-3-s, $theme-3-l + 10%),
@@ -248,6 +252,7 @@ $themes: (
   ),
   // Theme 4 - Japanese Asahi massage
   '4': (
+    'id': '4',
     'primary': hsl($theme-4-h, $theme-4-s, $theme-4-l),
     'primary-dark': hsl($theme-4-h, $theme-4-s, $theme-4-l - 6%),
     'primary-light': hsl($theme-4-h, $theme-4-s, $theme-4-l + 6%),
@@ -283,6 +288,7 @@ $themes: (
   ),
   // Theme 5 - Chiromassage
   '5': (
+    'id': '5',
     'primary': hsl($theme-5-h, $theme-5-s, $theme-5-l),
     'primary-dark': hsl($theme-5-h, $theme-5-s, $theme-5-l - 10%),
     'primary-light': hsl($theme-5-h, $theme-5-s, $theme-5-l + 10%),
@@ -317,6 +323,7 @@ $themes: (
   ),
   // Theme 6 - Sports massage
   '6': (
+    'id': '6',
     'primary': hsl($theme-6-h, $theme-6-s, $theme-6-l),
     'primary-dark': hsl($theme-6-h, $theme-6-s, $theme-6-l - 8%),
     'primary-light': hsl($theme-6-h, $theme-6-s, $theme-6-l + 8%),
@@ -367,6 +374,7 @@ $themes: (
   ),
   // Theme 7 - Figure modeling
   '7': (
+    'id': '7',
     'primary': hsl($theme-7-h, $theme-7-s, $theme-7-l),
     'primary-dark': hsl($theme-7-h, $theme-7-s, $theme-7-l - 10%),
     'primary-light': hsl($theme-7-h, $theme-7-s, $theme-7-l + 10%),
@@ -402,6 +410,7 @@ $themes: (
   ),
   // Theme 8 - Body lymphatic-drainage
   '8': (
+    'id': '8',
     'primary': hsl($theme-8-h, $theme-8-s, $theme-8-l),
     'primary-dark': hsl($theme-8-h, $theme-8-s, $theme-8-l - 10%),
     'primary-light': hsl($theme-8-h, $theme-8-s, $theme-8-l + 10%),
@@ -451,6 +460,7 @@ $themes: (
   ),
   // Theme 9 - Anti-cellulite massage
   '9': (
+    'id': '9',
     'primary': hsl($theme-9-h, $theme-9-s, $theme-9-l),
     'primary-dark': hsl($theme-9-h, $theme-9-s, $theme-9-l - 10%),
     'primary-light': hsl($theme-9-h, $theme-9-s, $theme-9-l + 10%),
@@ -501,6 +511,7 @@ $themes: (
   ),
   // Theme 10 - Neck massage
   '10': (
+    'id': '10',
     'primary': hsl($theme-10-h, $theme-10-s, $theme-10-l),
     'primary-dark': hsl($theme-10-h, $theme-10-s, $theme-10-l - 10%),
     'primary-light': hsl($theme-10-h, $theme-10-s, $theme-10-l + 10%),
@@ -536,6 +547,7 @@ $themes: (
   ),
   // Theme 11 - Fullbody massage
   '11': (
+    'id': '11',
     'primary': hsl($theme-11-h, $theme-11-s, $theme-11-l),
     'primary-dark': hsl($theme-11-h, $theme-11-s, $theme-11-l - 10%),
     'primary-light': hsl($theme-11-h, $theme-11-s, $theme-11-l + 10%),
@@ -585,6 +597,7 @@ $themes: (
   ),
   // Theme 12 - Back massage
   '12': (
+    'id': '12',
     'primary': hsl($theme-main-h, $theme-main-s, $theme-main-l),
     'primary-dark': hsl($theme-main-h, $theme-main-s, $theme-main-l - 10%),
     'primary-light': hsl($theme-main-h, $theme-main-s, $theme-main-l + 10%),
@@ -636,6 +649,7 @@ $themes: (
 
 // Инициализируем наши переменные как `null`, таким образом,
 // при использовании вне `themify`, они ничего не выведут.
+$theme-id: null;
 $color-primary: null;
 $color-primary-dark: null;
 $color-primary-light: null;
@@ -660,6 +674,7 @@ $features-icons: null;
     // Создание селектора (типа `.theme-main .class`)
     .theme-#{$theme} & {
       // Задание переменных темы как глобальных с `!global`
+      $theme-id: map-get($props, 'id') !global;
       $color-primary: map-get($props, 'primary') !global;
       $color-primary-light: map-get($props, 'primary-dark') !global;
       $color-primary-light: map-get($props, 'primary-light') !global;
@@ -679,6 +694,7 @@ $features-icons: null;
       @content;
 
       // Глобальное отключение переменных темы с `!global`
+      $theme-id: null !global;
       $color-primary: null !global;
       $color-primary-dark: null !global;
       $color-primary-light: null !global;

@@ -18,7 +18,7 @@ block variables
       mainScreenFeatures: [
         {
           bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
         },
         {
           bigText: '10 лет',
@@ -26,8 +26,31 @@ block variables
         },
         {
           bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ],
+      aboutMassage: [
+        {
+          title: 'Что это за процедура?',
+          text: [
+            'Принципы лимфодренажного массажа одинаковы для лица, и тела — специалист воздействует на лимфу по направлению лимфотока, чтобы разогнать ее и вывести лишнюю жидкость.',
+            'Массажист, с помощью специальных движений, устраняет застой лимфы, улучшает её циркуляцию, и полностью убирает отёки. Массаж запускает процесс питания клеток и тканей, выводит токсины, улучшает состояние кожи и тонус мышц.'
+          ]
+        },
+        {
+          title: 'Какой будет результат?',
+          text: [
+            'У вас полностью пропадут отёки, станут более заметны скулы, ярче проявятся черты лица.',
+            'На лице появится здоровый румянец, вы будете выглядеть свежее и здоровее, как будто хорошо отдохнули.'
+          ]
+        },
+        {
+          title: 'Кому подойдёт этот массаж?',
+          text: [
+            `Всем, чья основная цель — снять выраженные отёки и улучшить цвет лица. Правда, если отёки регулярно появляются не только на лице, вам нужен <a class='link link_primary' href='body-lymphatic-drainage.html'>лимфодренажный массаж всего тела</a>, так как он убирает не только проявления, но и причину отёков.`,
+            'Также лимфодренажный массаж лица помогает уменьшить морщины и жирность кожи, но основная его функция именно в борьбе с отёками.'
+          ]
         }
       ],
       featuresBlock: {
@@ -106,6 +129,8 @@ block variables
     }
 
 block content
+  include ../includes/modules/content/about-massage
+  include ../includes/modules/content/about-massage
   include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/features-list

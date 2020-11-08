@@ -18,7 +18,7 @@ block variables
       mainScreenFeatures: [
         {
           bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
         },
         {
           bigText: '10 лет',
@@ -26,8 +26,31 @@ block variables
         },
         {
           bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
+        }
+      ],
+      aboutMassage: [
+        {
+          title: 'Что это за процедура?',
+          text: [
+            'Классический массаж лица – одна из самых мягких методик массажа. В этой бережной и спокойной технике используются только плавные, скользящие движения, строго по массажным линиям и с минимальным давлением.',
+            'Несмотря на мягкость этой процедуры, она отлично расслабляет мышцы лица, улучшает тонус кожи, и возвращает здоровый цвет лица.'
+          ]
+        },
+        {
+          title: 'Какой будет результат?',
+          text: [
+            'Массажист снимет с каждой мышцы лица спазм и усталость, и это сразу отразится на качестве кожи. Уменьшится выраженность морщин, возрастные недостатки станут менее заметны.',
+            'Благодаря притоку крови, улучшится цвет лица, клетки насытятся кислородом, кожа станет более упругой. Однако, достичь сильного лифтинг-эффекта с помощью классической техники, довольно трудно.'
+          ]
+        },
+        {
+          title: 'Правда ли, что классический массаж не очень эффективен?',
+          text: [
+            `Это зависит от цели. Если вам нужен очень яркий эффект, сравнимый с пластикой, то другие методики будут эффективнее, особенно <a class='link link_primary' href='sculptural-buccal-massage.html'>скульптурно-буккальный массаж</a>.`,
+            'Классический массаж — это простая, мягкая техника, работающая над улучшением общего состояния лица. Если у вас нет серьёзных недостатков, то классический массаж отлично вам подойдёт. Он эффективно снимает спазм мышц, расслабляет лицо и возвращает ему здоровый цвет. К тому же это приятная процедура, которая поднимет вам настроение.'
+          ]
         }
       ],
       featuresBlock: {
@@ -106,6 +129,7 @@ block variables
     }
 
 block content
+  include ../includes/modules/content/about-massage
   include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/features-list
