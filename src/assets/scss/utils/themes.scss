@@ -50,9 +50,9 @@ $theme-5-alt-l: 48%;
 $theme-6-h: 356;
 $theme-6-s: 99%;
 $theme-6-l: 40%;
-$theme-6-alt-h: 356;
-$theme-6-alt-s: 99%;
-$theme-6-alt-l: 40%;
+$theme-6-alt-h: 201;
+$theme-6-alt-s: 95%;
+$theme-6-alt-l: 75%;
 
 // Theme 7 - Figure modeling
 $theme-7-h: 338;
@@ -676,12 +676,12 @@ $features-icons: null;
       // Задание переменных темы как глобальных с `!global`
       $theme-id: map-get($props, 'id') !global;
       $color-primary: map-get($props, 'primary') !global;
-      $color-primary-light: map-get($props, 'primary-dark') !global;
+      $color-primary-dark: map-get($props, 'primary-dark') !global;
       $color-primary-light: map-get($props, 'primary-light') !global;
       $color-primary-transparent: map-get($props, 'primary-transparent') !global;
       $color-primary-x-transparent: map-get($props, 'primary-x-transparent') !global;
       $color-secondary: map-get($props, 'secondary') !global;
-      $color-secondary-light: map-get($props, 'secondary-dark') !global;
+      $color-secondary-dark: map-get($props, 'secondary-dark') !global;
       $color-secondary-light: map-get($props, 'secondary-light') !global;
       $color-secondary-transparent: map-get($props, 'secondary-transparent') !global;
       $color-secondary-x-transparent: map-get($props, 'secondary-x-transparent') !global;

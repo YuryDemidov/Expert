@@ -3,9 +3,8 @@ section.about-massage
     h2.about-massage__title.heading Основное о массаже
     each section, i in locals.data.pageData.aboutMassage
       .about-massage__card(class=`about-massage__card_${i + 1}`)
-        h3.about-massage__caption= section.title
-        .about-massage__description
-          each paragraph in section.text
-            p.about-massage__text!= paragraph
+        h3.about-massage__caption!= section.title
+        each paragraph in section.text
+          p.about-massage__text!= paragraph
         .about-massage__image
 

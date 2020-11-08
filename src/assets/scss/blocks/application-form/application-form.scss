@@ -6,7 +6,7 @@
   margin-bottom: 12rem;
 
   &__background {
-    max-width: 116rem;
+    max-width: 120rem;
     padding-top: 3rem;
     padding-bottom: 5rem;
 
@@ -382,6 +382,10 @@
       padding: 0 5rem;
     }
 
+    &__background {
+      padding-bottom: 5.5rem;
+    }
+
     &__title {
       font-size: 2.6rem;
     }
@@ -448,7 +452,7 @@
       }
 
       &__background {
-        max-width: 116rem;
+        max-width: 120rem;
         padding: 8rem;
         padding-top: 6rem;
         padding-left: 6rem;
@@ -523,7 +527,7 @@
 
       &__background {
         padding-left: calc(45rem - 22vw);
-        padding-bottom: 9rem;
+        padding-bottom: 7rem;
       }
 
       .sticker {
