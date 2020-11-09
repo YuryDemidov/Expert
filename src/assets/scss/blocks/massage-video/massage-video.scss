@@ -1,0 +1,164 @@
+@use '../../tools' as *;
+
+.massage-video {
+  position: relative;
+
+  margin-bottom: 8.5rem;
+
+  &__title {
+    margin-bottom: 3.5rem;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__video-wrap {
+    @include centered-block(85%);
+
+    position: relative;
+
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 6rem;
+    padding-bottom: 48%;
+
+    border-radius: 1rem;
+  }
+
+  &__video {
+    @include absolute-centered();
+    @include box(100%);
+  }
+
+  &__play {
+    &::before {
+      border-radius: 0.4rem;
+    }
+  }
+
+  .sticker {
+    @include box(20rem, 20.5rem, 2rem);
+
+    margin: 0 auto;
+
+    @include themify() {
+      &__image {
+        fill: $color-primary-transparent;
+      }
+
+      @if ($theme-id == '1') {
+        color: $alt-default-color;
+
+        &__secondary-text {
+          transform: rotate(10deg);
+        }
+      }
+
+      @if ($theme-id == '6') {
+        &__image {
+          fill: map-deep-get($themes, '6', 'secondary-transparent');
+        }
+      }
+
+      @if ($theme-id == '8') {
+        color: $alt-default-color;
+
+        &__secondary-text {
+          transform: rotate(-10deg);
+        }
+      }
+
+      @if ($theme-id == '10') {
+        &__image {
+          fill: map-deep-get($themes, '10', 'background');
+        }
+      }
+    }
+  }
+
+  &__sticker {
+    position: relative;
+
+    &_left.sticker {
+      @include box(24rem, 24.6rem, 3.5rem);
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .massage-video {
+    margin-bottom: 10rem;
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__video-wrap {
+      border-radius: 2rem;
+    }
+
+    &__sticker {
+      @include box(18rem, 18.5rem);
+
+      position: absolute;
+      top: -7.5rem;
+
+      &_left {
+        left: 0.5rem;
+      }
+
+      &_right {
+        right: 0.5rem;
+      }
+    }
+
+    &__play {
+      @include box(10rem);
+
+      max-width: initial;
+      max-height: initial;
+
+      &::before {
+        left: calc(50% + 1.5rem);
+
+        border-width: 2.2rem;
+        border-left-width: 3.2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .massage-video {
+    margin-bottom: 12rem;
+
+    &__title {
+      margin-bottom: 7rem;
+    }
+
+    &__content {
+      @include centered-block(110rem);
+    }
+
+    &__video-wrap {
+      max-width: 85.3rem;
+      padding-bottom: 48rem;
+    }
+
+    &__sticker {
+      @include box(20rem, 20.5rem);
+    }
+
+    &__play {
+      @include box(14rem);
+
+      &::before {
+        left: calc(50% + 2.2rem);
+
+        border-width: 3.2rem;
+        border-left-width: 5rem;
+      }
+    }
+  }
+}

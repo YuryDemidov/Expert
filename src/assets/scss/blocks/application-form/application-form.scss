@@ -236,6 +236,14 @@
   }
 }
 
+.theme-6 {
+  .application-form {
+    &__title {
+      color: map-deep-get($themes, '6', 'primary');
+    }
+  }
+}
+
 .theme-7 {
   .application-form {
     &__background {

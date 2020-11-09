@@ -4,6 +4,7 @@
   position: relative;
 
   &__play-button {
+    @include reset-button();
     @include absolute-centered();
     @include box(14vw);
 
@@ -18,19 +19,24 @@
 
     &::before {
       @include absolute-centered();
-      @include filled-arrow-2(1.2rem, map-deep-get($themes, 'main', 'primary'), 'right');
+      @include filled-arrow-2(1.2rem, $default-color, 'right');
 
       content: '';
       left: calc(50% + 0.8rem);
 
       border-left-width: 2.2rem;
+      @include themify() {
+        border-left-color: $color-primary;
+      }
 
       transition: border-left-color 0.4s;
     }
 
     @include in-focus() {
       &::before {
-        border-left-color: map-deep-get($themes, 'main', 'secondary');
+        @include themify() {
+          border-left-color: $color-secondary;
+        }
         outline: none;
       }
     }
@@ -51,7 +57,9 @@
 
     @include in-focus() {
       + .video-block__play-button::before {
-        border-left-color: map-deep-get($themes, 'main', 'secondary');
+        @include themify() {
+          border-left-color: $color-secondary;
+        }
       }
     }
   }
