@@ -108,6 +108,20 @@
     }
   }
 
+  @each $i in (1, 4, 5) {
+    &__massage-link {
+      &_#{$i} {
+        color: map-deep-get($themes, '#{$i}', 'primary');
+
+        @include in-focus() {
+          color: map-deep-get($themes, '#{$i}', 'primary');
+
+          border-bottom-color: map-deep-get($themes, '#{$i}', 'primary-transparent');
+        }
+      }
+    }
+  }
+
   &__single-image {
     @include centered-block(32.5rem);
 
