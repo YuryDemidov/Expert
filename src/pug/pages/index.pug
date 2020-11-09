@@ -57,6 +57,15 @@ block variables
           }
         ]
       },
+      massageResults: {
+        title: 'Результаты нашего массажа',
+        face: {
+          slidesOrder: [1, 2, 5, 7, 3, 6, 8, 4]
+        },
+        figure: {
+          slidesOrder: [1, 2, 3, 9, 4, 10, 5, 11, 6, 12, 7, 8]
+        }
+      },
       reviewsBlock: {
         title: 'Отзывы о&nbsp;нас',
         showSticker: true,
@@ -122,6 +131,7 @@ block content
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/massage-types
   include ../includes/modules/content/massage-choosing-test
+  include ../includes/modules/content/massage-results/wrap
   include ../includes/modules/content/famous-clients
   include ../includes/modules/content/video-reviews
   include ../includes/modules/content/price-list
