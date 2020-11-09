@@ -1,0 +1,118 @@
+@use '../../tools' as *;
+
+.back-results {
+  @include centered-block(37.5rem);
+
+  .slider {
+    padding: 0 4rem;
+
+    text-align: center;
+
+    .tns-ovh {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .tns-nav {
+      margin-top: 1rem;
+    }
+
+    &__button {
+      top: calc(50% - 1rem);
+
+      &_prev {
+        left: 1rem;
+      }
+
+      &_next {
+        right: 1rem;
+      }
+
+      &::before {
+        @include box(2rem);
+      }
+    }
+  }
+
+  &__column {
+    .picture {
+      width: 85%;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__description {
+    @include centered-block(70rem);
+
+    margin-top: 4rem;
+    padding: 2.5rem;
+
+    background-color: $x-lightgray-color;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .back-results {
+    max-width: 75rem;
+
+    &__slider {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      > .back-results__slide {
+        width: 48%;
+        margin: 0 1%;
+      }
+    }
+
+    &__column {
+      width: 35rem;
+      margin-bottom: 2rem;
+    }
+
+    &__description {
+      padding: 3rem 3.5rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .back-results {
+    max-width: 120rem;
+
+    &__slide {
+      width: 100%;
+      margin: 0.7rem;
+    }
+
+    &__slider {
+      flex-wrap: nowrap;
+
+      > .back-results__slide {
+        width: 100%;
+        margin: 0.7rem;
+      }
+    }
+
+    &__column {
+      width: 57.5%;
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+
+    &__description {
+      max-width: 90rem;
+      padding: 3.5rem 5.5rem;
+    }
+  }
+}

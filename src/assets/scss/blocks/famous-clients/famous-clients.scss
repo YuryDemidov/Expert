@@ -88,6 +88,10 @@
   .famous-clients {
     margin-bottom: 5rem;
 
+    &__content {
+      position: relative;
+    }
+
     &__title {
       margin-bottom: 5rem;
     }
