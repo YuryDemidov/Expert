@@ -55,26 +55,6 @@ block variables
           ]
         }
       ],
-      featuresBlock: {
-        heading: 'Что вы получите от&nbsp;массажа Асахи-Зоган',
-        features: [
-          {
-            title: 'Улучшится качество кожи, уменьшатся морщины',
-            text: `Японский массаж работает сразу по&nbsp;всем фронтам&nbsp;— над&nbsp;контурами лица, качеством кожи,
-              общими чертами лица. Уже после первого сеанса вы заметите, что&nbsp;кожа подтянулась`
-          },
-          {
-            title: 'Подтянутся контуры и&nbsp;овал лица, проявятся скулы',
-            text: `Массаж Асахи-Зоган направлен на&nbsp;формирование лица, поэтому если у&nbsp;вас есть такие проблемы
-              как&nbsp;поплывший овал лица, невыразительные скулы и&nbsp;подбородок, после курса они исчезнут`
-          },
-          {
-            title: 'Процедура улучшит вашу внешность, безопасно и&nbsp;в&nbsp;любом возрасте',
-            text: `Все массажи лица в&nbsp;нашей клинике полностью безопасны, в&nbsp;отличие от&nbsp;пластики.
-              В&nbsp;Японии массаж Асахи-Зоган делают уже с&nbsp;20&nbsp;лет и&nbsp;до&nbsp;глубокой старости`
-          }
-        ]
-      },
       massageResults: {
         title: 'Результаты массажа лица',
         face: {
@@ -139,6 +119,36 @@ block variables
         poster: 'assets/img/massage-video/massage-video-poster_face.jpg',
         sticker: false
       },
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;массажа Асахи-Зоган',
+        features: [
+          {
+            title: 'Улучшится качество кожи, уменьшатся морщины',
+            text: `Японский массаж работает сразу по&nbsp;всем фронтам&nbsp;— над&nbsp;контурами лица, качеством кожи,
+              общими чертами лица. Уже после первого сеанса вы заметите, что&nbsp;кожа подтянулась`
+          },
+          {
+            title: 'Подтянутся контуры и&nbsp;овал лица, проявятся скулы',
+            text: `Массаж Асахи-Зоган направлен на&nbsp;формирование лица, поэтому если у&nbsp;вас есть такие проблемы
+              как&nbsp;поплывший овал лица, невыразительные скулы и&nbsp;подбородок, после курса они исчезнут`
+          },
+          {
+            title: 'Процедура улучшит вашу внешность, безопасно и&nbsp;в&nbsp;любом возрасте',
+            text: `Все массажи лица в&nbsp;нашей клинике полностью безопасны, в&nbsp;отличие от&nbsp;пластики.
+              В&nbsp;Японии массаж Асахи-Зоган делают уже с&nbsp;20&nbsp;лет и&nbsp;до&nbsp;глубокой старости`
+          }
+        ]
+      },
+      faq: [
+        locals.data.globalData.commonFaceFaq[0],
+        locals.data.globalData.commonFaceFaq[1],
+        {
+          question: `В чём отличие этого массажа от других массажей лица?`,
+          answer: `Чем этот массаж лица отличается от других массажей? Массаж Асахи-Зоган интенсивнее других массажей лица, кроме скульптурно-буккального, и может не подойти тем, кто привык к нежным воздействиям. При этом японский массаж полностью безопасен и очень эффективен. Если вы хотите сделать скулы заметнее и улучшить овал лица, но не можете посещать скульптурно-буккальный массаж, вам отлично подойдёт массаж Асахи-Зоган.`
+        },
+        locals.data.globalData.commonFaceFaq[2],
+        locals.data.globalData.commonFaceFaq[3]
+      ],
       priceList: {
         showPromo: true
       }
@@ -151,6 +161,8 @@ block content
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/massage-video
   include ../includes/modules/content/features-list
+  include ../includes/modules/content/massage-description
+  include ../includes/modules/content/faq
   include ../includes/modules/content/price-list
   include ../includes/modules/footer/map-block
 

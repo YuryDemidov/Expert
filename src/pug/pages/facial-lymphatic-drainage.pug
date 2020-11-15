@@ -134,6 +134,16 @@ block variables
           }
         ]
       },
+      faq: [
+        locals.data.globalData.commonFaceFaq[0],
+        locals.data.globalData.commonFaceFaq[1],
+        {
+          question: `В чём отличие этого массажа от других массажей лица?`,
+          answer: `Лимфодренажный массаж лица предназначен для борьбы с отёками на лице. Он поможет, если вы встаёте утром с опухшим лицом и вам требуется время, чтобы прийти в норму.  Также, за счёт вывода лишней воды, после массажа ярче проявятся черты лица, и оно будет выглядеть естественнее. Но если вы склонны к отёкам не только на лице, но и на теле, мы рекомендуем делать лимфодренажный массаж всего тела, так как он отлично справляется и с отёчностью лица.`
+        },
+        locals.data.globalData.commonFaceFaq[2],
+        locals.data.globalData.commonFaceFaq[3]
+      ],
       priceList: {
         showPromo: true
       }
@@ -146,6 +156,8 @@ block content
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/massage-video
   include ../includes/modules/content/features-list
+  include ../includes/modules/content/massage-description
+  include ../includes/modules/content/faq
   include ../includes/modules/content/price-list
   include ../includes/modules/footer/map-block
 
