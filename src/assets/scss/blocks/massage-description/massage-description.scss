@@ -1,10 +1,83 @@
 @use '../../tools' as *;
 
 .massage-description {
-  margin-bottom: 12rem;
+  margin-bottom: 10rem;
 
   &__title {
     margin-bottom: 2.5rem;
+  }
+
+  &__list {
+    @include custom-numbered-list(description-list, '#.');
+
+    padding: 0 2rem;
+  }
+
+  &__list-item {
+    @include centered-block(37rem);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+
+    &::before {
+      display: block;
+      max-width: 30%;
+
+      font-family: $title-font-family;
+      font-size: 9.6rem;
+      line-height: 16rem;
+
+      transform: translate(8vw, -0.5rem);
+    }
+  }
+
+  &__image {
+    @include box(16rem);
+
+    position: absolute;
+    top: 0;
+    left: 40%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @for $theme-i from 1 through 12 {
+      @for $image-i from 1 through 3 {
+        @if $theme-i != 10 and $theme-i != 8 {
+          .theme-#{$theme-i} &_#{$image-i} {
+            background-image: url('../../../img/massage-description/#{$theme-i}-massage-description-#{$image-i}.jpg');
+          }
+        }
+
+        @if $theme-i == 8 and $image-i != 3 {
+          .theme-#{$theme-i} &_#{$image-i} {
+            background-image: url('../../../img/massage-description/#{$theme-i}-massage-description-#{$image-i}.jpg');
+          }
+        }
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .massage-description {
+    &__list-item {
+      margin-bottom: 6rem;
+
+      &::before {
+        margin-left: 12%;
+
+        transform: translateY(-0.5rem);
+      }
+    }
   }
 }
 
@@ -13,17 +86,114 @@
     margin-bottom: 12rem;
 
     &__title {
-      margin-bottom: 6rem;
+      margin-bottom: 4.5rem;
     }
   }
 }
 
 @media (min-width: $s-desktop-min-width) {
   .massage-description {
-    margin-bottom: 20rem;
+    margin-bottom: 17rem;
 
     &__title {
-      margin-bottom: 8rem;
+      margin-bottom: 6rem;
+    }
+
+    &__content {
+      position: relative;
+    }
+
+    &__path {
+      @include horizontally-centered();
+
+      top: 0;
+      left: 51.5%;
+
+      @include themify() {
+        stroke: $color-secondary;
+      }
+    }
+
+    &__list-item {
+      min-height: 36.5rem;
+      margin-bottom: 4rem;
+
+      &::before {
+        max-width: initial;
+        margin: 0;
+
+        text-align: center;
+        line-height: 15.5rem;
+      }
+    }
+
+    &__item-wrap {
+      position: relative;
+    }
+
+    &__image {
+      @include vertically-centered();
+      @include box(25rem);
+
+      right: 110%;
+      left: auto;
+
+      &_2 {
+        right: auto;
+        left: 110%;
+      }
+    }
+
+    &__text {
+      margin: 0;
+    }
+
+    .theme-1 &,
+    .theme-2 &,
+    .theme-3 &,
+    .theme-4 &,
+    .theme-5 & {
+      &__image {
+        &_1 {
+          width: 27rem;
+        }
+      }
+    }
+
+    .theme-1 &,
+    .theme-4 &,
+    .theme-5 & {
+      &__image {
+        &_3 {
+          height: 27rem;
+        }
+      }
+    }
+
+    .theme-1 & {
+      margin-bottom: 20rem;
+    }
+
+    .theme-7 & {
+      &__list-item:first-of-type {
+        &::before {
+          line-height: 13rem;
+        }
+      }
+    }
+
+    .theme-8 & {
+      &__image {
+        &_1 {
+          right: auto;
+          left: 112%;
+        }
+
+        &_2 {
+          right: 112%;
+          left: auto;
+        }
+      }
     }
   }
 }
