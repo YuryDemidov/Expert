@@ -202,6 +202,7 @@ $themes: (
     'secondary-transparent': hsla($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l, 0.3),
     'background': hsl(7, 100%, 96%),
+    'background-dark': hsl(338, 100%, 91%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
@@ -236,7 +237,8 @@ $themes: (
     'secondary-light': hsl($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l + 10%),
     'secondary-transparent': hsla($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l, 0.3),
-    'background': hsl(25, 95%, 92%),
+    'background': hsl(25, 98%, 92%),
+    'background-dark': hsl(25, 100%, 86%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
@@ -270,8 +272,8 @@ $themes: (
     'secondary-light': hsl($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l + 10%),
     'secondary-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.3),
-    'additional': hsl(173, 70%, 63%),
     'background': hsl(173, 85%, 95%),
+    'background-dark': hsl(173, 70%, 63%),
     'alt-background': hsl(0, 100%, 97%),
     'header-image-1': (
       'small': (
@@ -308,6 +310,7 @@ $themes: (
     'secondary-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.3),
     'background': hsl(232, 100%, 96%),
+    'background-dark': hsl(242, 100%, 90%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
@@ -430,6 +433,7 @@ $themes: (
     'secondary-transparent': hsla($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l, 0.3),
     'background': hsl(25, 95%, 92%),
+    'alt-background': hsl(259, 90%, 94%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/8-bg-1_small@1x.png',
@@ -567,6 +571,7 @@ $themes: (
     'secondary-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.3),
     'background': hsl(42, 100%, 93%),
+    'background-dark': hsl(26, 100%, 87%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/11-bg-1_small@1x.png',
@@ -617,6 +622,7 @@ $themes: (
     'secondary-transparent': hsla($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l, 0.3),
     'background': hsl(200, 100%, 97%),
+    'alt-background': hsl(0, 0%, 95%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
@@ -669,6 +675,7 @@ $color-secondary-light: null;
 $color-secondary-transparent: null;
 $color-secondary-x-transparent: null;
 $color-background: null;
+$color-background-dark: null;
 $color-alt-background: null;
 $header-image-1: null;
 $header-image-2: null;
@@ -695,6 +702,7 @@ $features-icons: null;
       $color-secondary-transparent: map-get($props, 'secondary-transparent') !global;
       $color-secondary-x-transparent: map-get($props, 'secondary-x-transparent') !global;
       $color-background: map-get($props, 'background') !global;
+      $color-background-dark: map-get($props, 'background-dark') !global;
       $color-alt-background: map-get($props, 'alt-background') !global;
       $header-image-1: map-get($props, 'header-image-1') !global;
       $header-image-2: map-get($props, 'header-image-2') !global;
@@ -715,7 +723,7 @@ $features-icons: null;
       $color-secondary-light: null !global;
       $color-secondary-transparent: null !global;
       $color-secondary-x-transparent: null !global;
-      $color-background: null !global;
+      $color-background-dark: null !global;
       $color-alt-background: null !global;
       $header-image-1: null !global;
       $header-image-2: null !global;
