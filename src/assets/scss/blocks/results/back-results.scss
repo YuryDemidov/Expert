@@ -89,7 +89,7 @@
 
 @media (min-width: $s-desktop-min-width) {
   .back-results {
-    max-width: 120rem;
+    max-width: 122rem;
 
     &__slide {
       width: 100%;
@@ -114,6 +114,38 @@
     &__description {
       max-width: 90rem;
       padding: 3.5rem 5.5rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .back-results {
+    &__slide,
+    > &__slide {
+      margin: 0;
+    }
+
+    &__column {
+      flex-shrink: 0;
+      width: 21.2rem;
+
+      .picture {
+        width: 100%;
+
+        text-align: left;
+
+        img {
+          width: auto;
+        }
+      }
+
+      .back-results__slide {
+        margin-bottom: 1.2rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

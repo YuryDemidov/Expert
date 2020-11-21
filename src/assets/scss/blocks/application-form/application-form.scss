@@ -162,7 +162,8 @@
 
 .theme-1,
 .theme-7,
-.theme-9 {
+.theme-9,
+.theme-12 {
   .application-form {
     .sticker {
       @include box(24rem, 24.6rem);
@@ -176,10 +177,6 @@
 
       font-family: $title-font-family;
       color: $alt-default-color;
-
-      &__image {
-        fill: #fe2c78;
-      }
 
       &__main-text {
         font-size: 5rem;
@@ -257,6 +254,12 @@
         }
       }
     }
+
+    .sticker {
+      &__image {
+        fill: #fe2c78;
+      }
+    }
   }
 }
 
@@ -265,6 +268,12 @@
     &__background {
       background-color: map-deep-get($themes, '9', 'alt-background');
     }
+
+    .sticker {
+      &__image {
+        fill: #fe2c78;
+      }
+    }
   }
 }
 
@@ -272,6 +281,10 @@
   .application-form {
     &__background {
       background-color: map-deep-get($themes, '12', 'alt-background');
+    }
+
+    .sticker {
+      color: $default-color;
     }
   }
 }
@@ -443,7 +456,8 @@
 
   .theme-1,
   .theme-7,
-  .theme-9 {
+  .theme-9,
+  .theme-12 {
     .application-form {
       overflow: hidden;
       padding-top: 10rem;
@@ -495,7 +509,8 @@
   }
 
   .theme-7,
-  .theme-9 {
+  .theme-9,
+  .theme-12 {
     .application-form {
       .sticker {
         @include box(20vw);
@@ -511,6 +526,18 @@
       &__content {
         padding-right: 10rem;
         padding-left: 0;
+      }
+    }
+  }
+
+  .theme-12 {
+    .application-form {
+      .sticker {
+        @include box(21.5rem);
+
+        padding-bottom: 6rem;
+
+        transform: none;
       }
     }
   }
@@ -569,6 +596,14 @@
     .application-form {
       .sticker {
         @include box(22rem);
+      }
+    }
+  }
+
+  .theme-12 {
+    .application-form {
+      .sticker {
+        @include box(24rem);
       }
     }
   }

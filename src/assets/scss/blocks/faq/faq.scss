@@ -22,6 +22,8 @@
   }
 
   &__question {
+    position: relative;
+
     margin: 0;
 
     font-size: 1.6rem;
@@ -34,12 +36,12 @@
   }
 
   &__accordion-icon {
+    @include vertically-centered();
     @include box(3rem);
 
     content: '';
     position: absolute;
-    top: 0.2rem;
-    left: 0;
+    right: calc(100% + 1.6rem);
 
     @include themify() {
       @if ($theme-id == '6' or $theme-id == '7' or $theme-id == '9') {
@@ -200,8 +202,6 @@
     }
 
     &__question {
-      position: relative;
-
       padding: 1rem 0;
 
       font-size: 2rem;
@@ -209,13 +209,6 @@
       br {
         display: none;
       }
-    }
-
-    &__accordion-icon {
-      @include vertically-centered();
-
-      right: calc(100% + 1.6rem);
-      left: auto;
     }
 
     &__answer {

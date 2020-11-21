@@ -4,9 +4,10 @@ if locals.data.pageData.theme === '1'
   - formHeading = 'Акция на март и апрель. Любое количество сеансов скульптурно-буккального массажа со скидкой 25%'
   - formText = 'Мы хотим подарить большему количеству клиентов возможность стать прекраснее и запускаем акцию на самый популярный массаж лица в нашей клинике. Не откладывайте преображение — если первый сеанс вам не понравится, мы вернём деньги'
 
-mixin sticker(mainText, secondaryText)
+mixin sticker(mainText, secondaryText, preTitle)
   article.application-form__sticker.sticker
     +svg-icon('#polystar').sticker__image
+    b.sticker__secondary-text= preTitle
     b.sticker__main-text= mainText
     span.sticker__secondary-text= secondaryText
 
@@ -18,6 +19,8 @@ section.application-form
       +sticker('3 в 1', 'за стоимость одной процедуры')
     when '9'
       +sticker('10', 'сеансов надолго обеспечат вам гладкую кожу')
+    when '12'
+      +sticker('3000', 'клиентов уже вылечили спину в нашей клинике', 'более')
   .container.application-form__background
     .application-form__content
       h2.application-form__title.heading.heading_secondary!= formHeading

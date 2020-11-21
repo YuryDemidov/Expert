@@ -3,8 +3,12 @@
   var menuData = {
     list: [
       {
-      text: 'Цены и акции',
-      url: 'prices.html'
+        text: 'На главную',
+        url: 'index.html'
+      },
+      {
+        text: 'Цены и акции',
+        url: 'prices.html'
       },
       {
         text: 'Отзывы',
@@ -67,7 +71,10 @@ nav.page-header__menu.main-menu
           a.submenu__promo-link
             +picture-tag(menuData.promo.image, menuData.promo.image.mobile.png['3x'], menuData.promo.name, 230, 210).submenu__promo-image
     each link, i in menuData.list
-      li.main-menu__list-item(class=(i >= 3 ? 'main-menu__list-item_hidden' : false))
+      li.main-menu__list-item(class={
+        'hidden_desktop-tablet': i === 0,
+        'main-menu__list-item_hidden': i >= 3
+      })
         a.main-menu__link.link(href=link.url)= link.text
       if i === 2
         li.main-menu__list-item.main-menu__additional.dropdown(data-on='hover')
