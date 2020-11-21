@@ -12,8 +12,8 @@ block variables
       pageClass: 'back-massage-page',
       theme: '12',
       massage: globalData.massages['back-massage'],
-      mainScreenHeading: '*',
-      mainScreenSubheading: `*`,
+      mainScreenHeading: 'Лечебный массаж спины',
+      mainScreenSubheading: `Быстрое избавление от&nbsp;боли. Лечение заболеваний позвоночника, мышц и&nbsp;суставов по&nbsp;уникальной методике без&nbsp;операций`,
       mainScreenFeatures: [
         {
           bigText: `${globalData.company.businessDuration} лет`,
@@ -58,7 +58,7 @@ block variables
         title: 'Результаты лечебного массажа спины'
       },
       reviewsBlock: {
-        title: 'Отзывы о&nbsp;нас',
+        title: 'Отзывы о лечебном массаже спины',
         reviews: [
           {
             id: 16,
@@ -118,28 +118,21 @@ block variables
           text: 'Авторская методика, входящая в раздел реабилитационной медицины'
         }
       },
-      featuresBlock: {
-        heading: 'Почему нам доверяют',
-        link: {
-          url: 'about.html',
-          text: 'Больше о нас'
-        },
+      featuresBlock1: {
+        blockNumber: 1,
+        heading: 'Что вы получите от лечебного массажа спины',
         features: [
           {
-            title: 'Первая клиника профессионального массажа в&nbsp;России',
-            text: `Не&nbsp;салон красоты и&nbsp;не&nbsp;поликлиника, где один массажист работает со&nbsp;всеми
-              по&nbsp;одному шаблону, а&nbsp;клиника со&nbsp;специализацией и&nbsp;врачами. Для нас это не&nbsp;просто
-              бизнес, мы верим в&nbsp;своё дело`
+            title: 'Освобождение от&nbsp;боли уже в&nbsp;начале курса',
+            text: `На&nbsp;стабильные изменения обычно требуется курс массажа, но&nbsp;уже первая процедура способствует нормализации мышечного тонуса. Благодаря этому вам сразу же станет легче`
           },
           {
-            title: 'Работаем так, чтобы нас хотелось советовать близким',
-            text: `Нам важно, чтобы вы были довольны, и&nbsp;у&nbsp;нас неплохо получается: почти 70% клиентов приходят
-              по&nbsp;совету друзей. Многие ходят к&nbsp;нам семьями. Почитайте отзывы, чтобы узнать о&nbsp;нас побольше`
+            title: 'Ваши проблемы будут решены 100 % безопасным методом',
+            text: `Мы практикуем только безопасные массажные приёмы, одобренные вертебрологами мирового уровня. Разработанная нами авторская методика входит в&nbsp;раздел реабилитационной медицины`
           },
           {
-            title: 'Гарантируем безопасность, результат и&nbsp;честность. Для нас важно помочь',
-            text: `Следуем принципу «Не&nbsp;навреди». Не&nbsp;завышаем количество сеансов, не&nbsp;продаём ненужные
-              процедуры и&nbsp;гарантируем результат. Мы не&nbsp;хотим зарабатывать в&nbsp;ущерб репутации`
+            title: 'Вы сможете жить активной и полной жизнью',
+            text: `Благодаря укреплению хрящевой и&nbsp;костной ткани, и&nbsp;нормализации мышечного тонуса, ваша спина перестанет ограничивать вас в&nbsp;чём-либо. Вы удивитесь, как много активностей, недоступных раньше из-за боли, начнут приносить вам удовольствие`
           }
         ]
       },
@@ -154,6 +147,24 @@ block variables
           <br>
           Результат будет быстрым, стабильным и безопасным — все виды массажей, которые мы практикуем, одобрены вертебрологами мирового уровня`
       ],
+      featuresBlock2: {
+        blockNumber: 2,
+        heading: 'Кому нужен лечебный массаж спины',
+        features: [
+          {
+            title: 'Тем, кто работает сидя, либо ведёт малоподвижный образ жизни',
+            text: `Проблемы со&nbsp;здоровьем проще предот&shy;вратить. Если в&nbsp;течение дня вам приходится много сидеть, особенно в&nbsp;неудобной позе, лечебный массаж спины поможет вам избежать возможных болезней`
+          },
+          {
+            title: 'Тем, у&nbsp;кого есть заболевания позвоночника, даже если они никак не&nbsp;проявляют себя',
+            text: `Если вам когда-то ставили диагноз (даже в&nbsp;лёгкой форме), или были боли в&nbsp;спине, которые прошли сами, лучше перестраховаться. Важно не&nbsp;давать заболеваниям течь без&nbsp;контроля врача`
+          },
+          {
+            title: 'Тем, у&nbsp;кого иногда или часто болит спина, даже если это редкие прострелы или совсем слабая боль',
+            text: `Боль не&nbsp;появляется просто так, она всегда служит индикатором. И&nbsp;если спина хотя&nbsp;бы иногда причиняет вам дискомфорт, лучше провериться и&nbsp;вылечить причину, пока она не&nbsp;начала доставлять серьёзных проблем`
+          }
+        ]
+      },
       blocksList: {
         title: '6 причин, почему стоит делать массаж именно&nbsp;у&nbsp;нас',
         items: [
@@ -219,10 +230,14 @@ block content
   include ../includes/modules/content/about-massage
   include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/massage-results/wrap
+  include ../includes/modules/content/back-massage-indications
   include ../includes/modules/content/reviews-block
   include ../includes/modules/content/massage-video
+  - locals.data.pageData.featuresBlock = locals.data.pageData.featuresBlock1
   include ../includes/modules/content/features-list
   include ../includes/modules/content/massage-description
+  - locals.data.pageData.featuresBlock = locals.data.pageData.featuresBlock2
+  include ../includes/modules/content/features-list
   include ../includes/modules/content/blocks-list
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list

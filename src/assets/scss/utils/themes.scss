@@ -621,42 +621,32 @@ $themes: (
     'secondary-light': hsl($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l + 10%),
     'secondary-transparent': hsla($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l, 0.3),
-    'background': hsl(200, 100%, 97%),
+    'background': hsl(200, 100%, 95%),
     'alt-background': hsl(0, 0%, 95%),
     'header-image-1': (
       'small': (
-        '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-1_small@2x.jpg',
-        '3x': '../../../img/main-screen/main-bg-1_small@3x.jpg'
+        '1x': '../../../img/main-screen/12-bg-1_small@1x.png',
+        '2x': '../../../img/main-screen/12-bg-1_small@2x.png',
+        '3x': '../../../img/main-screen/12-bg-1_small@3x.png'
       ),
       'normal': (
-        '1x': '../../../img/main-screen/main-bg-1_normal@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-1_normal@2x.jpg'
+        '1x': '../../../img/main-screen/12-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/12-bg-1_normal@2x.png'
       ),
       'xl': (
-        '1x': '../../../img/main-screen/main-bg-1_xl@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-1_xl@2x.jpg'
-      )
-    ),
-    'header-image-2': (
-      'small': (
-        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg',
-        '3x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
-      ),
-      'normal': (
-        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
-      ),
-      'xl': (
-        '1x': '../../../img/main-screen/main-bg-2_xl@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
+        '1x': '../../../img/main-screen/12-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/12-bg-1_normal@2x.png'
       )
     ),
     'features-icons': (
-      '../../../img/feature-icons/main-feature-icon_1.svg',
-      '../../../img/feature-icons/main-feature-icon_2.svg',
-      '../../../img/feature-icons/main-feature-icon_3.svg'
+      '../../../img/feature-icons/12-1-feature-icon_1.svg',
+      '../../../img/feature-icons/12-1-feature-icon_2.svg',
+      '../../../img/feature-icons/12-1-feature-icon_3.svg'
+    ),
+    'features-icons-2': (
+      '../../../img/feature-icons/12-2-feature-icon_1.svg',
+      '../../../img/feature-icons/12-2-feature-icon_2.svg',
+      '../../../img/feature-icons/12-2-feature-icon_3.svg'
     )
   )
 ) !default;
