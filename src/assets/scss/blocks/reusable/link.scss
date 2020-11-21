@@ -28,12 +28,14 @@
     }
   }
 
-  &_primary {
-    @include themify() {
+  @include themify() {
+    &_primary {
       color: $color-primary;
 
       @include in-focus() {
         color: $color-primary;
+
+        border-bottom-color: $color-primary-transparent;
       }
 
       &.underline {
@@ -44,14 +46,14 @@
         }
       }
     }
-  }
 
-  &_primary-dark {
-    @include themify() {
+    &_primary-dark {
       color: $color-primary-dark;
 
       @include in-focus() {
         color: $color-primary-dark;
+
+        border-bottom-color: $color-primary-dark;
       }
 
       &.underline {
@@ -62,14 +64,14 @@
         }
       }
     }
-  }
 
-  &_secondary {
-    @include themify() {
+    &_secondary {
       color: $color-secondary;
 
       @include in-focus() {
         color: $color-secondary;
+
+        border-bottom-color: $color-secondary-transparent;
       }
 
       &.underline {
@@ -77,6 +79,24 @@
 
         @include in-focus() {
           border-bottom-color: $color-secondary;
+        }
+      }
+    }
+
+    &_secondary-dark {
+      color: $color-secondary-dark;
+
+      @include in-focus() {
+        color: $color-secondary-dark;
+
+        border-bottom-color: $color-secondary-dark;
+      }
+
+      &.underline {
+        border-bottom-color: $color-secondary-transparent;
+
+        @include in-focus() {
+          border-bottom-color: $color-secondary-dark;
         }
       }
     }

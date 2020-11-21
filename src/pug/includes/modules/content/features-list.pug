@@ -1,4 +1,4 @@
-section.features-list
+section.features-list(class=(locals.data.pageData.featuresBlock.blockNumber ? `features-list_${locals.data.pageData.featuresBlock.blockNumber}` : false))
   .container
     .features-list__content
       h2.heading!= locals.data.pageData.featuresBlock.heading

@@ -33,12 +33,12 @@
       tablet: false,
       mobile: {
         webp: {
-          '1x': 'assets/img/results/back-results_small-1.webp',
-          '2x': false
+          '1x': 'assets/img/results/back-results_small-1@1x.webp',
+          '2x': 'assets/img/results/back-results_small-1@2x.webp'
         },
         jpg: {
-          '1x': 'assets/img/results/back-results_small-1.jpg',
-          '2x': false
+          '1x': 'assets/img/results/back-results_small-1@1x.jpg',
+          '2x': 'assets/img/results/back-results_small-1@2x.jpg'
         }
       }
     },
@@ -47,12 +47,12 @@
       tablet: false,
       mobile: {
         webp: {
-          '1x': 'assets/img/results/back-results_small-2.webp',
-          '2x': false
+          '1x': 'assets/img/results/back-results_small-2@1x.webp',
+          '2x': 'assets/img/results/back-results_small-2@2x.webp'
         },
         jpg: {
-          '1x': 'assets/img/results/back-results_small-2.jpg',
-          '2x': false
+          '1x': 'assets/img/results/back-results_small-2@1x.jpg',
+          '2x': 'assets/img/results/back-results_small-2@2x.jpg'
         }
       }
     },
@@ -61,11 +61,11 @@
       tablet: false,
       mobile: {
         webp: {
-          '1x': 'assets/img/results/back-results_small-3.webp',
+          '1x': 'assets/img/results/back-results_small-3@1x.webp',
           '2x': false
         },
         jpg: {
-          '1x': 'assets/img/results/back-results_small-3.jpg',
+          '1x': 'assets/img/results/back-results_small-3@1x.jpg',
           '2x': false
         }
       }
@@ -89,11 +89,3 @@ if (locals.data.pageData.theme === 'main') || (locals.data.pageData.theme === '1
         .back-results__slide
           +picture-tag(backResultPhotos[1], backResultPhotos[1].mobile.jpg['1x'], 'Снимки МРТ до и после курса лечебного массажа')
       button.slider__button.slider__button_next.hidden_desktop-tablet(aria-label="Следующий слайд")
-    if locals.data.pageData.theme === '12'
-      .back-results__description
-        | Лечебный массаж показан при&nbsp;протрузиях, грыже, воспалении межпозвоночных дисков, при&nbsp;сколиозе, люмбаго,
-        | болях в&nbsp;спине любого характера. Даже если вы думаете, что&nbsp;единственный выход
-        | для&nbsp;вас&nbsp;— операция, попробуйте лечебный массаж, вы ничего не&nbsp;теряете. Мы многократно лечили
-        | клиентов, которых в&nbsp;больнице отправляли на&nbsp;операцию, результаты нашего лечения подтверждены снимками МРТ.
-        | Не&nbsp;спешите с&nbsp;операционным вмешательством, попробуйте сеанс лечебного массажа. Если вам
-        | не&nbsp;понравится, мы вернём деньги за&nbsp;сеанс

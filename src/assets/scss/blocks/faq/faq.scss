@@ -1,0 +1,240 @@
+@use '../../tools' as *;
+
+.faq {
+  position: relative;
+
+  margin-bottom: 10rem;
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__list {
+    @include reset-list();
+    @include centered-block(33.5rem);
+  }
+
+  &__list-item {
+    position: relative;
+
+    margin-bottom: 3rem;
+    padding-left: 4rem;
+  }
+
+  &__question {
+    position: relative;
+
+    margin: 0;
+
+    font-size: 1.6rem;
+  }
+
+  &__answer {
+    padding: 1rem 0;
+
+    font-size: 1.4rem;
+  }
+
+  &__accordion-icon {
+    @include vertically-centered();
+    @include box(3rem);
+
+    content: '';
+    position: absolute;
+    right: calc(100% + 1.6rem);
+
+    @include themify() {
+      @if ($theme-id == '6' or $theme-id == '7' or $theme-id == '9') {
+        background-color: $color-alt-background;
+      }
+      @else {
+        background-color: $color-background;
+      }
+    }
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      @include absolute-centered();
+
+      content: '';
+
+      @include themify() {
+        @if ($theme-id == '4') {
+          background-color: $color-secondary;
+        }
+        @else if ($theme-id == '7') {
+          background-color: $color-secondary-dark;
+        }
+        @else {
+          background-color: $color-primary;
+        }
+      }
+    }
+
+    &::before {
+      @include box(1.2rem, 0.2rem);
+    }
+
+    &::after {
+      @include box(0.2rem, 1.2rem);
+
+      transition: opacity 0.4s;
+    }
+  }
+
+  .accordion {
+    &[data-state='opened'] {
+      .faq__accordion-icon {
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+
+    &__trigger {
+      @include reset-button();
+
+      font-weight: 500;
+      text-align: left;
+
+      &:focus {
+        .faq__accordion-icon {
+          box-shadow: 0 0.1rem 0.6rem $light-dim-color;
+        }
+      }
+    }
+  }
+
+  .theme-1 & {
+    padding-top: 10rem;
+
+    &::before,
+    &::after {
+      @include box(14rem, 18rem);
+
+      content: '';
+      position: absolute;
+      top: -5rem;
+      z-index: -1;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &::before {
+      top: -7rem;
+      left: 0;
+
+      width: 15rem;
+
+      background-image: url('../../../img/decor/branch-1@2x.png');
+      background-position: right;
+      background-size: 180%;
+    }
+
+    &::after {
+      right: 0;
+
+      background-image: url('../../../img/decor/branch-3@2x.jpg');
+    }
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .faq {
+    .theme-1 & {
+      padding-top: 6rem;
+
+      &::before,
+      &::after {
+        top: 0;
+      }
+
+      &::before {
+        width: 16rem;
+      }
+
+      &::after {
+        top: 42rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .faq {
+    margin-bottom: 12rem;
+
+    &__title {
+      margin-bottom: 3.5rem;
+    }
+
+    .theme-1 & {
+      padding-top: 0;
+
+      &::before {
+        top: -3rem;
+      }
+
+      &::after {
+        top: 36rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .faq {
+    margin-bottom: 16rem;
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__list {
+      @include centered-block(72rem);
+    }
+
+    &__list-item {
+      margin-bottom: 2rem;
+    }
+
+    &__question {
+      padding: 1rem 0;
+
+      font-size: 2rem;
+
+      br {
+        display: none;
+      }
+    }
+
+    &__answer {
+      font-size: 1.6rem;
+    }
+
+    .theme-1 & {
+      &::before,
+      &::after {
+        @include box(22rem, 26rem);
+      }
+
+      &::after {
+        top: 32rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .faq {
+    .theme-1 & {
+      &::before,
+      &::after {
+        @include box(27rem, 36rem);
+      }
+    }
+  }
+}

@@ -104,15 +104,27 @@ mixin face-slide(number)
               }
             }
           }
-        - var title = 'Курс скульптурно-буккального массажа'
+        - var titleEnd = 'скульптурно-буккального массажа'
         - var slideClass = 'massage-results__simple-slide_1'
+        - var link = 'sculptural-buccal-massage.html'
+        - var linkGoalTheme = '1'
         if (number === 5) || (number === 6)
-          - title = 'Курс массажа Асахи-Зоган'
+          - titleEnd = 'массажа Асахи-Зоган'
           - slideClass = 'massage-results__simple-slide_4'
+          - link = 'japanese-asahi-massage.html'
+          - linkGoalTheme = '4'
         if (number === 7) || (number === 8)
-          - title = 'Курс хиромассажа'
+          - titleEnd = 'хиромассажа'
           - slideClass = 'massage-results__simple-slide_5'
-        h3.massage-results__slide-title= title
+          - link = 'chiromassage.html'
+          - linkGoalTheme = '5'
+        h3.massage-results__slide-title
+          | Курс
+          |
+          if locals.data.pageData.theme === linkGoalTheme
+            span= titleEnd
+          else
+            a.link.massage-results__massage-link(class=`massage-results__massage-link_${linkGoalTheme}` href=link)= titleEnd
         .massage-results__labels
           h4.massage-results__label.hidden_desktop До
           h4.massage-results__label.hidden_desktop После
@@ -120,8 +132,6 @@ mixin face-slide(number)
           +picture-tag(photoFaceResult, photoFaceResult.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
           button(type='button' data-open-popup='appointment').button.button_primary Записаться
-
-
 
 if faceResults
   section#faceResults.massage-results__section.face-results

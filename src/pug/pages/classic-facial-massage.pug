@@ -18,7 +18,7 @@ block variables
       mainScreenFeatures: [
         {
           bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
         },
         {
           bigText: '10 лет',
@@ -26,29 +26,38 @@ block variables
         },
         {
           bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
         }
       ],
-      featuresBlock: {
-        heading: 'Что вы получите от&nbsp;классического массажа',
-        features: [
-          {
-            title: 'Снимется спазм и&nbsp;усталость мышц',
-            text: ``
-          },
-          {
-            title: 'Цвет лица станет здоровым и&nbsp;однородным',
-            text: ``
-          },
-          {
-            title: 'Улучшится тонус кожи и&nbsp;мышц',
-            text: ``
-          }
-        ]
-      },
+      aboutMassage: [
+        {
+          title: 'Что это за процедура?',
+          text: [
+            'Классический массаж лица – одна из самых мягких методик масса&shy;жа. В этой бережной и спокойной технике используются только плавные, скользящие движения, строго по массажным линиям и с минимальным давлением.',
+            'Несмотря на мягкость этой процедуры, она отлично рас&shy;слабляет мышцы лица, улучшает тонус кожи, и воз&shy;вращает здоровый цвет лица.'
+          ]
+        },
+        {
+          title: 'Какой будет результат?',
+          text: [
+            'Массажист снимет с каждой мышцы лица спазм и усталость, и это сразу отразится на качестве кожи. Уменьшится выраженность морщин, возрастные недос&shy;татки станут менее заметны.',
+            'Благодаря притоку крови, улучшится цвет лица, клетки насытятся кисло&shy;родом, кожа станет более упругой. Однако, достичь сильного лифтинг-эффекта с помощью классичес&shy;кой техники, довольно трудно.'
+          ]
+        },
+        {
+          title: 'Правда ли, что классический массаж не очень эффективен?',
+          text: [
+            `Это зависит от цели. Если вам нужен очень яркий эффект, сравнимый с пластикой, то другие методики будут эффективнее, особенно <a class='link link_primary' href='sculptural-buccal-massage.html'>скульптурно-буккальный массаж</a>.`,
+            'Классический массаж — это простая, мягкая техника, работающая над улучшением общего состояния лица. Если у вас нет серьёзных недостатков, то классический массаж отлично вам подойдёт. Он эффективно снимает спазм мышц, расслабляет лицо и возвращает ему здоровый цвет. К тому же это приятная процедура, которая поднимет вам настроение.'
+          ]
+        }
+      ],
       massageResults: {
-        title: 'Результаты массажа лица'
+        title: 'Результаты массажа лица',
+        face: {
+          slidesOrder: [1]
+        }
       },
       reviewsBlock: {
         title: 'Отзывы о&nbsp;массаже лица',
@@ -103,17 +112,67 @@ block variables
           }
         ]
       },
+      massageVideo: {
+        id: 'H9IRW0ffpWk',
+        poster: 'assets/img/massage-video/massage-video-poster_face.jpg',
+        sticker: false
+      },
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;классического массажа',
+        features: [
+          {
+            title: 'Снимется спазм и&nbsp;усталость мышц',
+            text: ``
+          },
+          {
+            title: 'Цвет лица станет здоровым и&nbsp;однородным',
+            text: ``
+          },
+          {
+            title: 'Улучшится тонус кожи и&nbsp;мышц',
+            text: ``
+          }
+        ]
+      },
+      massageDescription: [
+        `В начале мастер наносит на лицо клиента гель алоэ-вера. Этот гель не закупоривает поры и идеально подходит для массажа.<br>
+          <br>
+          Пальцы массажиста скользят, не растягивая кожу, лицо после сеанса наполнено влагой, мышцы расслаблены. Что важно, гель алоэ абсолютно не вызывает воспалений`,
+        `Вся процедура проходит по строгой схеме клас&shy;сического массажа, то есть с минимальным дав&shy;лением и по направлению массажных линий.<br>
+          <br>
+          Такая техника обеспечивает правильный отток лимфы, а также значительно ускоряет кровообращение.<br>
+          <br>
+          За счет стимуляции кровообращения, кожа насыщается кислородом и питательными веществами, в ней запускается процесс регенерации`,
+        `Эффект после курса классического массажа довольно значительный. Заметно уменьшаются все возрастные проявления, подтягивается кожа, улучшается тонус мышц. Лицо выглядит здоровым и отдохнувшим, как после полноценного отпуска`
+      ],
+      faq: [
+        locals.data.globalData.commonFaceFaq[0],
+        locals.data.globalData.commonFaceFaq[1],
+        {
+          question: `В чём отличие этого массажа от других массажей лица?`,
+          answer: `Классический массаж — это одна из самых мягких техник, очень плавная и расслабляющая. Это давно разработанная и проверенная методика, где работа идёт только по массажным линиям. За счёт этого классический массаж не может так разительно изменить внешность, как например скульптурно-буккальный массаж. Но он прекрасно подойдёт, чтобы расслабить мышцы и улучшить тонус кожи.`
+        },
+        locals.data.globalData.commonFaceFaq[2],
+        locals.data.globalData.commonFaceFaq[3]
+      ],
       priceList: {
         showPromo: true
-      }
+      },
+      moreMassages: [3, 1, 4, 5]
     }
 
 block content
+  include ../includes/modules/content/about-massage
   include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/massage-results/wrap
   include ../includes/modules/content/reviews-block
+  include ../includes/modules/content/massage-video
   include ../includes/modules/content/features-list
+  include ../includes/modules/content/massage-description
+  include ../includes/modules/content/faq
   include ../includes/modules/content/price-list
+  include ../includes/modules/content/more-massages
+  include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block
 
 block script

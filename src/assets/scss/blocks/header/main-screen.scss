@@ -359,11 +359,19 @@
       }
     }
   }
+
+  .theme-12 {
+    .main-screen {
+      &::before {
+        background-image: linear-gradient(94deg, #c0ecff 4%, #f9f9f9 48%, #b7e9ff 90%);
+      }
+    }
+  }
 }
 
 @media (min-width: $s-desktop-min-width) {
   .main-screen {
-    margin-bottom: 8rem;
+    margin-bottom: 10rem;
     padding-top: 9vw;
     padding-bottom: 8vw;
 

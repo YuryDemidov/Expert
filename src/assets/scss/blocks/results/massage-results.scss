@@ -9,6 +9,7 @@
 
   &__title {
     margin-bottom: 3rem;
+    padding: 0 2rem;
   }
 
   .tab-nav {
@@ -103,6 +104,20 @@
 
         @include in-focus() {
           background-color: map-deep-get($themes, '#{$i}', 'primary-light');
+        }
+      }
+    }
+  }
+
+  @each $i in (1, 4, 5) {
+    &__massage-link {
+      &_#{$i} {
+        color: map-deep-get($themes, '#{$i}', 'primary');
+
+        @include in-focus() {
+          color: map-deep-get($themes, '#{$i}', 'primary');
+
+          border-bottom-color: map-deep-get($themes, '#{$i}', 'primary-transparent');
         }
       }
     }

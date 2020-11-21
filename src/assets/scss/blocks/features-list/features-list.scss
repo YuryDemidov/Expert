@@ -76,10 +76,8 @@
     font-weight: 700;
     font-size: 1.8rem;
   }
-}
 
-.theme-main {
-  .features-list {
+  .theme-main & {
     &__item {
       &_two {
         .features-list__image {
@@ -91,15 +89,37 @@
       }
     }
   }
-}
 
-.theme-2,
-.theme-3 {
-  .features-list {
+  .theme-2 &,
+  .theme-3 & {
     &__item {
       max-width: 22rem;
 
       text-align: center;
+    }
+  }
+
+  .theme-12 & {
+    &_2 {
+      .features-list__item {
+        &_one {
+          .features-list__image {
+            background-image: url('#{list.nth(map-deep-get($themes, '12', 'features-icons-2'), 1)}');
+          }
+        }
+
+        &_two {
+          .features-list__image {
+            background-image: url('#{list.nth(map-deep-get($themes, '12', 'features-icons-2'), 2)}');
+          }
+        }
+
+        &_three {
+          .features-list__image {
+            background-image: url('#{list.nth(map-deep-get($themes, '12', 'features-icons-2'), 3)}');
+          }
+        }
+      }
     }
   }
 }
@@ -159,8 +179,6 @@
 
 @media (min-width: $s-desktop-min-width) {
   .features-list {
-    margin-bottom: 15rem;
-
     &__content {
       padding: 0;
     }

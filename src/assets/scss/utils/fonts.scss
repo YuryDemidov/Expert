@@ -10,6 +10,16 @@
 
 @font-face {
   font-family: 'RUBuntu';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('../../fonts/RUBuntu/woff2/RUBuntu-500.woff2') format('woff2'),
+    url('../../fonts/RUBuntu/woff/RUBuntu-500.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RUBuntu';
   font-weight: 700;
   font-style: normal;
   font-display: swap;

@@ -1,0 +1,74 @@
+@use '../../tools' as *;
+
+.blocks-list {
+  margin-bottom: 5rem;
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__list {
+    @include custom-numbered-list(blocks-list, '#');
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__item {
+    max-width: 34rem;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .blocks-list {
+    &__title {
+      margin-bottom: 5rem;
+    }
+
+    &__item {
+      margin-right: 1.2rem;
+      margin-left: 1.2rem;
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .blocks-list {
+    &__item {
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .blocks-list {
+    margin-bottom: 5rem;
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__item {
+      max-width: 30rem;
+      margin-right: 2vw;
+      margin-bottom: 8rem;
+      margin-left: 2vw;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .blocks-list {
+    &__list {
+      justify-content: space-between;
+    }
+
+    &__item {
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+  }
+}

@@ -18,7 +18,7 @@ block variables
       mainScreenFeatures: [
         {
           bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about.html'>О нас</a>`
+          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
         },
         {
           bigText: '10 лет',
@@ -26,29 +26,38 @@ block variables
         },
         {
           bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='/reviews.html'>отзывов</a><br>с
+          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
             ${globalData.company.foundationYear} по ${globalData.currentYear}`
         }
       ],
-      featuresBlock: {
-        heading: 'Что вы получите от&nbsp;лимфодренажного массажа',
-        features: [
-          {
-            title: 'Пропадут отёки и&nbsp;мешки под&nbsp;глазами',
-            text: ``
-          },
-          {
-            title: 'Цвет лица станет здоровым и&nbsp;однородным',
-            text: ``
-          },
-          {
-            title: 'Уменьшится жирность и&nbsp;проблемы кожи',
-            text: ``
-          }
-        ]
-      },
+      aboutMassage: [
+        {
+          title: 'Что это за процедура?',
+          text: [
+            'Принципы лимфодренаж&shy;ного массажа одинаковы для лица, и тела — специалист воздействует на лимфу по направлению лимфотока, чтобы разогнать ее и вывести лишнюю жидкость.',
+            'Массажист, с помощью специ&shy;альных движений, устраняет застой лимфы, улучшает её циркуляцию, и полностью убирает отёки. Массаж запускает процесс питания клеток и тка&shy;ней, выводит токсины, улучшает состояние кожи и тонус мышц.'
+          ]
+        },
+        {
+          title: 'Какой будет результат?',
+          text: [
+            'У вас полностью пропадут отёки, станут более заметны скулы, ярче проявятся черты лица.',
+            'На лице появится здоровый румянец, вы будете выглядеть свежее и здоровее, как будто хорошо отдохнули.'
+          ]
+        },
+        {
+          title: 'Кому подойдёт этот массаж?',
+          text: [
+            `Всем, чья основная цель — снять выраженные отёки и улучшить цвет лица. Правда, если отёки регулярно появляются не только на лице, вам нужен <a class='link link_primary' href='body-lymphatic-drainage.html'>лимфодре&shy;нажный массаж всего тела</a>, так как он убирает не только про&shy;явления, но и причину отёков.`,
+            'Также лимфодренажный массаж лица помогает уменьшить морщины и жирность кожи, но основная его функция именно в борьбе с отёками.'
+          ]
+        }
+      ],
       massageResults: {
-        title: 'Результаты массажа лица'
+        title: 'Результаты массажа лица',
+        face: {
+          slidesOrder: [1]
+        }
       },
       reviewsBlock: {
         title: 'Отзывы о&nbsp;массаже лица',
@@ -103,17 +112,65 @@ block variables
           }
         ]
       },
+      massageVideo: {
+        id: 'H9IRW0ffpWk',
+        poster: 'assets/img/massage-video/massage-video-poster_face.jpg',
+        sticker: false
+      },
+      featuresBlock: {
+        heading: 'Что вы получите от&nbsp;лимфодренажного массажа',
+        features: [
+          {
+            title: 'Пропадут отёки и&nbsp;мешки под&nbsp;глазами',
+            text: ``
+          },
+          {
+            title: 'Цвет лица станет здоровым и&nbsp;однородным',
+            text: ``
+          },
+          {
+            title: 'Уменьшится жирность и&nbsp;проблемы кожи',
+            text: ``
+          }
+        ]
+      },
+      massageDescription: [
+        `В начале мастер наносит на лицо клиента гель алоэ-вера. Этот гель не закупоривает поры и идеально подходит для массажа.<br>
+          <br>
+          Пальцы массажиста скользят, не растягивая кожу, лицо после сеанса наполнено влагой, мышцы расслаблены. Что важно, гель алоэ абсолютно не вызывает воспалений`,
+        `Процедура включает в себя разогрев и активную стадию массажа, во время которой массажист сжимает и разминает мышцы лица по специальной технике. Это улучшает циркуляцию лимфы, способствует детоксикации и избавлению от отёков.<br>
+          <br>
+          Работа массажиста проходит строго по линиям лимфотока. В результате разгона лимфы, клетки насыщаются кислородом, а из организма выходит лишняя жидкость`,
+        `Эффект после сеанса виден сразу, лицо выглядит отдохнувшим, пропадают мешки под глазами, кожа подтягивается. Цвет лица становится здоровым и однородным, кожа выглядит свежей, увлажнённой, наполненной энергией`
+      ],
+      faq: [
+        locals.data.globalData.commonFaceFaq[0],
+        locals.data.globalData.commonFaceFaq[1],
+        {
+          question: `В чём отличие этого массажа от других массажей лица?`,
+          answer: `Лимфодренажный массаж лица предназначен для борьбы с отёками на лице. Он поможет, если вы встаёте утром с опухшим лицом и вам требуется время, чтобы прийти в норму.  Также, за счёт вывода лишней воды, после массажа ярче проявятся черты лица, и оно будет выглядеть естественнее. Но если вы склонны к отёкам не только на лице, но и на теле, мы рекомендуем делать лимфодренажный массаж всего тела, так как он отлично справляется и с отёчностью лица.`
+        },
+        locals.data.globalData.commonFaceFaq[2],
+        locals.data.globalData.commonFaceFaq[3]
+      ],
       priceList: {
         showPromo: true
-      }
+      },
+      moreMassages: [4, 1, 2, 5]
     }
 
 block content
+  include ../includes/modules/content/about-massage
   include ../includes/modules/content/application-form/application-block
   include ../includes/modules/content/massage-results/wrap
   include ../includes/modules/content/reviews-block
+  include ../includes/modules/content/massage-video
   include ../includes/modules/content/features-list
+  include ../includes/modules/content/massage-description
+  include ../includes/modules/content/faq
   include ../includes/modules/content/price-list
+  include ../includes/modules/content/more-massages
+  include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block
 
 block script

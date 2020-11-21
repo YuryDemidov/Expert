@@ -44,18 +44,13 @@ const reviewsSliderOptions = {
 };
 let reviewsSlider = tns(reviewsSliderOptions);
 
-reviewsSliderNode.querySelectorAll(`.review-card__text`).forEach(reviewText => {
-  reviewText.dataset.cutted = ``;
-  if (isTextOverflows(reviewText)) {
-    cutReviewText(reviewText);
-  }
-});
-
 const debouncedSliderResizeHandler = debounce(sliderResizeHandler, SLIDER_RESIZE_DEBOUNCE_TIME);
 reviewsSliderNode.addEventListener(`click`, expandingButtonClickHandler);
 reviewsSlider.events.on(`indexChanged`, collapseReviews);
 globalThis.addEventListener(`resize`, debouncedSliderResizeHandler);
 globalThis.addEventListener(`click`, toggleSliderAutoplay);
+
+cutReviewsText();
 
 function calcSliderResponsiveParams(items) {
   const params = {
@@ -78,12 +73,22 @@ function sliderResizeHandler() {
   reviewsSliderOptions.responsive[`0`] = calcSliderResponsiveParams(1);
   reviewsSlider.destroy();
   reviewsSlider = reviewsSlider.rebuild();
+  cutReviewsText();
 }
 
 function toggleSliderAutoplay(evt) {
   if (evt.target.closest(`.reviews-block__slider`)) {
     reviewsSlider.pause();
   }
+}
+
+function cutReviewsText() {
+  reviewsSliderWrap.querySelectorAll(`.review-card__text`).forEach(reviewText => {
+    reviewText.dataset.cutted = ``;
+    if (isTextOverflows(reviewText)) {
+      cutReviewText(reviewText);
+    }
+  });
 }
 
 function cutReviewText(node) {

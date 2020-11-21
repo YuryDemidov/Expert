@@ -53,6 +53,8 @@
 
 @use 'blocks/scroll-top-button/scroll-top-button';
 
+@use 'blocks/about-massage/about-massage';
+
 @use 'blocks/application-form/application-form';
 
 @use 'blocks/features-list/features-list';
@@ -70,6 +72,8 @@
 @use 'blocks/massage-choosing-test/test-slide';
 @use 'blocks/massage-choosing-test/test-success';
 
+@use 'blocks/back-massage-indications/back-massage-indications';
+
 @use 'blocks/results/massage-results';
 @use 'blocks/results/face-results';
 @use 'blocks/results/back-results';
@@ -77,7 +81,18 @@
 
 @use 'blocks/famous-clients/famous-clients';
 
+@use 'blocks/massage-video/massage-video';
+
 @use 'blocks/video-reviews/video-reviews';
+
+@use 'blocks/massage-description/massage-description';
+
+@use 'blocks/indications/indications';
+
+@use 'blocks/blocks-list/blocks-list';
+@use 'blocks/blocks-list/blocks-list-item';
+
+@use 'blocks/faq/faq';
 
 @use 'blocks/price-list/price-list';
 @use 'blocks/price-list/promotion-card';
@@ -90,6 +105,8 @@
 
 @use 'blocks/articles/articles';
 @use 'blocks/articles/article-card';
+
+@use 'blocks/more-massages/more-massages';
 
 @use 'blocks/socials/socials';
 

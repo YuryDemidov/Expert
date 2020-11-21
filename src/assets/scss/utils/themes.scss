@@ -50,9 +50,9 @@ $theme-5-alt-l: 48%;
 $theme-6-h: 356;
 $theme-6-s: 99%;
 $theme-6-l: 40%;
-$theme-6-alt-h: 356;
-$theme-6-alt-s: 99%;
-$theme-6-alt-l: 40%;
+$theme-6-alt-h: 201;
+$theme-6-alt-s: 95%;
+$theme-6-alt-l: 75%;
 
 // Theme 7 - Figure modeling
 $theme-7-h: 338;
@@ -94,9 +94,18 @@ $theme-11-alt-h: 26;
 $theme-11-alt-s: 96%;
 $theme-11-alt-l: 67%;
 
+// Theme 12 - Back massage
+$theme-12-h: 202;
+$theme-12-s: 100%;
+$theme-12-l: 62%;
+$theme-12-alt-h: 202;
+$theme-12-alt-s: 100%;
+$theme-12-alt-l: 62%;
+
 $themes: (
   // Theme main
   'main': (
+    'id': 'main',
     'primary': hsl($theme-main-h, $theme-main-s, $theme-main-l),
     'primary-dark': hsl($theme-main-h, $theme-main-s, $theme-main-l - 10%),
     'primary-light': hsl($theme-main-h, $theme-main-s, $theme-main-l + 10%),
@@ -146,6 +155,7 @@ $themes: (
   ),
   // Theme 1 - Sculptural-buccal massage
   '1': (
+    'id': '1',
     'primary': hsl($theme-1-h, $theme-1-s, $theme-1-l),
     'primary-dark': hsl($theme-1-h, $theme-1-s, $theme-1-l - 8%),
     'primary-light': hsl($theme-1-h, $theme-1-s, $theme-1-l + 8%),
@@ -180,6 +190,7 @@ $themes: (
   ),
   // Theme 2 - Classic facial massage
   '2': (
+    'id': '2',
     'primary': hsl($theme-2-h, $theme-2-s, $theme-2-l),
     'primary-dark': hsl($theme-2-h, $theme-2-s, $theme-2-l - 10%),
     'primary-light': hsl($theme-2-h, $theme-2-s, $theme-2-l + 10%),
@@ -191,6 +202,7 @@ $themes: (
     'secondary-transparent': hsla($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-2-alt-h, $theme-2-alt-s, $theme-2-alt-l, 0.3),
     'background': hsl(7, 100%, 96%),
+    'background-dark': hsl(338, 100%, 91%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/2-bg-1@1x.jpg',
@@ -214,6 +226,7 @@ $themes: (
   ),
   // Theme 3 - Facial lymphatic drainage
   '3': (
+    'id': '3',
     'primary': hsl($theme-3-h, $theme-3-s, $theme-3-l),
     'primary-dark': hsl($theme-3-h, $theme-3-s, $theme-3-l - 10%),
     'primary-light': hsl($theme-3-h, $theme-3-s, $theme-3-l + 10%),
@@ -224,7 +237,8 @@ $themes: (
     'secondary-light': hsl($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l + 10%),
     'secondary-transparent': hsla($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-3-alt-h, $theme-3-alt-s, $theme-3-alt-l, 0.3),
-    'background': hsl(25, 95%, 92%),
+    'background': hsl(25, 98%, 92%),
+    'background-dark': hsl(25, 100%, 86%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/3-bg-1_normal@1x.png',
@@ -248,6 +262,7 @@ $themes: (
   ),
   // Theme 4 - Japanese Asahi massage
   '4': (
+    'id': '4',
     'primary': hsl($theme-4-h, $theme-4-s, $theme-4-l),
     'primary-dark': hsl($theme-4-h, $theme-4-s, $theme-4-l - 6%),
     'primary-light': hsl($theme-4-h, $theme-4-s, $theme-4-l + 6%),
@@ -257,8 +272,8 @@ $themes: (
     'secondary-light': hsl($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l + 10%),
     'secondary-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-4-alt-h, $theme-4-alt-s, $theme-4-alt-l, 0.3),
-    'additional': hsl(173, 70%, 63%),
     'background': hsl(173, 85%, 95%),
+    'background-dark': hsl(173, 70%, 63%),
     'alt-background': hsl(0, 100%, 97%),
     'header-image-1': (
       'small': (
@@ -283,6 +298,7 @@ $themes: (
   ),
   // Theme 5 - Chiromassage
   '5': (
+    'id': '5',
     'primary': hsl($theme-5-h, $theme-5-s, $theme-5-l),
     'primary-dark': hsl($theme-5-h, $theme-5-s, $theme-5-l - 10%),
     'primary-light': hsl($theme-5-h, $theme-5-s, $theme-5-l + 10%),
@@ -294,6 +310,7 @@ $themes: (
     'secondary-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-5-alt-h, $theme-5-alt-s, $theme-5-alt-l, 0.3),
     'background': hsl(232, 100%, 96%),
+    'background-dark': hsl(242, 100%, 90%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/5-bg-1_normal@1x.png',
@@ -317,6 +334,7 @@ $themes: (
   ),
   // Theme 6 - Sports massage
   '6': (
+    'id': '6',
     'primary': hsl($theme-6-h, $theme-6-s, $theme-6-l),
     'primary-dark': hsl($theme-6-h, $theme-6-s, $theme-6-l - 8%),
     'primary-light': hsl($theme-6-h, $theme-6-s, $theme-6-l + 8%),
@@ -367,6 +385,7 @@ $themes: (
   ),
   // Theme 7 - Figure modeling
   '7': (
+    'id': '7',
     'primary': hsl($theme-7-h, $theme-7-s, $theme-7-l),
     'primary-dark': hsl($theme-7-h, $theme-7-s, $theme-7-l - 10%),
     'primary-light': hsl($theme-7-h, $theme-7-s, $theme-7-l + 10%),
@@ -402,6 +421,7 @@ $themes: (
   ),
   // Theme 8 - Body lymphatic-drainage
   '8': (
+    'id': '8',
     'primary': hsl($theme-8-h, $theme-8-s, $theme-8-l),
     'primary-dark': hsl($theme-8-h, $theme-8-s, $theme-8-l - 10%),
     'primary-light': hsl($theme-8-h, $theme-8-s, $theme-8-l + 10%),
@@ -413,6 +433,7 @@ $themes: (
     'secondary-transparent': hsla($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-8-alt-h, $theme-8-alt-s, $theme-8-alt-l, 0.3),
     'background': hsl(25, 95%, 92%),
+    'alt-background': hsl(259, 90%, 94%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/8-bg-1_small@1x.png',
@@ -451,6 +472,7 @@ $themes: (
   ),
   // Theme 9 - Anti-cellulite massage
   '9': (
+    'id': '9',
     'primary': hsl($theme-9-h, $theme-9-s, $theme-9-l),
     'primary-dark': hsl($theme-9-h, $theme-9-s, $theme-9-l - 10%),
     'primary-light': hsl($theme-9-h, $theme-9-s, $theme-9-l + 10%),
@@ -501,6 +523,7 @@ $themes: (
   ),
   // Theme 10 - Neck massage
   '10': (
+    'id': '10',
     'primary': hsl($theme-10-h, $theme-10-s, $theme-10-l),
     'primary-dark': hsl($theme-10-h, $theme-10-s, $theme-10-l - 10%),
     'primary-light': hsl($theme-10-h, $theme-10-s, $theme-10-l + 10%),
@@ -536,6 +559,7 @@ $themes: (
   ),
   // Theme 11 - Fullbody massage
   '11': (
+    'id': '11',
     'primary': hsl($theme-11-h, $theme-11-s, $theme-11-l),
     'primary-dark': hsl($theme-11-h, $theme-11-s, $theme-11-l - 10%),
     'primary-light': hsl($theme-11-h, $theme-11-s, $theme-11-l + 10%),
@@ -547,6 +571,7 @@ $themes: (
     'secondary-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.7),
     'secondary-x-transparent': hsla($theme-11-alt-h, $theme-11-alt-s, $theme-11-alt-l, 0.3),
     'background': hsl(42, 100%, 93%),
+    'background-dark': hsl(26, 100%, 87%),
     'header-image-1': (
       'small': (
         '1x': '../../../img/main-screen/11-bg-1_small@1x.png',
@@ -585,57 +610,50 @@ $themes: (
   ),
   // Theme 12 - Back massage
   '12': (
-    'primary': hsl($theme-main-h, $theme-main-s, $theme-main-l),
-    'primary-dark': hsl($theme-main-h, $theme-main-s, $theme-main-l - 10%),
-    'primary-light': hsl($theme-main-h, $theme-main-s, $theme-main-l + 10%),
-    'primary-transparent': hsla($theme-main-h, $theme-main-s, $theme-main-l, 0.7),
-    'primary-x-transparent': hsla($theme-main-h, $theme-main-s, $theme-main-l, 0.3),
-    'secondary': hsl($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l),
-    'secondary-dark': hsl($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l - 10%),
-    'secondary-light': hsl($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l + 10%),
-    'secondary-transparent': hsla($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l, 0.7),
-    'secondary-x-transparent': hsla($theme-main-alt-h, $theme-main-alt-s, $theme-main-alt-l, 0.3),
-    'background': hsl(200, 100%, 97%),
+    'id': '12',
+    'primary': hsl($theme-12-h, $theme-12-s, $theme-12-l),
+    'primary-dark': hsl($theme-12-h, $theme-12-s, $theme-12-l - 10%),
+    'primary-light': hsl($theme-12-h, $theme-12-s, $theme-12-l + 10%),
+    'primary-transparent': hsla($theme-12-h, $theme-12-s, $theme-12-l, 0.7),
+    'primary-x-transparent': hsla($theme-12-h, $theme-12-s, $theme-12-l, 0.3),
+    'secondary': hsl($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l),
+    'secondary-dark': hsl($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l - 10%),
+    'secondary-light': hsl($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l + 10%),
+    'secondary-transparent': hsla($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l, 0.7),
+    'secondary-x-transparent': hsla($theme-12-alt-h, $theme-12-alt-s, $theme-12-alt-l, 0.3),
+    'background': hsl(200, 100%, 95%),
+    'alt-background': hsl(0, 0%, 95%),
     'header-image-1': (
       'small': (
-        '1x': '../../../img/main-screen/main-bg-1_small@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-1_small@2x.jpg',
-        '3x': '../../../img/main-screen/main-bg-1_small@3x.jpg'
+        '1x': '../../../img/main-screen/12-bg-1_small@1x.png',
+        '2x': '../../../img/main-screen/12-bg-1_small@2x.png',
+        '3x': '../../../img/main-screen/12-bg-1_small@3x.png'
       ),
       'normal': (
-        '1x': '../../../img/main-screen/main-bg-1_normal@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-1_normal@2x.jpg'
+        '1x': '../../../img/main-screen/12-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/12-bg-1_normal@2x.png'
       ),
       'xl': (
-        '1x': '../../../img/main-screen/main-bg-1_xl@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-1_xl@2x.jpg'
-      )
-    ),
-    'header-image-2': (
-      'small': (
-        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg',
-        '3x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
-      ),
-      'normal': (
-        '1x': '../../../img/main-screen/main-bg-2_normal@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-2_normal@2x.jpg'
-      ),
-      'xl': (
-        '1x': '../../../img/main-screen/main-bg-2_xl@1x.jpg',
-        '2x': '../../../img/main-screen/main-bg-2_xl@2x.jpg'
+        '1x': '../../../img/main-screen/12-bg-1_normal@1x.png',
+        '2x': '../../../img/main-screen/12-bg-1_normal@2x.png'
       )
     ),
     'features-icons': (
-      '../../../img/feature-icons/main-feature-icon_1.svg',
-      '../../../img/feature-icons/main-feature-icon_2.svg',
-      '../../../img/feature-icons/main-feature-icon_3.svg'
+      '../../../img/feature-icons/12-1-feature-icon_1.svg',
+      '../../../img/feature-icons/12-1-feature-icon_2.svg',
+      '../../../img/feature-icons/12-1-feature-icon_3.svg'
+    ),
+    'features-icons-2': (
+      '../../../img/feature-icons/12-2-feature-icon_1.svg',
+      '../../../img/feature-icons/12-2-feature-icon_2.svg',
+      '../../../img/feature-icons/12-2-feature-icon_3.svg'
     )
   )
 ) !default;
 
 // Инициализируем наши переменные как `null`, таким образом,
 // при использовании вне `themify`, они ничего не выведут.
+$theme-id: null;
 $color-primary: null;
 $color-primary-dark: null;
 $color-primary-light: null;
@@ -647,6 +665,8 @@ $color-secondary-light: null;
 $color-secondary-transparent: null;
 $color-secondary-x-transparent: null;
 $color-background: null;
+$color-background-dark: null;
+$color-alt-background: null;
 $header-image-1: null;
 $header-image-2: null;
 $features-icons: null;
@@ -660,17 +680,20 @@ $features-icons: null;
     // Создание селектора (типа `.theme-main .class`)
     .theme-#{$theme} & {
       // Задание переменных темы как глобальных с `!global`
+      $theme-id: map-get($props, 'id') !global;
       $color-primary: map-get($props, 'primary') !global;
-      $color-primary-light: map-get($props, 'primary-dark') !global;
+      $color-primary-dark: map-get($props, 'primary-dark') !global;
       $color-primary-light: map-get($props, 'primary-light') !global;
       $color-primary-transparent: map-get($props, 'primary-transparent') !global;
       $color-primary-x-transparent: map-get($props, 'primary-x-transparent') !global;
       $color-secondary: map-get($props, 'secondary') !global;
-      $color-secondary-light: map-get($props, 'secondary-dark') !global;
+      $color-secondary-dark: map-get($props, 'secondary-dark') !global;
       $color-secondary-light: map-get($props, 'secondary-light') !global;
       $color-secondary-transparent: map-get($props, 'secondary-transparent') !global;
       $color-secondary-x-transparent: map-get($props, 'secondary-x-transparent') !global;
       $color-background: map-get($props, 'background') !global;
+      $color-background-dark: map-get($props, 'background-dark') !global;
+      $color-alt-background: map-get($props, 'alt-background') !global;
       $header-image-1: map-get($props, 'header-image-1') !global;
       $header-image-2: map-get($props, 'header-image-2') !global;
       $features-icons: map-get($props, 'features-icons') !global;
@@ -679,6 +702,7 @@ $features-icons: null;
       @content;
 
       // Глобальное отключение переменных темы с `!global`
+      $theme-id: null !global;
       $color-primary: null !global;
       $color-primary-dark: null !global;
       $color-primary-light: null !global;
@@ -689,7 +713,8 @@ $features-icons: null;
       $color-secondary-light: null !global;
       $color-secondary-transparent: null !global;
       $color-secondary-x-transparent: null !global;
-      $color-background: null !global;
+      $color-background-dark: null !global;
+      $color-alt-background: null !global;
       $header-image-1: null !global;
       $header-image-2: null !global;
       $features-icons: null !global;

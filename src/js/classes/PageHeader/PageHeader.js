@@ -13,11 +13,7 @@ export default class PageHeader {
   }
 
   set state(state) {
-    if (globalThis.innerWidth < this.HEADER_STATE_CHANGE_WIDTH) {
-      return;
-    }
-
-    if (state === HEADER_STATES.fixed && this.state !== HEADER_STATES.fixed) {
+    if (state === HEADER_STATES.fixed && this.state !== HEADER_STATES.fixed && globalThis.innerWidth >= this.HEADER_STATE_CHANGE_WIDTH) {
       animateCss(this.node, `slide-in-down`);
     }
     this.node.dataset.state = state;

@@ -6,7 +6,7 @@
   margin-bottom: 12rem;
 
   &__background {
-    max-width: 116rem;
+    max-width: 120rem;
     padding-top: 3rem;
     padding-bottom: 5rem;
 
@@ -162,7 +162,8 @@
 
 .theme-1,
 .theme-7,
-.theme-9 {
+.theme-9,
+.theme-12 {
   .application-form {
     .sticker {
       @include box(24rem, 24.6rem);
@@ -176,10 +177,6 @@
 
       font-family: $title-font-family;
       color: $alt-default-color;
-
-      &__image {
-        fill: #fe2c78;
-      }
 
       &__main-text {
         font-size: 5rem;
@@ -236,6 +233,14 @@
   }
 }
 
+.theme-6 {
+  .application-form {
+    &__title {
+      color: map-deep-get($themes, '6', 'primary');
+    }
+  }
+}
+
 .theme-7 {
   .application-form {
     &__background {
@@ -249,6 +254,12 @@
         }
       }
     }
+
+    .sticker {
+      &__image {
+        fill: #fe2c78;
+      }
+    }
   }
 }
 
@@ -256,6 +267,24 @@
   .application-form {
     &__background {
       background-color: map-deep-get($themes, '9', 'alt-background');
+    }
+
+    .sticker {
+      &__image {
+        fill: #fe2c78;
+      }
+    }
+  }
+}
+
+.theme-12 {
+  .application-form {
+    &__background {
+      background-color: map-deep-get($themes, '12', 'alt-background');
+    }
+
+    .sticker {
+      color: $default-color;
     }
   }
 }
@@ -382,6 +411,10 @@
       padding: 0 5rem;
     }
 
+    &__background {
+      padding-bottom: 5.5rem;
+    }
+
     &__title {
       font-size: 2.6rem;
     }
@@ -423,7 +456,8 @@
 
   .theme-1,
   .theme-7,
-  .theme-9 {
+  .theme-9,
+  .theme-12 {
     .application-form {
       overflow: hidden;
       padding-top: 10rem;
@@ -448,7 +482,7 @@
       }
 
       &__background {
-        max-width: 116rem;
+        max-width: 120rem;
         padding: 8rem;
         padding-top: 6rem;
         padding-left: 6rem;
@@ -475,7 +509,8 @@
   }
 
   .theme-7,
-  .theme-9 {
+  .theme-9,
+  .theme-12 {
     .application-form {
       .sticker {
         @include box(20vw);
@@ -491,6 +526,18 @@
       &__content {
         padding-right: 10rem;
         padding-left: 0;
+      }
+    }
+  }
+
+  .theme-12 {
+    .application-form {
+      .sticker {
+        @include box(21.5rem);
+
+        padding-bottom: 6rem;
+
+        transform: none;
       }
     }
   }
@@ -523,7 +570,7 @@
 
       &__background {
         padding-left: calc(45rem - 22vw);
-        padding-bottom: 9rem;
+        padding-bottom: 7rem;
       }
 
       .sticker {
@@ -549,6 +596,14 @@
     .application-form {
       .sticker {
         @include box(22rem);
+      }
+    }
+  }
+
+  .theme-12 {
+    .application-form {
+      .sticker {
+        @include box(24rem);
       }
     }
   }
