@@ -26,14 +26,4 @@ footer.page-footer
         +picture-tag(footerLogo, footerLogo.mobile.jpg['3x'], 'Клиника профессионального массажа Expert', '125', '26').page-footer__logo
       p.page-footer__company-text= `Массаж в Москве ${locals.data.globalData.company.foundationYear}-${locals.data.globalData.currentYear}`
     .page-footer__socials
-      ul.socials__icons
-        li.socials__icons-item
-          a.socials__link(href='https://www.instagram.com/expert_massage_clinic/')
-            +svg-icon('#ig-icon').socials__icon.socials__icon_ig(width='25' height='24')
-            +svg-icon('#ig-icon-color').socials__icon.socials__icon_ig.socials__icon_ig-color(width='25' height='24')
-        li.socials__icons-item
-          a.socials__link(href='#')
-            +svg-icon('#vk-icon').socials__icon.socials__icon_vk(width='38' height='23')
-        li.socials__icons-item
-          a.socials__link(href='#')
-            +svg-icon('#fb-icon').socials__icon.socials__icon_fb(width='26' height='26')
+      +socials({ ig: ['25', '24'], vk: ['38', '23'], fb: ['26', '26'] })

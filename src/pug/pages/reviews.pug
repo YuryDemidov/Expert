@@ -1,1 +1,22 @@
-h1 Страница "Отзывы"
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: 'reviews.html',
+      title: `Отзывы`,
+      description: `Отзывы о различных видах массажа в центре профессионального массажа Expert`,
+      keywords: `профессиональный, массаж, Москва, отзывы`,
+      canonical: 'http://expert-massage-clinic.ru/reviews.html',
+      pageClass: 'reviews-page',
+      theme: 'main'
+    }
+
+block head
+
+block content
+  main
+    h1 Страница "Отзывы"
+
+block script

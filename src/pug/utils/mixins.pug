@@ -91,3 +91,16 @@ mixin video(videoConfig, wrapClass)
       a(href=videoConfig.sources.mp4) Скачайте видео
     .video-block__poster(style=`background-image: url('${attributes.poster}')`)
     a.video-block__play-button(href='#' aria-label='Запустить видео')
+
+mixin socials(iconsSizes)
+  ul.socials__icons
+    li.socials__icons-item
+      a.socials__link(href=locals.data.globalData.company.socials.ig.link)
+        +svg-icon('#ig-icon').socials__icon.socials__icon_ig(width=iconsSizes.ig[0] height=iconsSizes.ig[1])
+        +svg-icon('#ig-icon-color').socials__icon.socials__icon_ig.socials__icon_ig-color(width=iconsSizes.ig[0] height=iconsSizes.ig[1])
+    li.socials__icons-item
+      a.socials__link(href=locals.data.globalData.company.socials.vk.link)
+        +svg-icon('#vk-icon').socials__icon.socials__icon_vk(width=iconsSizes.vk[0] height=iconsSizes.vk[1])
+    li.socials__icons-item
+      a.socials__link(href=locals.data.globalData.company.socials.fb.link)
+        +svg-icon('#fb-icon').socials__icon.socials__icon_fb(width=iconsSizes.fb[0] height=iconsSizes.fb[1])

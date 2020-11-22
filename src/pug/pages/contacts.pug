@@ -1,0 +1,70 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: 'contacts.html',
+      title: `Массаж в центре Москвы, контактная информация`,
+      description: `Массаж в центре Москвы, метро Цветной бульвар, 1-й Волконский переулок, 15 (5 минут ходьбы от станции метро)`,
+      keywords: `массаж, центр, Москва, контакты, адрес, телефон, метро`,
+      canonical: 'http://expert-massage-clinic.ru/contacts.html',
+      pageClass: 'contact-info service-page',
+      theme: 'main',
+      placementPhoto: {
+        desktop: {
+          webp: {
+            '1x': 'assets/img/contacts-page/placement-photo_desktop@1x.webp',
+            '2x': 'assets/img/contacts-page/placement-photo_desktop@2x.webp'
+          },
+          jpg: {
+            '1x': 'assets/img/contacts-page/placement-photo_desktop@1x.jpg',
+            '2x': 'assets/img/contacts-page/placement-photo_desktop@2x.jpg'
+          }
+        },
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': 'assets/img/contacts-page/placement-photo_mobile@1x.webp',
+            '2x': 'assets/img/contacts-page/placement-photo_mobile@2x.webp',
+            '3x': 'assets/img/contacts-page/placement-photo_mobile@3x.webp'
+          },
+          jpg: {
+            '1x': 'assets/img/contacts-page/placement-photo_mobile@1x.jpg',
+            '2x': 'assets/img/contacts-page/placement-photo_mobile@2x.jpg',
+            '3x': 'assets/img/contacts-page/placement-photo_mobile@3x.jpg'
+          }
+        }
+      }
+    }
+
+block head
+
+block content
+  .contact-info__wrap
+    .container
+      h1.contact-info__title.heading Контакты
+      .contact-info__content
+        .contact-info__left-column
+          section.contact-info__address
+            h2.contact-info__subtitle Мы ждём вас по адресу:
+            p.contact-info__text!= `г. Москва, ${globalData.company.address}`
+          section.contact-info__working-hours
+            h2.contact-info__subtitle Режим работы:
+            p.contact-info__text!= globalData.company.workingHours
+          section.contact-info__phones
+            h2.contact-info__subtitle.visually-hidden Звоните нам:
+            ul.contact-info__phones-list.phones-list
+              each phone in globalData.company.phones
+                - var phoneNumber = phone.replace(/[()\s-]/g, '')
+                li.phones-list__phone
+                  +svg-icon('#phone-icon').phones-list__icon(width='15' height='16')
+                  a.phones-list__phone-number.link.undeline.underline_dotted.underline_blue-dotted(href=`tel:${phoneNumber}`)= phone
+          section.contact-info__socials.socials
+            h2.contact-info__subtitle Мы в соцсетях:
+            +socials({ ig: ['24', '23'], vk: ['36', '22'], fb: ['24', '24'] })
+        .contact-info__right-column
+          +picture-tag(locals.data.pageData.placementPhoto, locals.data.pageData.placementPhoto.desktop.jpg['2x'], 'г. Москва, м. Цветной Бульвар Волконский 1-й переулок, д.15').contact-info__placement-photo
+      include ../includes/modules/footer/map-block
+
+block script

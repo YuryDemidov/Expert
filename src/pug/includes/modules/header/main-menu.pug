@@ -68,7 +68,7 @@ nav.page-header__menu.main-menu
               each massage in globalData.massages
                 if ((i === 0) && (massage.menuType === 'body') || (i === 1) && (massage.menuType === 'face'))
                   +submenu-item(massage)
-          a.submenu__promo-link
+          a.submenu__promo-link(href='prices.html')
             +picture-tag(menuData.promo.image, menuData.promo.image.mobile.png['3x'], menuData.promo.name, 230, 210).submenu__promo-image
     each link, i in menuData.list
       li.main-menu__list-item(class={

@@ -24,6 +24,7 @@
 @use 'blocks/reusable/link';
 @use 'blocks/reusable/message';
 @use 'blocks/reusable/picture';
+@use 'blocks/reusable/phones-list';
 @use 'blocks/reusable/preloader';
 @use 'blocks/reusable/slider';
 @use 'blocks/reusable/sticker';
@@ -45,7 +46,6 @@
 
 // Content blocks
 @use 'blocks/header/page-header';
-@use 'blocks/header/phones-list';
 @use 'blocks/header/main-screen';
 
 @use 'blocks/menu/main-menu';
@@ -113,3 +113,8 @@
 @use 'blocks/map-block/map-block';
 
 @use 'blocks/footer/page-footer';
+
+// Service pages
+@use 'blocks/page/service-page';
+
+@use 'blocks/contact-info/contact-info';
