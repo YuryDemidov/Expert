@@ -1,1 +1,23 @@
-h1 Страница "О нас"
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: 'about.html',
+      title: `Клиника профессионального массажа в Москве с медицинской лицензией`,
+      description: `Приветствуем Вас на сайте, где профессиональный массаж объясняется простым и доступным языком. Здесь
+        Вы сможете узнать важную и полезную информацию о массаже, получить бесплатную консультацию.`,
+      keywords: `профессиональный, массаж, Москва, клиника, центр, Эксперт, Expert, цены`,
+      canonical: 'http://expert-massage-clinic.ru/about.html',
+      pageClass: 'about-page',
+      theme: 'main'
+    }
+
+block head
+
+block content
+  main
+    h1 Страница "О нас"
+
+block script

@@ -531,6 +531,18 @@ import './certificate/certificate_desktop@1x.webp'
 import './certificate/certificate_desktop@2x.png'
 import './certificate/certificate_desktop@2x.webp'
 
+// Contacts page
+import './contacts-page/placement-photo_mobile@1x.jpg'
+import './contacts-page/placement-photo_mobile@1x.webp'
+import './contacts-page/placement-photo_mobile@2x.jpg'
+import './contacts-page/placement-photo_mobile@2x.webp'
+import './contacts-page/placement-photo_mobile@3x.jpg'
+import './contacts-page/placement-photo_mobile@3x.webp'
+import './contacts-page/placement-photo_desktop@1x.jpg'
+import './contacts-page/placement-photo_desktop@1x.webp'
+import './contacts-page/placement-photo_desktop@2x.jpg'
+import './contacts-page/placement-photo_desktop@2x.webp'
+
 // Map
 import './map/static-map_mobile.jpg'
 import './map/static-map_desktop.jpg'

@@ -1,0 +1,22 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: 'prices.html',
+      title: `Цены, акции и скидки на массаж в Москве`,
+      description: `Массаж, цены, акции и скидки — прайс-лист со стоимостью услуг на массаж`,
+      keywords: `цены, акции, скидки, массаж, Москва`,
+      canonical: 'http://expert-massage-clinic.ru/prices.html',
+      pageClass: 'prices-page',
+      theme: 'main'
+    }
+
+block head
+
+block content
+  main
+    h1 Страница "Цены и акции"
+
+block script

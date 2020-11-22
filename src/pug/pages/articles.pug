@@ -1,0 +1,23 @@
+extends ../layout/main
+
+block variables
+  - var globalData = locals.data.globalData
+  -
+    locals.data.pageData = {
+      url: 'articles.html',
+      title: `Статьи о массаже и правильном образе жизни`,
+      description: `Полезные, интересные и познавательные статьи о достоинствах и пользе массажа. Простым языком
+        рассказываем о различных методиках и аспектах, показаниях и противопоказаниях`,
+      keywords: `массаж, интересное, полезное, информация`,
+      canonical: 'http://expert-massage-clinic.ru/articles.html',
+      pageClass: 'articles-page',
+      theme: 'main'
+    }
+
+block head
+
+block content
+  main
+    h1 Страница "Полезное"
+
+block script

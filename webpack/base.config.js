@@ -170,10 +170,15 @@ const jsLoaders = () => {
 const injectChunks = page => {
   const chunksArray = ['app'];
 
-  if (page === 'index.pug') {
-    chunksArray.push(`pages/index`);
-  } else if (~MASSAGE_PAGE_TEMPLATES.indexOf(page)) {
-    chunksArray.push(`pages/massages`);
+  switch (page) {
+    case `index.pug`:
+      chunksArray.push(`pages/index`);
+      break;
+    case `contacts.pug`:
+      chunksArray.push(`pages/contacts`);
+      break;
+    default: // All massages (alternatively in conditional form - if (~MASSAGE_PAGE_TEMPLATES.indexOf(page))
+      chunksArray.push(`pages/massages`);
   }
 
   return chunksArray;
@@ -278,6 +283,7 @@ module.exports = {
     app: [`${PATHS.src}/app.js`],
     'pages/index': `${PATHS.src}/js/pages/index/index.js`,
     'pages/massages': `${PATHS.src}/js/pages/massages/index.js`,
+    'pages/contacts': `${PATHS.src}/js/pages/service/contacts/index.js`,
     // module: `${PATHS.src}/your-module.js`,
   },
   output: {
