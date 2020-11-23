@@ -246,6 +246,8 @@
 
 .theme-12 {
   .page-header {
+    background-position: right -2rem top 5rem;
+
     &::before {
       background-image: linear-gradient(180deg, #b7e9fd 0%, #f9f9f9 100%);
     }
@@ -399,7 +401,7 @@
   .page-header {
     &__wrap {
       align-items: flex-start;
-      max-width: calc(95rem + 5vw);
+      max-width: calc(95rem + 6vw);
       padding-top: 2.5rem;
       padding-right: 0;
       padding-bottom: 1vw;

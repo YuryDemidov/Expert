@@ -10,14 +10,70 @@ block variables
         рассказываем о различных методиках и аспектах, показаниях и противопоказаниях`,
       keywords: `массаж, интересное, полезное, информация`,
       canonical: 'http://expert-massage-clinic.ru/articles.html',
-      pageClass: 'articles-page',
-      theme: 'main'
+      pageClass: 'articles-page service-page',
+      theme: 'main',
+      articles: [
+        {
+          id: 1,
+          url: '12-steps.html',
+          title: '12&nbsp;шагов к&nbsp;здоровью',
+          tags: ['Авторская статья клиники'],
+          textPreview: `Все мы хотим быть счастливыми и&nbsp;здоровыми. Здоровье&nbsp;— это самый ценный капитал,
+            который легко потерять, но&nbsp;сложно восстановить. Не&nbsp;так страшно лишиться денег, работы, машины...`,
+        },
+        {
+          id: 2,
+          url: 'massage-oil.html',
+          title: 'Массажное масло',
+          textPreview: `Тактильный контакт рук мастера с&nbsp;кожными покровами пациента становится более комфортным,
+            если во&nbsp;время проведения сеанса массажное масло наносится на&nbsp;тело...`,
+        },
+        {
+          id: 3,
+          url: 'about-massage.html',
+          title: 'Про массаж',
+          textPreview: `Массаж&nbsp;— это физиотерапевтическая процедура, которая заключается в&nbsp;меха&shy;ническом
+            воздействии на&nbsp;организм через кожу. В&nbsp;массаж входят основные приемы, такие как поглаживание...`,
+        },
+        {
+          id: 4,
+          url: 'massage-pros-and-cons.html',
+          title: 'Польза и&nbsp;вред массажа',
+          textPreview: `Ценность массажа колоссальна: он запускает мощные механизмы исцеления без&nbsp;необходимости
+            употреблять таблетки, часто обладающие побочными реакциями. Лечебная процедура...`,
+        },
+        {
+          id: 5,
+          url: 'cervical-massage-against-osteochondrosis.html',
+          title: 'Массаж шейно-воротни&shy;ковой зоны при&nbsp;шейном остеохондрозе',
+          textPreview: `Разрушение хрящевой ткани между шейными позвонками провоцирует...`,
+        },
+        {
+          id: 6,
+          url: 'cervical-massage-at-home.html',
+          title: 'Как размять шею в&nbsp;домашних условиях',
+          tags: ['Содержит видеоуроки'],
+          textPreview: `Головная боль, хроническая усталость, отеки&nbsp;— последствия малоактивного образа жизни
+            и&nbsp;сидячей работы, которая создает напряжение в&nbsp;области шеи...`,
+        }
+      ]
     }
 
 block head
 
 block content
-  main
-    h1 Страница "Полезное"
+  .articles-page__wrap
+    .container
+      h1.articles-page__title.heading Интересное
+      ul.articles-page__list
+        each article in locals.data.pageData.articles
+          li.articles-page__list-item
+            a.articles-page-card(class=`articles-page-card_${article.id}` href=article.url)
+              ul.articles-page-card__tags
+                if article.tags
+                  each tag in article.tags
+                    li.articles-page-card__tag= tag
+              h2.articles-page-card__title!= article.title
+              p.articles-page-card__text!= article.textPreview
 
 block script

@@ -1,0 +1,83 @@
+@use '../../tools' as *;
+
+.articles-page-card {
+  position: relative;
+
+  display: block;
+  min-height: 45rem;
+  overflow: hidden;
+  padding: 2.6rem;
+  padding-top: 21.5rem;
+  padding-bottom: 7rem;
+
+  color: $default-color;
+
+  @for $i from 1 through 6 {
+    &_#{$i} {
+      &::before {
+        background-image: url('../../../img/articles-page/article-preview_#{$i}@1x.jpg');
+
+        @include retina(2) {
+          background-image: url('../../../img/articles-page/article-preview_#{$i}@2x.jpg');
+        }
+
+        @include retina(3) {
+          background-image: url('../../../img/articles-page/article-preview_#{$i}@3x.jpg');
+        }
+      }
+    }
+  }
+  border-radius: 0.5rem;
+  box-shadow: 0 0.4rem 2rem $x-light-dim-color;
+
+  &::before {
+    @include box(100%, 19rem);
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0.4rem 2rem $x-light-dim-color;
+
+    transition: transform 0.5s;
+  }
+
+  @include in-focus() {
+    color: $default-color;
+
+    &::before {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.8rem;
+
+    font-size: 2.2rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+  }
+
+  &__tags {
+    @include reset-list();
+
+    display: flex;
+    min-height: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  &__tag {
+    padding: 0.2rem 0.5rem;
+
+    font-size: 1.4rem;
+
+    background-color: map-deep-get($themes, 'main', 'background-dark');
+    border-radius: 0.3rem;
+  }
+}
