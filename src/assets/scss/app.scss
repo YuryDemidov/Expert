@@ -23,6 +23,7 @@
 @use 'blocks/reusable/input-with-button';
 @use 'blocks/reusable/link';
 @use 'blocks/reusable/message';
+@use 'blocks/reusable/pagination';
 @use 'blocks/reusable/picture';
 @use 'blocks/reusable/phones-list';
 @use 'blocks/reusable/preloader';
@@ -121,3 +122,8 @@
 
 @use 'blocks/articles-page/articles-page';
 @use 'blocks/articles-page/articles-page-card';
+
+@use 'blocks/reviews-page/reviews-page';
+@use 'blocks/reviews-page/review-form';
+@use 'blocks/reviews-page/reviews-filters';
+@use 'blocks/reviews-page/reviews';
