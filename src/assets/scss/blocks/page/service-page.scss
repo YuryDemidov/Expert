@@ -19,6 +19,10 @@
 
 @media (min-width: $s-desktop-min-width) {
   .service-page {
+    .page__content {
+      padding-top: 7rem;
+    }
+
     .page__header {
       position: fixed;
     }

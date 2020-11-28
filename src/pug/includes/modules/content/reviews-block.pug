@@ -8,12 +8,7 @@ section.reviews-block
   .reviews-block__wrapper.container
     .reviews-block__content
       h2.heading.reviews-block__title!= locals.data.pageData.reviewsBlock.title
-      .reviews-block__rating.rating-block
-        b.rating-block__number 5
-        +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44' aria-label='звёзд')
-        p.rating-block__text
-          | наш рейтинг
-          img.rating-block__yandex-logo(src='assets/img/reviews-block/yandex-logo.svg' alt='Яндекс' width='40' height='15')
+      +rating-block().reviews-block__rating
       .reviews-block__slider.slider
         button.slider__button.slider__button_prev.hidden_mobile(aria-label='Предыдущий отзыв')
         ul.reviews-block__reviews-list

@@ -104,3 +104,11 @@ mixin socials(iconsSizes)
     li.socials__icons-item
       a.socials__link(href=locals.data.globalData.company.socials.fb.link)
         +svg-icon('#fb-icon').socials__icon.socials__icon_fb(width=iconsSizes.fb[0] height=iconsSizes.fb[1])
+
+mixin rating-block()
+  .rating-block(class=attributes.class)
+    b.rating-block__number(aria-hidden='true') 5
+    +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44' aria-label='5 звёзд')
+    p.rating-block__text
+      | наш рейтинг
+      img.rating-block__yandex-logo(src='assets/img/reviews-block/yandex-logo.svg' alt='Яндекс' width='40' height='15')

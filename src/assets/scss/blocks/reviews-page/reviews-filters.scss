@@ -1,0 +1,43 @@
+@use '../../tools' as *;
+
+.reviews-filters {
+  margin-bottom: 4rem;
+
+  &__list {
+    @include horizontal-list();
+  }
+
+  &__list-item {
+    margin-right: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__filter {
+    @include reset-button();
+
+    padding: 1.2rem 2.5rem;
+
+    font-size: 1.6rem;
+
+    background-color: $lightgray-color;
+    border-radius: 10rem;
+
+    transition: background-color 0.3s;
+
+    &[data-active] {
+      background-color: map-deep-get($themes, 'main', 'primary-x-transparent');
+    }
+
+    &:not([data-active]) {
+      @include in-focus() {
+        background-color: map-deep-get($themes, 'main', 'primary-x-transparent');
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .reviews-filters {
+    text-align: center;
+  }
+}
