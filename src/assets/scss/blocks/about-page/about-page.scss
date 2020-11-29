@@ -1,0 +1,130 @@
+@use '../../tools' as *;
+
+.about-page {
+  &__wrap {
+    margin-bottom: 10rem;
+    padding-top: 0;
+  }
+
+  &__main-screen {
+    margin-bottom: 6rem;
+  }
+
+  &.service-page &__title {
+    margin-bottom: 4rem;
+  }
+
+  &__description {
+    margin-bottom: 6rem;
+    padding: 0 2.5rem;
+  }
+
+  &__history {
+    margin-bottom: 10rem;
+  }
+
+  &__highlight-card {
+    margin-bottom: 7rem;
+    padding: 3rem;
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+
+    font-weight: 700;
+
+    background-color: map-deep-get($themes, 'main', 'background');
+  }
+
+  &__specialists {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .about-page {
+    &__wrap {
+      margin-bottom: 12rem;
+    }
+
+    &__content {
+      padding: 0 5.5rem;
+    }
+
+    &__main-screen {
+      margin-bottom: 7rem;
+    }
+
+    &.service-page &__title {
+      margin-bottom: 4.8rem;
+    }
+
+    &__description {
+      margin-bottom: 7rem;
+
+      font-size: 2.4rem;
+    }
+
+    &__history {
+      margin-bottom: 12rem;
+    }
+
+    &__highlight-card {
+      @include centered-block(80rem);
+
+      margin-bottom: 7rem;
+      padding: 2.4rem 4.8rem;
+    }
+
+    &__specialists {
+      margin-bottom: 6rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .about-page {
+    &__content {
+      @include centered-block(110rem);
+    }
+
+    &__main-screen {
+      margin-bottom: 9rem;
+    }
+
+    &__description {
+      @include centered-block(90rem);
+
+      margin-bottom: 9rem;
+
+      text-align: center;
+    }
+
+    &__blockquote {
+      @include centered-block(95rem);
+
+      .blockquote-card__author {
+        br {
+          display: none;
+        }
+      }
+    }
+
+    &__specialists {
+      @include centered-block(95rem);
+    }
+
+    &__highlight-card {
+      margin-bottom: 9rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .about-page {
+    &__highlight-card {
+      max-width: initial;
+      padding: 3.5rem 5rem;
+
+      line-height: 1.4;
+    }
+  }
+}

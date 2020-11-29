@@ -1,33 +1,5 @@
 - var globalData = locals.data.globalData
 
-if locals.data.pageData.url === '/'
-  -
-    globalData.company.logoImages = {
-      desktop: {
-        webp: {
-          '1x': `assets/img/logo/desktop-logo_main@1x.webp`,
-          '2x': `assets/img/logo/desktop-logo_main@2x.webp`
-        },
-        png: {
-          '1x': `assets/img/logo/desktop-logo_main@1x.png`,
-          '2x': `assets/img/logo/desktop-logo_main@2x.png`
-        }
-      },
-      tablet: false,
-      mobile: {
-        webp: {
-          '1x': `assets/img/logo/mobile-logo_main@1x.webp`,
-          '2x': `assets/img/logo/mobile-logo_main@2x.webp`,
-          '3x': `assets/img/logo/mobile-logo_main@3x.webp`
-        },
-        png: {
-          '1x': `assets/img/logo/mobile-logo_main@1x.png`,
-          '2x': `assets/img/logo/mobile-logo_main@2x.png`,
-          '3x': `assets/img/logo/mobile-logo_main@3x.png`
-        }
-      }
-    }
-
 header.page-header(data-state='static')
   .page-header__wrap
     a.page-header__logo-link(href=(locals.data.pageData.url === '/' ? false : 'index.html'))

@@ -1,6 +1,18 @@
 @use '../../tools' as *;
 
 .service-page {
+  &__wrap {
+    position: relative;
+
+    padding-top: 4rem;
+  }
+
+  .heading {
+    margin-bottom: 3rem;
+
+    font-size: 2.8rem;
+  }
+
   .page-header {
     padding-bottom: 5.5rem;
 
@@ -17,8 +29,32 @@
   }
 }
 
+@media (min-width: $tablet-min-width) {
+  .service-page {
+    &__wrap {
+      padding-top: 5rem;
+    }
+
+    .heading {
+      margin-bottom: 5rem;
+
+      font-size: 3.6rem;
+    }
+  }
+}
+
 @media (min-width: $s-desktop-min-width) {
   .service-page {
+    &__wrap {
+      padding-top: 6rem;
+    }
+
+    .heading {
+      margin-bottom: 6rem;
+
+      font-size: 4rem;
+    }
+
     .page__content {
       padding-top: 7rem;
     }
@@ -34,8 +70,8 @@
 
       &__wrap {
         padding-top: 1.6rem;
-        padding-right: 0;
-        padding-left: 0;
+        padding-right: 1rem;
+        padding-left: 1rem;
       }
 
       &__logo-link {
