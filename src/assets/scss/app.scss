@@ -11,6 +11,7 @@
 // Modules
 // Reusable
 @use 'blocks/reusable/accordion';
+@use 'blocks/reusable/blockquote-card';
 @use 'blocks/reusable/block-title';
 @use 'blocks/reusable/burger-icon';
 @use 'blocks/reusable/button';
@@ -117,6 +118,11 @@
 
 // Service pages
 @use 'blocks/page/service-page';
+
+@use 'blocks/about-page/about-page';
+@use 'blocks/about-page/about-main-screen';
+@use 'blocks/about-page/about-specialists';
+@use 'blocks/about-page/about-reviews';
 
 @use 'blocks/contact-info/contact-info';
 

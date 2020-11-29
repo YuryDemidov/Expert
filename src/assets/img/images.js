@@ -531,6 +531,16 @@ import './certificate/certificate_desktop@1x.webp'
 import './certificate/certificate_desktop@2x.png'
 import './certificate/certificate_desktop@2x.webp'
 
+// About page
+import './about-page/logo@2x.png'
+import './about-page/logo@2x.webp'
+import './about-page/logo@3x.png'
+import './about-page/logo@3x.webp'
+import './about-page/founder-photo@3x.jpg'
+import './about-page/founder-photo@3x.webp'
+import './about-page/signature@3x.jpg'
+import './about-page/signature@3x.webp'
+
 // Contacts page
 import './contacts-page/placement-photo_mobile@1x.jpg'
 import './contacts-page/placement-photo_mobile@1x.webp'

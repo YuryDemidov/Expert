@@ -1,0 +1,175 @@
+@use '../../tools' as *;
+
+.about-specialists {
+  .specialist-card {
+    margin-bottom: 2.5rem;
+    padding: 0 1.4rem;
+
+    box-shadow: none;
+
+    &__image {
+      margin-bottom: 2.8rem;
+
+      img {
+        width: 28rem;
+      }
+
+      &::before {
+        width: 31rem;
+      }
+    }
+
+    &__name {
+      white-space: nowrap;
+    }
+
+    &__caption {
+      margin-bottom: 3rem;
+
+      font-size: 1.4rem;
+    }
+
+    &__description {
+      max-height: initial;
+    }
+
+    &__text {
+      margin-bottom: 2rem;
+    }
+
+    &__subtitle {
+      display: inline-block;
+      margin-top: 4rem;
+
+      color: map-deep-get($themes, 'main', 'primary');
+    }
+
+    &_main {
+      .specialist-card {
+        &__name {
+          margin-bottom: 0;
+
+          font-size: 2rem;
+        }
+
+        &__description {
+          margin-bottom: 6rem;
+        }
+      }
+
+      .dropdown {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .about-specialists {
+    .specialist-card {
+      max-width: 57rem;
+
+      &__image,
+      &__tags,
+      &__name,
+      &__caption {
+        @include centered-block(33rem);
+      }
+
+      &__image {
+        margin-bottom: 2rem;
+      }
+
+      &__description {
+        margin-top: 3.5rem;
+      }
+
+      .dropdown {
+        &__body {
+          position: static;
+
+          min-width: auto;
+
+          box-shadow: none;
+
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .about-specialists {
+    .specialist-card {
+      align-items: flex-start;
+      max-width: initial;
+      margin-bottom: 8rem;
+
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
+
+      &__info {
+        width: 59%;
+        margin-top: 1.5rem;
+      }
+
+      &__name,
+      &__tags {
+        max-width: initial;
+      }
+
+      &__description {
+        margin-top: 2rem;
+      }
+
+      &_main {
+        display: block;
+
+        padding-top: 4rem;
+
+        .specialist-card {
+          margin-bottom: 0;
+
+          &__image {
+            position: absolute;
+
+            top: 28%;
+            right: 0;
+
+            img {
+              width: 32rem;
+            }
+          }
+
+          &__name,
+          &__caption {
+            max-width: initial;
+          }
+
+          &__name {
+            font-size: 2.4rem;
+          }
+
+          &__caption {
+            font-size: 2rem;
+
+            br {
+              display: none;
+            }
+          }
+
+          &__description {
+            max-width: 56rem;
+            margin-top: 4rem;
+          }
+
+          &__subtitle {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
