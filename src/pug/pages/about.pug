@@ -2,6 +2,7 @@ extends ../layout/main
 
 block variables
   - var globalData = locals.data.globalData
+  - var specialists = locals.data.globalData.company.specialists
   -
     locals.data.pageData = {
       url: 'about.html',
@@ -10,14 +11,166 @@ block variables
         Вы сможете узнать важную и полезную информацию о массаже, получить бесплатную консультацию.`,
       keywords: `профессиональный, массаж, Москва, клиника, центр, Эксперт, Expert, цены`,
       canonical: 'http://expert-massage-clinic.ru/about.html',
-      pageClass: 'about-page',
-      theme: 'main'
+      pageClass: 'about-page service-page',
+      theme: 'main',
+      logo: {
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': false,
+            '2x': 'assets/img/about-page/logo@2x.webp',
+            '3x': 'assets/img/about-page/logo@3x.webp'
+          },
+          png: {
+            '1x': false,
+            '2x': 'assets/img/about-page/logo@2x.png',
+            '3x': 'assets/img/about-page/logo@3x.png'
+          }
+        }
+      },
+      founderPhoto: {
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': false,
+            '2x': false,
+            '3x': 'assets/img/about-page/founder-photo@3x.webp'
+          },
+          jpg: {
+            '1x': false,
+            '2x': false,
+            '3x': 'assets/img/about-page/founder-photo@3x.jpg'
+          }
+        }
+      },
+      signature: {
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': false,
+            '2x': false,
+            '3x': 'assets/img/about-page/signature@3x.webp'
+          },
+          jpg: {
+            '1x': false,
+            '2x': false,
+            '3x': 'assets/img/about-page/signature@3x.jpg'
+          }
+        }
+      }
     }
 
 block head
 
 block content
-  main
-    h1 Страница "О нас"
+  .service-page__wrap.about-page__wrap
+    .about-page__main-screen.about-main-screen
+      .about-main-screen__wrap
+        a.about-main-screen__logo-link(href='index.html')
+          +picture-tag(locals.data.pageData.logo, locals.data.pageData.logo.mobile.png['3x'], 'Expert. Professional Massage Clinic').about-main-screen__logo
+        .about-main-screen__feature Лучшие авторские и&nbsp;мировые&nbsp;методики
+        .about-main-screen__feature Честные цены и&nbsp;быстрый&nbsp;результат
+        .about-main-screen__feature Профессионалы, преданные&nbsp;своему&nbsp;делу
+        .about-main-screen__feature Более 10&nbsp;000 получивших помощь клиентов
+        .about-main-screen__feature Экспертность&nbsp;и&nbsp;в&nbsp;эстетических, и&nbsp;в&nbsp;медицинских проблемах
+        .about-main-screen__feature Место, где действительно работают на&nbsp;результат
+    .container.about-page__content
+      .section.about-page__history
+        h1.about-page__title.heading О нас
+        p.about-page__description!= `Клиника профессионального массажа «Эксперт» открыта в&nbsp;${globalData.company.foundationYear} году. И&nbsp;уже ${globalData.company.businessDuration}&nbsp;лет мы помогаем клиентам с&nbsp;заболеваниями позвоночника, общими проблемами со&nbsp;здоровьем, и&nbsp;сложными эстетическими проблемами. Мы лечим массажем, потому что&nbsp;это самый эффективный и&nbsp;безопасный способ омолодить лицо, улучшить фигуру, и&nbsp;избавиться от&nbsp;боли и&nbsp;зажимов в&nbsp;любой части тела.`
+        figure.about-page__blockquote.blockquote-card
+          blockquote.blockquote-card__wrap
+            p.blockquote-card__text
+              | Мы открыли клинику не&nbsp;для того, чтобы заработать на&nbsp;модных, но&nbsp;бесполезных процедурах или
+              | продавать клиенту те услуги, которые ему не&nbsp;помогут. Наша миссия&nbsp;— помогать людям,
+              | и&nbsp;для&nbsp;нас нет ничего важнее реального результата и&nbsp;чистой репутации.
+            p.blockquote-card__text
+              | В&nbsp;нашей клинике действительно индивидуальный подход, мы&nbsp;никогда не&nbsp;завышаем число сеансов,
+              | если видим, что можем помочь быстро. Не&nbsp;советуем клиенту неподходящие процедуры и&nbsp;не&nbsp;идём
+              | ни&nbsp;на&nbsp;какие компромиссы с&nbsp;качеством. Если вы пришли к&nbsp;нам, мы доведём вас
+              | до&nbsp;результата. Посмотрите наши
+              |
+              a.link.link_primary(href='reviews.html') отзывы
+              | , клиенты оставляют их с&nbsp;
+              span= globalData.company.foundationYear
+              |
+              | года.
+            p.blockquote-card__text
+              | Мы уверены в&nbsp;качестве своих услуг, но&nbsp;если после сеанса вы поймёте, что процедура вам
+              | не&nbsp;понравилась, мы вернём деньги за&nbsp;сеанс без&nbsp;лишних вопросов.
+          figcaption.blockquote-card__caption
+            +picture-tag(locals.data.pageData.founderPhoto, locals.data.pageData.founderPhoto.mobile.jpg['3x'], 'Рыбников Антони Николаевич', 71, 71).blockquote-card__author-photo
+            p.blockquote-card__author
+              | Антон Рыбников,
+              |
+              br
+              | основатель клиники
+            +picture-tag(locals.data.pageData.signature, locals.data.pageData.signature.mobile.jpg['3x'], 'Подпись Рыбникова Антона Николаевича', 71, 71).blockquote-card__author-signature
+      section.about-page__specialists.about-specialists
+        h2.about-page__title.heading О специалистах
+        .specialist-card.specialist-card_main
+          - specialists[0].images.mobile = false
+          +picture-tag(specialists[0].images, specialists[0].images.desktop.jpg['2x'], specialists[0].name).specialist-card__image
+          h3.specialist-card__name= specialists[0].name
+          p.specialist-card__caption
+            | основатель клиники, ведущий специалист
+            br
+            | и автор множества массажных методик
+          .specialist-card__description
+            p.specialist-card__text
+              | Меня зовут Антон Рыбников, я глава клиники «Эксперт». И&nbsp;для меня эта клиника&nbsp;— не&nbsp;просто
+              | бизнес, это дело моей жизни. Я лично подбираю врачей, обучаю процедурам и&nbsp;своим методикам, читаю
+              | отзывы клиентов и&nbsp;контролирую качество на&nbsp;всех этапах.
+            p.specialist-card__text
+              | Конечно, моя работа не&nbsp;имеет смысла, если&nbsp;кли&shy;енты не&nbsp;будут получать результат.
+              | В&nbsp;клинике работают только опытные врачи, по&nbsp;лучшим авторским и&nbsp;мировым методикам. Мы
+              | постоянно расширяем наш профиль, используем передовые медицинские технологии со&nbsp;всего мира,
+              | и&nbsp;добива&shy;емся резуль&shy;тата&nbsp;— лучшего и&nbsp;в&nbsp;короткий срок.
+            p.specialist-card__text
+              | Мне важно, чтобы всё время, проведён&shy;ное вами в&nbsp;клинике, от&nbsp;первого визита до&nbsp;финального
+              | результата, было комфортным и&nbsp;полезным. Буду рад любой обратной связи на&nbsp;личную почту
+              |
+              a.link.link_primary(href='mailto:anton_rybnikov@gmail.com') anton_rybnikov@gmail.com
+            .dropdown(data-on='click' data-state='closed')
+              h4.specialist-card__subtitle.dropdown__trigger Об&nbsp;опыте работы
+              .dropdown__body
+                p.specialist-card__text
+                  | Работаю в&nbsp;области медицинского массажа более 12&nbsp;лет, строил карьеру в&nbsp;ведущих
+                  | медицинских центрах&nbsp;— клинике №1&nbsp;им.&nbsp;Пирогова, центре диетологии НИИ питания,
+                  | Федеральном центре реабилитации.
+                p.specialist-card__text
+                  | Член «Международного Альянса Массажистов». Автор методики «Максимально эффективное лечение боли
+                  | при&nbsp;проведении лечебного массажа», преподаватель школы массажа.
+        p.about-page__highlight-card
+          | Также в&nbsp;нашей клинике работают замечательные специалисты, с&nbsp;большим опытом работы
+          | в&nbsp;серьёзных медицинских центрах, ответственным подходом к&nbsp;делу, и&nbsp;желанием постоянно
+          | развиваться
+        each specialist, i in specialists
+          if (i !== 0)
+            .specialist-card
+              - specialist.images.mobile = false
+              +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.name, '170', '160').specialist-card__image
+              .specialist-card__info
+                ul.specialist-card__tags
+                  if (specialist.id !== 3)
+                    each tag, i in specialist.tags
+                      li.specialist-card__tag!= tag
+                  else
+                    li.specialist-card__tag!= specialist.tags[1]
+                    li.specialist-card__tag!= specialist.tags[0]
+                h3.specialist-card__name= specialist.name
+                .specialist-card__description
+                  each text in specialist.description
+                    p.specialist-card__text= text
+      section.about-page__reviews.about-reviews
+        h2.about-reviews__title Вот лишь часть отзывов наших клиентов:
+        p.about-reviews__review Советую всем, кто испытывает боли и проблемы со спиной обращаться к Антону Николаевичу. Испытал на собственном опыте: были и дикие боли, и прострелы такие, что еле двигался. Но Антон Николаевич своим массаж убрал их совсем. Улучшения появились после второго сеанса, а сейчас по прошествии месяца после полного курса из 10 процедур, я вспоминаю о болях, как о страшном сне. Антон Николаевич, Вам огромное спасибо!!!
+        p.about-reviews__review Огромное спасибо Ефременковой Ирине!️ Благодарна судьбе за этого чудо-человека!)) Настоящий профессионал своего дела, поставила меня на ноги, просто загибалась от боли в спине, сколиоз, остеохондроз и прочие всевозможные недуги позвоночника! После рук Ирины, я как новенькая, хочется жить и сворачивать горы)) Ирина не просто доктор, а ещё и замечательный и прекрасной души человек! Дала кучу полезных советов для здоровья, после которых действительно чувствуешь себя в сто раз лучше! Приходишь на массаж и даже не хочется уходить, приятно, полезно, релакс, ещё и с хорошим человеком пообщаешься! Огромная благодарность за Ваши руки, за дело, которое Вы делаете! Всего Вам самого прекрасного.️ Крепчайшего здоровья и процветания️
+        p.about-reviews__review Не хватает слов, чтобы выразить благодарность врачам вашей клиники! Уже совсем потерял надежду решить свою проблему. Более 2-х лет беспокоили боли в глазу, сменил 3-х офтальмологов, перепробовал разные лекарства, но так и не получил облегчение. Последней надеждой был массаж, который мне посоветовал сделать Антон Николаевич. Это оказалось моим спасительным кругом, о котором я долго мечтал. Оказывается, что все мои неудобства были из-за мышечного спазма, который появился на фоне шейного остеохондроза. После стольких мучений я снова свободен! Спасибо!
+        p.about-reviews__review Добрый вечер. Хочу рассказать о своих впечатлениях о Наталье Александровне. Прошло только три сеанса лечебного массажа, но результат уже есть. У меня полгода болела рука так, что даже одеться было больно. А сейчас я могу поднять руку в верх и сделать полный круг. Рекомендую Наталью Александровну как высококвалифицированного специалиста.
+        a.link.link_primary.link_arrow.underline(href='reviews.html') Смотреть все отзывы
 
 block script

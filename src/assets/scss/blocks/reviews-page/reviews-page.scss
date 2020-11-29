@@ -2,10 +2,6 @@
 
 .reviews-page {
   &__wrap {
-    position: relative;
-
-    padding-top: 4rem;
-
     .button_primary {
       @include reset-button();
       @include centered-block(35rem);
@@ -24,12 +20,6 @@
 
       transition: background-color 0.3s;
     }
-  }
-
-  &__title {
-    margin-bottom: 2.5rem;
-
-    font-size: 2.8rem;
   }
 
   &__subtitle {
