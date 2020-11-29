@@ -30,20 +30,31 @@
   border-radius: 0.5rem;
   box-shadow: 0 0.4rem 2rem $x-light-dim-color;
 
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
   &::before {
     @include box(100%, 19rem);
 
-    content: '';
-    position: absolute;
     top: 0;
-    left: 0;
 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: 0 0.4rem 2rem $x-light-dim-color;
 
     transition: transform 0.5s;
+  }
+
+  &::after {
+    @include box(100%, 2.4rem);
+
+    top: 19rem;
+
+    background-image: linear-gradient(to bottom, $lightgray-color, $alt-default-color);
   }
 
   @include in-focus() {
