@@ -11,81 +11,7 @@ block variables
       keywords: `массаж, интересное, полезное, информация`,
       canonical: 'http://expert-massage-clinic.ru/articles.html',
       pageClass: 'articles-page service-page',
-      theme: 'main',
-      articles: [
-        {
-          id: 1,
-          url: '12-steps.html',
-          title: '12&nbsp;шагов к&nbsp;здоровью',
-          tags: ['Авторская статья клиники'],
-          textPreview: `Все мы хотим быть счастливыми и&nbsp;здоровыми. Здоровье&nbsp;— это самый ценный капитал,
-            который легко потерять, но&nbsp;сложно восстановить. Не&nbsp;так страшно лишиться денег, работы, машины...`,
-        },
-        {
-          id: 2,
-          url: 'massage-oil.html',
-          title: 'Массажное масло',
-          textPreview: `Тактильный контакт рук мастера с&nbsp;кожными покровами пациента становится более комфортным,
-            если во&nbsp;время проведения сеанса массажное масло наносится на&nbsp;тело...`,
-        },
-        {
-          id: 3,
-          url: 'about-massage.html',
-          title: 'Про массаж',
-          textPreview: `Массаж&nbsp;— это физиотерапевтическая процедура, которая заключается в&nbsp;меха&shy;ническом
-            воздействии на&nbsp;организм через кожу. В&nbsp;массаж входят основные приемы, такие как поглаживание...`,
-        },
-        {
-          id: 4,
-          url: 'massage-pros-and-cons.html',
-          title: 'Польза и&nbsp;вред массажа',
-          textPreview: `Ценность массажа колоссальна: он запускает мощные механизмы исцеления без&nbsp;необходимости
-            употреблять таблетки, часто обладающие побочными реакциями. Лечебная процедура...`,
-        },
-        {
-          id: 5,
-          url: 'cervical-massage-against-osteochondrosis.html',
-          title: 'Массаж шейно-воротни&shy;ковой зоны при&nbsp;шейном остеохондрозе',
-          textPreview: `Разрушение хрящевой ткани между шейными позвонками провоцирует...`,
-        },
-        {
-          id: 6,
-          url: 'cervical-massage-at-home.html',
-          title: 'Как размять шею в&nbsp;домашних условиях',
-          tags: ['Содержит видеоуроки'],
-          textPreview: `Головная боль, хроническая усталость, отеки&nbsp;— последствия малоактивного образа жизни
-            и&nbsp;сидячей работы, которая создает напряжение в&nbsp;области шеи...`,
-        },
-        {
-          id: 7,
-          url: 'back-massage-for-osteochondrosis.html',
-          title: 'Массаж спины при&nbsp;остеохондрозе',
-          textPreview: `Динамика распространения остеохондроза отличается нарастающим темпом — дегенеративные изменения
-            все чаще диагностируются у молодых...`,
-        },
-        {
-          id: 8,
-          url: 'massage-with-medical-ointments.html',
-          title: 'Массаж с&nbsp;медицинскими мазями',
-          textPreview: `Даже без применения дополнительных препаратов массаж является эффектив&shy;ной восстанавливающей
-            процедурой, улучшающей состояние человека...`,
-        },
-        {
-          id: 9,
-          url: 'osteochondrosis.html',
-          title: 'Остеохондроз',
-          textPreview: `Клинические обследования позво&shy;ночника (рентген, МРТ, КТ), которые периодически проходит
-            каждый пациент, эффективно выявляют все болезненные...`,
-        },
-        {
-          id: 10,
-          url: 'correct-back-massage-at-home.html',
-          tags: ['Содержит видеоуроки'],
-          title: 'Как правильно делать массаж спины в&nbsp;дома&shy;шних условиях',
-          textPreview: `Дефицит свободного времени и уста&shy;лость в конце рабочего дня&nbsp;— главные причины, почему
-            визит к&nbsp;массажисту... `,
-        }
-      ]
+      theme: 'main'
     }
 
 block head
@@ -95,7 +21,7 @@ block content
     .container
       h1.articles-page__title.heading Интересное
       ul.articles-page__list
-        each article in locals.data.pageData.articles
+        each article in locals.data.articles
           li.articles-page__list-item
             a.articles-page-card(class=`articles-page-card_${article.id}` href=article.url)
               ul.articles-page-card__tags

@@ -1,0 +1,46 @@
+@use '../../tools' as *;
+
+.article-page {
+  .page-header {
+    padding-bottom: 5.5rem;
+
+    background: none;
+    background-color: $alt-default-color;
+
+    &::before {
+      content: none;
+    }
+
+    &__logo-link {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .article-page {
+    .page__content {
+      padding-top: 7rem;
+    }
+
+    .page__header {
+      position: fixed;
+    }
+
+    .page-header {
+      padding-bottom: 0;
+
+      box-shadow: 0 0.4rem 2rem $x-light-dim-color;
+
+      &__wrap {
+        padding-top: 1.6rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      &__logo-link {
+        display: block;
+      }
+    }
+  }
+}

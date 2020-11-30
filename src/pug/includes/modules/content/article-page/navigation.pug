@@ -1,0 +1,5 @@
+nav(class='article-page__navigation.article-navigation')
+  ul.article-navigation__list
+    each anchor, id in locals.data.pageData.article.navigation
+      li.article-navigation__list-item
+        a(href=`#nav-${id}`)= anchor
