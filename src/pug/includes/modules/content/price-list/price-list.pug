@@ -1,0 +1,42 @@
+-
+  var priceList = locals.data.globalData.priceList
+
+section.price-list
+  .container.price-list__content
+    h2.price-list__title.heading Цены и акции
+    .price-list__wrap
+      if locals.data.pageData.priceList.showPromo
+        +promo-card(
+          locals.data.globalData.mainPromo.title,
+          locals.data.globalData.mainPromo.subtitle,
+          locals.data.globalData.mainPromo.text,
+          locals.data.globalData.mainPromo.buttonText
+        ).price-list__promotion
+      .price-list__prices
+        each section in priceList.sections
+          - var promoText = ''
+          section.price-list__section
+            table.price-list__table.table
+              tr.table__row
+                th.table__cell.table__cell_heading
+                  h3.price-list__type-caption= section.title
+                th.table__cell.table__cell_heading 1-ый сеанс
+                th.table__cell.table__cell_heading Последующие
+                th.table__cell.table__cell_heading Время
+              each massage in section.massages
+                - var additionalClass = ''
+                if massage.promo
+                  - promoText = `${promoText}${massage.promo.text}<br>`
+                  if massage.promo.starPlacement
+                    - additionalClass = `table__row_promo table__row_promo-${massage.promo.starPlacement}`
+                if massage === locals.data.pageData.massage
+                  - additionalClass = `${additionalClass} table__row_highlight`
+                tr.table__row(class=additionalClass)
+                  td.table__cell
+                    b.price-list__massage-name= massage.name
+                  td.table__cell
+                    span.price-list__first-price!= `${massage.price.first}&thinsp;₽`
+                  td.table__cell!= `${massage.price.standard}&thinsp;₽`
+                  td.table__cell!= `${massage.duration}&thinsp;мин`
+            p.price-list__promo-text!= promoText
+      include callback-form

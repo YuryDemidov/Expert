@@ -112,3 +112,10 @@ mixin rating-block()
     p.rating-block__text
       | наш рейтинг
       img.rating-block__yandex-logo(src='assets/img/reviews-block/yandex-logo.svg' alt='Яндекс' width='40' height='15')
+
+mixin promo-card(title, subtitle, text, buttonText, buttonColor, image)
+  article.promotion-card(class=attributes.class style=(image ? `background-image: url(${image})` : false))
+    h3.promotion-card__title!= title
+    p.promotion-card__subtitle!= subtitle
+    p.promotion-card__text!= text
+    button.promotion-card__button.button.button_primary(type='button' style=(buttonColor ? `background-color: ${buttonColor}` : false) data-open-popup='appointment')= buttonText

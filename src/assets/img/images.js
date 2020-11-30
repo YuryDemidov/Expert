@@ -531,6 +531,10 @@ import './certificate/certificate_desktop@1x.webp'
 import './certificate/certificate_desktop@2x.png'
 import './certificate/certificate_desktop@2x.webp'
 
+// Prices page
+import './prices-page/promo-bg-1@2x.jpg'
+import './prices-page/promo-bg-2@2x.jpg'
+
 // About page
 import './about-page/logo@2x.png'
 import './about-page/logo@2x.webp'

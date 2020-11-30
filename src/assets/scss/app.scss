@@ -119,6 +119,15 @@
 // Service pages
 @use 'blocks/page/service-page';
 
+@use 'blocks/prices-page/prices-page';
+@use 'blocks/prices-page/more-procedures-prices';
+@use 'blocks/prices-page/additions-prices';
+
+@use 'blocks/reviews-page/reviews-page';
+@use 'blocks/reviews-page/review-form';
+@use 'blocks/reviews-page/reviews-filters';
+@use 'blocks/reviews-page/reviews';
+
 @use 'blocks/about-page/about-page';
 @use 'blocks/about-page/about-main-screen';
 @use 'blocks/about-page/about-specialists';
@@ -128,8 +137,3 @@
 
 @use 'blocks/articles-page/articles-page';
 @use 'blocks/articles-page/articles-page-card';
-
-@use 'blocks/reviews-page/reviews-page';
-@use 'blocks/reviews-page/review-form';
-@use 'blocks/reviews-page/reviews-filters';
-@use 'blocks/reviews-page/reviews';

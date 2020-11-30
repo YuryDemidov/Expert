@@ -152,10 +152,10 @@ block content
           if (i !== 0)
             .specialist-card
               - specialist.images.mobile = false
-              +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.name, '170', '160').specialist-card__image
+              +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.name).specialist-card__image
               .specialist-card__info
                 ul.specialist-card__tags
-                  if (specialist.id !== 3)
+                  if (specialist.id !== 2)
                     each tag, i in specialist.tags
                       li.specialist-card__tag!= tag
                   else

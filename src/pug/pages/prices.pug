@@ -10,14 +10,95 @@ block variables
       keywords: `цены, акции, скидки, массаж, Москва`,
       canonical: 'http://expert-massage-clinic.ru/prices.html',
       pageClass: 'prices-page service-page',
-      theme: 'main'
+      theme: 'main',
+      promotions: {
+        1: globalData.mainPromo,
+        2: {
+          title: '25% скидка на скульптурно-буккальный массаж!',
+          text: 'Любое количество сеансов. Только на июль и август',
+          buttonText: 'Записаться',
+          buttonColor: '#06319f',
+          image: 'assets/img/prices-page/promo-bg-1@2x.jpg'
+        },
+        3: {
+          title: '25% скидка на ручное модели&shy;рование фигуры',
+          text: 'На первый сеанс',
+          buttonText: 'Записаться',
+          buttonColor: '#fe2c78',
+          image: 'assets/img/prices-page/promo-bg-2@2x.jpg'
+        }
+      }
     }
 
 block head
 
 block content
   .service-page__wrap.prices-page__wrap
+    h1.prices-page__title.heading
+      | Цены на массаж
+      br
+      | Прайс лист (услуги массажа)
+    section.prices-page__promotions
+      h2.visually-hidden Текущие акции
+      .prices-page__promotions-wrap.container
+        each promo, i in locals.data.pageData.promotions
+          +promo-card(
+            promo.title,
+            promo.subtitle,
+            promo.text,
+            promo.buttonText,
+            promo.buttonColor,
+            promo.image
+          ).prices-page__promotion(class=(i === '1' ? 'prices-page__promotion_main' : `prices-page__promotion_${i}`))
+    .price-list.prices-page__main-prices
+      each section, sectionName in locals.data.globalData.priceList.sections
+        - var promoText = ''
+        section.price-list__section
+          h2.price-list__section-title= section.title
+          table.price-list__table.table
+            tr.table__row
+              th.table__cell.table__cell_heading
+              th.table__cell.table__cell_heading 1-ый сеанс
+              th.table__cell.table__cell_heading Последующие
+              th.table__cell.table__cell_heading Время
+            each massage in section.massages
+              - var additionalClass = ''
+              if massage.promo
+                - promoText = `${promoText}${massage.promo.text}<br>`
+                if massage.promo.starPlacement
+                  - additionalClass = `table__row_promo table__row_promo-${massage.promo.starPlacement}`
+              tr.table__row(class=additionalClass)
+                td.table__cell
+                  a.link.link_arrow.link_secondary.underline.price-list__massage-name(href=massage.url)= massage.name
+                td.table__cell
+                  span.price-list__first-price!= `${massage.price.first}&thinsp;₽`
+                td.table__cell
+                  span(class=((massage.id === 6) || (massage.id === 11) || (massage.id === 12) ? 'price-list__price-notification' : false))!= `${massage.price.standard}&thinsp;₽`
+                td.table__cell!= `${massage.duration}&thinsp;мин`
+          if sectionName === 'body'
+            p.price-list__price-notification-description
+              span.price-list__price-notification
+              != `— мужчины 90&thinsp;кг и выше + 500&thinsp;₽ за сеанс`
+          p.price-list__promo-text!= promoText
     .container
-      h1.prices-page__title.heading Цены и акции
-
+      section.prices-page__more-procedures.more-procedures-prices
+        h2.prices-page__subtitle.more-procedures-prices__title Также мы можем провести следующие процедуры
+        table.more-procedures-prices__table.table
+          each procedure in locals.data.globalData.priceList.procedures
+            tr.table__row
+              td.table__cell= procedure.name
+              td.table__cell!= `${procedure.price}&thinsp;₽`
+      section.prices-page__more-procedures.additions-prices
+        h2.prices-page__subtitle.additions-prices__title
+          | Или проработать отдельные зоны, но&nbsp;только в&nbsp;дополнение к&nbsp;основной процедуре
+        p.additions-prices__description
+          | Например, у&nbsp;вас болит плечо, но&nbsp;вы приходите на&nbsp;эстетический массаж, и&nbsp;хотите совместить
+          | процедуры. Скажите мастеру о&nbsp;проблеме, и&nbsp;он сделает вам дополнительный массаж из&nbsp;списка ниже:
+        table.additions-prices__table.table
+          each addition in locals.data.globalData.priceList.additions
+            tr.table__row
+              td.table__cell= addition.name
+              td.table__cell!= `${addition.price}&thinsp;₽`
+      section.prices-page__callback-form
+        include ../includes/modules/content/price-list/callback-form
 block script
