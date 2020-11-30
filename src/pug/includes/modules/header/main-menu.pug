@@ -3,10 +3,6 @@
   var menuData = {
     list: [
       {
-        text: 'На главную',
-        url: 'index.html'
-      },
-      {
         text: 'Цены и акции',
         url: 'prices.html'
       },
@@ -57,6 +53,8 @@ mixin submenu-item(massage)
 nav.page-header__menu.main-menu
   h2.visually-hidden Главное меню
   ul.main-menu__list
+    li.main-menu__list-item.hidden_desktop-tablet
+      a.main-menu__link.link(href='index.html') На главную
     li.main-menu__list-item.main-menu__submenu-trigger.dropdown(data-on='hover' data-state='closed' tabindex='0')
       span.main-menu__section.dropdown__trigger Виды массажа
       .main-menu__submenu.dropdown__body
@@ -71,10 +69,7 @@ nav.page-header__menu.main-menu
           a.submenu__promo-link(href='prices.html')
             +picture-tag(menuData.promo.image, menuData.promo.image.mobile.png['3x'], menuData.promo.name, 230, 210).submenu__promo-image
     each link, i in menuData.list
-      li.main-menu__list-item(class={
-        'hidden_desktop-tablet': i === 0,
-        'main-menu__list-item_hidden': i >= 3
-      })
+      li.main-menu__list-item(class={'main-menu__list-item_hidden': i >= 3})
         a.main-menu__link.link(href=link.url)= link.text
       if i === 2
         li.main-menu__list-item.main-menu__additional.dropdown(data-on='hover')

@@ -50,6 +50,41 @@
     white-space: nowrap;
   }
 
+  &__price-notification {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+
+    vertical-align: baseline;
+
+    background-color: map-deep-get($themes, 'main', 'primary-x-transparent');
+    border-radius: 0.1rem;
+
+    &::after {
+      content: '*';
+
+      display: inline-block;
+      margin-left: 0.3rem;
+
+      vertical-align: baseline;
+    }
+  }
+
+  &__price-notification-description {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding: 0 2rem;
+
+    font-size: 1.5rem;
+
+    .price-list__price-notification {
+      margin-right: 0.4rem;
+
+      &::after {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+
   .table {
     &__row {
       &:nth-child(even) {
