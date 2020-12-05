@@ -15,21 +15,7 @@ block variables
       massage: globalData.massages['fullbody-massage'],
       mainScreenHeading: 'Общий массаж тела',
       mainScreenSubheading: `Расслабление, снятие напряжения и&nbsp;усталости мышц, оздоровление всего организма`,
-      mainScreenFeatures: [
-        {
-          bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
-        },
-        {
-          bigText: '10 лет',
-          smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
-        },
-        {
-          bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
-            ${globalData.company.foundationYear} по ${globalData.currentYear}`
-        }
-      ],
+      mainScreenFeatures: globalData.company.features,
       aboutMassage: [
         {
           title: 'Что это за процедура?',
@@ -49,7 +35,7 @@ block variables
         {
           title: 'Кому нужен общий массаж?',
           text: [
-            'Тем, у кого нет особых проблем со здоровьем, но хочется чувствовать себя лучше и бодрее. Тем, у кого есть такие проблемы, как стресс, бессоница, мышечная усталость, боль в руках и ногах.',
+            'Тем, у кого нет особых проблем со здоровьем, но хочется чувствовать себя лучше и бодрее. Тем, у кого есть такие проблемы, как стресс, бессоница, мышечная усталость.',
             'Также общий массаж это отличный способ провести время с пользой, отдохнуть и по-насто&shy;ящему расслабиться. Процедура очень приятная и даёт быстрый эффект — для того, чтобы почув&shy;ствовать себя лучше, достаточно одного сеанса общего массажа.',
             'А курс надолго закрепит высокий жизненный тонус, хорошее настро&shy;ение и способ&shy;ность организма справ&shy;ляться со стрессом и болезнями.'
           ]

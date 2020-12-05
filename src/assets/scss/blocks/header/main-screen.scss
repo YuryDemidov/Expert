@@ -84,6 +84,25 @@
     font-size: 1.6rem;
     line-height: 1.25;
   }
+
+  &__feature-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      line-height: 1.2;
+    }
+
+    .rating-block__number {
+      font-size: 3.2rem;
+    }
+
+    .rating-block__yandex-logo {
+      margin-right: 0.8rem;
+      margin-left: 0.4rem;
+    }
+  }
 }
 
 .theme-main {
@@ -194,7 +213,7 @@
     }
 
     &__feature-item {
-      margin: 0 4vw;
+      margin: 0 3.2vw;
     }
   }
 
@@ -712,6 +731,14 @@
     .main-screen {
       &__heading {
         padding: 4rem 11rem;
+      }
+    }
+  }
+
+  .theme-7 {
+    .main-screen {
+      &__heading {
+        padding-right: 14%;
       }
     }
   }

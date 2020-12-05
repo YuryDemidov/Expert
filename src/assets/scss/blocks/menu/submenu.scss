@@ -5,6 +5,11 @@
   flex-direction: column;
   justify-content: space-between;
 
+  &__list-group {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__list {
     @include reset-list();
   }
@@ -67,6 +72,10 @@
 
     &__list {
       margin: 0 1vw;
+    }
+
+    &__list + .submenu__list {
+      margin-top: 2rem;
     }
 
     &__list-item {
