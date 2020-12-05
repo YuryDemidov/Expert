@@ -460,7 +460,7 @@
   .theme-12 {
     .application-form {
       overflow: hidden;
-      padding-top: 10rem;
+      padding-top: 12rem;
 
       .sticker {
         position: absolute;
@@ -513,9 +513,9 @@
   .theme-12 {
     .application-form {
       .sticker {
-        @include box(20vw);
+        @include box(19.5vw);
 
-        left: calc(60% + 20rem);
+        left: calc(60% + 21rem);
 
         padding-right: 3.6rem;
         padding-left: 3.6rem;

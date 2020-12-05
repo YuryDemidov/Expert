@@ -7,7 +7,7 @@
         name: 'Лечебный массаж спины',
         fullName: 'Лечебный массаж спины',
         url: 'back-massage.html',
-        menuType: 'body',
+        type: 'body',
         tag: {
           text: 'От боли',
           color: 'main'
@@ -24,7 +24,7 @@
         name: 'Лимфодренажный',
         fullName: 'Лимфодренажный массаж тела',
         url: 'body-lymphatic-drainage.html',
-        menuType: 'body',
+        type: 'body',
         price: {
           first: 1900,
           standard: 2400
@@ -37,15 +37,15 @@
         name: 'Ручное моделирование фигуры',
         fullName: 'Ручное моделирование фигуры',
         url: 'figure-modeling.html',
-        menuType: 'body',
+        type: 'figure',
         price: {
           first: 1900,
           standard: 2400
         },
         duration: 60,
         promo: {
-          text: `<span class=''>Акция</span> — скидка на первый сеанс 25%`,
-          starPlacement: 2 // 2 - first price, 3 - second price, 4 - duration
+          text: `<span class=''>Акция</span> — скидка на январь и февраль 30%`,
+          starPlacement: 3 // 2 - first price, 3 - second price, 4 - duration
         },
         shortDescription: 'Рекомендован при выраженном целлюлите. Процедура включает лимфодренаж и обёртывание'
       },
@@ -54,7 +54,7 @@
         name: 'Общий массаж тела',
         fullName: 'Общий массаж тела',
         url: 'fullbody-massage.html',
-        menuType: 'body',
+        type: 'body',
         price: {
           first: 1900,
           standard: 2400
@@ -67,7 +67,7 @@
         name: 'Спортивный',
         fullName: 'Спортивный массаж',
         url: 'sports-massage.html',
-        menuType: 'body',
+        type: 'body',
         price: {
           first: 1900,
           standard: 2400
@@ -80,7 +80,7 @@
         name: 'Антицеллюлитный',
         fullName: 'Антицеллюлитный массаж',
         url: 'anti-cellulite-massage.html',
-        menuType: 'body',
+        type: 'figure',
         price: {
           first: 1900,
           standard: 2400
@@ -93,7 +93,7 @@
         name: 'Шейно-воротниковой зоны',
         fullName: 'Массаж шейно-воротниковой зоны',
         url: 'neck-massage.html',
-        menuType: 'body',
+        type: 'body',
         price: {
           first: 800,
           standard: 800
@@ -106,7 +106,7 @@
         name: 'Скульптурно-буккальный',
         fullName: 'Скульптурно-буккальный массаж лица',
         url: 'sculptural-buccal-massage.html',
-        menuType: 'face',
+        type: 'face',
         tag: {
           text: 'Хит',
           color: 'alt'
@@ -117,7 +117,7 @@
         },
         duration: 50,
         promo: {
-          text: `<span class=''>Акция</span> — скидка на июль и август 25%`,
+          text: `<span class=''>Акция</span> — скидка на январь и февраль 30%`,
           starPlacement: 3 // 1 - massage name, 2 - first price, 3 - second price, 4 - duration
         },
         shortDescription: 'Самый эффективный массаж лица. Полноценная альтернатива пластике, омоложение и улучшение черт лица'
@@ -127,7 +127,7 @@
         name: 'Лимфодренажный',
         fullName: 'Лимфодренажный массаж лица',
         url: 'facial-lymphatic-drainage.html',
-        menuType: 'face',
+        type: 'face',
         price: {
           first: 1900,
           standard: 2400
@@ -140,7 +140,7 @@
         name: 'Классический',
         fullName: 'Классический массаж лица',
         url: 'classic-facial-massage.html',
-        menuType: 'face',
+        type: 'face',
         price: {
           first: 1800,
           standard: 2300
@@ -153,7 +153,7 @@
         name: 'Хиромассаж',
         fullName: 'Хиромассаж лица',
         url: 'chiromassage.html',
-        menuType: 'face',
+        type: 'face',
         price: {
           first: 1900,
           standard: 2400
@@ -166,7 +166,7 @@
         name: 'Японский массаж Асахи',
         fullName: 'Массаж лица Асахи-Зоган',
         url: 'japanese-asahi-massage.html',
-        menuType: 'face',
+        type: 'face',
         price: {
           first: 2100,
           standard: 2800
@@ -364,6 +364,29 @@
   }
 -
   locals.data.globalData.company.businessDuration = locals.data.globalData.currentYear - locals.data.globalData.company.foundationYear
+  locals.data.globalData.company.features = [
+    {
+      bigText: `${locals.data.globalData.company.businessDuration} лет`,
+      smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
+    },
+    {
+      bigText: '10 лет',
+      smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
+    },
+    {
+      bigText: '800',
+      smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
+        ${locals.data.globalData.company.foundationYear} по ${locals.data.globalData.currentYear}
+        <span class='main-screen__feature-rating'>
+          <span>Рейтинг</span>
+          <img class='rating-block__yandex-logo' src='assets/img/reviews-block/yandex-logo.svg' alt='Яндекс' width='40' height='15'>
+          <b class='rating-block__number' aria-hidden='true'>5</b>
+          <svg class='rating-block__star-icon' width='25' height='25' aria-label='5 звёзд'>
+            <use xlink:href='#star-icon'></use>
+          </svg>
+        </span>`
+    }
+  ]
   locals.data.globalData.priceList = {
     sections: {
       body: {

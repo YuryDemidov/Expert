@@ -247,12 +247,22 @@
       }
     }
 
+    .massage-results {
+      &__simple-slide {
+        &_4 {
+          img {
+            @include box(auto, 40rem);
+          }
+        }
+      }
+    }
+
     &__slide:not(.face-results__slide_main) {
       padding-top: 0;
 
       .massage-results {
         &__single-image {
-          margin-right: 31%;
+          margin-right: 33%;
           margin-left: auto;
         }
 
@@ -289,10 +299,33 @@
       padding-top: 3rem;
     }
 
+    .massage-results {
+      &__simple-slide {
+        padding-top: 4.5rem;
+        padding-bottom: 7rem;
+
+        &_4 + .massage-results__link,
+        &_5 + .massage-results__link {
+          top: 5rem;
+        }
+
+        &_4 {
+          img {
+            @include box(auto, 44rem);
+          }
+        }
+      }
+
+      &__single-image {
+        max-width: 70rem;
+      }
+    }
+
     &__slide:not(.face-results__slide_main) {
       .massage-results {
         &__single-image {
-          margin-left: 12%;
+          margin-right: 31%;
+          margin-left: 9%;
         }
 
         &__slide-title {
@@ -304,13 +337,6 @@
           top: 7rem;
           right: 9rem;
         }
-      }
-    }
-
-    .massage-results__simple-slide {
-      &_4 + .massage-results__link,
-      &_5 + .massage-results__link {
-        top: 5rem;
       }
     }
 

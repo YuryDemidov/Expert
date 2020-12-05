@@ -15,21 +15,7 @@ block variables
       massage: globalData.massages['facial-lymphatic-drainage'],
       mainScreenHeading: 'Лимфодренажный массаж лица',
       mainScreenSubheading: `Убирает отёки и&nbsp;мешки под&nbsp;глазами, улучшает цвет лица`,
-      mainScreenFeatures: [
-        {
-          bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
-        },
-        {
-          bigText: '10 лет',
-          smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
-        },
-        {
-          bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
-            ${globalData.company.foundationYear} по ${globalData.currentYear}`
-        }
-      ],
+      mainScreenFeatures: globalData.company.features,
       aboutMassage: [
         {
           title: 'Что это за процедура?',

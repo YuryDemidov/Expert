@@ -16,21 +16,7 @@ block variables
       mainScreenHeading: 'Хиромассаж лица',
       mainScreenSubheading: `Омолаживает и&nbsp;подтягивает кожу, улучшает эмоциональное состояние, гармонизирует
         и&nbsp;расслабляет`,
-      mainScreenFeatures: [
-        {
-          bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
-        },
-        {
-          bigText: '10 лет',
-          smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
-        },
-        {
-          bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
-            ${globalData.company.foundationYear} по ${globalData.currentYear}`
-        }
-      ],
+      mainScreenFeatures: globalData.company.features,
       aboutMassage: [
         {
           title: 'Что это за процедура?',
