@@ -1,5 +1,75 @@
 @use '../../tools' as *;
 
 .article-navigation {
-  position: relative;
+  &__list {
+    @include reset-list();
+
+    max-width: 28rem;
+    margin-bottom: 5rem;
+  }
+
+  ul.article-navigation__list {
+    padding-left: 0;
+  }
+
+  &__list-item {
+    position: relative;
+
+    padding: 0.9rem 0.2rem;
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+
+    a {
+      &,
+      &:hover {
+        color: $default-color;
+      }
+    }
+
+    &::before,
+    &::after {
+      @include box(100%);
+
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      opacity: 0;
+
+      transition: opacity 0.4s;
+    }
+
+    &::before {
+      background-color: map-deep-get($themes, 'main', 'background-dark');
+    }
+
+    &::after {
+      background-color: map-deep-get($themes, 'main', 'primary-transparent');
+    }
+
+    &:hover,
+    &[data-state=active] {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:focus {
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  li.article-navigation__list-item {
+    margin-bottom: 0;
+  }
 }

@@ -9,4 +9,5 @@ link(rel='manifest' href='site.webmanifest')
 include favicons
 if locals.data.pageData.canonical
   link(rel='canonical' href=locals.data.pageData.canonical)
-script(src="https://api-maps.yandex.ru/2.1/?apikey=b176543a-340b-4de9-9ded-9037e167250b&lang=ru_RU")
+if locals.data.pageData.hasMap
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=b176543a-340b-4de9-9ded-9037e167250b&lang=ru_RU")
