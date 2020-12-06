@@ -16,21 +16,7 @@ block variables
       mainScreenHeading: 'EXPERT&nbsp;— первая клиника профессионального массажа',
       mainScreenSubheading: `Мы избавляем от&nbsp;болей в&nbsp;спине, целлюлита и&nbsp;отёков, подтягиваем лицо без
         операций и&nbsp;лечим массажем`,
-      mainScreenFeatures: [
-        {
-          bigText: `${globalData.company.businessDuration} лет`,
-          smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='about.html'>О нас</a>`
-        },
-        {
-          bigText: '10 лет',
-          smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
-        },
-        {
-          bigText: '800',
-          smallText: `честных <a class='link link_primary underline' href='reviews.html'>отзывов</a><br>с
-            ${globalData.company.foundationYear} по ${globalData.currentYear}`
-        }
-      ],
+      mainScreenFeatures: globalData.company.features,
       featuresBlock: {
         heading: 'Почему нам доверяют',
         link: {
@@ -63,7 +49,7 @@ block variables
           slidesOrder: [1, 2, 3, 4, 5, 6, 7, 8]
         },
         figure: {
-          slidesOrder: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          slidesOrder: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         }
       },
       reviewsBlock: {

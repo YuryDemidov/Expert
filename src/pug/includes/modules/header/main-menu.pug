@@ -44,6 +44,14 @@
     }
   }
 
+mixin submenu-list(type, i)
+  ul.submenu__list
+    li.submenu__list-item
+      h3.submenu__list-heading= type
+    each massage in globalData.massages
+      if ((i === 0) && (massage.type === 'body') || (i === 1) && (massage.type === 'figure') || (i === 2) && (massage.type === 'face'))
+        +submenu-item(massage)
+
 mixin submenu-item(massage)
   li.submenu__list-item
     a.submenu__link.link(href=massage.url)= massage.name
@@ -59,13 +67,14 @@ nav.page-header__menu.main-menu
       span.main-menu__section.dropdown__trigger Виды массажа
       .main-menu__submenu.dropdown__body
         .submenu
-          each type, i in ['Массаж тела', 'Массаж лица']
-            ul.submenu__list
-              li.submenu__list-item
-                h3.submenu__list-heading= type
-              each massage in globalData.massages
-                if ((i === 0) && (massage.menuType === 'body') || (i === 1) && (massage.menuType === 'face'))
-                  +submenu-item(massage)
+          - var massageTypes = ['Для здоровья тела', 'Для стройной фигуры', 'Для красоты лица']
+          each type, i in massageTypes
+            if i === 0
+              .submenu__list-group
+                +submenu-list(type, i)
+                +submenu-list(massageTypes[1], 1)
+            if i === 2
+              +submenu-list(type, i)
           a.submenu__promo-link(href='prices.html')
             +picture-tag(menuData.promo.image, menuData.promo.image.mobile.png['3x'], menuData.promo.name, 230, 210).submenu__promo-image
     each link, i in menuData.list
