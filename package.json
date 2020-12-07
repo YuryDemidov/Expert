@@ -66,7 +66,7 @@
     "pug-lint": "^2.6.0",
     "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.0.0",
-    "resolve-url-loader": "^3.1.1",
+    "resolve-url-loader": "^3.1.2",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "sinon": "^9.1.0",
@@ -87,6 +87,7 @@
   "dependencies": {
     "core-js-bundle": "^3.6.5",
     "imask": "^6.0.5",
+    "masonry-layout": "^4.2.2",
     "regenerator-runtime": "^0.13.7",
     "tiny-slider": "^2.9.3"
   }

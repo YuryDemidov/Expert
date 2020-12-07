@@ -3,6 +3,10 @@
 .reviews {
   position: relative;
 
+  &__wrap {
+    @include centered-block(40rem);
+  }
+
   .review-card {
     margin-bottom: 3.2rem;
 
@@ -10,6 +14,33 @@
 
     &__info {
       text-align: center;
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .reviews {
+    &__wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: initial;
+    }
+
+    .review-card {
+      max-width: 40rem;
+      width: 45%;
+      margin-bottom: 4.5rem;
+      padding: 3rem 2.5rem;
+      padding-bottom: 4rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .reviews {
+    .review-card {
+      width: 30%;
     }
   }
 }

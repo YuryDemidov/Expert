@@ -62,7 +62,7 @@ mixin accordion(triggerText, triggerId, bodyId, isExpanded)
 
 mixin text-input(placeholder, hasMessage, wrapClass)
   .text-input(class=wrapClass)
-    input.text-input__input(value=(attributes.value || ''))&attributes(attributes)
+    input.text-input__input(type=(attributes.type || 'text') value=(attributes.value || ''))&attributes(attributes)
     if placeholder
       label.text-input__placeholder(for=attributes.id)!= placeholder
     block

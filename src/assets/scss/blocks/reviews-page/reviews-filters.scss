@@ -36,8 +36,15 @@
   }
 }
 
-@media (min-width: $tablet-min-width) {
+@media (min-width: $phone-landscape-min-width) {
   .reviews-filters {
     text-align: center;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .reviews-filters {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
   }
 }

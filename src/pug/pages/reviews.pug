@@ -109,7 +109,7 @@ block head
 
 block content
   .service-page__wrap.reviews-page__wrap
-    .container
+    .reviews-page__content.container
       h1.reviews-page__title.heading Отзывы
       +rating-block().reviews-page__rating
       p.reviews-page__text Спасибо всем, кто уже поделился своими отзывами о нашей работе. Мы рады получить положительные отзывы и с благодарностью отнесёмся к критике — нам важно совершенствоваться и помогать людям.
@@ -118,10 +118,9 @@ block content
         h2.reviews-page__subtitle Оставьте отзыв
         form.review-form__form(action='#' method='post')
           +text-input('Ваше имя*', true, 'review-form__input text-input_fill')#reviewerName
-          +text-input('Email', true, 'review-form__input text-input_fill')#reviewerEmail
+          +text-input('Email', true, 'review-form__input text-input_fill')#reviewerEmail(type='email')
           .review-form__textarea
-            textarea.review-form__review#reviewText
-            label(for='reviewText') Текст отзыва
+            textarea.review-form__review#reviewText(placeholder='Текст отзыва')
           button.button_primary.review-form__submit(type='button') Отправить
       section.reviews-page__reviews.reviews
         h2.reviews-page__subtitle Отзывы наших клиентов
@@ -144,7 +143,7 @@ block content
           button.button_primary.pagination__show-more(type='button') Показать ещё
           ul.pagination__pages
             li.pagination__page
-              a.pagination__page-link(href='#') 1
+              a.pagination__page-link(data-active href='#') 1
             li.pagination__page
               a.pagination__page-link(href='#') 2
             li.pagination__page.pagination__page_ellipsis
