@@ -186,7 +186,10 @@ const injectChunks = page => {
     case `reviews.pug`:
       chunksArray.push(`pages/reviews`);
       break;
-    default: // All massages (alternatively in conditional form - if (~MASSAGE_PAGE_TEMPLATES.indexOf(page))
+    case `12-steps.pug`:
+      chunksArray.push(`pages/articles/12-steps`);
+      break;
+    default:
       if (~MASSAGE_PAGE_TEMPLATES.indexOf(page)) {
         chunksArray.push(`pages/massages`);
       }
@@ -297,7 +300,8 @@ module.exports = {
     'pages/about': `${PATHS.src}/js/pages/service/about/index.js`,
     'pages/contacts': `${PATHS.src}/js/pages/service/contacts/index.js`,
     'pages/prices': `${PATHS.src}/js/pages/service/prices/index.js`,
-    'pages/reviews': `${PATHS.src}/js/pages/service/reviews/index.js`
+    'pages/reviews': `${PATHS.src}/js/pages/service/reviews/index.js`,
+    'pages/articles/12-steps': `${PATHS.src}/js/pages/articles/12-steps/index.js`
   },
   output: {
     filename: filename('js'),
