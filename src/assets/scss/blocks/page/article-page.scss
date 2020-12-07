@@ -1,0 +1,263 @@
+@use '../../tools' as *;
+
+.article-page {
+  .page-header {
+    padding-bottom: 5.5rem;
+
+    background: none;
+    background-color: $alt-default-color;
+
+    &::before {
+      content: none;
+    }
+
+    &__logo-link {
+      display: none;
+    }
+  }
+
+  &__wrap {
+    padding: 5rem 2.75rem;
+    padding-bottom: 0;
+    margin-bottom: 5rem;
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    h2,
+    h3 {
+      font-family: $title-font-family;
+    }
+
+    h2 {
+      margin-top: 8rem;
+      margin-bottom: 4rem;
+
+      font-size: 2.4rem;
+    }
+
+    h3 {
+      margin-top: 6rem;
+      margin-bottom: 3rem;
+
+      font-size: 2.2rem;
+    }
+
+    h4 {
+      margin-top: 4rem;
+
+      font-size: 1.6rem;
+    }
+
+    ul,
+    ol {
+      margin-top: 2rem;
+      margin-bottom: 3.5rem;
+      padding-left: 2rem;
+
+      li {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  &__tags {
+    @include horizontal-list();
+  }
+
+  ul.article-page__tags {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__tag {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.8rem;
+
+    font-size: 1.4rem;
+
+    background-color: map-deep-get($themes, 'main', 'background-dark');
+    border-radius: 0.3rem;
+  }
+
+  &__article-title {
+    margin-bottom: 3rem;
+
+    text-align: left;
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+
+  &__image {
+    margin: 4rem 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__highlight {
+    margin: 4rem 0;
+    padding: 3rem 2rem;
+
+    background-color: map-deep-get($themes, 'main', 'background-dark');
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 2rem;
+
+      font-family: $main-font-family;
+      font-size: 2.2rem;
+      color: map-deep-get($themes, 'main', 'primary-dark');
+    }
+
+    h4 {
+      margin-top: 0;
+    }
+
+    b {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__video-block {
+    margin-top: 5rem;
+    margin-bottom: 9rem;
+
+    text-align: center;
+  }
+
+  &__video {
+    position: relative;
+
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+
+    + .article-page__video {
+      margin-top: 2.5rem;
+    }
+
+    iframe {
+      @include absolute-centered();
+      @include box(100%);
+    }
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .article-page {
+    &__wrap {
+      @include centered-block(49rem);
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .article-page {
+    &__article-title {
+      font-size: 4rem;
+    }
+
+    &__wrap {
+      max-width: 70rem;
+      margin-bottom: 7rem;
+      padding-right: 4rem;
+      padding-left: 4rem;
+
+      h2 {
+        font-size: 3rem;
+      }
+    }
+
+    &__abstract {
+      font-size: 2.2rem;
+    }
+
+    &__image {
+      &_right,
+      &_left {
+        width: 50%;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      &_right {
+        float: right;
+        margin-left: 2.5rem;
+      }
+
+      &_left {
+        float: left;
+        margin-right: 2.5rem;
+      }
+
+      &_small {
+        width: 30%;
+      }
+    }
+
+    &__highlight {
+      padding: 3rem 4.5rem;
+
+      b {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__video {
+      + .article-page__video {
+        margin-top: 4rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .article-page {
+    .page__header {
+      position: fixed;
+    }
+
+    .page__content {
+      @include centered-block(105rem);
+
+      padding-top: 7rem;
+    }
+
+    .page-header {
+      padding-bottom: 0;
+
+      box-shadow: 0 0.4rem 2rem $x-light-dim-color;
+
+      &__wrap {
+        padding-top: 1.6rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      &__logo-link {
+        display: block;
+      }
+    }
+
+    &__wrap {
+      position: relative;
+
+      margin-right: 0;
+      margin-bottom: 10rem;
+      margin-left: 32rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .article-page {
+    &__wrap {
+      margin-left: 35rem;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

@@ -1,6 +1,5 @@
 'use strict';
 
-import '../../../modules/popups/popupAppointment';
 import { DROPDOWN_STATES } from '../../../utils/constants/enums/dropdownStates';
 
 document.querySelectorAll(`.dropdown[data-on=click]`).forEach(dropdown => {

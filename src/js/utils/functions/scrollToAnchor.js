@@ -16,7 +16,7 @@ export default function scrollToAnchor({
   scrollEndCallbackLauncher();
   function scrollEndCallbackLauncher() {
     if (Math.ceil(node.getBoundingClientRect().top) >= Math.floor(gap)) {
-      callback();
+      callback && callback();
       clearTimeout(isScrolling);
     } else {
       isScrolling = setTimeout(scrollEndCallbackLauncher, 66);

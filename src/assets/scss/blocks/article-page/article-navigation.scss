@@ -1,0 +1,100 @@
+@use '../../tools' as *;
+
+.article-navigation {
+  &__list {
+    @include reset-list();
+
+    max-width: 28rem;
+    margin-bottom: 5rem;
+
+    font-size: 1.4rem;
+  }
+
+  ul.article-navigation__list {
+    padding-left: 0;
+  }
+
+  &__link {
+    position: relative;
+
+    display: inline-block;
+    width: 100%;
+    padding: 0.9rem 0.2rem;
+
+    vertical-align: middle;
+
+    &,
+    &:hover {
+      color: $default-color;
+    }
+
+    &::before {
+      @include box(100%);
+
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      background-color: map-deep-get($themes, 'main', 'background-dark');
+      opacity: 0;
+
+      transition: opacity 0.4s;
+    }
+
+    &:hover,
+    &[data-active] {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  li.article-navigation__list-item {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .article-navigation {
+    &__list {
+      max-width: 32rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .article-navigation {
+    position: fixed;
+    top: 10rem;
+    bottom: 0;
+    left: calc(50vw - 48rem);
+
+    min-width: 28rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    ul {
+      margin-bottom: 0;
+    }
+
+    &[data-state=absolute] {
+      position: absolute;
+      top: auto;
+      right: calc(100% + 1rem);
+      bottom: 0;
+      left: auto;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .article-navigation {
+    left: calc(50vw - 52rem);
+
+    &[data-state=absolute] {
+      right: calc(100% + 6rem);
+    }
+  }
+}
