@@ -1,7 +1,7 @@
 - var count = count || 0
 - count++
 
-form.application-form__form(action='#' method='post')
+form.application-form__form(action='/' method='post')
   .application-form__inputs
     input(type='hidden' name='specialist-id')
     input(type='hidden' name='need-certificate')
@@ -14,5 +14,5 @@ form.application-form__form(action='#' method='post')
   +custom-checkbox().application-form__personal-data(id=`applicationFormPersonalData${count}` name='personal-data-agreement' checked required)
     | Даю согласие на обработку
     |
-    a.link.underline(class=`link_${colorModifier}` href='/personal-data-agreement.pdf') персональных данных
+    a.link.underline(class=`link_${colorModifier}` href='personal-data-agreement.pdf') персональных данных
   p.application-form__message.message.hidden

@@ -2,7 +2,7 @@
 
 header.page-header(data-state='static')
   .page-header__wrap
-    a.page-header__logo-link(href=(locals.data.pageData.url === '/' ? false : 'index.html'))
+    a.page-header__logo-link(href=(locals.data.pageData.url === 'index.html' ? false : 'index.html'))
       +picture-tag(globalData.company.logoImages, globalData.company.logoImages.desktop.png['2x'], 'Клиника профессионального массажа Expert').page-header__logo-image
     .page-header__panel
       include main-menu

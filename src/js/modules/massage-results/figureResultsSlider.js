@@ -20,15 +20,14 @@ function initSlider() {
     nextButton: nextButton,
     mouseDrag: true,
     autoHeight: true,
+    nav: true,
     responsive: {
       0: {
         speed: 500,
-        nav: true,
         navPosition: `bottom`
       },
       1024: {
-        speed: 1000,
-        nav: false
+        speed: 1000
       }
     }
   });

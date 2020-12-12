@@ -9,6 +9,8 @@
   &_error {
     color: $error-color;
 
+    animation: bounce-in 0.4s;
+
     .link {
       border-color: $transparent-error-color;
     }

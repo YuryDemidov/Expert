@@ -259,6 +259,10 @@
     }
 
     .slider {
+      .tns-nav {
+        bottom: -1rem;
+      }
+
       &__button {
         top: 50%;
       }
@@ -316,6 +320,24 @@
 @media (min-width: $desktop-min-width) {
   .massage-results {
     overflow: hidden;
+
+    .slider {
+      .tns-nav {
+        bottom: 0;
+
+        padding: 1rem 0;
+
+        &::before {
+          @include horizontally-centered();
+          @include box(100vw, 100%);
+
+          content: '';
+          top: 0;
+
+          background-color: $alt-default-color;
+        }
+      }
+    }
 
     &__before,
     &__after {

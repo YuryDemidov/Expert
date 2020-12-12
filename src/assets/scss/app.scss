@@ -19,6 +19,7 @@
 @use 'blocks/reusable/custom-checkbox';
 @use 'blocks/reusable/custom-radio';
 @use 'blocks/reusable/dropdown';
+@use 'blocks/reusable/fixed-button';
 @use 'blocks/reusable/heading';
 @use 'blocks/reusable/inline-icon';
 @use 'blocks/reusable/input-with-button';
@@ -45,6 +46,7 @@
 @use 'blocks/popups/popup';
 @use 'blocks/popups/popup-massage-test';
 @use 'blocks/popups/popup-appointment';
+@use 'blocks/popups/popup-callback-form';
 
 // Content blocks
 @use 'blocks/header/page-header';
@@ -52,6 +54,10 @@
 
 @use 'blocks/menu/main-menu';
 @use 'blocks/menu/submenu';
+
+@use 'blocks/communication-methods/communication-methods';
+@use 'blocks/communication-methods/callback-form';
+@use 'blocks/communication-methods/online-chat';
 
 @use 'blocks/scroll-top-button/scroll-top-button';
 

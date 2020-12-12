@@ -49,6 +49,9 @@ export default class Popup {
       document.body.dataset.state = BODY_STATES.popup;
       animateCss(`[data-close-popup='all']`, `fade-in`);
     }
+    if (!this.isOverlay && !this.isBodyFixed) {
+      document.body.dataset.state = BODY_STATES.notOverlayPopup
+    }
 
     if (this.onOpen) {
       this.onOpen(evt);
@@ -59,9 +62,7 @@ export default class Popup {
         this._configureButtonListeners(this.closeButtons, this.close);
       });
     } else {
-      setTimeout(() => {
-        this._configureButtonListeners(this.closeButtons, this.close);
-      });
+      setTimeout(() => this._configureButtonListeners(this.closeButtons, this.close));
     }
 
     if (this.isOverlay) {

@@ -67,9 +67,11 @@
 
   &__feature-title {
     margin-bottom: 1rem;
+  }
 
-    font-family: $title-font-family;
-    font-size: 1.7rem;
+  // TODO Show bolder text for customer. Remove after test
+  &__feature-description {
+    font-weight: 500;
   }
 
   &__link {

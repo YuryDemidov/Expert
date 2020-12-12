@@ -47,13 +47,13 @@
 
     @for $theme-i from 1 through 12 {
       @for $image-i from 1 through 3 {
-        @if $theme-i != 10 and $theme-i != 8 {
+        @if $theme-i != 8 and $theme-i != 9 and $theme-i != 10 {
           .theme-#{$theme-i} &_#{$image-i} {
             background-image: url('../../../img/massage-description/#{$theme-i}-massage-description-#{$image-i}.jpg');
           }
         }
 
-        @if $theme-i == 8 and $image-i != 3 {
+        @if ($theme-i == 8 or $theme-i == 9) and $image-i != 3 {
           .theme-#{$theme-i} &_#{$image-i} {
             background-image: url('../../../img/massage-description/#{$theme-i}-massage-description-#{$image-i}.jpg');
           }

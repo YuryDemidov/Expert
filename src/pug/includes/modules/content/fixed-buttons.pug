@@ -1,0 +1,11 @@
+.scroll-top-button.hidden_mobile(data-state='hidden')
+  a.fixed-button.scroll-top-button__button(href='#' aria-label='Наверх страницы')
+.communication-methods(data-state='static')
+  section.communication-methods__method(data-open-popup='callback-form')
+    h2.communication-methods__title.visually-hidden Заказ обратного звонка
+    button.fixed-button.communication-methods__trigger.popup-callback-form__trigger(type='button' aria-label='Заказать обратный звонок')
+      +svg-icon('#phone-icon').callback-form__trigger-icon(width='23' height='25')
+  section.communication-methods__method.online-chat(data-open-popup='online-chat')
+    h2.communication-methods__title.hidden_mobile-tablet Бесплатная консультация
+    button.fixed-button.communication-methods__trigger.online-chat__trigger(type='button' aria-label='Открыть онлайн-чат с консультантом')
+      +svg-icon('#baloon-icon').online-chat__trigger-icon(width='23' height='28')

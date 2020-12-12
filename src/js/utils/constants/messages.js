@@ -29,6 +29,7 @@ export const MESSAGES = {
     WAIT: `Подождите...`
   },
   SUCCESS: {
+    CALLBACK_REQUEST_RECEIVED: `Мы скоро вам перезвоним`,
     COPIED: `Скопировано`,
     SAVED: `Сохранено`
   }

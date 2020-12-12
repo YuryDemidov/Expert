@@ -6,5 +6,6 @@
 export const BODY_STATES = {
   initial: `initial`,
   noscroll: `noscroll`,
-  popup: `show-popup`
+  popup: `show-popup`,
+  notOverlayPopup: `not-overlay-popup`
 }

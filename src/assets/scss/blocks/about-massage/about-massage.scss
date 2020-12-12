@@ -213,6 +213,15 @@
       }
     }
 
+    .theme-1 & {
+      &__card {
+        &_3 {
+          padding-right: 2.5rem;
+          padding-left: 2.5rem;
+        }
+      }
+    }
+
     .theme-2 & {
       &__card {
         &_2 {

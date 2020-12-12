@@ -55,7 +55,13 @@ mixin face-slide(number)
               }
             }
           }
-        h3.massage-results__slide-title 10 процедур скульпутрно-буккального массажа
+        h3.massage-results__slide-title
+          | Курс
+          |
+          if locals.data.pageData.theme === '1'
+            span скульптурно-буккального массажа
+          else
+            a.link.massage-results__massage-link(href='sculptural-buccal-massage.html') скульптурно-буккального массажа
         .massage-results__photos
           .massage-results__before
             h4.massage-results__label.hidden_desktop До
@@ -76,7 +82,10 @@ mixin face-slide(number)
           .face-results__description.face-results__description_five.hidden_mobile-tablet
             | Часть физиологических особенностей не убрать массажем, но они и не портят внешность
         .massage-results__link
-          a(href='sculptural-buccal-massage.html').button.button_primary Читать о процедуре
+          if locals.data.pageData.theme === '1'
+            button.button.button_primary(type='button' data-open-popup='appointment') Записаться
+          else
+            a(href='sculptural-buccal-massage.html').button.button_primary Читать о процедуре
       default
         -
           var photoFaceResult = {
@@ -131,7 +140,7 @@ mixin face-slide(number)
         .massage-results__simple-slide(class=slideClass)
           +picture-tag(photoFaceResult, photoFaceResult.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
-          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+          button.button.button_primary(type='button' data-open-popup='appointment') Записаться
 
 if faceResults
   section#faceResults.massage-results__section.face-results
