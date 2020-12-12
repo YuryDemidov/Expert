@@ -31,6 +31,16 @@
   }
 }
 
+.page[data-state='not-overlay-popup'] {
+  .popups-wrap {
+    display: flex;
+
+    &__bg-close {
+      background-color: $transparent-color;
+    }
+  }
+}
+
 .page[data-state='show-popup'] {
   overflow: hidden;
 

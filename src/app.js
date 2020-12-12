@@ -1,4 +1,5 @@
 // JS
+import './js/polyfills/polyfillLoader'
 import './js/main.js'
 
 // SCSS

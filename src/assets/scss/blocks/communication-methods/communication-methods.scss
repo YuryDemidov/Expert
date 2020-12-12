@@ -1,0 +1,59 @@
+@use '../../tools' as *;
+
+.communication-methods {
+  position: fixed;
+  bottom: 4rem;
+  right: 2rem;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  transition: opacity 0.4s;
+
+  &[data-hidden] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__method {
+    position: relative;
+  }
+
+  &__trigger {
+    @include box(5.5rem, 4rem);
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .communication-methods {
+    right: auto;
+    left: 4vw;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .communication-methods {
+    flex-direction: row-reverse;
+
+    &__trigger {
+      height: 5.5rem;
+    }
+
+    &[data-state=fixed] {
+      flex-direction: column;
+
+      .communication-methods {
+        &__method {
+          margin-top: 2rem;
+          padding: 0;
+        }
+
+        &__title {
+          display: none;
+        }
+      }
+    }
+  }
+}

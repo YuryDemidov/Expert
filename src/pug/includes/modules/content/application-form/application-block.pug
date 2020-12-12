@@ -1,10 +1,13 @@
-- var formHeading = 'Оставьте заявку и получите скидку 20% на первый сеанс'
+- var formHeading = 'Оставьте заявку и получите скидку 20% на первый сеанс*'
 - var formText = 'Вы увидите, как работает специалист, получи&shy;те профессиональную консультацию и&nbsp;сможе&shy;те определиться с&nbsp;планом процедур. Если вам не&nbsp;понравится, мы вернём деньги за&nbsp;сеанс'
 if locals.data.pageData.theme === '1'
   - formHeading = 'Акция на январь и февраль. Любое количество сеансов скульптурно-буккального массажа со скидкой 30%'
   - formText = 'Мы хотим подарить большему количеству клиентов возможность стать прекраснее и запускаем акцию на самый популярный массаж лица в нашей клинике. Не откладывайте преображение — если первый сеанс вам не понравится, мы вернём деньги'
 if locals.data.pageData.theme === '7'
-  - formHeading = 'Оставьте заявку и получите скидку на 30% на сеанс массажа'
+  - formHeading = 'Акция на январь и февраль. Любое количество сеансов ручного моделирования со скидкой 30%'
+  - formText = 'Мы хотим подарить большему количеству клиентов возможность стать прекраснее и запускаем акцию на самый популярный массаж для коррекции фигуры в нашей клинике. Не откладывайте преображение — если первый сеанс вам не понравится, мы вернём деньги'
+if locals.data.pageData.theme === '10'
+  - formHeading = 'Оставьте заявку для записи на сеанс массажа'
 
 mixin sticker(mainText, secondaryText, preTitle)
   article.application-form__sticker.sticker
@@ -16,7 +19,7 @@ mixin sticker(mainText, secondaryText, preTitle)
 section.application-form
   case locals.data.pageData.theme
     when '1'
-      +sticker('1 год', 'держится результат одного курса, а при поддержке остаётся навсегда')
+      +sticker('До года', 'держится результат одного курса, а при поддержке остаётся навсегда')
     when '7'
       +sticker('3 в 1', 'за стоимость одной процедуры')
     when '9'
@@ -26,7 +29,11 @@ section.application-form
   .container.application-form__background
     .application-form__content
       h2.application-form__title.heading.heading_secondary!= formHeading
-      p.application-form__text!= formText
+      p.application-form__text
+        != formText
+        if (locals.data.pageData.theme !== '1') && (locals.data.pageData.theme !== '7') && (locals.data.pageData.theme !== '10')
+          br
+          span.application-form__notification *Скидка не действует на массаж шейно-воротниковой зоны
       include application-form
       .application-form__success-message.hidden
         p.application-form__success-text

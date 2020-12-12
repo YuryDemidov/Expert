@@ -2,8 +2,8 @@
 
 .scroll-top-button {
   position: fixed;
-  right: 2.5rem;
-  bottom: 3rem;
+  right: 4vw;
+  bottom: 4rem;
   z-index: 10;
 
   transition-property: opacity, transform;
@@ -25,26 +25,11 @@
     box-shadow: 0 0.4rem 2rem $light-dim-color;
     border-radius: 50%;
 
-    &::before,
-    &::after {
-      content: '';
-    }
-
     &::before {
+      content: '';
+
       transition-property: border-color;
       transition-duration: 0.4s;
-    }
-
-    &::after {
-      @include box(100%);
-
-      position: absolute;
-
-      box-shadow: 0 0 3rem $light-dim-color;
-      border-radius: 50%;
-      opacity: 0;
-
-      transition: opacity 0.3s;
     }
 
     @include themify() {
@@ -58,10 +43,6 @@
       @include in-focus() {
         &::before {
           border-color: $color-secondary;
-        }
-
-        &::after {
-          opacity: 1;
         }
       }
     }

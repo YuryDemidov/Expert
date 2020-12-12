@@ -4,17 +4,20 @@
       id: 1,
       tag: 'Авторская статья клиники',
       title: '12 шагов к здоровью',
-      description: 'Как хорошо себя чувствовать, почти не&nbsp;болеть и&nbsp;быть счастливым, грамотно подойдя к&nbsp;своему&nbsp;здоровью'
+      description: 'Как хорошо себя чувствовать, почти не&nbsp;болеть и&nbsp;быть счастливым, грамотно подойдя к&nbsp;своему&nbsp;здоровью',
+      url: '12-steps.html'
     },
     {
       id: 2,
       title: 'Показания к массажу',
-      description: 'Расскажем о&nbsp;первых признаках, при&nbsp;ко&shy;торых стоит обратиться к&nbsp;массажисту, чтобы избавиться от&nbsp;проблемы проще и&nbsp;быстрее'
+      description: 'Расскажем о&nbsp;первых признаках, при&nbsp;ко&shy;торых стоит обратиться к&nbsp;массажисту, чтобы избавиться от&nbsp;проблемы проще и&nbsp;быстрее',
+      url: '#'
     },
     {
       id: 3,
       title: 'Омоложение массажем',
-      description: 'Почему это работает? Когда массаж может заменить операции и&nbsp;уколы красоты? (Подсказка&nbsp;— почти всегда)'
+      description: 'Почему это работает? Когда массаж может заменить операции и&nbsp;уколы красоты? (Подсказка&nbsp;— почти всегда)',
+      url: '#'
     }
   ]
 
@@ -30,5 +33,5 @@ section.articles
                 span.article-card__tag= article.tag
             h3.article-card__title= article.title
             p.article-card__description!= article.description
-            a.article-card__link.link.link_secondary.link_arrow(href=`articles/${article.id}`) Читать
+            a.article-card__link.link.link_secondary.link_arrow(href=article.url) Читать
     a.articles__common-link.link.link_secondary.link_arrow.underline(href='articles.html') Все наши статьи

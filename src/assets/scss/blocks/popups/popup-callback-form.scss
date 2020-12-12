@@ -1,0 +1,37 @@
+@use '../../tools' as *;
+
+.popup-callback-form {
+  position: fixed;
+  bottom: 4rem;
+  left: 50%;
+
+  min-width: 30rem;
+  max-width: 36rem;
+  padding: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 4.5rem;
+
+  text-align: center;
+
+  background-color: $alt-default-color;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 2rem $light-dim-color;
+
+  transform: translateX(-50%);
+
+  &__trigger {
+    @include in-focus() {
+      .callback-form__trigger-icon {
+        fill: $color-primary;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .popup-callback-form {
+    left: 4vw;
+
+    transform: none;
+  }
+}

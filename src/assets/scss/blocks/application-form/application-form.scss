@@ -29,13 +29,24 @@
   }
 
   &__text {
-    margin-bottom: 3rem;
+    margin-bottom: 0;
 
     font-size: 1.4rem;
   }
 
+  &__notification {
+    display: inline-block;
+    margin-top: 0.6rem;
+
+    vertical-align: baseline;
+    font-size: 1.4rem;
+    color: $dark-dim-color;
+  }
+
   &__form {
     @include centered-block(40rem);
+
+    margin-top: 3rem;
 
     &_hidden {
       visibility: hidden;
@@ -214,6 +225,10 @@
         fill: #ffe9e9;
       }
 
+      &__main-text {
+        font-size: 4rem;
+      }
+
       &__secondary-text {
         font-size: 1.4rem;
       }
@@ -338,12 +353,9 @@
       margin-bottom: 0.8rem;
     }
 
-    &__text {
-      margin-bottom: 2.5rem;
-    }
-
     &__form {
       max-width: initial;
+      margin-top: 2.5rem;
     }
 
     &__inputs {

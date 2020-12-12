@@ -12,6 +12,10 @@
   }
 
   .application-form {
+    &__form {
+      margin-top: 0;
+    }
+
     &__inputs {
       padding: 0 2rem;
     }

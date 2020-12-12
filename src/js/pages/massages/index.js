@@ -1,7 +1,7 @@
 'use strict';
 
 import '../../modules/applicationForm';
-import '../../modules/massageResults/sliders';
+import '../../modules/massage-results/sliders';
 import '../../modules/reviewsBlock';
 import '../../modules/video/massageVideo';
 import '../../modules/faqBlock';
