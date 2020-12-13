@@ -138,6 +138,10 @@
             top: 12rem;
             right: 0;
 
+            &::before {
+              width: 34rem;
+            }
+
             img {
               width: 32rem;
             }

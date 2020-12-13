@@ -12,4 +12,3 @@ import '../../modules/popups/popupAppointment';
 import '../../modules/specialistsSlider';
 import '../../modules/certificateBlock';
 import '../../modules/map/map';
-import '../../modules/onPageScroll';

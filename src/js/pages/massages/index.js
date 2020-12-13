@@ -9,4 +9,3 @@ import '../../modules/priceListForm';
 import '../../modules/popups/popupAppointment';
 import '../../modules/moreMassagesBlock';
 import '../../modules/map/map';
-import '../../modules/onPageScroll';

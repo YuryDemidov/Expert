@@ -197,14 +197,6 @@ import './logo/desktop-logo_12@2x.png'
 import './logo/desktop-logo_12@1x.webp'
 import './logo/desktop-logo_12@2x.webp'
 
-// Banners
-import './banners/menu/menu-promo@1x.jpg'
-import './banners/menu/menu-promo@2x.jpg'
-import './banners/menu/menu-promo@3x.jpg'
-import './banners/menu/menu-promo@1x.webp'
-import './banners/menu/menu-promo@2x.webp'
-import './banners/menu/menu-promo@3x.webp'
-
 // Back massage indications
 import './indications/12-indications_mobile@1x.jpg'
 import './indications/12-indications_mobile@2x.jpg'

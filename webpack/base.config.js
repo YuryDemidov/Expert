@@ -200,6 +200,7 @@ const injectChunks = page => {
 
 const optimization = () => {
   const config = {
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         vendor: {

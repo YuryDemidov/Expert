@@ -1,6 +1,6 @@
 section.reviews-block
   if locals.data.pageData.reviewsBlock.showSticker
-    article.reviews-block__sticker.reviews-sticker.sticker
+    article.reviews-block__sticker.reviews-sticker.sticker(data-aos='fade-in' data-aos-duration='100' data-aos-offset='350')
       +svg-icon('#polystar').sticker__image
       b.reviews-sticker__pre-number.sticker__secondary-text более
       b.reviews-sticker__number.sticker__main-text!= `10&thinsp;000`

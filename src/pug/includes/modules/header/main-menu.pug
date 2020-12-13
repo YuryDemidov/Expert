@@ -22,26 +22,7 @@
         text: 'Интересное',
         url: 'articles.html'
       }
-    ],
-    promo: {
-      name: 'Пробный сеанс минус 20%',
-      image: {
-        desktop: false,
-        tablet: false,
-        mobile: {
-          webp: {
-            '1x': 'assets/img/banners/menu/menu-promo@1x.webp',
-            '2x': 'assets/img/banners/menu/menu-promo@2x.webp',
-            '3x': 'assets/img/banners/menu/menu-promo@3x.webp'
-          },
-          png: {
-            '1x': 'assets/img/banners/menu/menu-promo@1x.png',
-            '2x': 'assets/img/banners/menu/menu-promo@2x.png',
-            '3x': 'assets/img/banners/menu/menu-promo@3x.png'
-          }
-        }
-      }
-    }
+    ]
   }
 
 mixin submenu-list(type, i)
@@ -49,7 +30,7 @@ mixin submenu-list(type, i)
     li.submenu__list-item
       h3.submenu__list-heading= type
     each massage in globalData.massages
-      if ((i === 0) && (massage.type === 'body') || (i === 1) && (massage.type === 'figure') || (i === 2) && (massage.type === 'face'))
+      if ((i === 0) && (massage.type === 'body') || (i === 1) && (massage.type === 'face') || (i === 2) && (massage.type === 'figure'))
         +submenu-item(massage)
 
 mixin submenu-item(massage)
@@ -67,16 +48,15 @@ nav.page-header__menu.main-menu
       span.main-menu__section.dropdown__trigger Виды массажа
       .main-menu__submenu.dropdown__body
         .submenu
-          - var massageTypes = ['Для здоровья тела', 'Для стройной фигуры', 'Для красоты лица']
-          each type, i in massageTypes
-            if i === 0
-              .submenu__list-group
-                +submenu-list(type, i)
-                +submenu-list(massageTypes[1], 1)
-            if i === 2
+          .submenu__lists
+            - var massageTypes = ['Для здоровья тела', 'Для красоты лица', 'Для стройной фигуры']
+            each type, i in massageTypes
               +submenu-list(type, i)
-          a.submenu__promo-link(href='prices.html')
-            +picture-tag(menuData.promo.image, menuData.promo.image.mobile.png['3x'], menuData.promo.name, 230, 210).submenu__promo-image
+          article.submenu__promo.submenu-promo
+            a.submenu-promo__wrap(href='prices.html')
+              h2.submenu-promo__caption
+                b.submenu-promo__tag Акция
+                span.submenu-promo__caption-text Первый сеанс массажа минус 20&thinsp;%
     each link, i in menuData.list
       li.main-menu__list-item(class={'main-menu__list-item_hidden': i >= 3})
         a.main-menu__link.link(href=link.url)= link.text

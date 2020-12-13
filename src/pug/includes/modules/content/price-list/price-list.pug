@@ -11,7 +11,7 @@ section.price-list
           locals.data.globalData.mainPromo.subtitle,
           locals.data.globalData.mainPromo.text,
           locals.data.globalData.mainPromo.buttonText
-        ).price-list__promotion
+        ).price-list__promotion(data-aos='zoom-in' data-aos-duration='600' data-aos-offset='50' data-aos-anchor-placement='center-bottom')
       .price-list__prices
         each section in priceList.sections
           - var promoText = ''

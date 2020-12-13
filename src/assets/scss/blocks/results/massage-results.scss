@@ -100,10 +100,19 @@
   &__simple-slide {
     @each $i in (1, 4, 5, 7, 9) {
       &_#{$i} + .massage-results__link .button {
-        background-color: map-deep-get($themes, '#{$i}', 'primary');
+        @if ($i != 4) and ($i != 5) {
+          background-color: map-deep-get($themes, '#{$i}', 'primary');
 
-        @include in-focus() {
-          background-color: map-deep-get($themes, '#{$i}', 'primary-light');
+          @include in-focus() {
+            background-color: map-deep-get($themes, '#{$i}', 'primary-light');
+          }
+        }
+        @else {
+          background-color: map-deep-get($themes, '#{$i}', 'secondary');
+
+          @include in-focus() {
+            background-color: map-deep-get($themes, '#{$i}', 'secondary-light');
+          }
         }
       }
     }
@@ -112,12 +121,23 @@
   @each $i in (1, 4, 5) {
     &__massage-link {
       &_#{$i} {
-        color: map-deep-get($themes, '#{$i}', 'primary');
-
-        @include in-focus() {
+        @if ($i != 4) {
           color: map-deep-get($themes, '#{$i}', 'primary');
+        }
+        @else {
+          color: map-deep-get($themes, '#{$i}', 'secondary');
+        }
+        @include in-focus() {
+          @if ($i != 4) {
+            color: map-deep-get($themes, '#{$i}', 'primary');
 
-          border-bottom-color: map-deep-get($themes, '#{$i}', 'primary-transparent');
+            border-bottom-color: map-deep-get($themes, '#{$i}', 'primary-transparent');
+          }
+          @else {
+            color: map-deep-get($themes, '#{$i}', 'secondary');
+
+            border-bottom-color: map-deep-get($themes, '#{$i}', 'secondary-transparent');
+          }
         }
       }
     }

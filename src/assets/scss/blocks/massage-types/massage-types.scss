@@ -295,7 +295,9 @@
 
       font-size: 1.5rem;
 
-      transform: rotate(8deg);
+      .sticker__secondary-text {
+        transform: rotate(8deg);
+      }
     }
 
     .sticker:not(.massage-types__sticker_first) {

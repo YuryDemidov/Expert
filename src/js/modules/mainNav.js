@@ -1,16 +1,15 @@
+import { BODY_STATES } from '../utils/constants/enums/bodyStates';
+import { DROPDOWN_STATES } from '../utils/constants/enums/dropdownStates';
 import { GLOBAL_VARS } from '../utils/constants/globalVars';
 import { HEADER_STATES } from '../utils/constants/enums/headerStates';
 import { pageHeader } from './pageHeader';
 import animateCss from '../utils/functions/animateCss';
-import { BODY_STATES } from '../utils/constants/enums/bodyStates';
-import { DROPDOWN_STATES } from '../utils/constants/enums/dropdownStates';
 
 const mainNavTrigger = pageHeader.node.querySelector(`.page-header__menu-trigger`);
 const mainNav = pageHeader.node.querySelector(`.main-menu`);
-const mainNavList = mainNav.querySelector(`.main-menu__list`);
 const submenu = mainNav.querySelector(`.submenu`);
 const submenuTrigger = mainNav.querySelector(`.main-menu__submenu-trigger`);
-const promoBanner = mainNav.querySelector(`.submenu__promo-link`);
+const promoBanner = mainNav.querySelector(`.submenu-promo`);
 
 mainNavTrigger.addEventListener(`click`, evt => toggleMobileMenu(evt));
 
@@ -29,20 +28,16 @@ function dropdownToggleHandler(evt) {
 function movePromoBannerToSubmenu() {
   const promoBannerNode = promoBanner.parentNode.removeChild(promoBanner);
   submenu.appendChild(promoBannerNode);
-  mainNavList.removeChild(mainNavList.querySelector(`.main-menu__list-item:last-of-type`));
 }
 
 function movePromoBannerToMenu() {
   const promoBannerNode = promoBanner.parentNode.removeChild(promoBanner);
-  const newMenuItem = document.createElement(`li`);
-  newMenuItem.classList.add(`main-menu__list-item`);
-  newMenuItem.appendChild(promoBannerNode);
-  mainNavList.appendChild(newMenuItem);
+  mainNav.appendChild(promoBannerNode);
 }
 
 function toggleMenuContent() {
   if (globalThis.innerWidth < GLOBAL_VARS.breakpoints.tabletMinWidth) {
-    if (!promoBanner.parentNode.classList.contains(`main-menu__list-item`)) {
+    if (promoBanner.parentNode !== mainNav) {
       movePromoBannerToMenu();
     }
     if (submenuTrigger.dataset.on !== `click`) {
@@ -50,7 +45,7 @@ function toggleMenuContent() {
       submenuTrigger.addEventListener(`click`, dropdownToggleHandler)
     }
   } else {
-    if (!promoBanner.parentNode.classList.contains(`submenu`)) {
+    if (promoBanner.parentNode !== submenu) {
       movePromoBannerToSubmenu();
     }
     if (submenuTrigger.dataset.on !== `hover`) {

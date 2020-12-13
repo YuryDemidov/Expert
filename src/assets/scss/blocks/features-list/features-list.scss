@@ -17,6 +17,8 @@
   &__list {
     @include reset-list();
 
+    overflow: hidden;
+
     text-align: left;
   }
 
@@ -67,11 +69,6 @@
 
   &__feature-title {
     margin-bottom: 1rem;
-  }
-
-  // TODO Show bolder text for customer. Remove after test
-  &__feature-description {
-    font-weight: 500;
   }
 
   &__link {

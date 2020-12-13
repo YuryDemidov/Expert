@@ -14,7 +14,7 @@ const reviewsSliderWrap = document.querySelector(`.reviews-block__slider`);
 const reviewsSliderNode = reviewsSliderWrap.querySelector(`.reviews-block__reviews-list`);
 const reviewsSliderButtonPrevious = reviewsSliderWrap.querySelector(`.slider__button_prev`);
 const reviewsSliderButtonNext = reviewsSliderWrap.querySelector(`.slider__button_next`);
-let initialWindowWidth = globalThis.innerWidth;
+let initialWindowWidth;
 
 const reviewsSliderOptions = {
   container: reviewsSliderNode,
@@ -24,7 +24,7 @@ const reviewsSliderOptions = {
   navPosition: `bottom`,
   loop: true,
   mouseDrag: true,
-  speed: 400,
+  speed: 600,
   preventScrollOnTouch: `auto`,
   responsive: {
     0: calcSliderResponsiveParams(1),
@@ -45,12 +45,13 @@ const reviewsSliderOptions = {
 let reviewsSlider = tns(reviewsSliderOptions);
 
 const debouncedSliderResizeHandler = debounce(sliderResizeHandler, SLIDER_RESIZE_DEBOUNCE_TIME);
-reviewsSliderNode.addEventListener(`click`, expandingButtonClickHandler);
+reviewsSliderWrap.addEventListener(`click`, expandingButtonClickHandler);
 reviewsSlider.events.on(`indexChanged`, collapseReviews);
 globalThis.addEventListener(`resize`, debouncedSliderResizeHandler);
-globalThis.addEventListener(`click`, toggleSliderAutoplay);
 
-cutReviewsText();
+document.addEventListener(`DOMContentLoaded`, () => {
+  sliderResizeHandler();
+});
 
 function calcSliderResponsiveParams(items) {
   const params = {
@@ -65,7 +66,12 @@ function calcSliderResponsiveParams(items) {
 }
 
 function sliderResizeHandler() {
-  if (globalThis.innerWidth === initialWindowWidth || !checkDeviceWidth().isMobile) {
+  if (!checkDeviceWidth().isMobile) {
+    cutReviewsText();
+    return;
+  }
+
+  if (globalThis.innerWidth === initialWindowWidth) {
     return;
   }
   initialWindowWidth = globalThis.innerWidth;
@@ -74,12 +80,6 @@ function sliderResizeHandler() {
   reviewsSlider.destroy();
   reviewsSlider = reviewsSlider.rebuild();
   cutReviewsText();
-}
-
-function toggleSliderAutoplay(evt) {
-  if (evt.target.closest(`.reviews-block__slider`)) {
-    reviewsSlider.pause();
-  }
 }
 
 function cutReviewsText() {
@@ -156,3 +156,5 @@ function collapseReviews() {
     review.dataset.cutted = ``;
   });
 }
+
+export { reviewsSlider };
