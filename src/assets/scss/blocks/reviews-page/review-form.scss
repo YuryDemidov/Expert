@@ -2,13 +2,38 @@
 
 .review-form {
   max-width: 35rem;
-  margin: 6rem auto;
+  margin: 7rem auto;
 
   &__input {
     margin-bottom: 1rem;
   }
 
   &__textarea {
+    position: relative;
+
     margin: 2.5rem 0;
+  }
+
+  &__review {
+    @include box(100%, 17rem);
+
+    resize: none;
+    padding: 1.4rem;
+
+    background-color: $lightgray-color;
+    border: none;
+    border-radius: 0.5rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .review-form {
+    margin-bottom: 9rem;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .review-form {
+    margin-bottom: 11rem;
   }
 }

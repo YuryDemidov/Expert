@@ -2,6 +2,8 @@
 
 .reviews-page {
   &__wrap {
+    margin-bottom: 8rem;
+
     .button_primary {
       @include reset-button();
       @include centered-block(35rem);
@@ -22,6 +24,10 @@
     }
   }
 
+  &__content {
+    position: relative;
+  }
+
   &__subtitle {
     margin-bottom: 2.5rem;
 
@@ -37,11 +43,39 @@
   }
 
   &__text {
+    @include centered-block(65rem);
+
     margin-bottom: 2rem;
     padding: 0 2.5rem;
 
     &:last-of-type {
       margin-bottom: 0;
+    }
+  }
+
+  &__pagination {
+    margin-top: 5rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .reviews-page {
+    &__wrap {
+      margin-bottom: 10rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .reviews-page {
+    &__wrap {
+      margin-bottom: 14rem;
+    }
+
+    &__rating {
+      position: absolute;
+      top: 0;
+      right: 3rem;
     }
   }
 }
