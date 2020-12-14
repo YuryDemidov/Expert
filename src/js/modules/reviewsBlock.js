@@ -1,9 +1,10 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
-import debounce from '../utils/decorators/debounce';
+import { AutoSwitchSlider } from '../classes/AutoSwitchSlider';
 import checkDeviceWidth from '../utils/functions/checkDeviceWidth';
-import isTextOverflows from '../utils/functions/isTextOverflows';
 import cutLastWord from '../utils/functions/cutLastWord';
+import debounce from '../utils/decorators/debounce';
 import expandBlock from '../utils/functions/expandBlock';
+import isTextOverflows from '../utils/functions/isTextOverflows';
 
 const MOBILE_SLIDER_CARD_RATIO = 0.74;
 const MOBILE_SLIDER_PADDING_RATIO = 0.065;
@@ -42,7 +43,8 @@ const reviewsSliderOptions = {
     }
   }
 };
-let reviewsSlider = tns(reviewsSliderOptions);
+const reviewsSlider = tns(reviewsSliderOptions);
+const reviewsAutoplaySlider = new AutoSwitchSlider(reviewsSlider, globalThis.innerHeight / 4);
 
 const debouncedSliderResizeHandler = debounce(sliderResizeHandler, SLIDER_RESIZE_DEBOUNCE_TIME);
 reviewsSliderWrap.addEventListener(`click`, expandingButtonClickHandler);
@@ -77,8 +79,7 @@ function sliderResizeHandler() {
   initialWindowWidth = globalThis.innerWidth;
 
   reviewsSliderOptions.responsive[`0`] = calcSliderResponsiveParams(1);
-  reviewsSlider.destroy();
-  reviewsSlider = reviewsSlider.rebuild();
+  reviewsSlider.refresh();
   cutReviewsText();
 }
 
@@ -145,6 +146,7 @@ function expandingButtonClickHandler(evt) {
   evt.target.classList.add(`hidden`);
   hiddenText.classList.remove(`hidden`);
   expandBlock(review, true);
+  reviewsAutoplaySlider.disableAutoSwitching();
   delete review.dataset.cutted;
 }
 
@@ -157,4 +159,4 @@ function collapseReviews() {
   });
 }
 
-export { reviewsSlider };
+export { reviewsAutoplaySlider };

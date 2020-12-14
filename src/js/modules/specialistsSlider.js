@@ -1,7 +1,8 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
-import isTextOverflows from '../utils/functions/isTextOverflows';
-import expandBlock from '../utils/functions/expandBlock';
 import { appointmentPopup } from './popups/popupAppointment';
+import expandBlock from '../utils/functions/expandBlock';
+import isTextOverflows from '../utils/functions/isTextOverflows';
+import { AutoSwitchSlider } from '../classes/AutoSwitchSlider';
 
 const specialistsSliderWrap = document.querySelector(`.specialists .slider`);
 const specialistsSliderNode = specialistsSliderWrap.querySelector(`.specialists__list`);
@@ -23,6 +24,9 @@ const specialistsSlider = tns({
   gutter: 40,
   preventScrollOnTouch: `auto`
 });
+const specialistAutoplaySlider = new AutoSwitchSlider(specialistsSlider, globalThis.innerHeight / 3);
+specialistsSlider.events.on(`dragMove`, () => specialistAutoplaySlider.disableAutoSwitching());
+specialistsSliderWrap.addEventListener(`click`, () => specialistAutoplaySlider.disableAutoSwitching());
 
 specialistsSliderNode.querySelectorAll(`.specialist-card`).forEach(card => {
   const descriptionNode = card.querySelector(`.specialist-card__description`);
@@ -79,3 +83,5 @@ function clearSpecialistId() {
   appointmentPopup.node.querySelector(`[name=specialist-id]`).value = ``;
   appointmentPopup.onClose = null;
 }
+
+export { specialistAutoplaySlider };

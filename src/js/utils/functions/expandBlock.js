@@ -4,8 +4,9 @@
  *
  * @param {HTMLElement} node - Node which should expand it's vertical size
  * @param {Boolean} [clearStyles] - if true, clears max-height and style attribute (if empty) after transition ends
+ * @param {Function} [onTransitionEnd] - callback function which will be fired after transition ends
  */
-export default function expandBlock(node, clearStyles) {
+export default function expandBlock(node, clearStyles, onTransitionEnd) {
   if (node.scrollHeight === node.clientHeight) {
     return;
   }
@@ -21,6 +22,11 @@ export default function expandBlock(node, clearStyles) {
     if (node.getAttribute(`style`) === ``) {
       node.removeAttribute(`style`);
     }
+
+    if (typeof onTransitionEnd === `function`) {
+      onTransitionEnd();
+    }
+
     node.removeEventListener(`transitionend`, nodeTransitionHandler);
   }
 }

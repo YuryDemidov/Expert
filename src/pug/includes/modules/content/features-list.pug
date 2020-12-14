@@ -10,6 +10,7 @@ section.features-list(class=(locals.data.pageData.featuresBlock.blockNumber ? `f
             class=(i === 0 ? `${itemClass}_one` : i === 1 ? `${itemClass}_two` : `${itemClass}_three`)
             data-aos='fade-left'
             data-aos-delay=aosDelay
+            data-aos-offset='200'
           )
             .features-list__image
             h3.features-list__feature-title!= feature.title
