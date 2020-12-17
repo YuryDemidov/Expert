@@ -11,7 +11,7 @@ import checkDeviceWidth from '../utils/functions/checkDeviceWidth';
 import isPartiallyInViewport from '../utils/functions/isPartiallyInViewport';
 import throttle from '../utils/decorators/throttle';
 
-const SCROLL_THROTTLE_TIME = 100; // ms
+const SCROLL_THROTTLE_TIME = 80; // ms
 const isHeaderStatic = !!document.querySelector(`.service-page, .article-page`);
 const communicationMethods = document.querySelector(`.communication-methods`);
 const featuresListItems = document.querySelectorAll(`.features-list__item`);
@@ -28,8 +28,8 @@ globalThis.addEventListener(`scroll`, throttledScrollHandler);
 
 function pageScrollHandler() {
   toggleCommonBlocksState();
-  reviewsAutoplaySlider.switchSlidesOnScroll();
-  specialistAutoplaySlider.switchSlidesOnScroll();
+  reviewsAutoplaySlider && reviewsAutoplaySlider.switchSlidesOnScroll();
+  specialistAutoplaySlider && specialistAutoplaySlider.switchSlidesOnScroll();
 }
 
 function toggleCommonBlocksState() {

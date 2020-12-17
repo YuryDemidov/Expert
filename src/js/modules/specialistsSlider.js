@@ -5,43 +5,47 @@ import isTextOverflows from '../utils/functions/isTextOverflows';
 import { AutoSwitchSlider } from '../classes/AutoSwitchSlider';
 
 const specialistsSliderWrap = document.querySelector(`.specialists .slider`);
-const specialistsSliderNode = specialistsSliderWrap.querySelector(`.specialists__list`);
-const specialistsSliderPrevious = specialistsSliderWrap.querySelector(`.slider__button_prev`);
-const specialistsSliderNext = specialistsSliderWrap.querySelector(`.slider__button_next`);
+let specialistAutoplaySlider;
 
-const specialistsSlider = tns({
-  container: specialistsSliderNode,
-  prevButton: specialistsSliderPrevious,
-  nextButton: specialistsSliderNext,
-  nav: true,
-  navPosition: `bottom`,
-  items: 1,
-  loop: true,
-  mouseDrag: true,
-  autoplay: false,
-  speed: 800,
-  edgePadding: 10,
-  gutter: 40,
-  preventScrollOnTouch: `auto`
-});
-const specialistAutoplaySlider = new AutoSwitchSlider(specialistsSlider, globalThis.innerHeight / 3);
-specialistsSlider.events.on(`dragMove`, () => specialistAutoplaySlider.disableAutoSwitching());
-specialistsSliderWrap.addEventListener(`click`, () => specialistAutoplaySlider.disableAutoSwitching());
+if (specialistsSliderWrap) {
+  const specialistsSliderNode = specialistsSliderWrap.querySelector(`.specialists__list`);
+  const specialistsSliderPrevious = specialistsSliderWrap.querySelector(`.slider__button_prev`);
+  const specialistsSliderNext = specialistsSliderWrap.querySelector(`.slider__button_next`);
 
-specialistsSliderNode.querySelectorAll(`.specialist-card`).forEach(card => {
-  const descriptionNode = card.querySelector(`.specialist-card__description`);
-  const appointmentButton = card.querySelector(`.specialist-card__appointment .button`);
-  if (isTextOverflows(descriptionNode)) {
-    appendExpandButton(descriptionNode);
-  }
+  const specialistsSlider = tns({
+    container: specialistsSliderNode,
+    prevButton: specialistsSliderPrevious,
+    nextButton: specialistsSliderNext,
+    nav: true,
+    navPosition: `bottom`,
+    items: 1,
+    loop: true,
+    mouseDrag: true,
+    autoplay: false,
+    speed: 1000,
+    edgePadding: 10,
+    gutter: 40,
+    preventScrollOnTouch: `auto`
+  });
+  specialistAutoplaySlider = new AutoSwitchSlider(specialistsSlider, globalThis.innerHeight / 3);
+  specialistsSlider.events.on(`dragMove`, () => specialistAutoplaySlider.disableAutoSwitching());
+  specialistsSliderWrap.addEventListener(`click`, () => specialistAutoplaySlider.disableAutoSwitching());
 
-  appointmentButton.addEventListener(`click`, () => addSpecialistId(appointmentButton.dataset.specialistId));
-});
+  specialistsSliderNode.querySelectorAll(`.specialist-card`).forEach(card => {
+    const descriptionNode = card.querySelector(`.specialist-card__description`);
+    const appointmentButton = card.querySelector(`.specialist-card__appointment .button`);
+    if (isTextOverflows(descriptionNode)) {
+      appendExpandButton(descriptionNode);
+    }
 
-specialistsSlider.events.on(`indexChanged`, () => {
-  const sliderInfo = specialistsSlider.getInfo();
-  collapseDescription(sliderInfo.slideItems[sliderInfo.indexCached]);
-});
+    appointmentButton.addEventListener(`click`, () => addSpecialistId(appointmentButton.dataset.specialistId));
+  });
+
+  specialistsSlider.events.on(`indexChanged`, () => {
+    const sliderInfo = specialistsSlider.getInfo();
+    collapseDescription(sliderInfo.slideItems[sliderInfo.indexCached]);
+  });
+}
 
 function appendExpandButton(place) {
   const expandButtonWrap = document.createElement(`div`);

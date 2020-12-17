@@ -2,8 +2,8 @@
 
 .communication-methods {
   position: fixed;
-  bottom: 4rem;
-  right: 2rem;
+  bottom: 1.6rem;
+  right: 0.8rem;
   z-index: 10;
 
   display: flex;
@@ -29,6 +29,7 @@
 @media (min-width: $tablet-min-width) {
   .communication-methods {
     right: auto;
+    bottom: 4rem;
     left: 4vw;
   }
 }

@@ -2,6 +2,14 @@
   animation-duration: 0.5s;
 }
 
+.move {
+  animation-name: move;
+}
+
+.rotate {
+  animation-name: rotate;
+}
+
 .zoom-in {
   animation-name: zoom-in;
 }

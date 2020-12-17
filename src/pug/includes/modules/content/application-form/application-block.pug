@@ -10,13 +10,13 @@ if locals.data.pageData.theme === '10'
   - formHeading = 'Оставьте заявку для записи на сеанс массажа'
 
 mixin sticker(mainText, secondaryText, preTitle)
-  article.application-form__sticker.sticker(data-aos='fade' data-aos-delay='500' data-aos-duration='300' data-aos-anchor='.application-form')
+  article.application-form__sticker.sticker(data-aos='fade' data-aos-delay='600' data-aos-duration='300' data-aos-anchor='.application-form')
     +svg-icon('#polystar').sticker__image
     b.sticker__secondary-text= preTitle
     b.sticker__main-text= mainText
     span.sticker__secondary-text= secondaryText
 
-section.application-form(data-aos='zoom-in' data-aos-duration='500' data-aos-offset='200')
+section.application-form(data-aos='zoom-in' data-aos-duration='500' data-aos-offset='140')
   case locals.data.pageData.theme
     when '1'
       +sticker('До года', 'держится результат одного курса, а при поддержке остаётся навсегда')
