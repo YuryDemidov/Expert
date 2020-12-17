@@ -12,48 +12,55 @@ const SLIDER_RESIZE_DEBOUNCE_TIME = 400; // ms
 const EXPANDING_BUTTON_CLASS = `review-card__expand-button`;
 const EXPANDING_BUTTON_TEXT = `Читать полностью`;
 const reviewsSliderWrap = document.querySelector(`.reviews-block__slider`);
-const reviewsSliderNode = reviewsSliderWrap.querySelector(`.reviews-block__reviews-list`);
-const reviewsSliderButtonPrevious = reviewsSliderWrap.querySelector(`.slider__button_prev`);
-const reviewsSliderButtonNext = reviewsSliderWrap.querySelector(`.slider__button_next`);
+let reviewsSliderNode;
+let reviewsSliderOptions;
+let reviewsSlider;
+let reviewsAutoplaySlider;
 let initialWindowWidth;
 
-const reviewsSliderOptions = {
-  container: reviewsSliderNode,
-  prevButton: reviewsSliderButtonPrevious,
-  nextButton: reviewsSliderButtonNext,
-  nav: true,
-  navPosition: `bottom`,
-  loop: true,
-  mouseDrag: true,
-  speed: 600,
-  preventScrollOnTouch: `auto`,
-  responsive: {
-    0: calcSliderResponsiveParams(1),
-    768: {
-      items: 2,
-      fixedWidth: false,
-      edgePadding: 12,
-      gutter: 35
-    },
-    1024: {
-      items: 3
-    },
-    1200: {
-      gutter: 50
+if (reviewsSliderWrap) {
+  reviewsSliderNode = reviewsSliderWrap.querySelector(`.reviews-block__reviews-list`);
+  const reviewsSliderButtonPrevious = reviewsSliderWrap.querySelector(`.slider__button_prev`);
+  const reviewsSliderButtonNext = reviewsSliderWrap.querySelector(`.slider__button_next`);
+
+  reviewsSliderOptions = {
+    container: reviewsSliderNode,
+    prevButton: reviewsSliderButtonPrevious,
+    nextButton: reviewsSliderButtonNext,
+    nav: true,
+    navPosition: `bottom`,
+    loop: true,
+    mouseDrag: true,
+    speed: 800,
+    preventScrollOnTouch: `auto`,
+    responsive: {
+      0: calcSliderResponsiveParams(1),
+      768: {
+        items: 2,
+        fixedWidth: false,
+        edgePadding: 12,
+        gutter: 35
+      },
+      1024: {
+        items: 3
+      },
+      1200: {
+        gutter: 50
+      }
     }
-  }
-};
-const reviewsSlider = tns(reviewsSliderOptions);
-const reviewsAutoplaySlider = new AutoSwitchSlider(reviewsSlider, globalThis.innerHeight / 4);
+  };
+  reviewsSlider = tns(reviewsSliderOptions);
+  reviewsAutoplaySlider = new AutoSwitchSlider(reviewsSlider, globalThis.innerHeight / 4);
 
-const debouncedSliderResizeHandler = debounce(sliderResizeHandler, SLIDER_RESIZE_DEBOUNCE_TIME);
-reviewsSliderWrap.addEventListener(`click`, expandingButtonClickHandler);
-reviewsSlider.events.on(`indexChanged`, collapseReviews);
-globalThis.addEventListener(`resize`, debouncedSliderResizeHandler);
+  const debouncedSliderResizeHandler = debounce(sliderResizeHandler, SLIDER_RESIZE_DEBOUNCE_TIME);
+  reviewsSliderWrap.addEventListener(`click`, expandingButtonClickHandler);
+  reviewsSlider.events.on(`indexChanged`, collapseReviews);
+  globalThis.addEventListener(`resize`, debouncedSliderResizeHandler);
 
-document.addEventListener(`DOMContentLoaded`, () => {
-  sliderResizeHandler();
-});
+  document.addEventListener(`DOMContentLoaded`, () => {
+    sliderResizeHandler();
+  });
+}
 
 function calcSliderResponsiveParams(items) {
   const params = {
