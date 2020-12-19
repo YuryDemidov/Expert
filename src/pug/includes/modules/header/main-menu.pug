@@ -32,6 +32,8 @@ mixin submenu-list(type, i)
     each massage in globalData.massages
       if ((i === 0) && (massage.type === 'body') || (i === 1) && (massage.type === 'face') || (i === 2) && (massage.type === 'figure'))
         +submenu-item(massage)
+      if (massage.id === 8) && (i === 2)
+        +submenu-item(massage)
 
 mixin submenu-item(massage)
   li.submenu__list-item

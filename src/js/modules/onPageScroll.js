@@ -62,7 +62,7 @@ function addAosAnimations() {
   });
 
   if (checkDeviceWidth().isMobile) {
-    delete massageChoosingTestContent.dataset.aos;
-    delete massageChoosingTestImage.dataset.aos;
+    massageChoosingTestContent && delete massageChoosingTestContent.dataset.aos;
+    massageChoosingTestImage && delete massageChoosingTestImage.dataset.aos;
   }
 }
