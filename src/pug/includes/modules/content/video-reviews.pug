@@ -56,8 +56,8 @@
     }
   ]
 
-section.video-reviews(data-aos='fade-up' data-aos-offset='50' data-aos-duration='800' data-aos-anchor-placement='top-bottom')
-  .video-reviews__content.container
+section.video-reviews
+  .video-reviews__content.container(data-aos='fade-up' data-aos-offset='50' data-aos-duration='800' data-aos-anchor-placement='top-bottom')
     h2.video-reviews__title.heading Видеоотзывы наших клиентов
     each video, i in videoReviews
       - var videoClass = 'video-reviews__video'

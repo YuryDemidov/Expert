@@ -13,20 +13,8 @@ block variables
       theme: 'main',
       promotions: {
         1: globalData.mainPromo,
-        2: {
-          title: '30% скидка на скульптурно-буккальный массаж!',
-          text: 'Любое количество сеансов. Только на январь и февраль',
-          buttonText: 'Записаться',
-          buttonColor: '#06319f',
-          image: 'assets/img/prices-page/promo-bg-1@2x.jpg'
-        },
-        3: {
-          title: '30% скидка на ручное модели&shy;рование фигуры',
-          text: 'На январь и февраль',
-          buttonText: 'Записаться',
-          buttonColor: '#fe2c78',
-          image: 'assets/img/prices-page/promo-bg-2@2x.jpg'
-        }
+        2: globalData.massages['sculptural-buccal-massage'].promo,
+        3: globalData.massages['figure-modeling'].promo,
       }
     }
 
@@ -45,7 +33,7 @@ block content
           +promo-card(
             promo.title,
             promo.subtitle,
-            promo.text,
+            promo.cardText || promo.text,
             promo.buttonText,
             promo.buttonColor,
             promo.image

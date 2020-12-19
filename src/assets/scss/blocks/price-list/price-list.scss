@@ -17,11 +17,44 @@
     margin-bottom: 7rem;
   }
 
+  .theme-1 &__promotion_photo,
+  .theme-7 &__promotion_photo {
+    padding-right: 13.5rem;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  .theme-1 &__promotion_photo {
+    padding-right: 4rem;
+
+    .promotion-card__text, {
+      padding-right: 7rem;
+
+      font-size: 1.6rem;
+    }
+
+    .promotion-card__button {
+      align-self: flex-start;
+    }
+  }
+
   &__type-caption,
   &__first-price {
     @include themify() {
       color: $color-primary;
     }
+  }
+
+  &__old-price {
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    color: $xx-dark-dim-color;
   }
 
   &__section {
@@ -44,7 +77,7 @@
 
   &__massage-name {
     position: absolute;
-    top: 1rem;
+    top: 1.2rem;
     left: 2rem;
 
     white-space: nowrap;
@@ -86,54 +119,9 @@
   }
 
   .table {
-    &__row {
-      &:nth-child(even) {
-        background-color: #f4f7f9;
-      }
-
-      &_highlight {
-        @include themify() {
-          background-color: $color-background;
-        }
-      }
-
-      &_promo {
-        .table__cell::after {
-          content: '*';
-
-          font-weight: 700;
-          font-size: 1.8rem;
-          line-height: 1;
-          @include themify() {
-            color: $color-primary;
-          }
-        }
-      }
-
-      &_promo ~ .table__row_promo {
-        .table__cell::after {
-          content: '**';
-        }
-      }
-
-      &_promo ~ .table__row_promo ~ .table__row_promo {
-        .table__cell::after {
-          content: '***';
-        }
-      }
-
-      @for $i from 1 to 4 {
-        &_promo-#{$i} {
-          .table__cell:not(:nth-child(#{$i}))::after {
-            content: none;
-          }
-        }
-      }
-    }
-
     &__cell {
       padding: 1rem 2rem;
-      padding-top: 3.5rem;
+      padding-top: 4rem;
 
       &:first-of-type {
         position: relative;
@@ -157,6 +145,68 @@
 
         &:first-of-type {
           position: static;
+        }
+      }
+    }
+
+    &__row {
+      &:nth-child(even) {
+        background-color: #f4f7f9;
+      }
+
+      &_highlight {
+        @include themify() {
+          background-color: $color-background;
+        }
+      }
+
+      &_promo {
+        .price-list__standard-price {
+          position: relative;
+
+          &::after {
+            content: '*';
+            position: absolute;
+
+            margin-left: 0.1rem;
+
+            font-weight: 700;
+            font-size: 1.8rem;
+            line-height: 1;
+            @include themify() {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+
+      &_promo.table__row_highlight {
+        .table__cell {
+          vertical-align: bottom;
+        }
+      }
+
+      &_promo ~ .table__row_promo {
+        .price-list__standard-price::after {
+          content: '**';
+        }
+      }
+
+      &_promo ~ .table__row_promo ~ .table__row_promo {
+        .price-list__standard-price::after {
+          content: '***';
+        }
+      }
+
+      @for $i from 1 to 4 {
+        &_promo-#{$i} {
+          .table__cell:not(:nth-child(#{$i})) {
+            .price-list__standard-price {
+              &::after {
+                content: none;
+              }
+            }
+          }
         }
       }
     }
@@ -284,6 +334,13 @@
       order: 3;
     }
 
+    .theme-1 &__promotion_photo,
+    .theme-7 &__promotion_photo {
+      .promotion-card__button {
+        align-self: flex-start;
+      }
+    }
+
     &__section {
       margin-bottom: 5rem;
       padding-top: 0;
@@ -314,13 +371,7 @@
     }
 
     .table {
-      margin-bottom: 2rem;
-
-      &__row {
-        &:not(.table__row_highlight):nth-child(even) {
-          background-color: $alt-default-color;
-        }
-      }
+      margin-bottom: 2.5rem;
 
       &__cell {
         &,
@@ -334,13 +385,25 @@
           }
         }
       }
+
+      &__row {
+        &:not(.table__row_highlight):nth-child(even) {
+          background-color: $alt-default-color;
+        }
+
+        &_promo.table__row_highlight {
+          .table__cell {
+            padding-top: 0;
+            padding-bottom: 1rem;
+          }
+        }
+      }
     }
 
     &__promo-text {
       display: inline;
       margin: 0;
-      padding-right: 0.4rem;
-      padding-left: 0.4rem;
+      padding: 0.4rem;
 
       @include themify() {
         background-color: $color-background;

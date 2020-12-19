@@ -13,8 +13,8 @@
           color: 'main'
         },
         price: {
-          first: 1900,
-          standard: 2400
+          first: 2100,
+          standard: 2700
         },
         duration: 50,
         shortDescription: 'Убирает боль в спине, лечит заболева&shy;ния позвоночника, возвращает свободу движений и активную жизнь'
@@ -26,10 +26,10 @@
         url: 'body-lymphatic-drainage.html',
         type: 'body',
         price: {
-          first: 1900,
-          standard: 2400
+          first: 2200,
+          standard: 2800
         },
-        duration: 60,
+        duration: 50,
         shortDescription: 'Рекомендован при отёках любой части тела, лишнем весе, тяжести в ногах. Оздоравливает весь организм'
       },
       'figure-modeling': {
@@ -39,13 +39,19 @@
         url: 'figure-modeling.html',
         type: 'figure',
         price: {
-          first: 1900,
-          standard: 2400
+          first: 3500,
+          standard: 3500,
+          old: 5000
         },
         duration: 60,
         promo: {
           text: `<span class=''>Акция</span> — скидка на январь и февраль 30%`,
-          starPlacement: 3 // 2 - first price, 3 - second price, 4 - duration
+          starPlacement: 3, // 2 - first price, 3 - second price, 4 - duration
+          title: '30% скидка на ручное модели&shy;рование фигуры',
+          cardText: 'На январь и февраль',
+          buttonText: 'Записаться',
+          buttonColor: '#fe2c78',
+          image: 'assets/img/prices-page/promo-bg-2@2x.jpg'
         },
         shortDescription: 'Рекомендован при выраженном целлюлите. Процедура включает лимфодренаж и обёртывание'
       },
@@ -56,8 +62,8 @@
         url: 'fullbody-massage.html',
         type: 'body',
         price: {
-          first: 1900,
-          standard: 2400
+          first: 2400,
+          standard: 3000
         },
         duration: 60,
         shortDescription: 'Расслабляющий и оздоравливающий массаж всего тела, поможет справиться со стрессом и улучшит сон'
@@ -69,8 +75,8 @@
         url: 'sports-massage.html',
         type: 'body',
         price: {
-          first: 1900,
-          standard: 2400
+          first: 2400,
+          standard: 3000
         },
         duration: 60,
         shortDescription: 'Для восстановления после тренировок или спортивных травм, и общего здоровья тела'
@@ -82,10 +88,10 @@
         url: 'anti-cellulite-massage.html',
         type: 'figure',
         price: {
-          first: 1900,
-          standard: 2400
+          first: 2100,
+          standard: 2700
         },
-        duration: 60,
+        duration: 40,
         shortDescription: 'Рекомендован при выраженном целлюлите, если нет цели сильно похудеть. Включает обёртывание'
       },
       'neck-massage': {
@@ -95,8 +101,8 @@
         url: 'neck-massage.html',
         type: 'body',
         price: {
-          first: 800,
-          standard: 800
+          first: 2000,
+          standard: 2000
         },
         duration: 30,
         shortDescription: ''
@@ -112,13 +118,19 @@
           color: 'alt'
         },
         price: {
-          first: 1500,
-          standard: 2600
+          first: 3300,
+          standard: 3300,
+          old: 4800
         },
-        duration: 50,
+        duration: 60,
         promo: {
           text: `<span class=''>Акция</span> — скидка на январь и февраль 30%`,
-          starPlacement: 3 // 1 - massage name, 2 - first price, 3 - second price, 4 - duration
+          starPlacement: 3, // 1 - massage name, 2 - first price, 3 - second price, 4 - duration
+          title: '30% скидка на скульптурно-буккальный массаж!',
+          cardText: 'Любое количество сеансов. Только на январь и февраль',
+          buttonText: 'Записаться',
+          buttonColor: '#06319f',
+          image: 'assets/img/prices-page/promo-bg-1@2x.jpg'
         },
         shortDescription: 'Самый эффективный массаж лица. Полноценная альтернатива пластике, омоложение и улучшение черт лица'
       },
@@ -129,10 +141,10 @@
         url: 'facial-lymphatic-drainage.html',
         type: 'face',
         price: {
-          first: 1900,
-          standard: 2400
+          first: 2100,
+          standard: 2700
         },
-        duration: 60,
+        duration: 50,
         shortDescription: 'Рекомендован при отёках лица, мешках под глазами. Эффект первого сеанса очень наглядный'
       },
       'classic-facial-massage': {
@@ -142,8 +154,8 @@
         url: 'classic-facial-massage.html',
         type: 'face',
         price: {
-          first: 1800,
-          standard: 2300
+          first: 2100,
+          standard: 2700
         },
         duration: 50,
         shortDescription: 'Восстановление природного здоровья и тонуса мышц, мягкая проработка'
@@ -155,8 +167,8 @@
         url: 'chiromassage.html',
         type: 'face',
         price: {
-          first: 1900,
-          standard: 2400
+          first: 2900,
+          standard: 3600
         },
         duration: 60,
         shortDescription: 'Сочетание европейской и восточной техники, наполняет энергией, возвращает в ресурс'
@@ -168,8 +180,8 @@
         url: 'japanese-asahi-massage.html',
         type: 'face',
         price: {
-          first: 2100,
-          standard: 2800
+          first: 2900,
+          standard: 3600
         },
         duration: 60,
         shortDescription: 'Японский формирующий массаж. Глубокая, интенсивная проработка мышц и костных тканей'
@@ -418,6 +430,26 @@
     },
     procedures: [
       {
+        name: 'Массаж шейно-воротниковой зоны и грудного отдела позвоночника',
+        price: 2400
+      },
+      {
+        name: 'Массаж шейно-воротниковой зоны и обеих рук',
+        price: 2500
+      },
+      {
+        name: 'Массаж пояснично-крестцовой области и одной ноги',
+        price: 2100
+      },
+      {
+        name: 'Массаж пояснично-крестцовой области и обеих ног',
+        price: 2400
+      },
+      {
+        name: 'Массаж спины и ног',
+        price: 3000
+      },
+      {
         name: 'Обёртывание общее',
         price: 2700
       },
@@ -427,14 +459,18 @@
       },
       {
         name: 'Массаж баночный антицеллюлитный',
-        price: 1700
+        price: 2600
       },
       {
         name: 'Массаж баночный спины',
-        price: 1500
+        price: 2100
       }
     ],
     additions: [
+      {
+        name: 'Массаж головы',
+        price: 700
+      },
       {
         name: 'Массаж грудной клетки по окружности',
         price: 400
@@ -488,20 +524,12 @@
         price: 400
       },
       {
-        name: 'Массаж пояснично-крестцовой области и одной ноги',
-        price: 800
-      },
-      {
-        name: 'Массаж пояснично-крестцовой области и обеих ног',
-        price: 1200
-      },
-      {
         name: 'Массаж одной ноги',
-        price: 500
+        price: 1100
       },
       {
         name: 'Массаж обеих ног',
-        price: 800
+        price: 2000
       }
     ]
   }
