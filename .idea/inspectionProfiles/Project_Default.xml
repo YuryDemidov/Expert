@@ -1,0 +1,26 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssBrowserCompatibilityForProperties" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="myChromeVersion" value="21" />
+      <option name="myEdgeVersion" value="12" />
+      <option name="myFirefoxVersion" value="28" />
+      <option name="myOperaVersion" value="12" />
+      <option name="mySafariVersion" value="7" />
+    </inspection_tool>
+    <inspection_tool class="CssReplaceWithShorthandSafely" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="clip-path" />
+            <item index="1" class="java.lang.String" itemvalue="text-decoration-skip-ink" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="SassScssResolvedByNameOnly" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+  </profile>
+</component>
