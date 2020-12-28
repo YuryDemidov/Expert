@@ -1,8 +1,6 @@
 /*
 Theme Name: expert-massage
-Description: This is a vanilla Wordless theme. Use Pug, Sass and Coffescript, and make web development fun again :)
-Author: weLaika
-Author URI: http://welaika.com/
-Version: 4.0
+Description: This theme based on Wordless plugin and its vanilla theme. It uses Pug as template renderer, SCSS as stylesheet preprocessor and JS up to ES2020. Building tool - webpack4
+Author: Iurii Demidov
 
 */
