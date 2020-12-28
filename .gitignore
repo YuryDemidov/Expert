@@ -1,0 +1,33 @@
+# Default
+.gulp
+.idea
+.vscode
+
+# Vendors
+vendor
+node_modules
+
+# Dist, tmp & test
+dist/*/*
+!dist/*/.gitkeep
+tmp/*
+!tmp/.gitkeep
+test
+
+# BD, logs
+*.log
+*.sql
+*.sqlite
+
+# Other
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+
+# Special
+Thumbs.db
+Desktop.ini
+.DS_Store*
+ehthumbs.db
+Icon?
