@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ca5057182c1e22059c46059d122e503",
+    "content-hash": "b4dd60d8be28232b6bbb9e7fa1d66f72",
     "packages": [
         {
             "name": "js-phpize/js-phpize",
-            "version": "2.5.0",
+            "version": "2.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pug-php/js-phpize.git",
-                "reference": "ca933003a8f5ddd6cf483a2dc3e4c5b0f1bdb285"
+                "reference": "9600d41d454b562646c6aab9aef7318cdc1848a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pug-php/js-phpize/zipball/ca933003a8f5ddd6cf483a2dc3e4c5b0f1bdb285",
-                "reference": "ca933003a8f5ddd6cf483a2dc3e4c5b0f1bdb285",
+                "url": "https://api.github.com/repos/pug-php/js-phpize/zipball/9600d41d454b562646c6aab9aef7318cdc1848a8",
+                "reference": "9600d41d454b562646c6aab9aef7318cdc1848a8",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 }
             ],
             "description": "Convert js-like syntax to standalone PHP code.",
-            "time": "2019-09-09T15:15:58+00:00"
+            "time": "2020-07-12T09:52:17+00:00"
         },
         {
             "name": "js-phpize/js-phpize-phug",
