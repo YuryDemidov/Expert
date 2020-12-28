@@ -1,0 +1,459 @@
+@use '../../tools' as *;
+
+.price-list {
+  margin-bottom: 7rem;
+
+  &__content {
+    padding: 0;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__promotion {
+    @include centered-block(35rem);
+
+    margin-bottom: 7rem;
+  }
+
+  .theme-1 &__promotion_photo,
+  .theme-7 &__promotion_photo {
+    padding-right: 13.5rem;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  .theme-1 &__promotion_photo {
+    padding-right: 4rem;
+
+    .promotion-card__text, {
+      padding-right: 7rem;
+
+      font-size: 1.6rem;
+    }
+
+    .promotion-card__button {
+      align-self: flex-start;
+    }
+  }
+
+  &__type-caption,
+  &__first-price {
+    @include themify() {
+      color: $color-primary;
+    }
+  }
+
+  &__old-price {
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    color: $xx-dark-dim-color;
+  }
+
+  &__section {
+    position: relative;
+
+    margin-bottom: 6rem;
+    padding-top: 5rem;
+  }
+
+  &__type-caption {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+
+    font-family: $title-font-family;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__massage-name {
+    position: absolute;
+    top: 1.2rem;
+    left: 2rem;
+
+    white-space: nowrap;
+  }
+
+  &__price-notification {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+
+    vertical-align: baseline;
+
+    background-color: map-deep-get($themes, 'main', 'primary-x-transparent');
+    border-radius: 0.1rem;
+
+    &::after {
+      content: '*';
+
+      display: inline-block;
+      margin-left: 0.3rem;
+
+      vertical-align: baseline;
+    }
+  }
+
+  &__price-notification-description {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding: 0 2rem;
+
+    font-size: 1.5rem;
+
+    .price-list__price-notification {
+      margin-right: 0.4rem;
+
+      &::after {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+
+  .table {
+    &__cell {
+      padding: 1rem 2rem;
+      padding-top: 4rem;
+
+      &:first-of-type {
+        position: relative;
+
+        padding: 0;
+      }
+
+      &:nth-of-type(3) {
+        text-align: center;
+      }
+
+      &:nth-of-type(4) {
+        text-align: right;
+      }
+
+      &_heading {
+        padding-top: 0;
+        padding-bottom: 1.5rem;
+
+        color: $dark-dim-color;
+
+        &:first-of-type {
+          position: static;
+        }
+      }
+    }
+
+    &__row {
+      &:nth-child(even) {
+        background-color: #f4f7f9;
+      }
+
+      &_highlight {
+        @include themify() {
+          background-color: $color-background;
+        }
+      }
+
+      &_promo {
+        .price-list__standard-price {
+          position: relative;
+
+          &::after {
+            content: '*';
+            position: absolute;
+
+            margin-left: 0.1rem;
+
+            font-weight: 700;
+            font-size: 1.8rem;
+            line-height: 1;
+            @include themify() {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+
+      &_promo.table__row_highlight {
+        .table__cell {
+          vertical-align: bottom;
+        }
+      }
+
+      &_promo ~ .table__row_promo {
+        .price-list__standard-price::after {
+          content: '**';
+        }
+      }
+
+      &_promo ~ .table__row_promo ~ .table__row_promo {
+        .price-list__standard-price::after {
+          content: '***';
+        }
+      }
+
+      @for $i from 1 to 4 {
+        &_promo-#{$i} {
+          .table__cell:not(:nth-child(#{$i})) {
+            .price-list__standard-price {
+              &::after {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__promo-text {
+    margin-top: 2rem;
+    padding: 0 2rem;
+
+    @include themify() {
+      color: $color-primary;
+    }
+
+    &:empty {
+      display: none;
+    }
+
+    &::before {
+      content: '*';
+    }
+  }
+
+  &__promo-text + .price-list__promo-text::before {
+    content: '**';
+  }
+
+  &__promo-text + .price-list__promo-text + .price-list__promo-text::before {
+    content: '***';
+  }
+
+  &__callback {
+    @include centered-block(35rem);
+  }
+}
+
+.theme-4 {
+  .price-list {
+    .promotion-card__button {
+      background-color: map-deep-get($themes, '4', 'secondary-light');
+
+      @include in-focus() {
+        background-color: map-deep-get($themes, '4', 'secondary');
+      }
+    }
+
+    &__promo-text {
+      color: map-deep-get($themes, '4', 'primary-dark');
+    }
+  }
+}
+
+@each $i in (6, 7, 9, 10) {
+  .theme-#{$i} {
+    .price-list {
+      .price-list-callback-form {
+        background-color: map-deep-get($themes, '#{$i}', 'alt-background');
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .price-list {
+    margin-bottom: 10rem;
+
+    &__wrap {
+      @include centered-block(40rem);
+    }
+
+    &__title {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .price-list {
+    margin-bottom: 14rem;
+
+    &__content {
+      padding: 0 2rem;
+    }
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-width: initial;
+      max-height: 100rem;
+    }
+
+    &__promotion,
+    &__callback {
+      max-width: 39rem;
+      width: 38%;
+    }
+
+    &__callback {
+      order: 2;
+      margin-top: 22rem;
+      margin-right: 0;
+      margin-left: 2%;
+    }
+
+    &__promotion {
+      order: 1;
+
+      &,
+      ~ .price-list__callback {
+        margin-top: 0;
+        margin-right: 2%;
+        margin-left: 0;
+      }
+    }
+
+    &__prices {
+      width: 60%;
+    }
+
+    &__promotion ~ .price-list__prices {
+      order: 3;
+    }
+
+    .theme-1 &__promotion_photo,
+    .theme-7 &__promotion_photo {
+      .promotion-card__button {
+        align-self: flex-start;
+      }
+    }
+
+    &__section {
+      margin-bottom: 5rem;
+      padding-top: 0;
+    }
+
+    &__type-caption {
+      position: static;
+
+      margin: 0;
+
+      font-family: $main-font-family;
+      font-size: 1.6rem;
+      text-align: left;
+    }
+
+    &__massage-name {
+      position: static;
+
+      display: inline-block;
+      min-width: 24.5rem;
+
+      font-weight: 400;
+      vertical-align: baseline;
+    }
+
+    &__first-price {
+      font-weight: 700;
+    }
+
+    .table {
+      margin-bottom: 2.5rem;
+
+      &__cell {
+        &,
+        &:first-of-type {
+          padding: 0.7rem 1rem;
+        }
+
+        &_heading {
+          @include themify() {
+            color: $color-primary;
+          }
+        }
+      }
+
+      &__row {
+        &:not(.table__row_highlight):nth-child(even) {
+          background-color: $alt-default-color;
+        }
+
+        &_promo.table__row_highlight {
+          .table__cell {
+            padding-top: 0;
+            padding-bottom: 1rem;
+          }
+        }
+      }
+    }
+
+    &__promo-text {
+      display: inline;
+      margin: 0;
+      padding: 0.4rem;
+
+      @include themify() {
+        background-color: $color-background;
+        border-bottom: 2px solid $color-background;
+      }
+    }
+  }
+
+  .page {
+    .price-list {
+      &__type-caption,
+      &__first-price {
+        color: $default-color;
+      }
+    }
+  }
+
+  @each $i in (4, 6, 7, 9) {
+    .theme-#{$i} {
+      .price-list {
+        &__promo-text {
+          background-color: map-deep-get($themes, '#{$i}', 'alt-background');
+          border-color: map-deep-get($themes, '#{$i}', 'alt-background');
+
+          @if $i == 7 {
+            color: map-deep-get($themes, '#{$i}', 'secondary');
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .price-list {
+    &__prices {
+      width: 52%;
+      margin-left: 4%;
+    }
+
+    &__promotion {
+      &,
+      ~ .price-list__callback {
+        margin-left: 6%;
+        margin-right: 4%;
+      }
+
+      ~ .price-list__prices {
+        margin-left: 0;
+      }
+    }
+  }
+}

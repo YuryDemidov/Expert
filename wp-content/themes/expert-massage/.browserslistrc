@@ -1,1 +1,13 @@
 last 1 version
+chrome > 25
+and_chr > 25
+safari > 6
+iOS >= 7
+firefox > 27
+and_ff > 27
+opera > 12
+op_mob > 12
+edge >= 12
+ie 11
+android >= 4.4
+samsung >= 4

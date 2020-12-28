@@ -1,0 +1,44 @@
+@use '../../tools' as *;
+
+.blockquote-card {
+  padding: 2.5rem;
+  padding-top: 3.2rem;
+
+  background-color: map-deep-get($themes, 'main', 'background');
+
+  &__text {
+    margin-bottom: 2rem;
+  }
+
+  &__caption {
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  &__author-photo {
+    overflow: hidden;
+
+    border-radius: 50%;
+  }
+
+  &__author {
+    margin: 0 1.4rem;
+
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .blockquote-card {
+    padding: 4.8rem;
+    padding-bottom: 3rem;
+
+    font-size: 1.8rem;
+
+    &__author {
+      margin: 0 2.2rem;
+    }
+  }
+}

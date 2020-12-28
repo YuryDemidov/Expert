@@ -1,0 +1,72 @@
+@use '../../tools' as *;
+
+.video-block {
+  position: relative;
+
+  &__play-button {
+    @include reset-button();
+    @include absolute-centered();
+    @include box(14vw);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 6.5rem;
+    max-height: 6.5rem;
+
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+
+    &::before {
+      @include absolute-centered();
+      @include filled-arrow-2(1.2rem, $default-color, 'right');
+
+      content: '';
+      left: calc(50% + 0.8rem);
+
+      border-left-width: 2.2rem;
+      @include themify() {
+        border-left-color: $color-primary;
+      }
+
+      transition: border-left-color 0.4s;
+    }
+
+    @include in-focus() {
+      &::before {
+        @include themify() {
+          border-left-color: $color-secondary;
+        }
+        outline: none;
+      }
+    }
+  }
+
+  &__poster {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.8rem;
+    cursor: pointer;
+
+    @include in-focus() {
+      + .video-block__play-button::before {
+        @include themify() {
+          border-left-color: $color-secondary;
+        }
+      }
+    }
+  }
+
+  &__video {
+    &:focus {
+      outline: none;
+    }
+  }
+}

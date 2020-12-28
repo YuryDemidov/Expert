@@ -1,0 +1,29 @@
+section.reviews-block
+  if locals.data.pageData.reviewsBlock.showSticker
+    article.reviews-block__sticker.reviews-sticker.sticker(data-aos='fade-in' data-aos-duration='100' data-aos-offset='140')
+      +svg-icon('#polystar').sticker__image
+      b.reviews-sticker__pre-number.sticker__secondary-text более
+      b.reviews-sticker__number.sticker__main-text!= `10&thinsp;000`
+      span.reviews-sticker__text клиентов уже получили помощь от&nbsp;наших врачей
+  .reviews-block__wrapper.container
+    .reviews-block__content
+      h2.heading.reviews-block__title!= locals.data.pageData.reviewsBlock.title
+      +rating-block().reviews-block__rating
+      .reviews-block__slider.slider
+        button.slider__button.slider__button_prev.hidden_mobile(aria-label='Предыдущий отзыв')
+        ul.reviews-block__reviews-list
+          each review in locals.data.pageData.reviewsBlock.reviews
+            li.reviews-block__review
+              article.review-card(data-id=review.id data-type=review.type)
+                p.review-card__text= review.text
+                p.review-card__info= `${review.author}, ${review.date}`
+                p.review-card__source
+                  if review.source === 'yandex'
+                    img.review-card__yandex-logo(src=`${THEME_IMG_PATH}/reviews-block/yandex-logo.svg` alt='Отзыв из Яндекса' width='40' height='15')
+                  else
+                    span отзыв с сайта
+        button.slider__button.slider__button_next.hidden_mobile(aria-label='Следующий отзыв')
+      - var linkColorClass = 'link_primary'
+      if ((locals.data.pageData.theme === 'main') || (locals.data.pageData.theme === '1'))
+        - linkColorClass = 'link_secondary'
+      a.reviews-block__link.link.link_arrow.underline(class=linkColorClass href='/reviews/') Читать все отзывы или оставить свой

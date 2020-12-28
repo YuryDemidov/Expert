@@ -1,0 +1,23 @@
+@use '../../tools' as *;
+
+.rating-block {
+  &__number {
+    font-size: 5.4rem;
+  }
+
+  &__star-icon {
+    vertical-align: text-bottom;
+
+    fill: #fdd383;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__yandex-logo {
+    margin-left: 0.4rem;
+  }
+}

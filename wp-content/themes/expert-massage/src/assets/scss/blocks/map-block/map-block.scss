@@ -1,0 +1,96 @@
+@use '../../tools' as *;
+
+.map-block {
+  margin-bottom: 10rem;
+
+  &__wrap {
+    position: relative;
+  }
+
+  &__info {
+    @include horizontally-centered();
+
+    top: 4rem;
+
+    min-width: 25rem;
+    padding: 1rem;
+
+    font-size: 1.5rem;
+
+    background-color: rgba(255, 255, 255, 0.85);
+
+    @include themify() {
+      border: 1px solid $color-secondary;
+    }
+
+    border-radius: 0.5rem;
+  }
+
+  &__image {
+    @include box(100%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    img {
+      @include absolute-centered();
+    }
+  }
+
+  &__text {
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  &__pin {
+    @include themify() {
+      fill: $color-secondary;
+    }
+  }
+
+  // Gray map styles
+  [class*="ymaps-2"][class*="-ground-pane"] {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(100%);
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .map-block {
+    margin-bottom: 12rem;
+
+    &__info {
+      top: 5rem;
+      left: 6rem;
+
+      padding: 1.5rem;
+
+      font-size: 1.6rem;
+
+      transform: none;
+    }
+
+    &__text {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .map-block {
+    margin-bottom: 15rem;
+
+    &__info {
+      top: 6rem;
+      left: 9rem;
+
+      font-size: 1.8rem;
+
+      min-width: 32rem;
+    }
+  }
+}

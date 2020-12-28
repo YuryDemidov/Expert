@@ -1,0 +1,50 @@
+@use '../../tools' as *;
+
+.page {
+  height: 100%;
+
+  //noinspection CssOverwrittenProperties,CssInvalidPropertyValue
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: stretch;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &[data-state='noscroll'] {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .page {
+    &__header {
+      position: fixed;
+      z-index: 100;
+
+      width: 100%;
+
+      background-color: $alt-default-color;
+      box-shadow: 0 4px 10px $x-light-dim-color;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .page {
+    &__header {
+      position: absolute;
+
+      background-color: $transparent-color;
+      box-shadow: none;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+section.map-block
+  .container
+    h2.visually-hidden Наш адрес
+    .map-block__wrap
+      #map(style='width: 100%; height: 420px;')
+      .map-block__image
+        picture
+          source(srcset=`${THEME_IMG_PATH}/map/static-map_desktop.jpg` media='(min-width: 768px)')
+          source(srcset=`${THEME_IMG_PATH}/map/static-map_mobile.jpg`)
+          img(src=`${THEME_IMG_PATH}/map/static-map_desktop.jpg` alt='' height='420')
+      .map-block__info
+        p.map-block__text!= locals.data.globalData.company.address
+        p.map-block__text!=locals.data.globalData.company.workingHours

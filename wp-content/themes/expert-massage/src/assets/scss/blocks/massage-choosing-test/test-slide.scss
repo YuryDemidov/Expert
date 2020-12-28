@@ -1,0 +1,267 @@
+@use '../../tools' as *;
+
+.test-slide {
+  margin-bottom: 3rem;
+
+  &__title {
+    margin-bottom: 1.5rem;
+
+    font-size: 2.2rem;
+  }
+
+  &__input {
+    margin-bottom: 1.6rem;
+
+    .custom-radio,
+    .custom-checkbox {
+      &__label {
+        &::before {
+          background-color: #e5e5e5;
+          border-color: #e5e5e5;
+        }
+      }
+    }
+
+    &_border {
+      border: 0.1rem solid $light-dim-color;
+
+      &:focus-within {
+        border-color: $dim-color;
+      }
+
+      .custom-radio,
+      .custom-checkbox {
+        &__label {
+          width: 100%;
+          padding: 1.1rem;
+          padding-left: 4rem;
+        }
+
+        &__input {
+          + .custom-radio__label {
+            &::before {
+              left: 1rem;
+            }
+
+            &::after {
+              left: 1.5rem;
+            }
+          }
+
+          + .custom-checkbox__label {
+            &::before {
+              left: 1.2rem;
+            }
+
+            &::after {
+              left: 1.7rem;
+            }
+          }
+        }
+      }
+    }
+
+    .custom-radio__input,
+    .custom-checkbox__input {
+      + .custom-radio__label {
+        &::before {
+          box-shadow: none;
+        }
+      }
+
+      + .custom-checkbox__label {
+        &::before {
+          border-color: #e5e5e5;
+        }
+      }
+    }
+  }
+
+  &_3,
+  &_6,
+  &_7 {
+    margin-bottom: 4rem;
+  }
+
+  &_3,
+  &_6 {
+    .test-slide__input {
+      font-size: 1.8rem;
+    }
+
+    .text-input {
+      max-width: 45rem;
+      margin-top: -0.8rem;
+      margin-bottom: 4.5rem;
+      margin-left: 3.2rem;
+    }
+  }
+
+  &_7 {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__title {
+      width: 100%;
+    }
+
+    .text-input {
+      max-width: 35rem;
+      width: 100%;
+
+      &__placeholder {
+        color: $default-color;
+      }
+
+      &__input + .text-input__placeholder {
+        top: -0.2rem;
+
+        pointer-events: auto;
+
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+@media (min-width: $phone-landscape-min-width) {
+  .test-slide {
+    &__title {
+      margin-bottom: 2.4rem;
+
+      font-size: 2.4rem;
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    &__input {
+      width: 48%;
+      margin-bottom: 1.8rem;
+
+      &:first-of-type {
+        margin-right: 4%;
+      }
+    }
+
+    &_3,
+    &_6,
+    &_7 {
+      margin-bottom: 5rem;
+    }
+
+    &_1 {
+      .test-slide__inputs {
+        max-height: 22rem;
+      }
+    }
+
+    &_2 {
+      .test-slide__inputs {
+        max-height: 34rem;
+      }
+    }
+
+    &_4 {
+      .test-slide__inputs {
+        max-height: calc(60rem - 36vw);
+      }
+    }
+
+    &_5 {
+      .test-slide__inputs {
+        max-height: 32rem;
+      }
+    }
+
+    &_7 {
+      .text-input {
+        max-width: 31rem;
+        width: 48%;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .test-slide {
+    &_2 {
+      .test-slide__inputs {
+        max-height: 32rem;
+      }
+    }
+
+    &_3,
+    &_6 {
+      .test-slide__input {
+        font-size: 2rem;
+
+        .custom-radio__label {
+          padding-left: 4rem;
+
+          &::before {
+            @include box(2.4rem);
+          }
+
+          &::after {
+            @include box(1.2rem);
+
+            left: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .test-slide {
+    margin-bottom: 3rem;
+
+    &__title {
+      margin-bottom: 3rem;
+
+      font-size: 3.2rem;
+    }
+
+    &__input {
+      font-size: 1.8rem;
+    }
+
+    &_3,
+    &_6,
+    &_7 {
+      margin-bottom: 6rem;
+    }
+
+    &_3,
+    &_6 {
+      .test-slide__input {
+        font-size: 2.2rem;
+      }
+    }
+
+    &_4 {
+      .test-slide__inputs {
+        max-height: 32rem;
+      }
+    }
+
+    &_7 {
+      .text-input {
+        padding-top: 2.5rem;
+
+        &__input + .text-input__placeholder {
+          top: 0;
+
+          font-size: 1.8rem;
+
+          transform: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@use '../../tools' as *;
+
+.submenu-promo {
+  max-width: 38rem;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 9rem;
+  padding: 2rem;
+  padding-bottom: 15rem;
+
+  background-color: map-deep-get($themes, 'main', 'background');
+  background-image: url('../../../img/menu/submenu-promo@1x.jpg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 115%;
+  @include retina(2) {
+    background-image: url('../../../img/menu/submenu-promo@2x.jpg');
+  }
+  border-radius: 0.5rem;
+
+  &__wrap {
+    color: $default-color;
+
+    @include in-focus() {
+      color: $default-color;
+    }
+  }
+
+  &__tag {
+    padding: 0.3rem 0.5rem;
+
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $alt-default-color;
+
+    background-color: map-deep-get($themes, 'main', 'secondary');
+    border-radius: 0.3rem;
+  }
+
+  &__caption-text {
+    display: block;
+    margin-top: 1rem;
+
+    font-family: $title-font-family;
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .submenu-promo {
+    max-width: initial;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 4rem 6vw;
+    padding-top: 2.5rem;
+
+    background-size: 32rem;
+    background-position: right 12% bottom;
+
+    &__caption {
+      max-width: 30rem;
+    }
+
+    &__tag {
+      font-size: 1.8rem;
+    }
+
+    &__caption-text {
+      font-size: 2.6rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .submenu-promo {
+    padding-top: 3rem;
+
+    background-size: 28rem;
+
+    &__caption {
+      max-width: initial;
+    }
+
+    &__caption-text {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .submenu-promo {
+    padding-right: 7.5rem;
+    padding-left: 7.5rem;
+  }
+}

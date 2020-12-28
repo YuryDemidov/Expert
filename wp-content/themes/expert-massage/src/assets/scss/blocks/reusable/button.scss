@@ -1,0 +1,30 @@
+@use '../../tools' as *;
+
+.button {
+  @include reset-button();
+  @include button($color: $alt-default-color);
+
+  @include in-focus() {
+    color: $alt-default-color;
+  }
+
+  &_primary {
+    @include themify() {
+      background-color: $color-primary;
+
+      @include in-focus() {
+        background-color: $color-primary-light;
+      }
+    }
+  }
+
+  &_secondary {
+    @include themify() {
+      background-color: $color-secondary;
+
+      @include in-focus() {
+        background-color: $color-secondary-light;
+      }
+    }
+  }
+}

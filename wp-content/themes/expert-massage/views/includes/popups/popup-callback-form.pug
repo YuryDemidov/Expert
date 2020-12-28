@@ -1,0 +1,9 @@
+section.popup-callback-form(data-popup='closed' data-popup-name='callback-form')
+  button.popup__close-button.popup-callback-form__close(type='button' data-close-popup='callback-form' aria-label='Закрыть форму заказа обратного звонка')
+  .popup-callback-form__wrap.callback-form
+    +svg-icon('#phone-icon').callback-form__trigger-icon.popup-callback-form__trigger-icon(width='30' height='33')
+    p.callback-form__text Перезвоним в&nbsp;течение 5 минут и&nbsp;ответим на&nbsp;все вопросы
+    form.callback-form__form(action='/' method='post')
+      +text-input(false, false, 'text-input_fill callback-form__phone')#callbackFormPhone(type='tel' name='phone' placeholder='+7(___)___-__-__' value='+7' autocomplete='off' aria-label='Телефон' required)
+      button.button.button_primary.callback-form__submit(type='submit') Заказать звонок
+      p.message.hidden

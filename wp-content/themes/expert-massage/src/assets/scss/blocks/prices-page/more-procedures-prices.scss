@@ -1,0 +1,25 @@
+@use '../../tools' as *;
+
+.more-procedures-prices {
+  margin-bottom: 8rem;
+
+  &__table {
+    @include centered-block(50rem);
+
+    .table__cell {
+      padding: 1rem 0;
+
+      &:nth-child(2) {
+        min-width: 8rem;
+
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .more-procedures-prices {
+    margin-bottom: 10rem;
+  }
+}

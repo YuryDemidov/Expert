@@ -1,1 +1,3 @@
-# .stylelintignore syntax is the same than .gitignore
+dist/**/*.css
+static/**/*.css
+src/assets/scss/utils/libs.scss

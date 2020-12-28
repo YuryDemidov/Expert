@@ -1,0 +1,297 @@
+@use 'vars';
+@use 'functions';
+@use 'sass:string';
+
+@mixin reset-indents() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin reset-button() {
+  padding: 0;
+
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin reset-number-input() {
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+@mixin reset-list() {
+  @include reset-indents();
+
+  list-style: none;
+}
+
+@mixin horizontal-list() {
+  @include reset-list();
+
+  font-size: 0;
+
+  & > * {
+    display: inline-block;
+
+    vertical-align: middle;
+  }
+}
+
+@mixin custom-numbered-list($id, $number-format) {
+  @include reset-list();
+  counter-reset: $id;
+
+  > li {
+    counter-increment: $id;
+
+    &::before {
+      $number-pos: string.index($number-format, '#');
+
+      content: string.slice($number-format, 1, $number-pos - 1) counter($id) string.slice($number-format, $number-pos + 1);
+    }
+  }
+}
+
+@mixin box($width, $height: $width, $padding: null, $border: null, $border-radius: 0) {
+  width: $width;
+  height: $height;
+  @if $padding {
+    padding: $padding;
+  }
+
+  @if $border {
+    border: $border;
+  }
+  @if $border-radius != 0 {
+    border-radius: $border-radius;
+  }
+}
+
+@mixin min-box($width, $height: $width, $padding: null, $border: null, $border-radius: 0) {
+  min-width: $width;
+  min-height: $height;
+  @if $padding {
+    padding: $padding;
+  }
+
+  @if $border {
+    border: $border;
+  }
+  @if $border-radius != 0 {
+    border-radius: $border-radius;
+  }
+}
+
+@mixin centered-block($max-width) {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+@mixin horizontally-centered() {
+  position: absolute;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+@mixin vertically-centered() {
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+@mixin absolute-centered($manual-transform: translate(-50%, -50%)) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: $manual-transform;
+}
+
+@mixin retina($dpr: 2) {
+  @media (-webkit-min-device-pixel-ratio: $dpr), (min-resolution: #{$dpr * 96}dpi) {
+    @content;
+  }
+}
+
+/// For proper positioning both $size and $thickness should be odd or even number
+@mixin plus($size: 30px, $thickness: 2px, $stroke-color: vars.$default-color, $background-color: vars.$alt-default-color) {
+  @include box($size);
+
+  background-color: $stroke-color;
+  background-image:
+    linear-gradient($background-color, $background-color),
+    linear-gradient($background-color, $background-color),
+    linear-gradient($background-color, $background-color),
+    linear-gradient($background-color, $background-color);
+  background-origin: content-box;
+  background-position:
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat;
+  background-size: calc(50% - #{$thickness} / 2) calc(50% - #{$thickness} / 2);
+}
+
+@mixin check-mark($short-stroke-length, $long-stoke-length, $thickness, $color) {
+  @include box($short-stroke-length, $long-stoke-length);
+
+  display: inline-block;
+
+  border-right: $thickness solid $color;
+  border-bottom: $thickness solid $color;
+
+  transform: rotate(45deg);
+}
+
+@mixin stroke-arrow($size: 0.8rem, $thickness: 0.2rem, $color: vars.$default-color, $direction: 'down') {
+  @include box($size);
+
+  border-bottom: $thickness solid $color;
+  border-right: $thickness solid $color;
+
+  @if ($direction == 'up') { transform: rotate(-135deg); }
+  @else if ($direction == 'right') { transform: rotate(-45deg); }
+  @else if ($direction == 'down') { transform: rotate(45deg); }
+  @else if ($direction == 'left') { transform: rotate(135deg); }
+}
+
+@mixin filled-arrow-1($size, $bg-color, $border-color) {
+  @include box($size);
+
+  position: absolute;
+  top: calc(#{-$size} / 2 - 1px);
+  left: 50%;
+
+  background-color: $bg-color;
+  @if ($border-color) {
+    border-left: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+  }
+
+  transform: translateX(-50%) rotate(45deg);
+}
+
+@mixin filled-arrow-2($size, $color, $direction: 'down') {
+  @include box(0);
+
+  border: $size solid vars.$transparent-color;
+
+  @if ($direction == 'up') { border-bottom-color: $color; }
+  @else if ($direction == 'right') { border-left-color: $color; }
+  @else if ($direction == 'down') { border-top-color: $color; }
+  @else if ($direction == 'left') { border-right-color: $color; }
+}
+
+@mixin cross($size: 2rem, $stroke-width: 0.2rem, $color: vars.$default-color) {
+  @include box(calc(#{$size} + 0.4rem));
+
+  position: relative;
+
+  &::before,
+  &::after {
+    @include box($size * 1.2, $stroke-width);
+
+    content: '';
+
+    background-color: $color;
+  }
+
+  &::before {
+    @include absolute-centered(translate(-50%, -50%) rotate(45deg));
+  }
+
+  &::after {
+    @include absolute-centered(translate(-50%, -50%) rotate(-45deg));
+  }
+}
+
+@mixin in-focus() {
+  &:not([disabled]):hover,
+  &:not([disabled]):focus {
+    outline: none;
+    @content;
+  }
+}
+
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin active-custom-placeholder() {
+  &:focus + .text-input__placeholder,
+  &:not([value='']) + .text-input__placeholder,
+  &[placeholder] + .text-input__placeholder {
+    @content;
+  }
+}
+
+@mixin button($width: null, $height: null, $color: vars.$default-color, $font-size: vars.$main-font-size, $font-weight: 700, $uppercase: false, $border-radius: 20px, $background: null) {
+  @include reset-button();
+
+  position: relative;
+
+  display: inline-block;
+  overflow: visible;
+  @if ($width) {
+    min-width: $width;
+  }
+  @if ($height) {
+    min-height: $height;
+  }
+  margin: 0;
+  padding: 1rem 2rem;
+
+  text-align: center;
+  vertical-align: middle;
+  font-family: inherit;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: 1.1;
+  @if ($uppercase) {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  white-space: nowrap;
+  color: $color;
+
+  @if ($background) {
+    background-color: $background;
+  }
+  border-radius: $border-radius;
+  cursor: pointer;
+
+  transition: all 0.3s;
+}

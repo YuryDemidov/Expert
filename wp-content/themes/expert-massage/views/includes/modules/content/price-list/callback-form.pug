@@ -1,0 +1,15 @@
+.price-list__callback.price-list-callback-form
+  .price-list-callback-form__initial-content
+    p.price-list-callback-form__text Не уверены, что&nbsp;выбрать? Давайте мы вам позвоним и&nbsp;подскажем.
+    p.price-list-callback-form__text
+      | И напоминаем, что
+      |
+      b готовы полностью вернуть вам деньги
+      |
+      | за&nbsp;процедуру, если вам не&nbsp;понра&shy;вится. Но&nbsp;пока это никому не&nbsp;понадобилось&nbsp;:)
+    button.price-list-callback-form__trigger.link.underline(class=(locals.data.pageData.theme === 4 ? 'link_dark-primary' : 'link_primary') type='button') Перезвоните мне
+  .price-list-callback-form__wrap.hidden
+    button.price-list-callback-form__close(type='button' aria-label='Закрыть форму')
+    include ../application-form/application-form
+    .application-form__success-message.hidden
+      p.application-form__success-text Спасибо, заявка принята! Мы скоро перезвоним

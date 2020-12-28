@@ -1,0 +1,46 @@
+// For properly url resolving on server
+// $pathOrigin: '/wp-content/themes/';
+// $themeName: 'expert-massage';
+
+@font-face {
+  font-family: 'RUBuntu';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('../../fonts/RUBuntu/woff2/RUBuntu-400.woff2') format('woff2'),
+    url('../../fonts/RUBuntu/woff/RUBuntu-400.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RUBuntu';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('../../fonts/RUBuntu/woff2/RUBuntu-500.woff2') format('woff2'),
+    url('../../fonts/RUBuntu/woff/RUBuntu-500.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RUBuntu';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('../../fonts/RUBuntu/woff2/RUBuntu-700.woff2') format('woff2'),
+    url('../../fonts/RUBuntu/woff/RUBuntu-700.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local('MuseoSans'),
+    local('Museo Sans'),
+    local('Museo-Sans'),
+    url('../../fonts/MuseoSans/MuseoSans-700.woff2') format('woff2'),
+    url('../../fonts/MuseoSans/MuseoSans-700.woff') format('woff');
+}

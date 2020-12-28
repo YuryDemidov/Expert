@@ -1,0 +1,29 @@
+@use '../../tools' as *;
+
+.accordion {
+  &__title {
+    position: relative;
+
+    display: inline-block;
+    margin: 0;
+
+    vertical-align: middle;
+
+    cursor: pointer;
+  }
+
+  &__body {
+    overflow: hidden;
+
+    transition-property: max-height;
+    transition-duration: 0.6s;
+  }
+
+  &[data-state='closed'] .accordion__body {
+    max-height: 0;
+  }
+
+  &[data-state='opened'] .accordion__body {
+    max-height: 100%;
+  }
+}

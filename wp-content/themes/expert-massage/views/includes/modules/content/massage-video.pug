@@ -1,0 +1,12 @@
+section.massage-video
+  h2.massage-video__title.heading Так проходит сеанс массажа
+  .massage-video__content
+    .massage-video__video-wrap.video-block
+      #massageVideo.massage-video__video.video-block__video(data-id=locals.data.pageData.massageVideo.id)
+      .video-block__poster(style=`background-image: url(${locals.data.pageData.massageVideo.poster})`)
+      button.massage-video__play.video-block__play-button(type='button' aria-label='Запустить видео')
+    - var sticker= locals.data.pageData.massageVideo.sticker
+    if sticker
+      article.massage-video__sticker.sticker(class=`massage-video__sticker_${sticker.position}`)
+        +svg-icon('#polystar').sticker__image
+        .sticker__secondary-text= sticker.text

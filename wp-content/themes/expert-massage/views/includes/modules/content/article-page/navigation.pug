@@ -1,0 +1,5 @@
+nav.article-page__navigation.article-navigation(data-state='fixed')
+  ul.article-navigation__list
+    each anchor, id in locals.data.pageData.article.navigation
+      li.article-navigation__list-item
+        a.article-navigation__link(href=`#nav-${id}` data-active=(id === 1))= anchor

@@ -1,0 +1,14 @@
+section.faq
+  .container
+    .faq__content
+      h2.heading.faq__title Вопросы и ответы
+      ul.faq__list
+        each faqItem, i in locals.data.pageData.faq
+          - var n = i + 1
+          li.faq__list-item
+            .accordion(data-state='closed')
+              h3.faq__question
+                button.accordion__trigger(id=`faqAccordionTrigger${n}` aria-controls=`faqAccordionBody${n}` aria-expanded='false')!= faqItem.question
+                  span.faq__accordion-icon
+              .accordion__body(id=`faqAccordionBody${n}` role='region' aria-labelledby=`faqAccordionTrigger${n}`)
+                p.faq__answer!= faqItem.answer

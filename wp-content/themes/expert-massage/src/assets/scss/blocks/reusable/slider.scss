@@ -1,0 +1,128 @@
+@use '../../tools' as *;
+
+.slider {
+  position: relative;
+
+  .tns-ovh {
+    margin-top: -1.5rem; // Hack for showing box-shadow children
+    padding-top: 1.5rem; // of parent with hidden overflow
+  }
+
+  .tns-nav {
+    margin-bottom: 2.5rem;
+
+    text-align: center;
+    line-height: 1;
+
+    button {
+      @include reset-button();
+      @include box(1.8rem);
+
+      position: relative;
+
+      margin: 0 0.2rem;
+
+      &::before {
+        @include absolute-centered();
+        @include box(1.2rem);
+
+        content: '';
+
+        background-color: #c7c7c7;
+        border-radius: 50%;
+      }
+
+      &:focus::before {
+        border: 1px solid $xx-dark-dim-color;
+      }
+
+      &.tns-nav-active {
+        &::before {
+          background-color: #9f9f9f;
+        }
+      }
+    }
+  }
+
+  &__button {
+    @include reset-button();
+    @include box(2.5rem, 10rem);
+
+    position: absolute;
+    top: calc(50% - 2.5rem);
+
+    transform: translateY(-50%);
+
+    transition: transform 0.4s;
+
+    @include in-focus() {
+      transform: translateY(-50%) scale(1.2);
+    }
+
+    &::before {
+      @include absolute-centered();
+      @include themify() {
+        @include stroke-arrow(1.5rem, 0.4rem, $color-primary, null);
+      }
+
+      content: '';
+      position: absolute;
+    }
+
+    &_prev {
+      right: calc(100% - 0.6rem);
+
+      &::before {
+        transform: translate(-30%, -50%) rotate(135deg);
+      }
+    }
+
+    &_next {
+      left: calc(100% - 0.6rem);
+
+      &::before {
+        transform: translate(-70%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .slider {
+    .tns-nav {
+      margin-bottom: 4.5rem;
+    }
+
+    &__button {
+      @include box(5rem, 12rem);
+
+      &_prev {
+        right: 100%;
+      }
+
+      &_next {
+        left: 100%;
+      }
+    }
+  }
+
+  .page {
+    .slider {
+      &__button {
+        &::before {
+          @include box(3rem);
+
+          border-width: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .slider {
+    .tns-nav {
+      margin-bottom: 0;
+    }
+  }
+}

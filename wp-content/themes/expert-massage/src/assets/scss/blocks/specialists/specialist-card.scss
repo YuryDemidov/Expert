@@ -1,0 +1,187 @@
+@use '../../tools' as *;
+
+.specialist-card {
+  position: relative;
+
+  max-width: 42.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 2.5rem;
+  padding-bottom: 4.5rem;
+
+  border-radius: 0.5rem;
+  box-shadow: 0 0.4rem 2rem $x-light-dim-color;
+
+  &__image {
+    position: relative;
+
+    margin-bottom: 2rem;
+
+    text-align: center;
+
+    &::before {
+      @include horizontally-centered();
+
+      content: '';
+      bottom: 0;
+
+      width: 18rem;
+
+      border-bottom: 0.1rem solid $light-dim-color;
+    }
+  }
+
+  &__tags {
+    @include horizontal-list();
+  }
+
+  &__tag {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.4rem;
+
+    font-size: 1.2rem;
+    white-space: nowrap;
+
+    background-color: #e5f2f9;
+    border-radius: 0.3rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__name {
+    margin-bottom: 1rem;
+
+    font-size: 1.8rem;
+  }
+
+  &__reviews {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  &__description {
+    position: relative;
+
+    overflow: hidden;
+    max-height: 19rem;
+    margin-bottom: 2.5rem;
+
+    transition: max-height 0.4s;
+  }
+
+  &__expand-button {
+    position: absolute;
+    bottom: -0.1rem;
+
+    width: 100%;
+    padding: 0.3rem 0;
+
+    background-color: $alt-default-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+
+      width: 100%;
+      height: 1.5rem;
+
+      background-image: linear-gradient(0deg, $alt-default-color, $transparent-color);
+    }
+  }
+
+  &__appointment {
+    text-align: center;
+  }
+
+  &__button {
+    padding: 1.1rem 4rem;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .specialist-card {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    max-width: initial;
+    padding-top: 3.5rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+
+    &__image {
+      margin-bottom: 0;
+
+      &::before {
+        width: 34rem;
+      }
+
+      img {
+        width: 30rem;
+      }
+    }
+
+    &__info {
+      width: 56%;
+      margin-left: 4%;
+    }
+
+    &__tag {
+      margin-right: 1.2rem;
+      margin-bottom: 1.2rem;
+
+      font-size: 1.4rem;
+    }
+
+    &__name {
+      margin-right: 1.5rem;
+      margin-bottom: 1.6rem;
+
+      font-size: 2.4rem;
+    }
+
+    &__reviews {
+      top: 3.2rem;
+      right: auto;
+      left: 3rem;
+
+      font-size: 1.8rem;
+    }
+
+    &__description {
+      max-width: 54.5rem;
+      max-height: initial;
+    }
+
+    &__appointment {
+      text-align: left;
+    }
+
+    &__button {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .specialist-card {
+    &__name,
+    &__reviews {
+      display: inline-block;
+
+      vertical-align: baseline;
+    }
+
+    &__reviews {
+      position: static;
+    }
+
+    &__text {
+      margin-bottom: 1.2rem;
+    }
+  }
+}

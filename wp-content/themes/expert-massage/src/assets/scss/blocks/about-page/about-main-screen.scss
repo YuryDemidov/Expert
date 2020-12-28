@@ -1,0 +1,193 @@
+@use '../../tools' as *;
+
+.about-main-screen {
+  background-image: linear-gradient(104deg, #f0f0f0 0%, rgba(249, 249, 249, 0.53) 41%, rgba(230, 230, 230, 0.62) 91%);
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0;
+  }
+
+  &__logo {
+    margin-bottom: 3.5rem;
+
+    text-align: center;
+
+    img {
+      width: 17rem;
+    }
+  }
+
+  &__feature {
+    @include centered-block(21rem);
+
+    margin-bottom: 2.2rem;
+    padding-left: 2rem;
+
+    font-size: 1.4rem;
+    color: $dark-dim-color;
+
+    &:nth-child(even) {
+      color: map-deep-get($themes, 'main', 'primary');
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .about-main-screen {
+    position: relative;
+
+    background-image: linear-gradient(91deg, #f0f0f0 19%, rgba(240, 240, 240, 0.53) 60%, rgba(240, 240, 240, 0.62) 100%);
+
+    &__wrap {
+      padding: 18rem 0;
+    }
+
+    &__logo {
+      img {
+        width: 21rem;
+      }
+    }
+
+    &__feature {
+      position: absolute;
+
+      &:nth-of-type(1) {
+        top: 12rem;
+        left: 15%;
+      }
+
+      &:nth-of-type(2) {
+        top: 22rem;
+        left: 5%;
+      }
+
+      &:nth-of-type(3) {
+        top: 35rem;
+        left: 10%;
+      }
+
+      &:nth-of-type(4) {
+        top: 11rem;
+        right: 12%;
+      }
+
+      &:nth-of-type(5) {
+        top: 22rem;
+        right: 6%;
+      }
+
+      &:nth-of-type(6) {
+        top: 34rem;
+        right: 10%;
+      }
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .about-main-screen {
+
+    background-image: linear-gradient(91deg, #f0f0f0 19%, rgba(240, 240, 240, 0.53) 60%, rgba(240, 240, 240, 0.62) 100%);
+
+    &__wrap {
+      padding-top: 6rem;
+      padding-bottom: 10rem;
+    }
+
+    &__logo {
+      img {
+        width: 28rem;
+      }
+    }
+
+    &__feature {
+      &:nth-of-type(1),
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        transform: translateX(-26vw);
+      }
+
+      &:nth-of-type(4),
+      &:nth-of-type(5),
+      &:nth-of-type(6) {
+        transform: translateX(26vw);
+      }
+
+      &:nth-of-type(1) {
+        top: 6rem;
+        left: 45%;
+      }
+
+      &:nth-of-type(2) {
+        top: 12.5rem;
+        left: 35%;
+      }
+
+      &:nth-of-type(3) {
+        top: 22rem;
+        left: 40%;
+      }
+
+      &:nth-of-type(4) {
+        top: 5.5rem;
+        right: 40%;
+      }
+
+      &:nth-of-type(5) {
+        top: 13rem;
+        right: 35%;
+      }
+
+      &:nth-of-type(6) {
+        top: 22rem;
+        right: 38%;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .about-main-screen {
+    &__wrap {
+      @include centered-block(120rem);
+
+      position: relative;
+
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+
+    &__feature {
+      &:nth-of-type(1) {
+        left: 20%;
+      }
+
+      &:nth-of-type(2) {
+        left: 10%;
+      }
+
+      &:nth-of-type(3) {
+        left: 15%;
+      }
+
+      &:nth-of-type(4) {
+        right: 18%;
+      }
+
+      &:nth-of-type(5) {
+        right: 12%;
+      }
+
+      &:nth-of-type(6) {
+        right: 16%;
+      }
+    }
+
+    &__wrap .about-main-screen__feature {
+      transform: none;
+    }
+  }
+}

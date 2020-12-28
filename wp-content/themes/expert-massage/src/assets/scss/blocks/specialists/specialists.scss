@@ -1,0 +1,86 @@
+@use '../../tools' as *;
+
+.specialists {
+  overflow: hidden;
+  margin-bottom: 7rem;
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__list {
+    @include reset-list();
+  }
+
+  &__list-item {
+    margin-bottom: 2rem;
+  }
+
+  .slider {
+    @include centered-block(48rem);
+
+    &__button {
+      @include box(3.5rem, 12rem);
+
+      &::before {
+        transition: border-color 0.4s;
+      }
+
+      @include in-focus() {
+        transform: translateY(-50%);
+
+        &::before {
+          border-color: map-deep-get($themes, 'main', 'secondary');
+        }
+      }
+
+      &_prev {
+        right: calc(100% - 1rem);
+      }
+
+      &_next {
+        left: calc(100% - 1rem);
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .specialists {
+    margin-bottom: 8rem;
+
+    &__title {
+      padding: 0 2rem;
+    }
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .specialists {
+    margin-bottom: 9rem;
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__content {
+      padding: 0 3rem;
+    }
+
+    .slider {
+      max-width: initial;
+
+      &__button {
+        top: calc(50% - 1.5rem);
+
+        &_prev {
+          right: 100%;
+        }
+
+        &_next {
+          left: 100%;
+        }
+      }
+    }
+  }
+}
