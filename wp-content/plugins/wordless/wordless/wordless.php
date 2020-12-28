@@ -280,11 +280,11 @@ ERRORTEXT;
     }
 
     public static function theme_stylesheets_path() {
-        return self::join_paths(self::theme_path(), 'src/stylesheets');
+        return self::join_paths(self::theme_path(), 'src/assets/scss');
     }
 
     public static function theme_javascripts_path() {
-        return self::join_paths(self::theme_path(), 'src/javascripts');
+        return self::join_paths(self::theme_path(), 'src/js');
     }
 
     public static function theme_static_assets_path() {
@@ -292,7 +292,7 @@ ERRORTEXT;
     }
 
     public static function theme_static_javascripts_path() {
-        return self::join_paths(self::theme_path(), 'dist/javascripts');
+        return self::join_paths(self::theme_path(), 'dist/js');
     }
 
     public static function theme_temp_path() {

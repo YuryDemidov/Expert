@@ -52,7 +52,7 @@ class UrlHelper {
    * @ingroup helperfunc
    */
   function image_url($path) {
-    return asset_url("images/$path");
+    return asset_url("img/$path");
   }
 
   /**
@@ -67,7 +67,7 @@ class UrlHelper {
    */
   function stylesheet_url($path) {
     if (!preg_match("/\.css$/", $path)) $path .= ".css";
-    return asset_url("stylesheets/$path");
+    return asset_url("$path");
   }
 
   /**
@@ -82,7 +82,7 @@ class UrlHelper {
    */
   function javascript_url($path) {
     if (!preg_match("/\.js$/", $path)) $path .= ".js";
-    return asset_url("javascripts/$path");
+    return asset_url("js/$path");
   }
 
   /**
