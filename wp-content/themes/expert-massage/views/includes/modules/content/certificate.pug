@@ -1,0 +1,36 @@
+-
+  var certificatePicture = {
+    desktop: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/certificate/certificate_desktop@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/certificate/certificate_desktop@2x.webp`
+      },
+      png: {
+        '1x': `${THEME_IMG_PATH}/certificate/certificate_desktop@1x.png`,
+        '2x': `${THEME_IMG_PATH}/certificate/certificate_desktop@2x.png`
+      }
+    },
+    tablet: false,
+    mobile: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/certificate/certificate_mobile@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/certificate/certificate_mobile@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/certificate/certificate_mobile@3x.webp`
+      },
+      png: {
+        '1x': `${THEME_IMG_PATH}/certificate/certificate_mobile@1x.png`,
+        '2x': `${THEME_IMG_PATH}/certificate/certificate_mobile@2x.png`,
+        '3x': `${THEME_IMG_PATH}/certificate/certificate_mobile@3x.png`
+      }
+    }
+  }
+
+section.certificate(data-aos='fade-up' data-aos-offset='100' data-aos-duration='800' data-aos-anchor-placement='top-bottom')
+  .container
+    .certificate__content
+      h2.certificate__title.heading Подарочный сертификат
+      +picture-tag(certificatePicture, certificatePicture.desktop.png['2x'], 'Фото подарочного сертификата', '315', '267').certificate__image
+      p.certificate__text
+        | Поздравьте близких с&nbsp;пользой&nbsp;— подарите им сертификат на&nbsp;сеанс массажа. Вы сможете выбрать либо
+        | конкретную сумму покупки, либо число сеансов, как&nbsp;удобнее. Сертификат действует год с&nbsp;момента покупки
+      button.certificate__button.button.button_secondary(type='button' data-open-popup='appointment') Хочу сертификат

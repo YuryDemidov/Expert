@@ -1,0 +1,72 @@
+- var globalData = locals.data.globalData
+-
+  var menuData = {
+    list: [
+      {
+        text: 'Цены и акции',
+        url: '/prices/'
+      },
+      {
+        text: 'Отзывы',
+        url: '/reviews/'
+      },
+      {
+        text: 'О нас',
+        url: '/about/'
+      },
+      {
+        text: 'Контакты',
+        url: '/contacts/'
+      },
+      {
+        text: 'Интересное',
+        url: '/articles/'
+      }
+    ]
+  }
+
+mixin submenu-list(type, i)
+  ul.submenu__list
+    li.submenu__list-item
+      h3.submenu__list-heading= type
+    each massage in globalData.massages
+      if ((i === 0) && (massage.type === 'body')) || ((i === 1) && (massage.type === 'face')) || ((i === 2) && (massage.type === 'figure'))
+        +submenu-item(massage)
+      if (massage.id === 8) && (i === 2)
+        +submenu-item(massage)
+
+mixin submenu-item(massage)
+  li.submenu__list-item
+    a.submenu__link.link(href=massage.url)= massage.name
+    if massage.tag
+      b.submenu__tag(class=(massage.tag.color ? `submenu__tag_${massage.tag.color}` : false))= massage.tag.text
+
+nav.page-header__menu.main-menu
+  h2.visually-hidden Главное меню
+  ul.main-menu__list
+    li.main-menu__list-item.hidden_desktop-tablet
+      a.main-menu__link.link(href='/') На главную
+    li.main-menu__list-item.main-menu__submenu-trigger.dropdown(data-on='hover' data-state='closed' tabindex='0')
+      span.main-menu__section.dropdown__trigger Виды массажа
+      .main-menu__submenu.dropdown__body
+        .submenu
+          .submenu__lists
+            - var massageTypes = ['Для здоровья тела', 'Для красоты лица', 'Для стройной фигуры']
+            each type, i in massageTypes
+              +submenu-list(type, i)
+          article.submenu__promo.submenu-promo
+            a.submenu-promo__wrap(href='/prices/')
+              h2.submenu-promo__caption
+                b.submenu-promo__tag Акция
+                span.submenu-promo__caption-text Первый сеанс массажа минус 20&thinsp;%
+    each link, i in menuData.list
+      li.main-menu__list-item(class={'main-menu__list-item_hidden': i >= 3})
+        a.main-menu__link.link(href=link.url)= link.text
+      if i === 2
+        li.main-menu__list-item.main-menu__additional.dropdown(data-on='hover')
+          span.dropdown__trigger Ещё
+          ul.main-menu__hidden-list.dropdown__body
+            each link, i in menuData.list
+              if i >= 3
+                li.main-menu__hidden-item
+                  a.main-menu__hidden-link.link(href=menuData.list[i].url)= menuData.list[i].text

@@ -1,0 +1,92 @@
+-
+  var backResultPhotos = [
+    {
+      desktop: false,
+      tablet: false,
+      mobile: {
+        webp: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_big-1.webp`,
+          '2x': false
+        },
+        jpg: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_big-1.jpg`,
+          '2x': false
+        }
+      }
+    },
+    {
+      desktop: false,
+      tablet: false,
+      mobile: {
+        webp: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_big-2.webp`,
+          '2x': false
+        },
+        jpg: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_big-2.jpg`,
+          '2x': false
+        }
+      }
+    },
+    {
+      desktop: false,
+      tablet: false,
+      mobile: {
+        webp: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_small-1@1x.webp`,
+          '2x': `${THEME_IMG_PATH}/results/back-results_small-1@2x.webp`
+        },
+        jpg: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_small-1@1x.jpg`,
+          '2x': `${THEME_IMG_PATH}/results/back-results_small-1@2x.jpg`
+        }
+      }
+    },
+    {
+      desktop: false,
+      tablet: false,
+      mobile: {
+        webp: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_small-2@1x.webp`,
+          '2x': `${THEME_IMG_PATH}/results/back-results_small-2@2x.webp`
+        },
+        jpg: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_small-2@1x.jpg`,
+          '2x': `${THEME_IMG_PATH}/results/back-results_small-2@2x.jpg`
+        }
+      }
+    },
+    {
+      desktop: false,
+      tablet: false,
+      mobile: {
+        webp: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_small-3@1x.webp`,
+          '2x': false
+        },
+        jpg: {
+          '1x': `${THEME_IMG_PATH}/results/back-results_small-3@1x.jpg`,
+          '2x': false
+        }
+      }
+    }
+  ]
+
+if (locals.data.pageData.theme === 'main') || (locals.data.pageData.theme === '12')
+  section#backResults.massage-results__section.back-results(class=(locals.data.pageData.theme === 'main' ? 'hidden' : false))
+    .slider
+      button.slider__button.slider__button_prev.hidden_desktop-tablet(aria-label="Предыдущий слайд")
+      .back-results__slider
+        .back-results__column
+          .back-results__slide
+            +picture-tag(backResultPhotos[2], backResultPhotos[2].mobile.jpg['1x'], 'Результаты лечебного массажа спины')
+          .back-results__slide
+            +picture-tag(backResultPhotos[3], backResultPhotos[3].mobile.jpg['1x'], 'Результаты лечебного массажа спины')
+          .back-results__slide
+            +picture-tag(backResultPhotos[4], backResultPhotos[4].mobile.jpg['1x'], 'Результаты лечебного массажа спины')
+        .back-results__slides-group
+          .back-results__slide
+            +picture-tag(backResultPhotos[0], backResultPhotos[0].mobile.jpg['1x'], 'Снимки МРТ до и после курса лечебного массажа')
+          .back-results__slide
+            +picture-tag(backResultPhotos[1], backResultPhotos[1].mobile.jpg['1x'], 'Снимки МРТ до и после курса лечебного массажа')
+      button.slider__button.slider__button_next.hidden_desktop-tablet(aria-label="Следующий слайд")

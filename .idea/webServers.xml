@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1fc146c4-a5f9-42fb-a9c7-ed32da82378f" name="Expert" url="http://new.expert-massage-clinic.ru/">
+        <fileTransfer rootFolder="/home/m/mrantog6/new.expert-massage-clinic.ru" accessType="SFTP" host="mrantog6.beget.tech" port="22" sshConfigId="221716a9-7490-4885-84f4-b88ce1a151c0" sshConfig="mrantog6_u72hgf@mrantog6.beget.tech:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,649 @@
+-
+  locals.data.globalData = {
+    currentYear: date('Y'),
+    massages: {
+      'back-massage': {
+        id: 12,
+        name: 'Лечебный массаж спины',
+        fullName: 'Лечебный массаж спины',
+        url: '/articles/back-massage/',
+        type: 'body',
+        tag: {
+          text: 'От боли',
+          color: 'main'
+        },
+        price: {
+          first: 2100,
+          standard: 2700
+        },
+        duration: 50,
+        shortDescription: 'Убирает боль в спине, лечит заболева&shy;ния позвоночника, возвращает свободу движений и активную жизнь'
+      },
+      'body-lymphatic-drainage': {
+        id: 8,
+        name: 'Лимфодренажный',
+        fullName: 'Лимфодренажный массаж тела',
+        url: '/articles/body-lymphatic-drainage/',
+        type: 'body',
+        price: {
+          first: 2200,
+          standard: 2800
+        },
+        duration: 50,
+        shortDescription: 'Рекомендован при отёках любой части тела, лишнем весе, тяжести в ногах. Оздоравливает весь организм'
+      },
+      'figure-modeling': {
+        id: 7,
+        name: 'Ручное моделирование фигуры',
+        fullName: 'Ручное моделирование фигуры',
+        url: '/articles/figure-modeling/',
+        type: 'figure',
+        price: {
+          first: 3500,
+          standard: 3500,
+          old: 5000
+        },
+        duration: 60,
+        promo: {
+          text: `<span class=''>Акция</span> — скидка на январь и февраль 30%`,
+          starPlacement: 3, // 2 - first price, 3 - second price, 4 - duration
+          title: '30% скидка на ручное модели&shy;рование фигуры',
+          cardText: 'На январь и февраль',
+          buttonText: 'Записаться',
+          buttonColor: '#fe2c78',
+          image: `${THEME_IMG_PATH}/prices-page/promo-bg-2@2x.jpg`
+        },
+        shortDescription: 'Рекомендован при выраженном целлюлите. Процедура включает лимфодренаж и обёртывание'
+      },
+      'fullbody-massage': {
+        id: 11,
+        name: 'Общий массаж тела',
+        fullName: 'Общий массаж тела',
+        url: '/articles/fullbody-massage/',
+        type: 'body',
+        price: {
+          first: 2400,
+          standard: 3000
+        },
+        duration: 60,
+        shortDescription: 'Расслабляющий и оздоравливающий массаж всего тела, поможет справиться со стрессом и улучшит сон'
+      },
+      'sports-massage': {
+        id: 6,
+        name: 'Спортивный',
+        fullName: 'Спортивный массаж',
+        url: '/articles/sports-massage/',
+        type: 'body',
+        price: {
+          first: 2400,
+          standard: 3000
+        },
+        duration: 60,
+        shortDescription: 'Для восстановления после тренировок или спортивных травм, и общего здоровья тела'
+      },
+      'anti-cellulite-massage': {
+        id: 9,
+        name: 'Антицеллюлитный',
+        fullName: 'Антицеллюлитный массаж',
+        url: '/articles/anti-cellulite-massage/',
+        type: 'figure',
+        price: {
+          first: 2100,
+          standard: 2700
+        },
+        duration: 40,
+        shortDescription: 'Рекомендован при выраженном целлюлите, если нет цели сильно похудеть. Включает обёртывание'
+      },
+      'neck-massage': {
+        id: 10,
+        name: 'Шейно-воротниковой зоны',
+        fullName: 'Массаж шейно-воротниковой зоны',
+        url: '/articles/neck-massage/',
+        type: 'body',
+        price: {
+          first: 2000,
+          standard: 2000
+        },
+        duration: 30,
+        shortDescription: ''
+      },
+      'sculptural-buccal-massage': {
+        id: 1,
+        name: 'Скульптурно-буккальный',
+        fullName: 'Скульптурно-буккальный массаж лица',
+        url: '/articles/sculptural-buccal-massage/',
+        type: 'face',
+        tag: {
+          text: 'Хит',
+          color: 'alt'
+        },
+        price: {
+          first: 3300,
+          standard: 3300,
+          old: 4800
+        },
+        duration: 60,
+        promo: {
+          text: `<span class=''>Акция</span> — скидка на январь и февраль 30%`,
+          starPlacement: 3, // 1 - massage name, 2 - first price, 3 - second price, 4 - duration
+          title: '30% скидка на скульптурно-буккальный массаж!',
+          cardText: 'Любое количество сеансов. Только на январь и февраль',
+          buttonText: 'Записаться',
+          buttonColor: '#06319f',
+          image: `${THEME_IMG_PATH}/prices-page/promo-bg-1@2x.jpg`
+        },
+        shortDescription: 'Самый эффективный массаж лица. Полноценная альтернатива пластике, омоложение и улучшение черт лица'
+      },
+      'facial-lymphatic-drainage': {
+        id: 3,
+        name: 'Лимфодренажный',
+        fullName: 'Лимфодренажный массаж лица',
+        url: '/articles/facial-lymphatic-drainage/',
+        type: 'face',
+        price: {
+          first: 2100,
+          standard: 2700
+        },
+        duration: 50,
+        shortDescription: 'Рекомендован при отёках лица, мешках под глазами. Эффект первого сеанса очень наглядный'
+      },
+      'classic-facial-massage': {
+        id: 2,
+        name: 'Классический',
+        fullName: 'Классический массаж лица',
+        url: '/articles/classic-facial-massage/',
+        type: 'face',
+        price: {
+          first: 2100,
+          standard: 2700
+        },
+        duration: 50,
+        shortDescription: 'Восстановление природного здоровья и тонуса мышц, мягкая проработка'
+      },
+      'chiromassage': {
+        id: 5,
+        name: 'Хиромассаж',
+        fullName: 'Хиромассаж лица',
+        url: '/articles/chiromassage/',
+        type: 'face',
+        price: {
+          first: 2900,
+          standard: 3600
+        },
+        duration: 60,
+        shortDescription: 'Сочетание европейской и восточной техники, наполняет энергией, возвращает в ресурс'
+      },
+      'japanese-asahi-massage': {
+        id: 4,
+        name: 'Японский массаж Асахи',
+        fullName: 'Массаж лица Асахи-Зоган',
+        url: '/articles/japanese-asahi-massage/',
+        type: 'face',
+        price: {
+          first: 2900,
+          standard: 3600
+        },
+        duration: 60,
+        shortDescription: 'Японский формирующий массаж. Глубокая, интенсивная проработка мышц и костных тканей'
+      }
+    },
+    mainPromo: {
+      title: '20%&nbsp;скидка на&nbsp;1-ый&nbsp;сеанс',
+      subtitle: 'На&nbsp;всё, кроме массажа шейно-воротниковой зоны',
+      text: `Мы знаем, как важно, чтобы массажист вам подходил и&nbsp;было комфортно. Приходите на&nbsp;первый сеанс
+        со&nbsp;скидкой, чтобы познакомиться и&nbsp;обсудить цели.
+        <br>
+        <br>
+        И&nbsp;пожалуйста, не&nbsp;стесняйтесь говорить нашим
+        специалистам, если что-то&nbsp;не&nbsp;так`,
+      buttonText: 'Получить скидку'
+    },
+    company: {
+      foundationYear: 2008,
+      phones: [
+        '+7 499 397-71-81',
+        '+7 915 000-63-42'
+      ],
+      address: `м. Цветной Бульвар<br>1-й Волконский переулок, д.15`,
+      workingHours: `с 9:00 до 21:00<br>без выходных`,
+      specialists: [
+        {
+          id: 1,
+          name: 'Рыбников Антон Николаевич',
+          tags: [
+            '12 лет опыта',
+            'Ведущий специалист'
+          ],
+          description: [
+            'Проводит все виды массажа лица и тела, помогает избавиться от боли в спине, отёков, целлюлита, решает сложные эстетические проблемы.',
+            'Работал в ведущих медицинских центрах — клинике №1 им. Пирогова, центре диетологии НИИ питания, Федеральном центре реабилитации.',
+            'Член «Международного Альянса Массажистов». Автор методики «Максимально эффективное лечение боли при проведении лечебного массажа», преподаватель школы массажа.'
+          ],
+          reviewsCount: 118,
+          images: {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/1_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/1_desktop@2x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/1_desktop@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/1_desktop@2x.jpg`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/1_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/1_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/specialists/1_mobile@3x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/1_mobile@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/1_mobile@2x.jpg`,
+                '3x': `${THEME_IMG_PATH}/specialists/1_mobile@3x.jpg`
+              }
+            }
+          }
+        },
+        {
+          id: 2,
+          name: 'Ефременкова Ирина Владимировна',
+          tags: [
+            '10 лет опыта',
+            'Член Международного Альянса Массажистов'
+          ],
+          description: [
+            'Ирина проводит все виды массажа лица и тела, и помогла множеству клиентов избавиться от возрастных проблем, болей в спине, отёков и целлюлита. С большим удовольствием делает скульптурный массаж лица и радуется тому, как преображаются её клиенты.',
+            'Работала в авторитетных медицинских центрах — Центр коррекции фигуры и веса, областная больница восстановительного лечения. Владеет более чем 15 техниками массажа и регулярно повышает квалификацию.'
+          ],
+          reviewsCount: 106,
+          images: {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/3_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/3_desktop@2x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/3_desktop@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/3_desktop@2x.jpg`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/3_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/3_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/specialists/3_mobile@3x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/3_mobile@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/3_mobile@2x.jpg`,
+                '3x': `${THEME_IMG_PATH}/specialists/3_mobile@3x.jpg`
+              }
+            }
+          }
+        },
+        {
+          id: 3,
+          name: 'Батькова Наталья Александровна',
+          tags: [
+            '21 год стажа',
+            `Медицинский подход<span class='hidden_mobile'> к массажу</span>`
+          ],
+          description: [
+            'Считает массаж делом своей жизни и постоянно повышает квалификацию. Выполняет все виды массажа, но особенно любит избавлять от лишнего веса и целлюлита, наблюдать, как клиентки становятся легче и счастливее',
+            'За годы опыта работала в самых авторитетных медицинских клиниках и центрах (отделение медицинской реабилитации клиники С.Н. Гринберга, клиника неврологии и остеопатии, а также клиники по коррекции тела с помощью массажа).'
+          ],
+          reviewsCount: 65,
+          images: {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/2_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/2_desktop@2x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/2_desktop@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/2_desktop@2x.jpg`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/2_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/2_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/specialists/2_mobile@3x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/2_mobile@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/2_mobile@2x.jpg`,
+                '3x': `${THEME_IMG_PATH}/specialists/2_mobile@3x.jpg`
+              }
+            }
+          }
+        },
+        {
+          id: 4,
+          name: 'Маликова Татьяна Анатольевна',
+          tags: [
+            '10 лет опыта',
+            'Массаж — и работа, и хобби'
+          ],
+          description: [
+            'Татьяна отлично разбирается во всех видах массажа лица и тела, и постоянно совершенствует мастерство. Она одинаково любит работать над эстетическими и медицинскими проблемами, и уже помогла множеству клиентов избавиться от боли в спине, сбросить вес и омолодить лицо.',
+            'До прихода в нашу клинику Татьяна успела поработать в авторитетных клиниках коррекции лица и тела, и медицинских центрах'
+          ],
+          reviewsCount: 24,
+          images: {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/4_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/4_desktop@2x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/4_desktop@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/4_desktop@2x.jpg`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/specialists/4_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/specialists/4_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/specialists/4_mobile@3x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/specialists/4_mobile@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/specialists/4_mobile@2x.jpg`,
+                '3x': `${THEME_IMG_PATH}/specialists/4_mobile@3x.jpg`
+              }
+            }
+          }
+        }
+      ],
+      socials: {
+        ig: {
+          link: 'https://www.instagram.com/expert_massage_clinic/'
+        },
+        vk: {
+          link: '#'
+        },
+        fb: {
+          link: '#'
+        }
+      }
+    }
+  }
+-
+  locals.data.globalData.company.businessDuration = locals.data.globalData.currentYear - locals.data.globalData.company.foundationYear
+  locals.data.globalData.company.features = [
+    {
+      bigText: `${locals.data.globalData.company.businessDuration} лет`,
+      smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about/'>О нас</a>`
+    },
+    {
+      bigText: '10 лет',
+      smallText: `минимальный стаж специалистов,<br>у всех мед. образование`
+    },
+    {
+      bigText: '800',
+      smallText: `честных <a class='link link_primary underline' href='/reviews/'>отзывов</a>
+        с&nbsp;${locals.data.globalData.company.foundationYear}&nbsp;по&nbsp;${locals.data.globalData.currentYear}
+        <span class='main-screen__feature-rating'>
+          <span>рейтинг&nbsp;в&nbsp;Яндекс&nbsp;<span aria-hidden='true'>5</span></span>
+          <svg class='rating-block__star-icon' width='20' height='20' aria-label='5 звёзд'>
+            <use xlink:href='#star-icon'></use>
+          </svg>
+        </span>`
+    }
+  ]
+  locals.data.globalData.priceList = {
+    sections: {
+      body: {
+        title: 'Для здоровья тела',
+        massages: [
+          locals.data.globalData.massages['back-massage'],
+          locals.data.globalData.massages['body-lymphatic-drainage'],
+          locals.data.globalData.massages['fullbody-massage'],
+          locals.data.globalData.massages['sports-massage'],
+          locals.data.globalData.massages['neck-massage']
+        ]
+      },
+      face: {
+        title: 'Для красоты лица',
+        massages: [
+          locals.data.globalData.massages['sculptural-buccal-massage'],
+          locals.data.globalData.massages['facial-lymphatic-drainage'],
+          locals.data.globalData.massages['classic-facial-massage'],
+          locals.data.globalData.massages['chiromassage'],
+          locals.data.globalData.massages['japanese-asahi-massage']
+        ]
+      },
+      figure: {
+        title: 'Для стройной фигуры',
+        massages: [
+          locals.data.globalData.massages['anti-cellulite-massage'],
+          locals.data.globalData.massages['body-lymphatic-drainage'],
+          locals.data.globalData.massages['figure-modeling']
+        ]
+      }
+    },
+    procedures: [
+      {
+        name: 'Массаж шейно-воротниковой зоны и грудного отдела позвоночника',
+        price: 2400
+      },
+      {
+        name: 'Массаж шейно-воротниковой зоны и обеих рук',
+        price: 2500
+      },
+      {
+        name: 'Массаж пояснично-крестцовой области и одной ноги',
+        price: 2100
+      },
+      {
+        name: 'Массаж пояснично-крестцовой области и обеих ног',
+        price: 2400
+      },
+      {
+        name: 'Массаж спины и ног',
+        price: 3000
+      },
+      {
+        name: 'Обёртывание общее',
+        price: 2700
+      },
+      {
+        name: 'Обёртывание антицеллюлитное',
+        price: 2200
+      },
+      {
+        name: 'Массаж баночный антицеллюлитный',
+        price: 2600
+      },
+      {
+        name: 'Массаж баночный спины',
+        price: 2100
+      }
+    ],
+    additions: [
+      {
+        name: 'Массаж головы',
+        price: 700
+      },
+      {
+        name: 'Массаж грудной клетки по окружности',
+        price: 400
+      },
+      {
+        name: 'Массаж живота',
+        price: 500
+      },
+      {
+        name: 'Массаж одной руки',
+        price: 400
+      },
+      {
+        name: 'Массаж обеих рук',
+        price: 700
+      },
+      {
+        name: 'Массаж одной руки и лопатки',
+        price: 600
+      },
+      {
+        name: 'Массаж кисти, лучезапястного сустава и предплечья',
+        price: 400
+      },
+      {
+        name: 'Массаж локтевого сустава',
+        price: 200
+      },
+      {
+        name: 'Массаж плечевого сустава',
+        price: 300
+      },
+      {
+        name: 'Массаж стоп',
+        price: 500
+      },
+      {
+        name: 'Массаж стопы и голени',
+        price: 600
+      },
+      {
+        name: 'Массаж голеностопного сустава',
+        price: 200
+      },
+      {
+        name: 'Массаж коленного сустава',
+        price: 200
+      },
+      {
+        name: 'Массаж тазобедренного сустава',
+        price: 400
+      },
+      {
+        name: 'Массаж одной ноги',
+        price: 1100
+      },
+      {
+        name: 'Массаж обеих ног',
+        price: 2000
+      }
+    ]
+  }
+  locals.data.globalData.commonFaceFaq = [
+    {
+      question: `Как именно помогает массаж?<br> За счёт чего подтягиваются мышцы?`,
+      answer: `Всё довольно просто&nbsp;— когда массажист работает с мышечным каркасом лица и шеи, улучшается кровообращение, цвет лица и состояние кожи. Массажист снимает спазм мышц, возвращает им правильное положение.<br><br>Все основные эстетические проблемы лица&nbsp;— из-за спазмированных мышц. Поэтому результат массажа проявляется так быстро, и остаётся стабильным при периодической поддержке. Глубокое воздействие, которое мы делаем в клинике, приводит к очень стойкому результату, так как восстана&shy;вливается правильное положение костей, мышц, фасций и сосудов. За счёт этого уходят морщины, отёки, зажимы, ассимет&shy;рии лица. И это&nbsp;— ваше настоящее лицо, а не искусственно созданное пластикой. Вы не теряете свой облик, уникальность и естественность, вы только улучшаете их, к тому же всё это полностью безопасно`
+    },
+    {
+      question: `Это не больно? Какие ощущения при&nbsp;процедуре?`,
+      answer: `Нет, массаж лица это приятная процедура. Если какая-то мышца у вас сильно спазмирована, специалист будет работать с ней очень аккуратно, и не доставит вам дискомфорта. Некоторые наши клиенты даже засыпают на сеансе. Скорее всего, процедура доставит вам только удовольствие, а если неприятные ощущения будут, то это будет лишь лёгкий дискомфорт, и то один-два раза за весь сеанс. В общем, повода переживать нет`
+    },
+    {
+      question: `Как поддерживать результат?<br> Если перестану, всё разъедется?`,
+      answer: `Будет замечательно, если вы сможете приходить на поддерживающие сеансы 1-2 раза в месяц, либо курсом 1-2 раза в год. Это может показаться сложным, но такой подход поможет вам сохранить результат на долгие годы&nbsp;— лицо будет оставаться упругим, молодым и подтянутым. Но даже если вы решите не продолжать сеансы, лицо будет ещё долго радовать вас отличным тонусом. А дальше результат потихоньку будет становиться не таким ярким, но ничего ужасного не произойдёт. Полного отката назад не случится, лицо не станет выглядеть хуже, чем до массажа, и резкого обвисания тканей тоже не будет. Массаж, в отличие от пластики, полностью исключает такие последствия.`
+    },
+    {
+      question: `Можно ли делать массаж с филлерами, нитями, ботоксом и т.д?`,
+      answer: `Краткий ответ&nbsp;— да, но нужно быть готовым, что филлеры будут рассасываться быстрее.<br>
+        <br>
+        На результаты ботокса и нитей массаж не повлияет, главное переждать восстановительный период после процедуры. Время восстановления после процедуры ботокса составит 1-2 месяца, после нитей 3-6 недель, а после филлеров&nbsp;— до 2 месяцев. Со временем курсы массажа вполне могут заменить вам все инъекционные и хирургические процедуры.`
+    },
+    {
+      question: `А кожа не растянется при таком воздействии?`,
+      answer: `Нет, не растянется&nbsp;— при правильной технике невозможно растянуть кожу массажем. Специалисты в нашей клинике работают только по лучшим мировым методикам, они уверены в каждом своём движении, и точно знают, как принести вашей внешности только пользу. Кожа после массажа станет только лучше, она будет упругой, подтянутой и свежей.`
+    }
+  ]
+-
+  locals.data.articles = {
+    1: {
+      id: 1,
+      url: '/articles/12-steps/',
+      title: '12&nbsp;шагов к&nbsp;здоровью',
+      tags: ['Авторская статья клиники'],
+      textPreview: `Все мы хотим быть счастливыми и&nbsp;здоровыми. Здоровье&nbsp;— это самый ценный капитал,
+              который легко потерять, но&nbsp;сложно восстановить. Не&nbsp;так страшно лишиться денег, работы, машины...`,
+      navigation: {
+        1: 'Введение',
+        2: 'Шаг 1. Поддерживайте уровень воды',
+        3: 'Шаг 2. Помните о пользе омега 3',
+        4: 'Шаг 3. Добавьте аминокислоты',
+        5: 'Шаг 4. Избавьтесь от сахара',
+        6: 'Шаг 5. Уберите из жизни дрожжи',
+        7: 'Шаг 6. Выбирайте цельные продукты',
+        8: 'Шаг 7. Исключите трансжиры',
+        9: 'Шаг 8. Избавьтесь от кофеина',
+        10: 'Шаг 9. Научитесь ценить сон',
+        11: 'Шаг 10. Наведите порядок в теле',
+        12: 'Шаг 11. Добавьте в жизнь движение',
+        13: 'Шаг 12. Будьте счастливы',
+      }
+    },
+    2: {
+      id: 2,
+      url: '/articles/massage-oil/',
+      title: 'Массажное масло',
+      textPreview: `Тактильный контакт рук мастера с&nbsp;кожными покровами пациента становится более комфортным,
+        если во&nbsp;время проведения сеанса массажное масло наносится на&nbsp;тело...`
+    },
+    3: {
+      id: 3,
+      url: '/articles/about-massage/',
+      title: 'Про массаж',
+      textPreview: `Массаж&nbsp;— это физиотерапевтическая процедура, которая заключается в&nbsp;меха&shy;ническом
+        воздействии на&nbsp;организм через кожу. В&nbsp;массаж входят основные приемы, такие как поглаживание...`
+    },
+    4: {
+      id: 4,
+      url: '/articles/massage-pros-and-cons/',
+      title: 'Польза и&nbsp;вред массажа',
+      textPreview: `Ценность массажа колоссальна: он запускает мощные механизмы исцеления без&nbsp;необходимости
+        употреблять таблетки, часто обладающие побочными реакциями. Лечебная процедура...`
+    },
+    5: {
+      id: 5,
+      url: '/articles/cervical-massage-against-osteochondrosis/',
+      title: 'Массаж шейно-воротни&shy;ковой зоны при&nbsp;шейном остеохондрозе',
+      textPreview: `Разрушение хрящевой ткани между шейными позвонками провоцирует...`
+    },
+    6: {
+      id: 6,
+      url: '/articles/cervical-massage-at-home/',
+      title: 'Как размять шею в&nbsp;домашних условиях',
+      tags: ['Содержит видеоуроки'],
+      textPreview: `Головная боль, хроническая усталость, отеки&nbsp;— последствия малоактивного образа жизни
+        и&nbsp;сидячей работы, которая создает напряжение в&nbsp;области шеи...`
+    },
+    7: {
+      id: 7,
+      url: '/articles/back-massage-for-osteochondrosis/',
+      title: 'Массаж спины при&nbsp;остеохондрозе',
+      textPreview: `Динамика распространения остеохондроза отличается нарастающим темпом — дегенеративные изменения
+        все чаще диагностируются у молодых...`
+    },
+    8: {
+      id: 8,
+      url: '/articles/massage-with-medical-ointments/',
+      title: 'Массаж с&nbsp;медицинскими мазями',
+      textPreview: `Даже без применения дополнительных препаратов массаж является эффектив&shy;ной восстанавливающей
+        процедурой, улучшающей состояние человека...`
+    },
+    9: {
+      id: 9,
+      url: '/articles/osteochondrosis/',
+      title: 'Остеохондроз',
+      textPreview: `Клинические обследования позво&shy;ночника (рентген, МРТ, КТ), которые периодически проходит
+        каждый пациент, эффективно выявляют все болезненные...`
+    },
+    10: {
+      id: 10,
+      url: '/articles/correct-back-massage-at-home/',
+      tags: ['Содержит видеоуроки'],
+      title: 'Как правильно делать массаж спины в&nbsp;дома&shy;шних условиях',
+      textPreview: `Дефицит свободного времени и уста&shy;лость в конце рабочего дня&nbsp;— главные причины, почему
+        визит к&nbsp;массажисту... `
+    }
+  }

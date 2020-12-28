@@ -1,0 +1,25 @@
+- var specialists = locals.data.globalData.company.specialists
+
+section.specialists
+  .container
+    .specialists__content
+      h2.heading.specialists__title Наши специалисты&nbsp;— массажисты международного уровня
+      .slider
+        button.slider__button.slider__button_prev(aria-label='Предыдущий специалист')
+        ul.specialists__list
+          each specialist in specialists
+            li.specialists__list-item
+              .specialist-card
+                +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.name, '170', '160').specialist-card__image
+                .specialist-card__info
+                  ul.specialist-card__tags
+                    each tag, i in specialist.tags
+                      li.specialist-card__tag(class=((specialist.id === 3) && (i === 0) ? 'hidden_mobile' : false))!= tag
+                  h3.specialist-card__name= specialist.name
+                  a.specialist-card__reviews.link.underline.link_secondary(href='/reviews/')= `${specialist.reviewsCount} ${declOfNum(specialist.reviewsCount, ['отзыв', 'отзыва', 'отзывов'])}`
+                  .specialist-card__description
+                    each text in specialist.description
+                      p.specialist-card__text= text
+                  .specialist-card__appointment
+                    a.specialist-card__button.button.button_primary(href='#' data-open-popup='appointment' data-specialist-id=specialist.id) Записаться на приём
+        button.slider__button.slider__button_next(aria-label='Следующий специалист')

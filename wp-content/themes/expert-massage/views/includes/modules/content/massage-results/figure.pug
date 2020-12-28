@@ -1,0 +1,221 @@
+- var figureResults = locals.data.pageData.massageResults.figure
+
+mixin figure-slide(number)
+  .figure-results__slide(class=`figure-results__slide_${number}`)
+    case number
+      when 1
+        -
+          var photo1_1 = {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@2x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@2x.png`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@3x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@2x.png`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@3x.png`
+              }
+            }
+          }
+          var photo1_2 = {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@2x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@2x.png`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@3x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@2x.png`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@3x.png`
+              }
+            }
+          }
+        h3.massage-results__slide-title 10 процедур антицеллюлитного массажа
+        .massage-results__photos
+          .massage-results__before
+            h4.massage-results__label.hidden_desktop До
+            +picture-tag(photo1_1, photo1_1.mobile.png['3x'], 'До курса массажа').massage-results__photo.massage-results__photo_before
+          .massage-results__after
+            h4.massage-results__label.hidden_desktop После
+            +picture-tag(photo1_2, photo1_2.mobile.png['3x'], 'Результат после курса массажа').massage-results__photo.massage-results__photo_after
+        .figure-results__description.figure-results__description_one
+          | За курс ушло 2&nbsp;размера одежды
+        .figure-results__description.figure-results__description_two
+          | По формам кажется, что девушка потеряла 7-10&nbsp;кг жира, но&nbsp;большая часть это лишняя меж&shy;клеточная жидкость,
+          | которая не&nbsp;вернётся
+        .massage-results__link
+          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+      when 2
+        -
+          var photo2_1 = {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@2x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@2x.png`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@3x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@2x.png`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@3x.png`
+              }
+            }
+          }
+          var photo2_2 = {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@2x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@2x.png`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@2x.webp`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@3x.webp`
+              },
+              png: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@1x.png`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@2x.png`,
+                '3x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@3x.png`
+              }
+            }
+          }
+        h3.massage-results__slide-title Курс ручного моделирования
+        .massage-results__photos
+          .massage-results__before
+            h4.massage-results__label.hidden_desktop До
+            +picture-tag(photo2_1, photo2_1.mobile.png['3x'], 'До курса массажа').massage-results__photo.massage-results__photo_before
+          .massage-results__after
+            h4.massage-results__label.hidden_desktop После
+            +picture-tag(photo2_2, photo2_2.mobile.png['3x'], 'Результат после курса массажа').massage-results__photo.massage-results__photo_after
+        .figure-results__description.figure-results__description_one
+          | За курс ушло 2&nbsp;размера одежды
+        .figure-results__description.figure-results__description_two
+          | Массаж помогает похудеть именно в&nbsp;проблемных зонах клиента. Такого точечного эффекта почти
+          | невозмож&shy;но добиться другими способами
+        .figure-results__description.figure-results__description_three
+          | За курс уходят такие проблемные зоны как “ушки” и бока, улучшается форма ягодиц, ног и живота
+        .massage-results__link
+          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+      when 3
+      when 4
+      when 5
+      when 6
+      when 7
+      when 8
+        -
+          var photoTheme7 = {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.jpg`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.jpg`
+              }
+            }
+          }
+        h3.massage-results__slide-title Курс ручного моделирования
+        .massage-results__labels
+          h4.massage-results__label.hidden_desktop До
+          h4.massage-results__label.hidden_desktop После
+        .massage-results__simple-slide.massage-results__simple-slide_7
+          +picture-tag(photoTheme7, photoTheme7.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
+        .massage-results__link
+          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+      when 9
+      when 10
+      when 11
+      when 12
+        -
+          var photoTheme9 = {
+            desktop: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.jpg`
+              }
+            },
+            tablet: false,
+            mobile: {
+              webp: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.webp`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.webp`
+              },
+              jpg: {
+                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.jpg`,
+                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.jpg`
+              }
+            }
+          }
+        h3.massage-results__slide-title Курс антицеллюлитного массажа
+        .massage-results__labels
+          h4.massage-results__label.hidden_desktop До
+          h4.massage-results__label.hidden_desktop После
+        .massage-results__simple-slide.massage-results__simple-slide_9
+          +picture-tag(photoTheme9, photoTheme9.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
+        .massage-results__link
+          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+
+if figureResults
+  section#figureResults.massage-results__section.figure-results(class=(locals.data.pageData.theme === 'main' ? 'hidden' : false))
+    .figure-results__slider.slider
+      button.slider__button.slider__button_prev(aria-label="Предыдущий слайд")
+      ul.figure-results__slides
+        each slideNumber in figureResults.slidesOrder
+          li.figure-results__slide-wrap
+            +figure-slide(slideNumber)
+      button.slider__button.slider__button_next(aria-label="Следующий слайд")

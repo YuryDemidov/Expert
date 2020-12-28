@@ -1,0 +1,117 @@
+//-
+  Структура url`ов фотографий в imagesArray
+  Порядок важен!
+  Если чего-то нет, передать false.
+  Форматы изображений jpg/png + webp.
+  Для мобильных 1x, 2x, 3x, для остального - 1x, 2x
+  Если для двух типов устройств используются одинаковые фото,
+  нужно прописать url`ы только для меньшего,
+  а для большего передать false (т.е. mobile > tablet > desktop)
+
+  desktop: {...},
+  tablet: {
+    webp: {
+      '1x': 'url/photo.webp',
+      '2x': 'url/photo.webp'
+    },
+    jpg/png: {
+      '1x': 'url/photo.jpg',
+      '2x': 'url/photo.jpg'
+    }
+  },
+  mobile: {...}
+mixin picture-tag(imagesArray, fallbackImage, altText, width, height)
+  span.picture(class=attributes.class)
+    picture
+      each formatsList, device in imagesArray
+        if formatsList
+          - var deviceAttribute = false
+          if device === 'tablet'
+            - deviceAttribute = '(min-width: 768px)'
+          if device === 'desktop'
+            - deviceAttribute = '(min-width: 1024px)'
+          each dprsList, format in formatsList
+            if dprsList
+              - var computedSrcSet = ''
+              - var mimeType = false
+              if format === 'webp'
+                - mimeType = 'image/webp'
+              if format === 'png'
+                - mimeType = 'image/png'
+              each images, dpr in dprsList
+                - var formattedDpr = (dpr === '1x') ? ', ' : ` ${dpr}, `
+                if images
+                  - computedSrcSet = computedSrcSet + `${images}${formattedDpr}`
+              source(srcset=computedSrcSet media=deviceAttribute type=mimeType)
+      img(src=fallbackImage alt!=altText width=width height=height)
+
+mixin svg-icon(id)
+  svg&attributes(attributes)
+    use(xlink:href=id)
+
+mixin accordion(triggerText, triggerId, bodyId, isExpanded)
+  .accordion(data-state=(isExpanded ? 'opened' : 'closed') class=attributes.class)
+    button.accordion__trigger(type='button' id=triggerId aria-controls=bodyId aria-expanded=(isExpanded ? 'true' : 'false'))
+      span.accordion__trigger-text!= triggerText
+    .accordion__body(id=bodyId role='region' aria-labelledby=triggerId)
+      block
+
+mixin text-input(placeholder, hasMessage, wrapClass)
+  .text-input(class=wrapClass)
+    input.text-input__input(type=(attributes.type || 'text') value=(attributes.value || ''))&attributes(attributes)
+    if placeholder
+      label.text-input__placeholder(for=attributes.id)!= placeholder
+    block
+    if hasMessage
+      p.message.hidden
+
+mixin custom-checkbox()
+  .custom-checkbox(class=attributes.class)
+    input.custom-checkbox__input.visually-hidden(id=attributes.id type='checkbox' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false) required=attributes.required)
+    label.custom-checkbox__label(for=attributes.id)
+      block
+
+mixin custom-radio()
+  .custom-radio(class=attributes.class)
+    input.custom-radio__input.visually-hidden(id=attributes.id type='radio' name=attributes.name value=attributes.value checked=(attributes.checked ? '' : false) disabled=(attributes.disabled ? '' : false) required=attributes.required)
+    label.custom-radio__label(for=attributes.id)
+      block
+
+mixin video(videoConfig, wrapClass)
+  .video-block(class=wrapClass)
+    video.video-block__video&attributes(attributes)
+      each source, extension in videoConfig.sources
+        source(src=source type=`video/${extension}`)
+      | Тег video не поддерживается вашим браузером.
+      |
+      a(href=videoConfig.sources.mp4) Скачайте видео
+    .video-block__poster(style=`background-image: url('${attributes.poster}')`)
+    a.video-block__play-button(href='#' aria-label='Запустить видео')
+
+mixin socials(iconsSizes)
+  ul.socials__icons
+    li.socials__icons-item
+      a.socials__link(href=locals.data.globalData.company.socials.ig.link)
+        +svg-icon('#ig-icon').socials__icon.socials__icon_ig(width=iconsSizes.ig[0] height=iconsSizes.ig[1])
+        +svg-icon('#ig-icon-color').socials__icon.socials__icon_ig.socials__icon_ig-color(width=iconsSizes.ig[0] height=iconsSizes.ig[1])
+    li.socials__icons-item
+      a.socials__link(href=locals.data.globalData.company.socials.vk.link)
+        +svg-icon('#vk-icon').socials__icon.socials__icon_vk(width=iconsSizes.vk[0] height=iconsSizes.vk[1])
+    li.socials__icons-item
+      a.socials__link(href=locals.data.globalData.company.socials.fb.link)
+        +svg-icon('#fb-icon').socials__icon.socials__icon_fb(width=iconsSizes.fb[0] height=iconsSizes.fb[1])
+
+mixin rating-block()
+  .rating-block(class=attributes.class)
+    b.rating-block__number(aria-hidden='true') 5
+    +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44' aria-label='5 звёзд')
+    p.rating-block__text
+      | наш рейтинг
+      img.rating-block__yandex-logo(src=`${THEME_IMG_PATH}/reviews-block/yandex-logo.svg` alt='Яндекс' width='40' height='15')
+
+mixin promo-card(title, subtitle, text, buttonText, buttonColor, image)
+  article.promotion-card(class=attributes.class style=(image ? `background-image: url(${image})` : false))&attributes(attributes)
+    h3.promotion-card__title!= title
+    p.promotion-card__subtitle!= subtitle
+    p.promotion-card__text!= text
+    button.promotion-card__button.button.button_primary(type='button' style=(buttonColor ? `background-color: ${buttonColor}` : false) data-open-popup='appointment')= buttonText
