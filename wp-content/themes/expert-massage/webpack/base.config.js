@@ -33,7 +33,7 @@ const MASSAGE_PAGE_TEMPLATES = [
   `sports-massage.pug`
 ]
 
-const filename = ext => isDev ? `[name].${ext}` : `[name].[contenthash:8].${ext}`;
+const filename = (dir, ext) => isDev ? `${dir}[name].${ext}` : `${dir}[name].[contenthash:8].${ext}`;
 
 /*// Pages const for HTMLWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
