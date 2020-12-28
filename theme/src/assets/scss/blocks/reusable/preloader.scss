@@ -1,9 +1,0 @@
-.preloader {
-  &__body {
-    animation-name: rotate;
-    animation-duration: 1.2s;
-    animation-timing-function: steps(18, end);
-    animation-iteration-count: infinite;
-    transform-origin: 50% 50%;
-  }
-}

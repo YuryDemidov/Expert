@@ -1,8 +1,0 @@
-section.blocks-list
-  .blocks-list__wrap.container
-    h2.heading.blocks-list__title!= locals.data.pageData.blocksList.title
-    ol.blocks-list__list
-      each item in locals.data.pageData.blocksList.items
-        li.blocks-list__item.blocks-list-item
-          h3.blocks-list-item__title!= item.title
-          p.blocks-list-item__text!= item.text

@@ -1,4 +1,6 @@
 const path = require('path');
+// const fs = require('fs');
+// const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -31,10 +33,12 @@ const MASSAGE_PAGE_TEMPLATES = [
   `sports-massage.pug`
 ]
 
-const filename = (dir, ext) => isDev ? `${dir}[name].${ext}` : `${dir}[name].[contenthash:8].${ext}`;
+const filename = ext => isDev ? `[name].${ext}` : `[name].[contenthash:8].${ext}`;
 
-// Pages const for HTMLWebpackPlugin
+/*// Pages const for HTMLWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
+const PAGES_DIR = `${PATHS.src}/pug/pages/`
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'));*/
 
 const plugins = () => {
   const base = [
@@ -58,7 +62,20 @@ const plugins = () => {
       context: path.resolve(__dirname, `${PATHS.src}/${PATHS.assets}/scss`),
       syntax: 'scss',
       emitErrors: false
-    })
+    }),
+
+    /*// Automatic creation any html pages (Don't forget to RERUN dev server)
+    // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
+    // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
+    ...PAGES.map(page => new HTMLWebpackPlugin({
+      inject: true,
+      chunks: injectChunks(page),
+      template: `${PAGES_DIR}/${page}`,
+      filename: `./${page.replace(/\.pug/, '.html')}`,
+      minify: {
+        collapseWhitespace: !isDev
+      }
+    }))*/
   ];
 
   if (!isDev) {
@@ -295,7 +312,17 @@ module.exports = {
   devtool: isDev ? 'source-map' : '',
   plugins: plugins(),
   module: {
-    rules: [{
+    rules: [/*{
+      test: /\.pug$/,
+      use: [
+        {
+          loader: 'pug-loader',
+          options: {
+            pretty: isDev
+          }
+        }
+      ]
+    }, */{
       test: /\.js$/,
       exclude: /node_modules/,
       use: jsLoaders()
@@ -328,7 +355,10 @@ module.exports = {
           outputPath: (url, resourcePath, context) => path.relative(context, resourcePath),
           esModule: false
         }
-      }]
+      }/*, {
+        loader: 'image-webpack-loader',
+        options: imageOptimOptions('[ext]')
+      }*/]
     }, {
       test: /\.(mp4|ogv|webm)$/,
       loader: 'file-loader',
