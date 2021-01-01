@@ -13,29 +13,29 @@
  * * Префикс таблиц базы данных
  * * ABSPATH
  *
- * @link https://ru.wordpress.org/support/article/editing-wp-config-php/
+ * @link https://codex.wordpress.org/Editing_wp-config.php
  *
  * @package WordPress
  */
 
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define( 'DB_NAME', 'expert' );
+define('DB_NAME', 'expert'); // server - define('DB_NAME', "mrantog6_exmscl");
 
 /** Имя пользователя MySQL */
-define( 'DB_USER', 'expert_user' );
+define('DB_USER', 'expert_user'); // server - define('DB_USER', "mrantog6_exmscl");
 
 /** Пароль к базе данных MySQL */
-define( 'DB_PASSWORD', '111111' );
+define('DB_PASSWORD', '111111'); // server - define('DB_PASSWORD', "*44PgHxy");
 
 /** Имя сервера MySQL */
-define( 'DB_HOST', 'localhost' );
+define('DB_HOST', 'localhost');
 
 /** Кодировка базы данных для создания таблиц. */
-define( 'DB_CHARSET', 'utf8mb4' );
+define('DB_CHARSET', 'utf8mb4'); // server - define('DB_CHARSET', 'utf8');
 
 /** Схема сопоставления. Не меняйте, если не уверены. */
-define( 'DB_COLLATE', '' );
+define('DB_COLLATE', '');
 
 /**#@+
  * Уникальные ключи и соли для аутентификации.
@@ -46,16 +46,19 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'ZH7V ]<yc=V2F2[L-yK,BN3SAygxB&}6a,{iV*RvWHrUXnWq+rI).pwMW*NiL(2T' );
-define( 'SECURE_AUTH_KEY',  'TK-q3m,N>J%!Cy`.<F^Iw(=Ho[N[I%>~[=8:Z8[!y>h`^oeV4^Vmk-@s&3fG/lkg' );
-define( 'LOGGED_IN_KEY',    '{U!qsm4b6bw]=>;D{_CoTBFryN%~=%^go%aLjdYHw+ezt|&uj~R*/1$G=b6M}hnA' );
-define( 'NONCE_KEY',        'Erq}|p5Sppw%!FW9YuwQ~%;MHB}#POgdn|wzD*k$&AJChZQd{;X~imWYYN?qm(OZ' );
-define( 'AUTH_SALT',        '4?v}Q`oNOe2xPa77ZdUngdqh|5r(L`j+&H75U(tpeuiws9(L++3n;|<u$_ONm==N' );
-define( 'SECURE_AUTH_SALT', '8npAU~St;Y[#XQkk}KhW=(<j>F9m&qtSYT@V7]Z+rXnZS1{#29*fK/z]hJy4t:+w' );
-define( 'LOGGED_IN_SALT',   ']+xT9}N_`e>s4/;UBVt/2AyuKL2P*|]7bFHMcG^gbua4r+A|4_D&CA(dq:mOn[;<' );
-define( 'NONCE_SALT',       'rgEZngOiIJ_?`r[wUR2yd~KFi$QS;(MntXo~W>SMvLU x?>D`y1{iX18j;y^2ecL' );
+define('AUTH_KEY',         'впишите сюда уникальную фразу');
+define('SECURE_AUTH_KEY',  'впишите сюда уникальную фразу');
+define('LOGGED_IN_KEY',    'впишите сюда уникальную фразу');
+define('NONCE_KEY',        'впишите сюда уникальную фразу');
+define('AUTH_SALT',        'впишите сюда уникальную фразу');
+define('SECURE_AUTH_SALT', 'впишите сюда уникальную фразу');
+define('LOGGED_IN_SALT',   'впишите сюда уникальную фразу');
+define('NONCE_SALT',       'впишите сюда уникальную фразу');
 
 /**#@-*/
+
+define('AUTOMATIC_UPDATER_DISABLED', true);
+
 
 /**
  * Префикс таблиц в базе данных WordPress.
@@ -72,19 +75,17 @@ $table_prefix = 'exp_';
  * Разработчикам плагинов и тем настоятельно рекомендуется использовать WP_DEBUG
  * в своём рабочем окружении.
  *
- * Информацию о других отладочных константах можно найти в документации.
+ * Информацию о других отладочных константах можно найти в Кодексе.
  *
- * @link https://ru.wordpress.org/support/article/debugging-in-wordpress/
+ * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', false);
 
 /* Это всё, дальше не редактируем. Успехов! */
 
 /** Абсолютный путь к директории WordPress. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
-}
+if (!defined('ABSPATH'))
+	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Инициализирует переменные WordPress и подключает файлы. */
-require_once ABSPATH . 'wp-settings.php';
-
+require_once(ABSPATH . 'wp-settings.php');
