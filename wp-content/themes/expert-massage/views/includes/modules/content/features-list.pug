@@ -1,9 +1,9 @@
-section.features-list(class=(locals.data.pageData.featuresBlock.blockNumber ? `features-list_${locals.data.pageData.featuresBlock.blockNumber}` : false))
+section.features-list(class=(pageData.featuresBlock.blockNumber ? `features-list_${pageData.featuresBlock.blockNumber}` : false))
   .container
     .features-list__content
-      h2.heading!= locals.data.pageData.featuresBlock.heading
+      h2.heading!= pageData.featuresBlock.heading
       ul.features-list__list
-        each feature, i in locals.data.pageData.featuresBlock.features
+        each feature, i in pageData.featuresBlock.features
           - var itemClass = 'features-list__item'
           - var aosDelay = `${150 * i}`
           li.features-list__item(
@@ -14,5 +14,5 @@ section.features-list(class=(locals.data.pageData.featuresBlock.blockNumber ? `f
             .features-list__image
             h3.features-list__feature-title!= feature.title
             p.features-list__feature-description!= feature.text
-      if locals.data.pageData.theme === 'main'
-        a.features-list__link.link.link_arrow.link_primary.underline(href=locals.data.pageData.featuresBlock.link.url)!= locals.data.pageData.featuresBlock.link.text
+      if pageData.theme === 'main'
+        a.features-list__link.link.link_arrow.link_primary.underline(href=pageData.featuresBlock.link.url)!= pageData.featuresBlock.link.text

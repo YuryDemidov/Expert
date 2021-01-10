@@ -1,4 +1,4 @@
-- var figureResults = locals.data.pageData.massageResults.figure
+- var figureResults = pageData.massageResults.figure
 
 mixin figure-slide(number)
   .figure-results__slide(class=`figure-results__slide_${number}`)
@@ -69,7 +69,7 @@ mixin figure-slide(number)
           | По формам кажется, что девушка потеряла 7-10&nbsp;кг жира, но&nbsp;большая часть это лишняя меж&shy;клеточная жидкость,
           | которая не&nbsp;вернётся
         .massage-results__link
-          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+          button(type='button' data-open-popup='appointment' data-massage-id='9').button.button_primary Записаться
       when 2
         -
           var photo2_1 = {
@@ -138,7 +138,7 @@ mixin figure-slide(number)
         .figure-results__description.figure-results__description_three
           | За курс уходят такие проблемные зоны как “ушки” и бока, улучшается форма ягодиц, ног и живота
         .massage-results__link
-          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+          button(type='button' data-open-popup='appointment' data-massage-id='7').button.button_primary Записаться
       when 3
       when 4
       when 5
@@ -174,7 +174,7 @@ mixin figure-slide(number)
         .massage-results__simple-slide.massage-results__simple-slide_7
           +picture-tag(photoTheme7, photoTheme7.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
-          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+          button(type='button' data-open-popup='appointment' data-massage-id='7').button.button_primary Записаться
       when 9
       when 10
       when 11
@@ -208,10 +208,10 @@ mixin figure-slide(number)
         .massage-results__simple-slide.massage-results__simple-slide_9
           +picture-tag(photoTheme9, photoTheme9.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
-          button(type='button' data-open-popup='appointment').button.button_primary Записаться
+          button(type='button' data-open-popup='appointment' data-massage-id='9').button.button_primary Записаться
 
 if figureResults
-  section#figureResults.massage-results__section.figure-results(class=(locals.data.pageData.theme === 'main' ? 'hidden' : false))
+  section#figureResults.massage-results__section.figure-results(class=(pageData.theme === 'main' ? 'hidden' : false))
     .figure-results__slider.slider
       button.slider__button.slider__button_prev(aria-label="Предыдущий слайд")
       ul.figure-results__slides

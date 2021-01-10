@@ -3,7 +3,9 @@ import { massageChoosingTestPopup } from './popup';
 import { MESSAGES } from '../../utils/constants/messages';
 import { messageManager } from '../../utils/managers/messageManager';
 import { phoneInputs } from '../textInputs';
+import delay from '../../utils/functions/promiseTimeout';
 
+const NO_DATA_PHRASE = `Ничего из этого`;
 const testForm = massageChoosingTestPopup.node.querySelector(`#massageChoosingTest`);
 const testFormMessage = massageChoosingTestPopup.node.querySelector(`.popup-massage-test__message`);
 const expandingInputs = testForm.querySelectorAll(`[name=test-question-3], [name=test-question-6]`);
@@ -70,7 +72,8 @@ function validateSlideData(slide) {
 function sendTestData() {
   const testFormManager = new FormSender({
     form: testForm,
-    dataCollector: () => new FormData(testForm),
+    url: `/wp-admin/admin-post.php`,
+    dataCollector: () => collectTestFormData(),
     requestFormat: `FormData`,
     responseDataHandler: data => dataSendSuccessHandler(data),
     errorHandler: error => showErrorMessage(error)
@@ -85,6 +88,41 @@ function showErrorMessage(error) {
     errorText = error.message;
   }
   messageManager.showMessage(errorText, `error`, testFormMessage);
+}
+
+function collectTestFormData() {
+  const testFormData = new FormData(testForm);
+  let problems;
+  let expectations;
+
+  testFormData.append(`age`, testFormData.get(`test-question-1`));
+
+  problems = testFormData.getAll(`test-question-2`).join(`; `);
+  if (problems === NO_DATA_PHRASE) {
+    problems = ``;
+  }
+
+  expectations = testFormData.getAll(`test-question-4`).join('; ');
+  expectations = expectations.replaceAll(/&amp;shy;/g, ``);
+  testFormData.append(`expectations`, expectations);
+
+  if (testFormData.get(`test-question-5`) !== NO_DATA_PHRASE) {
+    problems += `${
+      problems ? '; ' : ''
+    }${
+      testFormData.getAll(`test-question-5`).join(`; `)
+    }`;
+  }
+  testFormData.append(`problems`, problems);
+
+  testFormData.delete(`test-question-1`);
+  testFormData.delete(`test-question-2`);
+  testFormData.delete(`test-question-3`);
+  testFormData.delete(`test-question-4`);
+  testFormData.delete(`test-question-5`);
+  testFormData.delete(`test-question-6`);
+
+  return testFormData;
 }
 
 function hideErrorMessage() {
@@ -150,8 +188,11 @@ function dataSendSuccessHandler(data) {
   if (data?.result) {
     massageChoosingTestPopup.showFinalSlide();
     massageChoosingTestPopup.onClose = () => {
-      massageChoosingTestPopup.resetView();
-      delete massageChoosingTestPopup.onClose;
+      delay(400)
+        .then(() => {
+          massageChoosingTestPopup.resetView();
+          delete massageChoosingTestPopup.onClose;
+        });
     }
   }
 }

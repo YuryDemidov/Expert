@@ -1,4 +1,3 @@
-- var globalData = locals.data.globalData
 -
   var menuData = {
     list: [
@@ -44,8 +43,9 @@ mixin submenu-item(massage)
 nav.page-header__menu.main-menu
   h2.visually-hidden Главное меню
   ul.main-menu__list
-    li.main-menu__list-item.hidden_desktop-tablet
-      a.main-menu__link.link(href='/') На главную
+    if globalData.url !== '/'
+      li.main-menu__list-item.hidden_desktop-tablet
+        a.main-menu__link.link(href='/') На главную
     li.main-menu__list-item.main-menu__submenu-trigger.dropdown(data-on='hover' data-state='closed' tabindex='0')
       span.main-menu__section.dropdown__trigger Виды массажа
       .main-menu__submenu.dropdown__body

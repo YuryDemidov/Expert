@@ -1,7 +1,20 @@
-h2 Ошибка 404. Страница не найдена.
-p
-  strong Извините, такой страницы не существует или она была перемещена
-p
-  a(href='/') Вернуться на главную
+-
+  var pageData = {
+    title: 'Ошибка 404'
+  }
 
+doctype html
+html(lang='ru')
+  head
+    include ../includes/modules/head/head
 
+  body(style="padding: 50px; text-align: center; background-color: #f4f4f4;")
+    h2
+      | Ошибка 404.
+      |
+      br.hidden_desktop-tablet
+      | Страница не найдена
+    p(style="margin: 30px;")
+      strong Извините, такой страницы не существует или она была перемещена
+    p
+      a.link.underline(href='/') Вернуться на главную

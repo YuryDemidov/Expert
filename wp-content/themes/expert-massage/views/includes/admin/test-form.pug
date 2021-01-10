@@ -1,0 +1,44 @@
+- var data = JSON.parse(data)
+
+.wrap
+  h1 Результаты теста по выбору массажа
+  .table
+    .table__wrap
+      table.table__table
+        thead
+          tr.table__row
+            th.table__cell.table__cell_heading
+              span Имя
+            th.table__cell.table__cell_heading
+              span Телефон
+            th.table__cell.table__cell_heading
+              span Возраст
+            th.table__cell.table__cell_heading
+              span Проблемы
+            th.table__cell.table__cell_heading
+              span Болезни позвоночника
+            th.table__cell.table__cell_heading
+              span Ожидания
+            th.table__cell.table__cell_heading
+              span Предыдущий опыт
+            th.table__cell.table__cell_heading
+              span Дата
+        tbody
+          each person in data
+            tr.table__row
+              td.table__cell
+                span= person.name
+              td.table__cell
+                a(href=`tel:${person.phone}`)= person.phone
+              td.table__cell
+                span= person.age
+              td.table__cell.table__cell_multiline
+                span!= person.problems
+              td.table__cell.table__cell_multiline
+                span= person.spine_disease
+              td.table__cell.table__cell_multiline
+                span!= person.expectations
+              td.table__cell.table__cell_multiline
+                span= person.previous_experience
+              td.table__cell
+                span= person.date

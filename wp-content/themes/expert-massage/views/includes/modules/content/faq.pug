@@ -3,7 +3,7 @@ section.faq
     .faq__content
       h2.heading.faq__title Вопросы и ответы
       ul.faq__list
-        each faqItem, i in locals.data.pageData.faq
+        each faqItem, i in pageData.faq
           - var n = i + 1
           li.faq__list-item
             .accordion(data-state='closed')

@@ -1,10 +1,8 @@
 extends ../layouts/default
 
 block variables
-  - var globalData = locals.data.globalData
   -
-    locals.data.pageData = {
-      url: '/contacts/',
+    pageData = {
       title: `Массаж в центре Москвы, контактная информация`,
       description: `Массаж в центре Москвы, метро Цветной бульвар, 1-й Волконский переулок, 15 (5 минут ходьбы от станции метро)`,
       keywords: `массаж, центр, Москва, контакты, адрес, телефон, метро`,
@@ -65,7 +63,7 @@ block content
             h2.contact-info__subtitle Мы в соцсетях:
             +socials({ ig: ['24', '23'], vk: ['36', '22'], fb: ['24', '24'] })
         .contact-info__right-column
-          +picture-tag(locals.data.pageData.placementPhoto, locals.data.pageData.placementPhoto.desktop.jpg['2x'], 'г. Москва, м. Цветной Бульвар Волконский 1-й переулок, д.15').contact-info__placement-photo
+          +picture-tag(pageData.placementPhoto, pageData.placementPhoto.desktop.jpg['2x'], 'г. Москва, м. Цветной Бульвар Волконский 1-й переулок, д.15').contact-info__placement-photo
       include ../includes/modules/footer/map-block
 
 block script

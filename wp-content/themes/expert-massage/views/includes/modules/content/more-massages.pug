@@ -1,7 +1,7 @@
 - var title = 'Другие массажи для'
-if locals.data.pageData.theme <= 5
+if pageData.theme <= 5
   - title = `${title} лица`
-else if (locals.data.pageData.theme >= 7) && (locals.data.pageData.theme <= 9)
+else if (pageData.theme >= 7) && (pageData.theme <= 9)
   - title = `${title} стройной фигуры и здоровья`
 else
   - title = `${title} здоровья тела`
@@ -10,18 +10,18 @@ mixin massage-preview(id)
   li.more-massages__slider-item
     - var massageInfo
     - var isHighlighted = false
-    each massage in locals.data.globalData.massages
+    each massage in globalData.massages
       if massage.id === id
         - massageInfo = massage
       if id === 1
         - isHighlighted = true
-      if (id === 6) && (locals.data.pageData.theme === '12')
+      if (id === 6) && (pageData.theme === '12')
         - isHighlighted = true
-      if (id === 7) && ((locals.data.pageData.theme === '8') || (locals.data.pageData.theme === '9'))
+      if (id === 7) && ((pageData.theme === '8') || (pageData.theme === '9'))
         - isHighlighted = true
-      if (id === 9) && (locals.data.pageData.theme === '7')
+      if (id === 9) && (pageData.theme === '7')
         - isHighlighted = true
-      if (id === 12) && ((locals.data.pageData.theme === '6') || (locals.data.pageData.theme === '10') || (locals.data.pageData.theme === '11'))
+      if (id === 12) && ((pageData.theme === '6') || (pageData.theme === '10') || (pageData.theme === '11'))
         - isHighlighted = true
     .more-massages__card.massage-card(class={'more-massages__card_highlighted': isHighlighted})
       if id === 1
@@ -46,6 +46,6 @@ section.more-massages
       .slider
         button.slider__button.slider__button_prev(aria-label='Предыдущий отзыв')
         ul.more-massages__list.more-massages__slider
-          each massageId in locals.data.pageData.moreMassages
+          each massageId in pageData.moreMassages
             +massage-preview(massageId)
         button.slider__button.slider__button_next(aria-label='Следующий отзыв')

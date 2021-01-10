@@ -21,7 +21,7 @@ section.popup.popup-massage-test(data-popup='closed' data-popup-name='massage-te
             |
             span.test-progress__passed-questions-output 0
             |/6
-      form#massageChoosingTest.popup-massage-test__form(action='/' method='post')
+      form#massageChoosingTest.popup-massage-test__form(action='/wp-admin/admin-post.php' method='post')
         section.test-slide.test-slide_1
           h3.test-slide__title Сколько вам лет?
           .test-slide__inputs
@@ -54,6 +54,7 @@ section.popup.popup-massage-test(data-popup='closed' data-popup-name='massage-te
           +custom-radio().test-slide__input(id=`test-quest6-ans2` name='test-question-6' value='no') Нет
         section.test-slide.test-slide_7.hidden
           h3.test-slide__title Пожалуйста, оставьте контактные данные, чтобы&nbsp;получить&nbsp;результаты
+          input(type='hidden' name='action' value='test')
           +text-input('Имя', true, 'text-input_fill test-slide__input')#massageChoosingTestName(type='text' name='name' autocomplete='off' required)
           +text-input('Телефон', true, 'text-input_fill test-slide__input')#massageChoosingTestPhone(type='tel' name='phone' placeholder='+7(___)___-__-__' value='+7' autocomplete='off' required)
       footer.popup-massage-test__footer

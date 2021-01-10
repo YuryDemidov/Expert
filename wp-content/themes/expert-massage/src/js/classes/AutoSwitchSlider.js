@@ -1,6 +1,6 @@
 import isPartiallyInViewport from '../utils/functions/isPartiallyInViewport';
 
-export class AutoSwitchSlider {
+export default class AutoSwitchSlider {
   constructor(slider, slideSwitchThreshold) {
     this.slider = slider;
     this.SLIDE_SWITCH_THRESHOLD = slideSwitchThreshold;

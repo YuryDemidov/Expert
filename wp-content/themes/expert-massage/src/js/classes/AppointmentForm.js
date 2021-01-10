@@ -26,16 +26,18 @@ export default class AppointmentForm {
   init() {
     this.formManager = new FormSender({
       form: this.form,
-      dataCollector: () => new FormData(this.form),
+      url: `/wp-admin/admin-post.php`,
+      dataCollector: () => this.collectData(),
       requestFormat: `FormData`,
       responseDataHandler: data => {
-        messageManager.showMessage(`Форма отправлена и получен ответ: ${data}`, `success`, this.form);
+        if (data.result) {
+          this.clearForm();
+          this.showSuccessMessage();
+        }
       },
       errorHandler: error => {
-        messageManager.showMessage(`Форма отправлена, но ответ не получен. Ошибка: ${error}`, `error`, this.form);
+        messageManager.showMessage(error.message || error, `error`, this.form);
         logManager.logError(error);
-        this.clearForm();
-        this.showSuccessMessage();
       }
     });
 
@@ -45,7 +47,7 @@ export default class AppointmentForm {
     this.nameInput.addEventListener(`input`, evt => this.hideErrors(evt));
     this.phoneInput.addEventListener(`input`, evt => this.hideErrors(evt));
     this.personalDataCheckbox.addEventListener(`change`, evt => this.hideErrors(evt));
-    this.repeatButton?.addEventListener(`click`, evt => {
+    this.repeatButton && this.repeatButton.addEventListener(`click`, evt => {
       this.hideSuccessMessage(evt);
       clearTimeout(this.messageTimeout);
     });
@@ -130,6 +132,14 @@ export default class AppointmentForm {
         this.maskedPhoneInput.value = ``;
       }
     });
+  }
+
+  collectData() {
+    const massageIdBlock = this.form.closest(`[data-massage-id]`);
+    if (massageIdBlock) {
+      this.form.querySelector(`[name=massage-id]`).value = massageIdBlock.dataset.massageId;
+    }
+    return new FormData(this.form);
   }
 
   clearForm() {

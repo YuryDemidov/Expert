@@ -2,10 +2,10 @@ section.massage-description
   .container
     h2.heading.massage-description__title Подробнее о процедуре
     .massage-description__content
-      if (locals.data.pageData.theme !== '8') && (locals.data.pageData.theme !== '9')
+      if (pageData.theme !== '8') && (pageData.theme !== '9')
         +svg-icon('#dashed-path').massage-description__path.hidden_mobile-tablet(width='578' height='903' fill='none')
       ol.massage-description__list
-        each part, i in locals.data.pageData.massageDescription
+        each part, i in pageData.massageDescription
           li.massage-description__list-item
             .massage-description__item-wrap
               .massage-description__image(class=`massage-description__image_${i + 1}`)

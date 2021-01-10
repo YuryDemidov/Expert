@@ -1,4 +1,4 @@
-- var faceResults = locals.data.pageData.massageResults.face
+- var faceResults = pageData.massageResults.face
 
 mixin face-slide(number)
   .face-results__slide(class=(number === 1 ? 'face-results__slide_main' : `face-results__slide_${number}`))
@@ -58,7 +58,7 @@ mixin face-slide(number)
         h3.massage-results__slide-title
           | Курс
           |
-          if locals.data.pageData.theme === '1'
+          if pageData.theme === '1'
             span скульптурно-буккального массажа
           else
             a.link.massage-results__massage-link(href='/sculptural-buccal-massage/') скульптурно-буккального массажа
@@ -82,8 +82,8 @@ mixin face-slide(number)
           .face-results__description.face-results__description_five.hidden_mobile-tablet
             | Часть физиологических особенностей не убрать массажем, но они и не портят внешность
         .massage-results__link
-          if locals.data.pageData.theme === '1'
-            button.button.button_primary(type='button' data-open-popup='appointment') Записаться
+          if pageData.theme === '1'
+            button.button.button_primary(type='button' data-open-popup='appointment' data-massage-id=pageData.theme) Записаться
           else
             a(href='/sculptural-buccal-massage/').button.button_primary Читать о процедуре
       default
@@ -130,7 +130,7 @@ mixin face-slide(number)
         h3.massage-results__slide-title
           | Курс
           |
-          if locals.data.pageData.theme === linkGoalTheme
+          if pageData.theme === linkGoalTheme
             span= titleEnd
           else
             a.link.massage-results__massage-link(class=`massage-results__massage-link_${linkGoalTheme}` href=link)= titleEnd
@@ -140,7 +140,7 @@ mixin face-slide(number)
         .massage-results__simple-slide(class=slideClass)
           +picture-tag(photoFaceResult, photoFaceResult.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
-          button.button.button_primary(type='button' data-open-popup='appointment') Записаться
+          button.button.button_primary(type='button' data-open-popup='appointment' data-massage-id=linkGoalTheme) Записаться
 
 if faceResults
   section#faceResults.massage-results__section.face-results

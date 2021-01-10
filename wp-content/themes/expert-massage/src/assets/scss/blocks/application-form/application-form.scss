@@ -6,6 +6,8 @@
   margin-bottom: 12rem;
 
   &__background {
+    position: relative;
+
     max-width: 120rem;
     padding-top: 3rem;
     padding-bottom: 5rem;
@@ -19,6 +21,7 @@
     @include centered-block(65rem);
 
     padding: 0 1rem;
+    padding-bottom: 0.2rem;
   }
 
   &__title {

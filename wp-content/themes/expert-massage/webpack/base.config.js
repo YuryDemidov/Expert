@@ -35,10 +35,10 @@ const MASSAGE_PAGE_TEMPLATES = [
 
 const filename = (dir, ext) => isDev ? `${dir}[name].${ext}` : `${dir}[name].[contenthash:8].${ext}`;
 
-/*// Pages const for HTMLWebpackPlugin
+/* // Pages const for HTMLWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 const PAGES_DIR = `${PATHS.src}/pug/pages/`
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'));*/
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug')); */
 
 const plugins = () => {
   const base = [
@@ -62,9 +62,9 @@ const plugins = () => {
       context: path.resolve(__dirname, `${PATHS.src}/${PATHS.assets}/scss`),
       syntax: 'scss',
       emitErrors: false
-    }),
+    })
 
-    /*// Automatic creation any html pages (Don't forget to RERUN dev server)
+    /* // Automatic creation any html pages (Don't forget to RERUN dev server)
     // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
     // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
     ...PAGES.map(page => new HTMLWebpackPlugin({
@@ -75,7 +75,7 @@ const plugins = () => {
       minify: {
         collapseWhitespace: !isDev
       }
-    }))*/
+    })) */
   ];
 
   if (!isDev) {
@@ -112,7 +112,7 @@ const cssLoaders = (...extras) => {
   ];
 
   if (extras) {
-    for (let loader of extras) {
+    for (const loader of extras) {
       loaders.push(loader);
     }
   }
@@ -124,7 +124,7 @@ const babelOptions = (preset, plugin) => {
   const opts = {
     presets: [
       [
-      '@babel/preset-env',
+        '@babel/preset-env',
         {
           'useBuiltIns': 'usage',
           'corejs': 3.6
@@ -256,7 +256,6 @@ const optimization = () => {
   return config;
 };
 
-
 const imageOptimOptions = ext => {
   switch (ext) {
     case 'png':
@@ -295,7 +294,8 @@ module.exports = {
     paths: PATHS
   },
   entry: {
-    'app': [`${PATHS.src}/app.js`],
+    'app': `${PATHS.src}/app.js`,
+    'admin': `${PATHS.src}/admin.js`,
     'pages/index': `${PATHS.src}/js/pages/index/index.js`,
     'pages/massages': `${PATHS.src}/js/pages/massages/index.js`,
     'pages/about': `${PATHS.src}/js/pages/service/about/index.js`,
@@ -312,7 +312,7 @@ module.exports = {
   devtool: isDev ? 'source-map' : '',
   plugins: plugins(),
   module: {
-    rules: [/*{
+    rules: [/* {
       test: /\.pug$/,
       use: [
         {
@@ -323,52 +323,52 @@ module.exports = {
         }
       ]
     }, */{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: jsLoaders()
-    }, {
-      test: /\.css$/,
-      use: cssLoaders()
-    }, {
-      test: /\.s[ac]ss$/,
-      use: cssLoaders({
-        loader: 'resolve-url-loader'
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: jsLoaders()
       }, {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: true
-        }
-      })
-    }, {
-      test: /\.(woff(2)?|ttf|eot)$/,
-      loader: 'file-loader',
-      options: {
-        name: filename(`fonts/`, `[ext]`),
-        outputPath: PATHS.assets
-      }
-    }, {
-      test: /\.(webp|png|jpe?g|svg)$/,
-      use: [{
+        test: /\.css$/,
+        use: cssLoaders()
+      }, {
+        test: /\.s[ac]ss$/,
+        use: cssLoaders({
+          loader: 'resolve-url-loader'
+        }, {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        })
+      }, {
+        test: /\.(woff(2)?|ttf|eot)$/,
         loader: 'file-loader',
         options: {
-          name: filename(``, `[ext]`),
-          outputPath: (url, resourcePath, context) => path.relative(context, resourcePath),
-          esModule: false
+          name: filename(`fonts/`, `[ext]`),
+          outputPath: PATHS.assets
         }
-      }/*, {
-        loader: 'image-webpack-loader',
-        options: imageOptimOptions('[ext]')
-      }*/]
-    }, {
-      test: /\.(mp4|ogv|webm)$/,
-      loader: 'file-loader',
-      options: {
-        outputPath: (url, resourcePath, context) => path.relative(context, resourcePath),
-        name: filename(``, `[ext]`)
-      }
-    }, {
-      test: /\.xml$/,
-      loader: 'xml-loader'
-    }]
+      }, {
+        test: /\.(webp|png|jpe?g|svg)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: filename(``, `[ext]`),
+            outputPath: (url, resourcePath, context) => path.relative(context, resourcePath),
+            esModule: false
+          }
+        }/* , {
+          loader: 'image-webpack-loader',
+          options: imageOptimOptions('[ext]')
+        } */]
+      }, {
+        test: /\.(mp4|ogv|webm)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: (url, resourcePath, context) => path.relative(context, resourcePath),
+          name: filename(``, `[ext]`)
+        }
+      }, {
+        test: /\.xml$/,
+        loader: 'xml-loader'
+      }]
   }
 };

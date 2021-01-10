@@ -72,8 +72,8 @@
     }
   ]
 
-if (locals.data.pageData.theme === 'main') || (locals.data.pageData.theme === '12')
-  section#backResults.massage-results__section.back-results(class=(locals.data.pageData.theme === 'main' ? 'hidden' : false))
+if (pageData.theme === 'main') || (pageData.theme === '12')
+  section#backResults.massage-results__section.back-results(class=(pageData.theme === 'main' ? 'hidden' : false))
     .slider
       button.slider__button.slider__button_prev.hidden_desktop-tablet(aria-label="Предыдущий слайд")
       .back-results__slider

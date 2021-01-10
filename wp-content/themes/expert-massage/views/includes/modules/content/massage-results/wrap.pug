@@ -1,7 +1,7 @@
 section.massage-results
   .massage-results__content.container
-    h2.massage-results__title.heading= locals.data.pageData.massageResults.title
-    if locals.data.pageData.theme === 'main'
+    h2.massage-results__title.heading= pageData.massageResults.title
+    if pageData.theme === 'main'
       nav.massage-results__nav.tab-nav
         ul.tab-nav__list
           each type, i in [{ id: 'faceResults', name: 'Лицо'}, { id: 'backResults', name: 'Спина' }, { id: 'figureResults', name: 'Фигура' }]

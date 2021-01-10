@@ -1,5 +1,5 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
-import { AutoSwitchSlider } from '../classes/AutoSwitchSlider';
+import AutoSwitchSlider from '../classes/AutoSwitchSlider';
 import checkDeviceWidth from '../utils/functions/checkDeviceWidth';
 import cutLastWord from '../utils/functions/cutLastWord';
 import debounce from '../utils/decorators/debounce';

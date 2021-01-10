@@ -1,8 +1,6 @@
-- var globalData = locals.data.globalData
-
 header.page-header(data-state='static')
   .page-header__wrap
-    a.page-header__logo-link(href=(locals.data.pageData.url === '/' ? false : '/'))
+    a.page-header__logo-link(href=(globalData.url === '/' ? false : '/'))
       +picture-tag(globalData.company.logoImages, globalData.company.logoImages.desktop.png['2x'], 'Клиника профессионального массажа Expert').page-header__logo-image
     .page-header__panel
       include main-menu

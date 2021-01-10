@@ -1,11 +1,9 @@
 extends ../layouts/default
 
 block variables
-  - var globalData = locals.data.globalData
-  - var specialists = locals.data.globalData.company.specialists
+  - var specialists = globalData.company.specialists
   -
-    locals.data.pageData = {
-      url: '/about/',
+    pageData = {
       title: `Клиника профессионального массажа в Москве с медицинской лицензией`,
       description: `Приветствуем Вас на сайте, где профессиональный массаж объясняется простым и доступным языком. Здесь
         Вы сможете узнать важную и полезную информацию о массаже, получить бесплатную консультацию.`,
@@ -70,7 +68,7 @@ block content
     .about-page__main-screen.about-main-screen
       .about-main-screen__wrap
         a.about-main-screen__logo-link(href='/')
-          +picture-tag(locals.data.pageData.logo, locals.data.pageData.logo.mobile.png['3x'], 'Expert. Professional Massage Clinic').about-main-screen__logo
+          +picture-tag(pageData.logo, pageData.logo.mobile.png['3x'], 'Expert. Professional Massage Clinic').about-main-screen__logo
         .about-main-screen__feature Лучшие авторские и&nbsp;мировые&nbsp;методики
         .about-main-screen__feature Честные цены и&nbsp;быстрый&nbsp;результат
         .about-main-screen__feature Профессионалы, преданные&nbsp;своему&nbsp;делу
@@ -102,19 +100,19 @@ block content
               | Мы уверены в&nbsp;качестве своих услуг, но&nbsp;если после сеанса вы поймёте, что процедура вам
               | не&nbsp;понравилась, мы вернём деньги за&nbsp;сеанс без&nbsp;лишних вопросов.
           figcaption.blockquote-card__caption
-            +picture-tag(locals.data.pageData.founderPhoto, locals.data.pageData.founderPhoto.mobile.jpg['3x'], 'Рыбников Антони Николаевич', 71, 71).blockquote-card__author-photo
+            +picture-tag(pageData.founderPhoto, pageData.founderPhoto.mobile.jpg['3x'], 'Рыбников Антони Николаевич', 71, 71).blockquote-card__author-photo
             p.blockquote-card__author
               | Антон Рыбников,
               |
               br
               | основатель клиники
-            +picture-tag(locals.data.pageData.signature, locals.data.pageData.signature.mobile.jpg['3x'], 'Подпись Рыбникова Антона Николаевича', 71, 71).blockquote-card__author-signature
+            +picture-tag(pageData.signature, pageData.signature.mobile.jpg['3x'], 'Подпись Рыбникова Антона Николаевича', 71, 71).blockquote-card__author-signature
       section.about-page__specialists.about-specialists
         h2.about-page__title.heading О специалистах
         .specialist-card.specialist-card_main
           - specialists[0].images.mobile = false
-          +picture-tag(specialists[0].images, specialists[0].images.desktop.jpg['2x'], specialists[0].name).specialist-card__image
-          h3.specialist-card__name= specialists[0].name
+          +picture-tag(specialists[0].images, specialists[0].images.desktop.jpg['2x'], specialists[0].fullname).specialist-card__image
+          h3.specialist-card__name= specialists[0].fullname
           p.specialist-card__caption
             | основатель клиники, ведущий специалист
             br
@@ -133,7 +131,7 @@ block content
               | Мне важно, чтобы всё время, проведён&shy;ное вами в&nbsp;клинике, от&nbsp;первого визита до&nbsp;финального
               | результата, было комфортным и&nbsp;полезным. Буду рад любой обратной связи на&nbsp;личную почту
               |
-              a.link.link_primary(href='mailto:anton_rybnikov@gmail.com') anton_rybnikov@gmail.com
+              a.link.link_primary(href='mailto:a.n.rybnikov@yandex.ru') a.n.rybnikov@yandex.ru
             .dropdown(data-on='click' data-state='closed')
               h4.specialist-card__subtitle.dropdown__trigger Об&nbsp;опыте работы
               .dropdown__body
@@ -152,7 +150,7 @@ block content
           if (i !== 0)
             .specialist-card
               - specialist.images.mobile = false
-              +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.name).specialist-card__image
+              +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.fullName).specialist-card__image
               .specialist-card__info
                 ul.specialist-card__tags
                   if (specialist.id !== 2)
@@ -161,7 +159,7 @@ block content
                   else
                     li.specialist-card__tag!= specialist.tags[1]
                     li.specialist-card__tag!= specialist.tags[0]
-                h3.specialist-card__name= specialist.name
+                h3.specialist-card__name= specialist.fullName
                 .specialist-card__description
                   each text in specialist.description
                     p.specialist-card__text= text

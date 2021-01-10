@@ -1,0 +1,36 @@
+- var data = JSON.parse(data)
+
+.wrap
+  h1 Запись на массаж
+  .table
+    .table__wrap
+      table.table__table
+        thead
+          tr.table__row
+            th.table__cell.table__cell_heading
+              span Имя
+            th.table__cell.table__cell_heading
+              span Телефон
+            th.table__cell.table__cell_heading
+              span Выбранный массаж
+            th.table__cell.table__cell_heading
+              span Выбранный специалист
+            th.table__cell.table__cell_heading
+              span Нужен сертификат
+            th.table__cell.table__cell_heading
+              span Дата подачи заявки
+        tbody
+          each application in data
+            tr.table__row
+              td.table__cell
+                span= application.name
+              td.table__cell
+                a(href=`tel:${application.phone}`)= application.phone
+              td.table__cell
+                span= application.massage || '-'
+              td.table__cell
+                span= application.specialist || '-'
+              td.table__cell
+                span= application.certificate ? 'Да' : '-'
+              td.table__cell
+                span= application.date

@@ -1,10 +1,8 @@
 extends ../layouts/default
 
 block variables
-  - var globalData = locals.data.globalData
   -
-    locals.data.pageData = {
-      url: '/articles/',
+    pageData = {
       title: `Статьи о массаже и правильном образе жизни`,
       description: `Полезные, интересные и познавательные статьи о достоинствах и пользе массажа. Простым языком
         рассказываем о различных методиках и аспектах, показаниях и противопоказаниях`,
@@ -21,7 +19,7 @@ block content
     .container
       h1.articles-page__title.heading Интересное
       ul.articles-page__list
-        each article in locals.data.articles
+        each article in articles
           li.articles-page__list-item
             a.articles-page-card(class=`articles-page-card_${article.id}` href=article.url)
               ul.articles-page-card__tags

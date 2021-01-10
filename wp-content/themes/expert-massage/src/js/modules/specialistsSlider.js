@@ -1,8 +1,8 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
+import AutoSwitchSlider from '../classes/AutoSwitchSlider';
 import { appointmentPopup } from './popups/popupAppointment';
 import expandBlock from '../utils/functions/expandBlock';
 import isTextOverflows from '../utils/functions/isTextOverflows';
-import { AutoSwitchSlider } from '../classes/AutoSwitchSlider';
 
 const specialistsSliderWrap = document.querySelector(`.specialists .slider`);
 let specialistAutoplaySlider;
@@ -68,7 +68,8 @@ function collapseDescription(descriptionWrap) {
     descriptionWrap.removeAttribute(`style`);
   }
 
-  descriptionWrap.querySelector(`.specialist-card__expand-button`)?.classList.remove(`hidden`);
+  const expandButton = descriptionWrap.querySelector(`.specialist-card__expand-button`)
+  expandButton && expandButton.classList.remove(`hidden`);
 }
 
 function expandDescription(evt) {

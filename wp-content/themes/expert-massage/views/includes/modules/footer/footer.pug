@@ -25,6 +25,6 @@ footer.page-footer
     .page-footer__company
       a(href='/')
         +picture-tag(footerLogo, footerLogo.mobile.jpg['3x'], 'Клиника профессионального массажа Expert', '125', '26').page-footer__logo
-      p.page-footer__company-text= `Массаж в Москве ${locals.data.globalData.company.foundationYear}-${locals.data.globalData.currentYear}`
+      p.page-footer__company-text= `Массаж в Москве ${globalData.company.foundationYear}-${globalData.currentYear}`
     .page-footer__socials
       +socials({ ig: ['25', '24'], vk: ['38', '23'], fb: ['26', '26'] })

@@ -28,17 +28,21 @@
 
         content: '';
 
-        background-color: #c7c7c7;
+        background-color: $light-dim-color;
         border-radius: 50%;
       }
 
       &:focus::before {
-        border: 1px solid $xx-dark-dim-color;
+        background-color: $x-dark-dim-color;
       }
 
       &.tns-nav-active {
         &::before {
-          background-color: #9f9f9f;
+          background-color: $dim-color;
+        }
+
+        &:focus::before {
+          background-color: $dark-dim-color;
         }
       }
     }

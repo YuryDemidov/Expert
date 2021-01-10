@@ -9,5 +9,5 @@ section.map-block
           source(srcset=`${THEME_IMG_PATH}/map/static-map_mobile.jpg`)
           img(src=`${THEME_IMG_PATH}/map/static-map_desktop.jpg` alt='' height='420')
       .map-block__info
-        p.map-block__text!= locals.data.globalData.company.address
-        p.map-block__text!=locals.data.globalData.company.workingHours
+        p.map-block__text!= globalData.company.address
+        p.map-block__text!=globalData.company.workingHours

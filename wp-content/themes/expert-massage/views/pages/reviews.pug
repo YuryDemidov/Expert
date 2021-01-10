@@ -1,10 +1,8 @@
 extends ../layouts/default
 
 block variables
-  - var globalData = locals.data.globalData
   -
-    locals.data.pageData = {
-      url: '/reviews/',
+    pageData = {
       title: `Отзывы`,
       description: `Отзывы о различных видах массажа в центре профессионального массажа Expert`,
       keywords: `профессиональный, массаж, Москва, отзывы`,
@@ -116,7 +114,8 @@ block content
       p.reviews-page__text Если вы уже были на наших сеансах, но ещё не оставили отзыв, подели&shy;тесь, пожалуйста, вашими впечатле&shy;ниями, ощущениями и результатом. Возможно, именно ваши слова помогут другим людям, которые только начали искать себе мас&shy;сажиста, сделать правильный выбор.
       section.reviews-page__form.review-form
         h2.reviews-page__subtitle Оставьте отзыв
-        form.review-form__form(action='/' method='post')
+        form.review-form__form(action='/wp-admin/admin-post.php' method='post')
+          input(type='hidden' name='action' value='review')
           +text-input('Ваше имя*', true, 'review-form__input text-input_fill')#reviewerName
           +text-input('Email', true, 'review-form__input text-input_fill')#reviewerEmail(type='email')
           .review-form__textarea
@@ -126,11 +125,11 @@ block content
         h2.reviews-page__subtitle Отзывы наших клиентов
         nav.reviews-filters
           ul.reviews-filters__list
-            each filter, i in locals.data.pageData.filters
+            each filter, i in pageData.filters
               li.reviews-filters__list-item
                 button.reviews-filters__filter(type='button' data-type=filter.id data-active=(i === 0 ? '' : false))= filter.name
         .reviews__wrap
-          each review in locals.data.pageData.mockReviews
+          each review in pageData.mockReviews
             article.review-card(data-id=review.id data-type=review.type)
               p.review-card__text= review.text
               p.review-card__info= `${review.author}, ${review.date}`

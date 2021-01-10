@@ -1,10 +1,8 @@
 extends ../layouts/default
 
 block variables
-  - var globalData = locals.data.globalData
   -
-    locals.data.pageData = {
-      url: '/prices/',
+    pageData = {
       title: `Цены, акции и скидки на массаж в Москве`,
       description: `Массаж, цены, акции и скидки — прайс-лист со стоимостью услуг на массаж`,
       keywords: `цены, акции, скидки, массаж, Москва`,
@@ -29,7 +27,7 @@ block content
     section.prices-page__promotions
       h2.visually-hidden Текущие акции
       .prices-page__promotions-wrap.container
-        each promo, i in locals.data.pageData.promotions
+        each promo, i in pageData.promotions
           +promo-card(
             promo.title,
             promo.subtitle,
@@ -39,7 +37,7 @@ block content
             promo.image
           ).prices-page__promotion(class=(i === '1' ? 'prices-page__promotion_main' : `prices-page__promotion_${i}`))
     .price-list.prices-page__main-prices
-      each section, sectionName in locals.data.globalData.priceList.sections
+      each section, sectionName in globalData.priceList.sections
         - var promoText = ''
         section.price-list__section
           h2.price-list__section-title= section.title
@@ -72,7 +70,7 @@ block content
       section.prices-page__more-procedures.more-procedures-prices
         h2.prices-page__subtitle.more-procedures-prices__title Также мы можем провести следующие процедуры
         table.more-procedures-prices__table.table
-          each procedure in locals.data.globalData.priceList.procedures
+          each procedure in globalData.priceList.procedures
             tr.table__row
               td.table__cell= procedure.name
               td.table__cell!= `${procedure.price}&thinsp;₽`
@@ -83,7 +81,7 @@ block content
           | Например, у&nbsp;вас болит плечо, но&nbsp;вы приходите на&nbsp;эстетический массаж, и&nbsp;хотите совместить
           | процедуры. Скажите мастеру о&nbsp;проблеме, и&nbsp;он сделает вам дополнительный массаж из&nbsp;списка ниже:
         table.additions-prices__table.table
-          each addition in locals.data.globalData.priceList.additions
+          each addition in globalData.priceList.additions
             tr.table__row
               td.table__cell= addition.name
               td.table__cell!= `${addition.price}&thinsp;₽`

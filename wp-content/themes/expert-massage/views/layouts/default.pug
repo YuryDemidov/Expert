@@ -1,6 +1,3 @@
-//- IMPORTANT! Global object 'locals' is used for possibility to apply variables outside includes scope
-- locals.data = {}
-
 include ../utils/mixins
 include ../utils/functions
 include ../utils/global-data
@@ -8,37 +5,37 @@ include ../utils/global-data
 block variables
 
 -
-  locals.data.globalData.company.logoImages = {
+  globalData.company.logoImages = {
     desktop: {
       webp: {
-        '1x': `${THEME_IMG_PATH}/logo/desktop-logo_${locals.data.pageData.theme}@1x.webp`,
-        '2x': `${THEME_IMG_PATH}/logo/desktop-logo_${locals.data.pageData.theme}@2x.webp`
+        '1x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@2x.webp`
       },
       png: {
-        '1x': `${THEME_IMG_PATH}/logo/desktop-logo_${locals.data.pageData.theme}@1x.png`,
-        '2x': `${THEME_IMG_PATH}/logo/desktop-logo_${locals.data.pageData.theme}@2x.png`
+        '1x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@1x.png`,
+        '2x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@2x.png`
       }
     },
     tablet: {
       webp: {
-        '1x': `${THEME_IMG_PATH}/logo/tablet-logo_${locals.data.pageData.theme}@1x.webp`,
-        '2x': `${THEME_IMG_PATH}/logo/tablet-logo_${locals.data.pageData.theme}@2x.webp`
+        '1x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@2x.webp`
       },
       png: {
-        '1x': `${THEME_IMG_PATH}/logo/tablet-logo_${locals.data.pageData.theme}@1x.png`,
-        '2x': `${THEME_IMG_PATH}/logo/tablet-logo_${locals.data.pageData.theme}@2x.png`
+        '1x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@1x.png`,
+        '2x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@2x.png`
       }
     },
     mobile: {
       webp: {
-        '1x': `${THEME_IMG_PATH}/logo/mobile-logo_${locals.data.pageData.theme}@1x.webp`,
-        '2x': `${THEME_IMG_PATH}/logo/mobile-logo_${locals.data.pageData.theme}@2x.webp`,
-        '3x': `${THEME_IMG_PATH}/logo/mobile-logo_${locals.data.pageData.theme}@3x.webp`
+        '1x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@3x.webp`
       },
       png: {
-        '1x': `${THEME_IMG_PATH}/logo/mobile-logo_${locals.data.pageData.theme}@1x.png`,
-        '2x': `${THEME_IMG_PATH}/logo/mobile-logo_${locals.data.pageData.theme}@2x.png`,
-        '3x': `${THEME_IMG_PATH}/logo/mobile-logo_${locals.data.pageData.theme}@3x.png`
+        '1x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@1x.png`,
+        '2x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@2x.png`,
+        '3x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@3x.png`
       }
     }
   }
@@ -49,7 +46,7 @@ html(lang='ru')
     include ../includes/modules/head/head
     block head
 
-  body.page(class=`${(locals.data.pageData.pageClass ? locals.data.pageData.pageClass : '')} ${(locals.data.pageData.theme ? `theme-${locals.data.pageData.theme}` : '')}`)
+  body.page(class=`${(pageData.pageClass ? pageData.pageClass : '')} ${(pageData.theme ? `theme-${pageData.theme}` : '')}`)
     include ../includes/modules/svg-sprite/svg-sprite
     .page__wrapper
       .page__header

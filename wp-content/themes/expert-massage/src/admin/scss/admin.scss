@@ -1,0 +1,158 @@
+@use '../../assets/scss/utils/mixins' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.select {
+  margin-right: 10px;
+
+  &__label-text {
+    margin-right: 5px;
+  }
+
+  & &__select {
+    min-height: auto;
+
+    line-height: 1.8;
+  }
+}
+
+.table {
+  overflow: auto;
+  margin: 10px 0;
+
+  font-size: 14px;
+  text-align: center;
+
+  &__wrap {
+    min-width: 800px;
+  }
+
+  &__table {
+    background-color: #ffffff;
+    border: 3px solid #aaaaaa;
+    border-collapse: collapse;
+  }
+
+  &__cell {
+    padding: 9px 12px;
+
+    white-space: nowrap;
+
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+
+    transition: background-color 0.4s;
+
+    &_heading {
+      border-bottom: 3px solid #aaaaaa;
+    }
+
+    &_multiline {
+      max-width: 180px;
+
+      text-align: left;
+      vertical-align: top;
+      white-space: normal;
+    }
+  }
+
+  &__row {
+    &:nth-child(even) .table__cell {
+      background-color: #eeeeee;
+    }
+
+    &:hover .table__cell {
+      background-color: #cce3ee;
+    }
+  }
+}
+
+.review-card {
+  max-width: 880px;
+  margin-bottom: 40px;
+  padding: 15px 20px;
+
+  font-size: 14px;
+
+  background-color: #ffffff;
+  border: 2px dotted #9a9a9a;
+
+  &__text {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+
+    font-size: 14px;
+  }
+
+  &__email {
+    text-decoration: underline;
+    font-style: italic;
+    color: #666666;
+
+    @include in-focus() {
+      color: #000000;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  &__acceptance,
+  &__delete {
+    @include reset-button();
+
+    padding: 5px 15px;
+
+    font-weight: 700;
+    color: #555555;
+
+    background-color: #ffffff;
+    border: 2px solid #555555;
+    border-radius: 5px;
+
+    transition: background-color 0.4s, color 0.4s;
+
+    @include in-focus() {
+      color: #ffffff;
+
+      background-color: #555555;
+    }
+  }
+
+  &__delete {
+    color: #981111;
+
+    border-color: #981111;
+
+    @include in-focus() {
+      background-color: #981111;
+    }
+  }
+
+  &__acceptance {
+    margin-right: 20px;
+    margin-left: auto;
+
+    &_accept {
+      color: #238821;
+
+      border-color: #238821;
+
+      @include in-focus() {
+        background-color: #238821;
+      }
+    }
+  }
+}

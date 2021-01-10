@@ -1,6 +1,7 @@
 <?php
 
 add_action('wp_enqueue_scripts', 'enqueue_css');
+add_action('admin_enqueue_scripts', 'enqueue_admin_css');
 add_action('wp_enqueue_scripts', 'enqueue_js');
 
 function enqueue_js() {
@@ -19,22 +20,21 @@ function enqueue_js() {
                 case 'vendor':
                     wp_enqueue_script($name, $fileSrc, [], null, true);
                     break;
+                case 'index':
+                    if (is_home()) {
+                        wp_enqueue_script($name, get_template_directory_uri() . '/dist/js/pages/' . $fullName, array('app'), null, true);
+                    }
+                    break;
                 case 'massages':
-                    if (is_page('back-massage') || is_page('body-lymphatic-drainage') ||
-                        is_page('fullbody-massage') || is_page('sports-massage') ||
-                        is_page('neck-massage') || is_page('sculptural-buccal-massage') ||
-                        is_page('facial-lymphatic-drainage') || is_page('classic-facial-massage') ||
-                        is_page('chiromassage') || is_page('japanese-asahi-massage') ||
-                        is_page('figure-modeling') || is_page('anticellulite-massage')) {
+                    if (is_massage_page()) {
                         wp_enqueue_script($name, get_template_directory_uri() . '/dist/js/pages/' . $fullName, array('app'), null, true);
                     }
                     break;
                 case 'about':
                 case 'contacts':
-                case 'index':
                 case 'prices':
                 case 'reviews':
-                    if (is_page($name) || is_home()) {
+                    if (is_page($name)) {
                         wp_enqueue_script($name, get_template_directory_uri() . '/dist/js/pages/' . $fullName, array('app'), null, true);
                     }
                     break;
@@ -56,7 +56,13 @@ function enqueue_css() {
         if (pathinfo($file, PATHINFO_EXTENSION) === 'css') {
             $fullName = basename($file);
             $name = substr(basename($fullName), 0, strpos(basename($fullName), '.'));
-            wp_enqueue_style($name, get_template_directory_uri() . '/dist/' . $fullName, [], null);
+            if ($name !== 'admin') {
+                wp_enqueue_style($name, get_template_directory_uri() . '/dist/' . $fullName, [], null);
+            }
         }
     }
+}
+
+function enqueue_admin_css() {
+    wp_enqueue_style('admin', get_template_directory_uri() . '/dist/admin.css');
 }

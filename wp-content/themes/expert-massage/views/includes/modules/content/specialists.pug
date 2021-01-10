@@ -1,4 +1,4 @@
-- var specialists = locals.data.globalData.company.specialists
+- var specialists = globalData.company.specialists
 
 section.specialists
   .container
@@ -10,12 +10,12 @@ section.specialists
           each specialist in specialists
             li.specialists__list-item
               .specialist-card
-                +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.name, '170', '160').specialist-card__image
+                +picture-tag(specialist.images, specialist.images.desktop.jpg['2x'], specialist.fullName, '170', '160').specialist-card__image
                 .specialist-card__info
                   ul.specialist-card__tags
                     each tag, i in specialist.tags
                       li.specialist-card__tag(class=((specialist.id === 3) && (i === 0) ? 'hidden_mobile' : false))!= tag
-                  h3.specialist-card__name= specialist.name
+                  h3.specialist-card__name= specialist.fullName
                   a.specialist-card__reviews.link.underline.link_secondary(href='/reviews/')= `${specialist.reviewsCount} ${declOfNum(specialist.reviewsCount, ['отзыв', 'отзыва', 'отзывов'])}`
                   .specialist-card__description
                     each text in specialist.description

@@ -35,6 +35,7 @@ const maskedPhoneInput = phoneInputs.find(input => input.input === formPhoneInpu
 const messageNode = callbackForm.querySelector(`.message`);
 const formSender = new FormSender({
   form: callbackForm,
+  url: `/wp-admin/admin-post.php`,
   dataCollector: () => new FormData(callbackForm),
   requestFormat: `FormData`,
   responseDataHandler: data => processResponse(data),
@@ -65,7 +66,7 @@ function validatePhone() {
 }
 
 function processResponse(data) {
-  if (!data?.result) {
+  if (data?.result) {
     messageManager.showMessage(MESSAGES.SUCCESS.CALLBACK_REQUEST_RECEIVED, `success`, messageNode);
   }
 }

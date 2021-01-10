@@ -1,0 +1,148 @@
+- var data = JSON.parse(data)
+- var newReviews = []
+each review in data.reviews
+  if !review.accepted
+    - newReviews.push(review)
+
+mixin review-card(review)
+  .review-card
+    p.review-card__text= review.text
+    .review-card__info
+      b.review-card__author= review.author
+      if review.email
+        | ,
+        |
+        a.review-card__email(href=`mailto:${review.email}`)= review.email
+      |
+      | —
+      |
+      span.review-card__date= review.date
+      |
+      | —
+      |
+      span.review-card__source= 'Источник: ' + `${review.source === 'site' ? 'сайт' : 'Яндекс'}`
+    .review-card__actions(data-id=review.id)
+      .select
+        label.select__label
+          span.select__label-text Специалист
+          select.select__select(name='specialist_id')
+            option.select__option(value='default') Не указан
+            each specialist in data.specialists
+              option.select__option(value=specialist.id selected=(review.specialist_id === specialist.id))= specialist.surname
+      .select
+        label.select__label
+          span.select__label-text Тип массажа
+          select.select__select(name='massage_type')
+            option.select__option(value='default') Не указан
+            each type in data.massageTypes
+              option.select__option(value=type.id selected=(review.massage_type === type.id))= type.name
+      button.review-card__acceptance(class=({ 'review-card__acceptance_accept': !review.accepted }) type='button')= review.accepted ? 'Скрыть' : 'Одобрить'
+      button.review-card__delete(type='button') Удалить
+
+.wrap.reviews-wrap
+  h1 Отзывы
+  hr
+  h2.title Неутверждённые
+  if newReviews.length
+    each review in newReviews
+      +review-card(review)
+  else
+    p Таких отзывов пока нет
+  h2.title Все
+  each review in data.reviews
+    +review-card(review)
+
+script.
+  const wrap = document.querySelector(`.reviews-wrap`);
+  wrap && wrap.addEventListener(`click`, evt => dispatchEvents(evt));
+  wrap && wrap.addEventListener(`change`, evt => dispatchEvents(evt));
+
+  function dispatchEvents(evt) {
+    const actionsBlock = evt.target.closest(`.review-card__actions`);
+
+    if (!actionsBlock) {
+      return;
+    }
+
+    evt.preventDefault();
+    const data = new FormData();
+
+    data.append(`action`, `review_change`);
+    data.append(`id`, actionsBlock.dataset.id);
+
+    if (evt.type === `click`) {
+      dispatchClicks(evt, data);
+    } else if (evt.type === `change`) {
+      dispatchChanges(evt, data);
+    }
+  }
+
+  function dispatchClicks(evt, data) {
+    if (evt.target.classList.contains(`review-card__delete`)) {
+      deleteReview(data, evt.target.closest(`.review-card`));
+    } else if (evt.target.classList.contains(`review-card__acceptance`)) {
+      switchReviewAcceptance(data, evt.target);
+    }
+  }
+
+  function dispatchChanges(evt, data) {
+    if (evt.target.tagName === 'SELECT') {
+      updateReviewInfo(data, evt.target);
+    }
+  }
+
+  function deleteReview(data, reviewNode) {
+    if (confirm(`Удалённый отзыв невозможно восстановить`)) {
+      data.set(`action`, `review_delete`);
+      sendRequest(data)
+        .then(response => {
+          if (response && response.result) {
+            reviewNode.remove();
+          } else {
+            throw new Error(`Отзыв не был удалён`);
+          }
+        })
+        .catch(error => alert(`Ошибка: ${error}`));
+    }
+  }
+
+  function switchReviewAcceptance(data, acceptButton) {
+    sendRequest(data)
+      .then(response => {
+        if (response && response.result) {
+          toggleAcceptButton(acceptButton);
+        } else {
+          throw new Error(`Данные не обновлены`);
+        }
+      })
+      .catch(error => alert(`Ошибка: ${error}`));
+  }
+
+  function updateReviewInfo(data, select) {
+    data.append(select.name, select.value);
+    sendRequest(data)
+      .then(response => {
+        if (!response || !response.result) {
+          throw new Error(`Отзыв не был обновлён`);
+        }
+      })
+      .catch(error => alert(`Ошибка: ${error}`));
+  }
+
+  function sendRequest(data) {
+    return fetch(`/wp-admin/admin-post.php`, {
+      method: `post`,
+      body: data
+    })
+      .then(response => response.json());
+  }
+
+  function toggleAcceptButton(button) {
+    if (button.classList.contains(`review-card__acceptance_accept`)) {
+      button.classList.remove(`review-card__acceptance_accept`);
+      button.textContent = `Скрыть`;
+    } else {
+      button.classList.add(`review-card__acceptance_accept`);
+      button.textContent = `Одобрить`;
+    }
+  }

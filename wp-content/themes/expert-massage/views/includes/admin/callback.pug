@@ -1,0 +1,20 @@
+- var data = JSON.parse(data)
+
+.wrap
+  h1 Заказ обратного звонка
+  .table
+    .table__wrap
+      table.table__table
+        thead
+          tr.table__row
+            th.table__cell.table__cell_heading
+              span Телефон
+            th.table__cell.table__cell_heading
+              span Дата
+        tbody
+          each request in data
+            tr.table__row
+              td.table__cell
+                a(href=`tel:${request.phone}`)= request.phone
+              td.table__cell
+                span= request.date

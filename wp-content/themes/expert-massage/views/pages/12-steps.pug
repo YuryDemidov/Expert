@@ -2,8 +2,7 @@ extends ../layouts/default
 
 block variables
   -
-    locals.data.pageData = {
-      url: '/articles/12-steps/',
+    pageData = {
       title: `12 шагов к здоровью`,
       description: `12 шагов к здоровью, красоте и счастью - 12 простых шагов ведущих к хорошему самочувствию, гармонии
         с собой и окружающим миром.`,
@@ -13,8 +12,8 @@ block variables
       theme: 'main',
       articleId: 1
     }
-  - var article = locals.data.articles[locals.data.pageData.articleId]
-  - locals.data.pageData.article = article
+  - var article = articles[pageData.articleId]
+  - pageData.article = article
   -
     var images = []
   -
