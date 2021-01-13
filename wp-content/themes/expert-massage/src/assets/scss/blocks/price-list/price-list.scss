@@ -123,6 +123,8 @@
       padding: 1rem 2rem;
       padding-top: 4rem;
 
+      vertical-align: bottom;
+
       &:first-of-type {
         position: relative;
 
@@ -141,6 +143,7 @@
         padding-top: 0;
         padding-bottom: 1.5rem;
 
+        vertical-align: baseline;
         color: $dark-dim-color;
 
         &:first-of-type {
@@ -177,12 +180,6 @@
               color: $color-primary;
             }
           }
-        }
-      }
-
-      &_promo.table__row_highlight {
-        .table__cell {
-          vertical-align: bottom;
         }
       }
 
@@ -226,6 +223,8 @@
 
     &::before {
       content: '*';
+
+      font-weight: 700;
     }
   }
 
@@ -391,6 +390,12 @@
           background-color: $alt-default-color;
         }
 
+        &_promo {
+          .table__cell {
+            padding-top: 0;
+          }
+        }
+
         &_promo.table__row_highlight {
           .table__cell {
             padding-top: 0;
@@ -404,11 +409,6 @@
       display: inline;
       margin: 0;
       padding: 0.4rem;
-
-      @include themify() {
-        background-color: $color-background;
-        border-bottom: 2px solid $color-background;
-      }
     }
   }
 
@@ -417,21 +417,6 @@
       &__type-caption,
       &__first-price {
         color: $default-color;
-      }
-    }
-  }
-
-  @each $i in (4, 6, 7, 9) {
-    .theme-#{$i} {
-      .price-list {
-        &__promo-text {
-          background-color: map-deep-get($themes, '#{$i}', 'alt-background');
-          border-color: map-deep-get($themes, '#{$i}', 'alt-background');
-
-          @if $i == 7 {
-            color: map-deep-get($themes, '#{$i}', 'secondary');
-          }
-        }
       }
     }
   }

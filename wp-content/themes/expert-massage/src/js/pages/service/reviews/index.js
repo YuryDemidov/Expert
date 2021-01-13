@@ -1,5 +1,6 @@
 'use strict';
-//
+
+import './reviewForm';
 // import('masonry-layout/masonry')
 //   .then(() => {
 //     const reviewsWrap = document.querySelector('.reviews__wrap');

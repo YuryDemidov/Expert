@@ -7,7 +7,6 @@ block variables
     pageData.description = `Спортивный массаж, Москва — ${globalData.company.businessDuration} лет успешной работы! Снятие боли
       после 1-го сеанса. Массаж от профессионалов по доступным ценам.`
     pageData.keywords = `спортивный массаж, Москва, массаж спины, массаж позвоночника, лечебный массаж, услуга, описание, цена`
-    pageData.canonical = 'https://expert-massage-clinic.ru/sports-massage/'
     pageData.pageClass = 'sports-massage-page'
     pageData.theme = '6'
     pageData.massage = globalData.massages['sports-massage']
@@ -42,7 +41,7 @@ block variables
         ]
       }
     ]
-    pageData.reviewsBlock.title = 'Отзывы о&nbsp;спортивном массаже'
+    pageData.reviewsBlock.title = 'Отзывы о нас'
     pageData.massageVideo = {
       id: 'YM_MU5ZTGVI',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_all.jpg`,
@@ -135,6 +134,7 @@ block content
   include ../includes/modules/content/blocks-list
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

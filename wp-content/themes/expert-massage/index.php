@@ -40,7 +40,13 @@ if (is_home()) {
 } else if ($pugPage) {
     if ($pugPage === 'pages/reviews') {
         // rewrite as reviews page controller with different data depending on get param
-        render_template($pugPage, ['globalData' => json_encode($globalData)]);
+        $pageData['reviews'] = get_reviews_data();
+        $pageData['reviewsPagination'] = get_reviews_pagination();
+
+        render_template($pugPage, [
+            'globalData' => json_encode($globalData),
+            'pageData' => json_encode($pageData)
+        ]);
     } else {
         if (is_massage_page()) {
             $pageData['reviewsBlock']['reviews'] = get_reviews_slider_data();
@@ -71,8 +77,105 @@ function get_pug_page() {
 function get_global_data() {
     return [
         'currentYear' => date('Y'),
-        'url' => $_SERVER['REQUEST_URI']
+        'url' => $_SERVER['REQUEST_URI'],
+        'canonical' => wp_get_canonical_url(),
+        'company' => get_company_data()
     ];
+}
+
+function get_company_data()
+{
+    global $wpdb;
+
+    $specialists = $wpdb->get_results(
+        'SELECT *
+        FROM wp_exp_specialists',
+        ARRAY_A
+    );
+
+    foreach ($specialists as $key => $specialist) {
+        $reviewsCount = $wpdb->get_var(
+            $wpdb->prepare(
+                'SELECT COUNT(specialist_id)
+                FROM wp_exp_reviews
+                WHERE wp_exp_reviews.specialist_id = %d', [
+                    $specialist['id']
+                ]
+            )
+        );
+        $specialists[$key]['reviewsCount'] = $reviewsCount;
+        $specialists[$key]['fullName'] = $specialist['surname'] . ' ' . $specialist['first_name'] . ' ' . $specialist['last_name'];
+    }
+
+    return [
+        'foundationYear' => 2008,
+        'phones' => ['+7 499 397-71-81', '+7 915 000-63-42'],
+        'address' => 'м. Цветной Бульвар<br>1-й Волконский переулок, д.15',
+        'workingHours' => 'с 9:00 до 21:00<br>без выходных',
+        'specialists' => $specialists,
+        'socials' => [
+            'ig' => [
+                'link' => 'https://www.instagram.com/expert_massage_clinic'
+            ],
+            'vk' => [
+                'link' => 'https://vk.com/expert_massage_clinic'
+            ],
+            'fb' => [
+                'link' => 'https://www.facebook.com/expert.masage.clinic'
+            ]
+        ]
+    ];
+}
+
+function get_reviews_data() {
+    global $wpdb;
+    $reviews_per_page = 15;
+    $page = $_GET['page_num'] ? $_GET['page_num'] : 1;
+
+    $reviews = $wpdb->get_results(
+        $wpdb->prepare(
+            'SELECT text, author, source, date 
+            FROM wp_exp_reviews
+            WHERE accepted = 1
+            ORDER BY date DESC
+            LIMIT %d, %d',
+            [
+                ($page - 1) * $reviews_per_page,
+                $reviews_per_page
+            ]
+        ),
+        ARRAY_A
+    );
+
+    for ($i = 0; $i < count($reviews); $i++) {
+        $reviews[$i]['date'] = date_create($reviews[$i]['date'])->format('d.m.Y');
+    }
+
+    return $reviews;
+}
+
+function get_reviews_pagination() {
+    global $wpdb;
+
+    $reviewsCount = $wpdb->get_var('SELECT COUNT(id) FROM wp_exp_reviews;');
+
+    $args = [
+        'base'         => '/reviews/%_%',
+        'format'       => '?page_num=%#%',
+        'total'        => ceil($reviewsCount / 15),
+        'current'      => $_GET['page_num'],
+        'show_all'     => false,
+        'end_size'     => 1,
+        'mid_size'     => 1,
+        'prev_next'    => true,
+        'prev_text'    => __('<'),
+        'next_text'    => __('>'),
+        'type'         => 'plain',
+        'before_page_number' => '',
+        'after_page_number'  => ''
+    ];
+
+    return paginate_links($args);
 }
 
 function get_reviews_slider_data() {
@@ -84,7 +187,7 @@ function get_reviews_slider_data() {
             FROM wp_exp_reviews
             WHERE accepted = 1 AND massage_type = 1
             ORDER BY date DESC
-            LIMIT 13',
+            LIMIT 12',
             ARRAY_A
         );
     } else if (is_figure_massage()) {
@@ -93,7 +196,7 @@ function get_reviews_slider_data() {
             FROM wp_exp_reviews
             WHERE accepted = 1 AND massage_type = 2
             ORDER BY date DESC
-            LIMIT 13',
+            LIMIT 12',
             ARRAY_A
         );
     } else if (is_body_massage()) {
@@ -102,7 +205,7 @@ function get_reviews_slider_data() {
             FROM wp_exp_reviews
             WHERE accepted = 1 AND massage_type = 3
             ORDER BY date DESC
-            LIMIT 13',
+            LIMIT 12',
             ARRAY_A
         );
     } else {

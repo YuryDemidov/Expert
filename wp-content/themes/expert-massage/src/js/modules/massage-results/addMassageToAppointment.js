@@ -1,11 +1,14 @@
 import { appointmentPopup } from '../popups/popupAppointment';
 
 const resultsWrapper = document.querySelector(`.massage-results`);
-const appointmentButtons = resultsWrapper.querySelectorAll(`[data-massage-id]`);
 
-appointmentButtons.forEach(button => {
-  button.addEventListener(`click`, () => addMassageId(button.dataset.massageId));
-});
+if (resultsWrapper) {
+  const appointmentButtons = resultsWrapper.querySelectorAll(`[data-massage-id]`);
+
+  appointmentButtons.forEach(button => {
+    button.addEventListener(`click`, () => addMassageId(button.dataset.massageId));
+  });
+}
 
 function addMassageId(id) {
   appointmentPopup.node.querySelector(`[name=massage-id]`).value = id;

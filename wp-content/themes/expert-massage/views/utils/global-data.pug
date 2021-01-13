@@ -197,178 +197,136 @@
       shortDescription: 'Японский формирующий массаж. Глубокая, интенсивная проработка мышц и костных тканей'
     }
   }
-  globalData.company = {
-    foundationYear: 2008,
-    phones: [
-      '+7 499 397-71-81',
-      '+7 915 000-63-42'
-    ],
-    address: `м. Цветной Бульвар<br>1-й Волконский переулок, д.15`,
-    workingHours: `с 9:00 до 21:00<br>без выходных`,
-    specialists: [
-      {
-        id: 1,
-        fullName: 'Рыбников Антон Николаевич',
-        tags: [
-          `${date('Y') - 2008} лет опыта`,
-          'Ведущий специалист'
-        ],
-        description: [
-          'Проводит все виды массажа лица и тела, помогает избавиться от боли в спине, отёков, целлюлита, решает сложные эстетические проблемы.',
-          'Работал в ведущих медицинских центрах — клинике №1 им. Пирогова, центре диетологии НИИ питания, Федеральном центре реабилитации.',
-          'Член «Международного Альянса Массажистов». Автор методики «Максимально эффективное лечение боли при проведении лечебного массажа», преподаватель школы массажа.'
-        ],
-        reviewsCount: 118,
-        images: {
-          desktop: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/1_desktop@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/1_desktop@2x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/1_desktop@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/1_desktop@2x.jpg`
-            }
-          },
-          tablet: false,
-          mobile: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/1_mobile@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/1_mobile@2x.webp`,
-              '3x': `${THEME_IMG_PATH}/specialists/1_mobile@3x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/1_mobile@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/1_mobile@2x.jpg`,
-              '3x': `${THEME_IMG_PATH}/specialists/1_mobile@3x.jpg`
-            }
-          }
-        }
+  globalData.company.specialists[0].tags = [
+    `${date('Y') - 2008} лет опыта`,
+    'Ведущий специалист'
+  ]
+  globalData.company.specialists[0].description = [
+    'Проводит все виды массажа лица и тела, помогает избавиться от боли в спине, отёков, целлюлита, решает сложные эстетические проблемы.',
+    'Работал в ведущих медицинских центрах — клинике №1 им. Пирогова, центре диетологии НИИ питания, Федеральном центре реабилитации.',
+    'Член «Международного Альянса Массажистов». Автор методики «Максимально эффективное лечение боли при проведении лечебного массажа», преподаватель школы массажа.'
+  ]
+  globalData.company.specialists[0].images = {
+    desktop: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/1_desktop@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/1_desktop@2x.webp`
       },
-      {
-        id: 2,
-        fullName: 'Ефременкова Ирина Владимировна',
-        tags: [
-          `${date('Y') - 2010} лет опыта`,
-          'Член Международного Альянса Массажистов'
-        ],
-        description: [
-          'Ирина проводит все виды массажа лица и тела, и помогла множеству клиентов избавиться от возрастных проблем, болей в спине, отёков и целлюлита. С большим удовольствием делает скульптурный массаж лица и радуется тому, как преображаются её клиенты.',
-          'Работала в авторитетных медицинских центрах — Центр коррекции фигуры и веса, областная больница восстановительного лечения. Владеет более чем 15 техниками массажа и регулярно повышает квалификацию.'
-        ],
-        reviewsCount: 106,
-        images: {
-          desktop: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/3_desktop@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/3_desktop@2x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/3_desktop@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/3_desktop@2x.jpg`
-            }
-          },
-          tablet: false,
-          mobile: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/3_mobile@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/3_mobile@2x.webp`,
-              '3x': `${THEME_IMG_PATH}/specialists/3_mobile@3x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/3_mobile@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/3_mobile@2x.jpg`,
-              '3x': `${THEME_IMG_PATH}/specialists/3_mobile@3x.jpg`
-            }
-          }
-        }
-      },
-      {
-        id: 3,
-        fullName: 'Батькова Наталья Александровна',
-        tags: [
-          `${date('Y') - 2000} год стажа`,
-          `Медицинский подход<span class='hidden_mobile'> к массажу</span>`
-        ],
-        description: [
-          'Считает массаж делом своей жизни и постоянно повышает квалификацию. Выполняет все виды массажа, но особенно любит избавлять от лишнего веса и целлюлита, наблюдать, как клиентки становятся легче и счастливее',
-          'За годы опыта работала в самых авторитетных медицинских клиниках и центрах (отделение медицинской реабилитации клиники С.Н. Гринберга, клиника неврологии и остеопатии, а также клиники по коррекции тела с помощью массажа).'
-        ],
-        reviewsCount: 65,
-        images: {
-          desktop: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/2_desktop@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/2_desktop@2x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/2_desktop@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/2_desktop@2x.jpg`
-            }
-          },
-          tablet: false,
-          mobile: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/2_mobile@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/2_mobile@2x.webp`,
-              '3x': `${THEME_IMG_PATH}/specialists/2_mobile@3x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/2_mobile@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/2_mobile@2x.jpg`,
-              '3x': `${THEME_IMG_PATH}/specialists/2_mobile@3x.jpg`
-            }
-          }
-        }
-      },
-      {
-        id: 4,
-        fullName: 'Маликова Татьяна Анатольевна',
-        tags: [
-          `${date('Y') - 2011} лет опыта`,
-          'Массаж — и работа, и хобби'
-        ],
-        description: [
-          'Татьяна отлично разбирается во всех видах массажа лица и тела, и постоянно совершенствует мастерство. Она одинаково любит работать над эстетическими и медицинскими проблемами, и уже помогла множеству клиентов избавиться от боли в спине, сбросить вес и омолодить лицо.',
-          'До прихода в нашу клинику Татьяна успела поработать в авторитетных клиниках коррекции лица и тела, и медицинских центрах'
-        ],
-        reviewsCount: 24,
-        images: {
-          desktop: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/4_desktop@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/4_desktop@2x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/4_desktop@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/4_desktop@2x.jpg`
-            }
-          },
-          tablet: false,
-          mobile: {
-            webp: {
-              '1x': `${THEME_IMG_PATH}/specialists/4_mobile@1x.webp`,
-              '2x': `${THEME_IMG_PATH}/specialists/4_mobile@2x.webp`,
-              '3x': `${THEME_IMG_PATH}/specialists/4_mobile@3x.webp`
-            },
-            jpg: {
-              '1x': `${THEME_IMG_PATH}/specialists/4_mobile@1x.jpg`,
-              '2x': `${THEME_IMG_PATH}/specialists/4_mobile@2x.jpg`,
-              '3x': `${THEME_IMG_PATH}/specialists/4_mobile@3x.jpg`
-            }
-          }
-        }
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/1_desktop@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/1_desktop@2x.jpg`
       }
-    ],
-    socials: {
-      ig: {
-        link: 'https://www.instagram.com/expert_massage_clinic'
+    },
+    tablet: false,
+    mobile: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/1_mobile@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/1_mobile@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/specialists/1_mobile@3x.webp`
       },
-      vk: {
-        link: 'https://vk.com/expert_massage_clinic'
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/1_mobile@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/1_mobile@2x.jpg`,
+        '3x': `${THEME_IMG_PATH}/specialists/1_mobile@3x.jpg`
+      }
+    }
+  }
+  globalData.company.specialists[1].tags = [
+    `${date('Y') - 2010} лет опыта`,
+    'Член Международного Альянса Массажистов'
+  ]
+  globalData.company.specialists[1].description = [
+    'Ирина проводит все виды массажа лица и тела, и помогла множеству клиентов избавиться от возрастных проблем, болей в спине, отёков и целлюлита. С большим удовольствием делает скульптурный массаж лица и радуется тому, как преображаются её клиенты.',
+    'Работала в авторитетных медицинских центрах — Центр коррекции фигуры и веса, областная больница восстановительного лечения. Владеет более чем 15 техниками массажа и регулярно повышает квалификацию.'
+  ]
+  globalData.company.specialists[1].images = {
+    desktop: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/3_desktop@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/3_desktop@2x.webp`
       },
-      fb: {
-        link: 'https://www.facebook.com/expert.masage.clinic'
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/3_desktop@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/3_desktop@2x.jpg`
+      }
+    },
+    tablet: false,
+    mobile: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/3_mobile@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/3_mobile@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/specialists/3_mobile@3x.webp`
+      },
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/3_mobile@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/3_mobile@2x.jpg`,
+        '3x': `${THEME_IMG_PATH}/specialists/3_mobile@3x.jpg`
+      }
+    }
+  }
+  globalData.company.specialists[2].tags = [
+    `${date('Y') - 2000} год стажа`,
+    `Медицинский подход<span class='hidden_mobile'> к массажу</span>`
+  ]
+  globalData.company.specialists[2].description = [
+    'Считает массаж делом своей жизни и постоянно повышает квалификацию. Выполняет все виды массажа, но особенно любит избавлять от лишнего веса и целлюлита, наблюдать, как клиентки становятся легче и счастливее',
+    'За годы опыта работала в самых авторитетных медицинских клиниках и центрах (отделение медицинской реабилитации клиники С.Н. Гринберга, клиника неврологии и остеопатии, а также клиники по коррекции тела с помощью массажа).'
+  ]
+  globalData.company.specialists[2].images = {
+    desktop: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/2_desktop@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/2_desktop@2x.webp`
+      },
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/2_desktop@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/2_desktop@2x.jpg`
+      }
+    },
+    tablet: false,
+    mobile: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/2_mobile@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/2_mobile@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/specialists/2_mobile@3x.webp`
+      },
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/2_mobile@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/2_mobile@2x.jpg`,
+        '3x': `${THEME_IMG_PATH}/specialists/2_mobile@3x.jpg`
+      }
+    }
+  }
+  globalData.company.specialists[3].tags = [
+    `${date('Y') - 2011} лет опыта`,
+    'Массаж — и работа, и хобби'
+  ]
+  globalData.company.specialists[3].description = [
+    'Татьяна отлично разбирается во всех видах массажа лица и тела, и постоянно совершенствует мастерство. Она одинаково любит работать над эстетическими и медицинскими проблемами, и уже помогла множеству клиентов избавиться от боли в спине, сбросить вес и омолодить лицо.',
+    'До прихода в нашу клинику Татьяна успела поработать в авторитетных клиниках коррекции лица и тела, и медицинских центрах'
+  ]
+  globalData.company.specialists[3].images = {
+    desktop: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/4_desktop@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/4_desktop@2x.webp`
+      },
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/4_desktop@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/4_desktop@2x.jpg`
+      }
+    },
+    tablet: false,
+    mobile: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/specialists/4_mobile@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/specialists/4_mobile@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/specialists/4_mobile@3x.webp`
+      },
+      jpg: {
+        '1x': `${THEME_IMG_PATH}/specialists/4_mobile@1x.jpg`,
+        '2x': `${THEME_IMG_PATH}/specialists/4_mobile@2x.jpg`,
+        '3x': `${THEME_IMG_PATH}/specialists/4_mobile@3x.jpg`
       }
     }
   }

@@ -4,6 +4,8 @@
   max-width: 35rem;
   margin: 7rem auto;
 
+  text-align: center;
+
   &__input {
     margin-bottom: 1rem;
   }
@@ -23,6 +25,10 @@
     background-color: $lightgray-color;
     border: none;
     border-radius: 0.5rem;
+
+    &_invalid {
+      border: 1px solid $error-color;
+    }
   }
 }
 

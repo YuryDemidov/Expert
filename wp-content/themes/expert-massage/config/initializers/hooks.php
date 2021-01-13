@@ -399,7 +399,7 @@ function handle_review_form() {
             throw new Exception('Email указан некорректно');
         }
         if (!$review) {
-            throw new Exception('Необходимо написать отзыв');
+            throw new Exception('Отзыв не может быть пустым');
         }
 
         $wpdb->insert('wp_exp_reviews', [
