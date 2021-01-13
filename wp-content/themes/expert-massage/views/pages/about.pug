@@ -105,13 +105,13 @@ block content
               |
               br
               | основатель клиники
-            +picture-tag(pageData.signature, pageData.signature.mobile.jpg['3x'], 'Подпись Рыбникова Антона Николаевича', 71, 71).blockquote-card__author-signature
+            +picture-tag(pageData.signature, pageData.signature.mobile.jpg['3x'], 'Подпись Рыбникова Антона Николаевича', 100, 80).blockquote-card__author-signature
       section.about-page__specialists.about-specialists
         h2.about-page__title.heading О специалистах
         .specialist-card.specialist-card_main
           - specialists[0].images.mobile = false
           +picture-tag(specialists[0].images, specialists[0].images.desktop.jpg['2x'], specialists[0].fullname).specialist-card__image
-          h3.specialist-card__name= specialists[0].fullname
+          h3.specialist-card__name= specialists[0].fullName
           p.specialist-card__caption
             | основатель клиники, ведущий специалист
             br
