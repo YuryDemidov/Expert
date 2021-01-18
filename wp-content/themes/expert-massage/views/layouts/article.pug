@@ -1,0 +1,67 @@
+include ../utils/mixins
+include ../utils/functions
+include ../utils/global-data
+
+block variables
+
+-
+  globalData.company.logoImages = {
+    desktop: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@2x.webp`
+      },
+      png: {
+        '1x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@1x.png`,
+        '2x': `${THEME_IMG_PATH}/logo/desktop-logo_${pageData.theme}@2x.png`
+      }
+    },
+    tablet: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@2x.webp`
+      },
+      png: {
+        '1x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@1x.png`,
+        '2x': `${THEME_IMG_PATH}/logo/tablet-logo_${pageData.theme}@2x.png`
+      }
+    },
+    mobile: {
+      webp: {
+        '1x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@3x.webp`
+      },
+      png: {
+        '1x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@1x.png`,
+        '2x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@2x.png`,
+        '3x': `${THEME_IMG_PATH}/logo/mobile-logo_${pageData.theme}@3x.png`
+      }
+    }
+  }
+
+doctype html
+html(lang='ru')
+  head
+    include ../includes/modules/head/head
+
+  body.page(class=`${(pageData.pageClass ? pageData.pageClass : '')} ${(pageData.theme ? `theme-${pageData.theme}` : '')}`)
+    include ../includes/modules/svg-sprite/svg-sprite
+    .page__wrapper
+      .page__header
+        include ../includes/modules/header/header
+      main.page__content
+        .article-page__wrap.container
+          header.article-page__caption
+            ul.article-page__tags
+              each tag in article.tags
+                li.article-page__tag= tag
+            h1.article-page__article-title.heading!= (article.fullTitle) || (article.title)
+          include ../includes/modules/content/article-page/navigation
+          block article-content
+        include ../includes/modules/content/article-page/share-block
+      .page__footer
+        include ../includes/modules/footer/footer
+      include ../includes/modules/content/fixed-buttons
+      include ../includes/popups/popups-wrap
+    - wp_footer()

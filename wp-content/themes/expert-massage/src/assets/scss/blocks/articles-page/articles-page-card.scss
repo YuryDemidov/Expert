@@ -12,7 +12,7 @@
 
   color: $default-color;
 
-  @for $i from 1 through 10 {
+  @for $i from 1 through 12 {
     &_#{$i} {
       &::before {
         background-image: url('../../../img/articles-page/article-preview_#{$i}@1x.jpg');

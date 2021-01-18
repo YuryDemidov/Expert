@@ -83,9 +83,10 @@ function get_global_data() {
     ];
 }
 
-function get_company_data()
-{
+function get_company_data() {
     global $wpdb;
+
+    $foundationYear = 2008;
 
     $specialists = $wpdb->get_results(
         'SELECT *
@@ -108,8 +109,11 @@ function get_company_data()
     }
 
     return [
-        'foundationYear' => 2008,
+        'foundationYear' => $foundationYear,
+        'businessDuration' => date('Y') - $foundationYear,
         'phones' => ['+7 499 397-71-81', '+7 915 000-63-42'],
+        'email' => 'expert-massage@yandex.ru',
+        'founderEmail' => 'a.n.rybnikov@yandex.ru',
         'address' => 'м. Цветной Бульвар<br>1-й Волконский переулок, д.15',
         'workingHours' => 'с 9:00 до 21:00<br>без выходных',
         'specialists' => $specialists,
@@ -228,6 +232,10 @@ function get_reviews_slider_data() {
 
 function is_massage_page() {
     return is_body_massage() || is_face_massage() || is_figure_massage();
+}
+
+function is_article_page() {
+    return preg_match('/\/articles\/.+/', $_SERVER['REQUEST_URI']);
 }
 
 function is_body_massage() {

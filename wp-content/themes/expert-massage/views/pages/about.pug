@@ -114,7 +114,8 @@ block content
           h3.specialist-card__name= specialists[0].fullName
           p.specialist-card__caption
             | основатель клиники, ведущий специалист
-            br
+            br.hidden_desktop
+            |
             | и автор множества массажных методик
           .specialist-card__description
             p.specialist-card__text
@@ -130,7 +131,7 @@ block content
               | Мне важно, чтобы всё время, проведён&shy;ное вами в&nbsp;клинике, от&nbsp;первого визита до&nbsp;финального
               | результата, было комфортным и&nbsp;полезным. Буду рад любой обратной связи на&nbsp;личную почту
               |
-              a.link.link_primary(href='mailto:a.n.rybnikov@yandex.ru') a.n.rybnikov@yandex.ru
+              a.link.link_primary(href=`mailto:${globalData.company.founderEmail}`)= globalData.company.founderEmail
             .dropdown(data-on='click' data-state='closed')
               h4.specialist-card__subtitle.dropdown__trigger Об&nbsp;опыте работы
               .dropdown__body
