@@ -1,0 +1,43 @@
+extends ../layouts/article
+
+block variables
+  -
+    pageData = {
+      title: `Остеохондроз`,
+      description: `У большинства граждан старше 40 лет остеохондроз диагностируется в подавляющем большинстве случаев.
+        Невнимательное отношение к собственному здоровью приводит сначала к легким изменениям, которые практически
+        не беспокоят, но вскоре сменяются неприятными симптомами — болями, напряжением и скованностью. Рассмотрим саму
+        болезнь, а также ее профилактику и лечение с помощью лечебного массажа`,
+      keywords: `остеохондроз, лечебный массаж`,
+      pageClass: 'article-page',
+      theme: 'main'
+    }
+  - var article = articles[11]
+  - pageData.article = article
+  -
+    var images = []
+  -
+    for (var i = 1; i <= 30; i++) {
+      - images.push({
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': `${THEME_IMG_PATH}/articles/osteochondrosis/image_${i}@1x.webp`,
+            '2x': `${THEME_IMG_PATH}/articles/osteochondrosis/image_${i}@2x.webp`,
+            '3x': `${THEME_IMG_PATH}/articles/osteochondrosis/image_${i}@2x.webp`
+          },
+          jpg: {
+            '1x': `${THEME_IMG_PATH}/articles/osteochondrosis/image_${i}@1x.jpg`,
+            '2x': `${THEME_IMG_PATH}/articles/osteochondrosis/image_${i}@2x.jpg`,
+            '3x': `${THEME_IMG_PATH}/articles/osteochondrosis/image_${i}@2x.jpg`
+          }
+        }
+      })
+    }
+
+block article-content
+  .article-page__content
+    +picture-tag(images[0], images[0].mobile.jpg['2x'], '').article-page__image
+    .article-page__abstract
+      p#nav-1

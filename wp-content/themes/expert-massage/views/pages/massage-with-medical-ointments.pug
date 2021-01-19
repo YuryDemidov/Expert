@@ -1,0 +1,43 @@
+extends ../layouts/article
+
+block variables
+  -
+    pageData = {
+      title: `Массаж с медицинскими мазями`,
+      description: `При наличии болезней оздоровительный эффект массажа рационально усилить использованием смазывающих
+        средств, которые применяются для устранения боли в мышцах и позвоночнике. Полезный атрибут ускоренной
+        регенерации тканей — медицинская мазь для массажа, которую применяют для наступления быстрого терапевтического
+        эффекта.`,
+      keywords: `массаж, медицинские мази`,
+      pageClass: 'article-page',
+      theme: 'main'
+    }
+  - var article = articles[10]
+  - pageData.article = article
+  -
+    var images = []
+  -
+    for (var i = 1; i <= 30; i++) {
+      - images.push({
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': `${THEME_IMG_PATH}/articles/massage-with-medical-ointments/image_${i}@1x.webp`,
+            '2x': `${THEME_IMG_PATH}/articles/massage-with-medical-ointments/image_${i}@2x.webp`,
+            '3x': `${THEME_IMG_PATH}/articles/massage-with-medical-ointments/image_${i}@2x.webp`
+          },
+          jpg: {
+            '1x': `${THEME_IMG_PATH}/articles/massage-with-medical-ointments/image_${i}@1x.jpg`,
+            '2x': `${THEME_IMG_PATH}/articles/massage-with-medical-ointments/image_${i}@2x.jpg`,
+            '3x': `${THEME_IMG_PATH}/articles/massage-with-medical-ointments/image_${i}@2x.jpg`
+          }
+        }
+      })
+    }
+
+block article-content
+  .article-page__content
+    +picture-tag(images[0], images[0].mobile.jpg['2x'], '').article-page__image
+    .article-page__abstract
+      p#nav-1

@@ -1,0 +1,43 @@
+extends ../layouts/article
+
+block variables
+  -
+    pageData = {
+      title: `Как правильно делать массаж спины в домашних условиях`,
+      description: `Дефицит свободного времени и усталость в конце рабочего дня — главные причины, почему визит
+        к массажисту часто откладывается на неопределенный срок. Однако почувствовать облегчение с помощью
+        расслабляющего воздействия на мышцы можно и вне стен медицинского учреждения. Достаточно научиться делать массаж
+        спины в домашних условиях.`,
+      keywords: `массаж спины, дома`,
+      pageClass: 'article-page',
+      theme: 'main'
+    }
+  - var article = articles[12]
+  - pageData.article = article
+  -
+    var images = []
+  -
+    for (var i = 1; i <= 30; i++) {
+      - images.push({
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '2x': `${THEME_IMG_PATH}/articles/correct-back-massage-at-home/image_${i}@2x.webp`,
+            '3x': `${THEME_IMG_PATH}/articles/correct-back-massage-at-home/image_${i}@2x.webp`,
+            '1x': `${THEME_IMG_PATH}/articles/correct-back-massage-at-home/image_${i}@1x.webp`
+          },
+          jpg: {
+            '2x': `${THEME_IMG_PATH}/articles/correct-back-massage-at-home/image_${i}@2x.jpg`,
+            '3x': `${THEME_IMG_PATH}/articles/correct-back-massage-at-home/image_${i}@2x.jpg`,
+            '1x': `${THEME_IMG_PATH}/articles/correct-back-massage-at-home/image_${i}@1x.jpg`
+          }
+        }
+      })
+    }
+
+block article-content
+  .article-page__content
+    +picture-tag(images[0], images[0].mobile.jpg['2x'], '').article-page__image
+    .article-page__abstract
+      p#nav-1

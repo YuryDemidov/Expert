@@ -1,0 +1,42 @@
+extends ../layouts/article
+
+block variables
+  -
+    pageData = {
+      title: `Как правильно делать массаж шейно-воротниковой зоны в домашних условиях`,
+      description: `Проводить расслабляющую процедуру можно в любое время, когда человек почувствовал появление
+        нарастающей усталости в воротниковой зоне. Делать массаж можно на табуретке, чтобы сохранить свободный доступ
+        к важной зоне тела, или на диване (в таком положении лучше подложить под лоб скрещенные ладони).`,
+      keywords: `массаж шейно-воротниковой зоны, ШВЗ, дома`,
+      pageClass: 'article-page',
+      theme: 'main'
+    }
+  - var article = articles[8]
+  - pageData.article = article
+  -
+    var images = []
+  -
+    for (var i = 1; i <= 30; i++) {
+      - images.push({
+        desktop: false,
+        tablet: false,
+        mobile: {
+          webp: {
+            '1x': `${THEME_IMG_PATH}/articles/cervical-massage-at-home/image_${i}@1x.webp`,
+            '2x': `${THEME_IMG_PATH}/articles/cervical-massage-at-home/image_${i}@2x.webp`,
+            '3x': `${THEME_IMG_PATH}/articles/cervical-massage-at-home/image_${i}@2x.webp`
+          },
+          jpg: {
+            '1x': `${THEME_IMG_PATH}/articles/cervical-massage-at-home/image_${i}@1x.jpg`,
+            '2x': `${THEME_IMG_PATH}/articles/cervical-massage-at-home/image_${i}@2x.jpg`,
+            '3x': `${THEME_IMG_PATH}/articles/cervical-massage-at-home/image_${i}@2x.jpg`
+          }
+        }
+      })
+    }
+
+block article-content
+  .article-page__content
+    +picture-tag(images[0], images[0].mobile.jpg['2x'], '').article-page__image
+    .article-page__abstract
+      p#nav-1
