@@ -28,17 +28,18 @@ mixin submenu-list(type, i)
   ul.submenu__list
     li.submenu__list-item
       h3.submenu__list-heading= type
-    each massage in globalData.massages
-      if ((i === 0) && (massage.type === 'body')) || ((i === 1) && (massage.type === 'face')) || ((i === 2) && (massage.type === 'figure'))
-        +submenu-item(massage)
-      if (massage.id === 8) && (i === 2)
-        +submenu-item(massage)
+    each section in globalData.priceList.sections
+      each massage in section.massages
+        if ((i === 0) && (massage.type === '2')) || ((i === 1) && (massage.type === '1')) || ((i === 2) && (massage.type === '3'))
+          +submenu-item(massage)
+        if (massage.id === '8') && (i === 0)
+          +submenu-item(massage)
 
 mixin submenu-item(massage)
   li.submenu__list-item
     a.submenu__link.link(href=massage.url)= massage.name
-    if massage.tag
-      b.submenu__tag(class=(massage.tag.color ? `submenu__tag_${massage.tag.color}` : false))= massage.tag.text
+    if massage.menu_tag_text
+      b.submenu__tag(class=(massage.menu_tag_color ? `submenu__tag_${massage.menu_tag_color}` : false))= massage.menu_tag_text
 
 nav.page-header__menu.main-menu
   h2.visually-hidden Главное меню

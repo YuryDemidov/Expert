@@ -121,18 +121,19 @@ function update_yandex_reviews_database($reviews) {
  * Adds new section in wordpress admin panel
  */
 function custom_administrating() {
-    add_menu_page('Управление сайтом', 'Админ. панель', 'manage_options', 'custom_administrating', 'custom_administrating_options');
-    add_submenu_page('custom_administrating', 'Запись на массаж', 'Запись на массаж', 'manage_options', 'application_form', 'application_form_administrating');
-    add_submenu_page('custom_administrating', 'Заказ обратного звонка', 'Заказ обратного звонка', 'manage_options', 'callback_form', 'callback_form_administrating');
-    add_submenu_page('custom_administrating', 'Тест выбора массажа', 'Тест выбора массажа', 'manage_options', 'test_form', 'test_form_administrating');
+    add_menu_page('Управление сайтом', 'Админ. панель', 'upload_files', 'custom_administrating', 'custom_administrating_options');
+    add_submenu_page('custom_administrating', 'Запись на массаж', 'Запись на массаж', 'upload_files', 'application_form', 'application_form_administrating');
+    add_submenu_page('custom_administrating', 'Заказ обратного звонка', 'Заказ обратного звонка', 'upload_files', 'callback_form', 'callback_form_administrating');
+    add_submenu_page('custom_administrating', 'Тест выбора массажа', 'Тест выбора массажа', 'upload_files', 'test_form', 'test_form_administrating');
     add_submenu_page('custom_administrating', 'Отзывы', 'Отзывы', 'manage_options', 'review_form', 'review_form_administrating');
+    add_submenu_page('custom_administrating', 'Прайс-лист', 'Прайс-лист', 'manage_options', 'prices', 'prices_administrating');
 }
 
 /*
  * Defines functionality of custom administrating panel
  */
 function custom_administrating_options() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
     render_template('includes/admin/main');
@@ -142,7 +143,7 @@ function custom_administrating_options() {
  * Application form data
  */
 function application_form_administrating() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
 
@@ -173,7 +174,7 @@ function application_form_administrating() {
  * Callback form data
  */
 function callback_form_administrating() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
 
@@ -198,7 +199,7 @@ function callback_form_administrating() {
  * Test form data
  */
 function test_form_administrating() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
 
@@ -262,6 +263,25 @@ function review_form_administrating() {
 }
 
 /*
+ * Receiving prices from database and rendering admin price-list
+ */
+function prices_administrating() {
+    if (!current_user_can('manage_options'))  {
+        wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
+    }
+
+    global $wpdb;
+
+    $pricesData = [
+        'massages' => $wpdb->get_results('SELECT id, full_name, first_price, standard_price, old_price, duration FROM wp_exp_massages'),
+        'procedures' => $wpdb->get_results('SELECT * FROM wp_exp_price_procedures'),
+        'additions' => $wpdb->get_results('SELECT * FROM wp_exp_price_additions'),
+    ];
+
+    render_template('includes/admin/prices', ['data' => json_encode($pricesData)]);
+}
+
+/*
  * Handles user data obtained from application form
  */
 function handle_application_form() {
@@ -289,6 +309,31 @@ function handle_application_form() {
             'certificate' => $_REQUEST['need-certificate'] ? 1 : 0,
             'date' => current_time('mysql')
         ]);
+
+        $emailMessage = 'Телефон: ' . $phone . '\n' . 'Имя: ' . $name . '\n';
+        if ($_REQUEST['massage-id']) {
+            $emailMessage .= 'Желаемый массаж: ' . $wpdb->get_var(
+                $wpdb->prepare(
+                    'SELECT full_name FROM wp_exp_massages WHERE id = %d', $_REQUEST['massage-id']
+                )
+            ) . '\n';
+        }
+        if ($_REQUEST['specialist-id']) {
+            $emailMessage .= 'Выбранный специалист: ' . $wpdb->get_var(
+                $wpdb->prepare(
+                    'SELECT surname FROM wp_exp_specialists WHERE id = %d', $_REQUEST['specialist-id']
+                )
+            ) . '\n';
+        }
+        if ($_REQUEST['need-certificate']) {
+            $emailMessage .= 'Нужен сертификат';
+        }
+
+        wp_mail(
+            'demiddinamit@mail.ru',
+            'Новая заявка на массаж',
+            $emailMessage
+        );
 
         $response = [
             'result' => true

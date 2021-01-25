@@ -31,6 +31,12 @@
   font-size: 14px;
   text-align: center;
 
+  &_massages,
+  &_procedures,
+  &_additions {
+    min-width: 700px;
+  }
+
   &__wrap {
     min-width: 800px;
   }

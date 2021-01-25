@@ -1,5 +1,3 @@
-- var priceList = globalData.priceList
-
 section.price-list
   .container.price-list__content
     h2.price-list__title.heading Цены и акции
@@ -38,7 +36,7 @@ section.price-list
             globalData.mainPromo.buttonText
           ).price-list__promotion&attributes(promoAppearance)
       .price-list__prices
-        each section in priceList.sections
+        each section in globalData.priceList.sections
           - var promoText = ''
           section.price-list__section
             table.price-list__table.table
@@ -48,27 +46,27 @@ section.price-list
                 th.table__cell.table__cell_heading 1-ый сеанс
                 th.table__cell.table__cell_heading Последующие
                 th.table__cell.table__cell_heading Время
-              each massage in section.massages
+              each massage, i in section.massages
                 - var additionalClass = ''
                 if massage.promo
                   - promoText = `${promoText}${massage.promo.text}<br>`
                   if massage.promo.starPlacement
                     - additionalClass = `table__row_promo table__row_promo-${massage.promo.starPlacement}`
-                if massage === pageData.massage
+                if massage.id === pageData.massage.id
                   - additionalClass = `${additionalClass} table__row_highlight`
                 tr.table__row(class=additionalClass)
                   td.table__cell
                     b.price-list__massage-name= massage.name
                   td.table__cell
-                    if massage.price.old
-                      span.price-list__old-price!= `${massage.price.old}&thinsp;₽`
+                    if massage.old_price
+                      span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
                       br
-                    span.price-list__first-price!= `${massage.price.first}&thinsp;₽`
+                    span.price-list__first-price!= `${massage.first_price}&thinsp;₽`
                   td.table__cell
-                    if massage.price.old
-                      span.price-list__old-price!= `${massage.price.old}&thinsp;₽`
+                    if massage.old_price
+                      span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
                       br
-                    span.price-list__standard-price!= `${massage.price.standard}&thinsp;₽`
+                    span.price-list__standard-price!= `${massage.standard_price}&thinsp;₽`
                   td.table__cell!= `${massage.duration}&thinsp;мин`
             p.price-list__promo-text!= promoText
       include callback-form

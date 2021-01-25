@@ -1,0 +1,70 @@
+- var data = JSON.parse(data)
+
+.wrap
+  h1 Прайс-лист
+  hr
+  h2 Массажи
+  .table.table_massages
+    .table__wrap
+      table.table__table
+        thead
+          tr.table__row
+            th.table__cell.table__cell_heading
+              span Массаж
+            th.table__cell.table__cell_heading
+              span Цена 1-го сеанса
+            th.table__cell.table__cell_heading
+              span Стандартная цена
+            th.table__cell.table__cell_heading
+              span Старая цена
+            th.table__cell.table__cell_heading
+              span Продолжительность
+        tbody
+          each massage in data.massages
+            tr.table__row(data-id=massage.id)
+              td.table__cell
+                span= massage.full_name
+              td.table__cell
+                span!= `${massage.first_price}₽`
+              td.table__cell
+                span!= `${massage.standard_price}₽`
+              td.table__cell
+                span!= massage.old_price ? `${massage.old_price}₽` : '-'
+              td.table__cell
+                span!= `${massage.duration} минут`
+  br
+  h2 Отдельные процедуры
+  .table.table_procedures
+    .table__wrap
+      table.table__table
+        thead
+          tr.table__row
+            th.table__cell.table__cell_heading
+              span Название
+            th.table__cell.table__cell_heading
+              span Цена
+        tbody
+          each procedure in data.procedures
+            tr.table__row(data-id=procedure.id)
+              td.table__cell
+                span= procedure.name
+              td.table__cell
+                span!= `${procedure.price}₽`
+  br
+  h2 Дополнительные процедуры
+  .table.table_additions
+    .table__wrap
+      table.table__table
+        thead
+          tr.table__row
+            th.table__cell.table__cell_heading
+              span Название
+            th.table__cell.table__cell_heading
+              span Цена
+        tbody
+          each addition in data.additions
+            tr.table__row(data-id=addition.id)
+              td.table__cell
+                span= addition.name
+              td.table__cell
+                span(data-change='')!= `${addition.price}₽`

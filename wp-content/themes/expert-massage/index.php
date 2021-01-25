@@ -75,11 +75,47 @@ function get_pug_page() {
 }
 
 function get_global_data() {
+    $massages = get_massages();
+
+    $faceMassages = [
+        'title' => 'Для красоты лица',
+        'massages' => []
+    ];
+    $bodyMassages = [
+        'title' => 'Для здоровья тела',
+        'massages' => []
+    ];
+    $figureMassages = [
+        'title' => 'Для стройной фигуры',
+        'massages' => []
+    ];
+
+    foreach ($massages as $key => $massage) {
+        if ($massage['type'] === '1') {
+            array_push($faceMassages['massages'], $massage);
+        } else if ($massage['type'] === '2') {
+            array_push($bodyMassages['massages'], $massage);
+        } else {
+            array_push($figureMassages['massages'], $massage);
+        }
+    }
+
     return [
-        'currentYear' => date('Y'),
+        'title' => get_the_title(),
         'url' => $_SERVER['REQUEST_URI'],
         'canonical' => wp_get_canonical_url(),
-        'company' => get_company_data()
+        'currentYear' => date('Y'),
+        'company' => get_company_data(),
+        'massages' => $massages,
+        'priceList' => [
+            'sections' => [
+                'body' => $bodyMassages,
+                'face' => $faceMassages,
+                'figure' => $figureMassages,
+            ],
+            'procedures' => get_procedures_prices(),
+            'additions' => get_additions_prices()
+        ],
     ];
 }
 
@@ -130,6 +166,74 @@ function get_company_data() {
         ]
     ];
 }
+
+function get_massages() {
+    global $wpdb;
+
+    $massages = $wpdb->get_results(
+        'SELECT wp_exp_massages.id, wp_exp_massages.code, wp_exp_massages.name, wp_exp_massages.full_name,
+        wp_exp_massages.type, wp_exp_massages.menu_tag_text, wp_exp_massages.first_price,
+        wp_exp_massages.standard_price, wp_exp_massages.old_price, wp_exp_massages.duration,
+        wp_exp_massages.short_description,
+        wp_exp_color_modifiers.name as menu_tag_color
+        FROM wp_exp_massages
+        RIGHT JOIN wp_exp_color_modifiers
+        ON wp_exp_massages.menu_tag_color = wp_exp_color_modifiers.id OR wp_exp_massages.menu_tag_color IS NULL',
+        ARRAY_A
+    );
+
+    $massageObj = [];
+    foreach ($massages as $massage) {
+        $massage['url'] = '/' . $massage['code'] . '/';
+
+        if ($massage['code'] === 'sculptural-buccal-massage') {
+            $massage['promo'] = [
+                'text' => '<span>Акция</span> — скидка на февраль и март 30%',
+                'starPlacement' => 3,
+                'title' => '30% скидка на скульптурно-буккальный массаж!',
+                'cardText' => 'Любое количество сеансов. Только на февраль и март',
+                'buttonText' => 'Записаться',
+                'buttonColor' => '#06319f',
+                'image' => THEME_IMG_PATH . '/prices-page/promo-bg-1@2x.jpg',
+            ];
+        } else if ($massage['code'] === 'figure-modeling') {
+            $massage['promo'] = [
+                'text' => '<span>Акция</span> — скидка на февраль и март 30%',
+                'starPlacement' => 3,
+                'title' => '30% скидка на ручное модели&shy;рование фигуры',
+                'cardText' => 'На февраль и март',
+                'buttonText' => 'Записаться',
+                'buttonColor' => '#fe2c78',
+                'image' => THEME_IMG_PATH . '/prices-page/promo-bg-2@2x.jpg',
+            ];
+        }
+
+        $massageObj[$massage['code']] = $massage;
+    }
+
+    return $massageObj;
+}
+
+function get_procedures_prices() {
+    global $wpdb;
+
+    return $wpdb->get_results(
+        'SELECT name, price
+        FROM wp_exp_price_procedures',
+        ARRAY_A
+    );
+}
+
+function get_additions_prices() {
+    global $wpdb;
+
+    return $wpdb->get_results(
+        'SELECT name, price
+        FROM wp_exp_price_additions',
+        ARRAY_A
+    );
+}
+
 
 function get_reviews_data() {
     global $wpdb;

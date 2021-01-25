@@ -11,7 +11,7 @@ mixin massage-preview(id)
     - var massageInfo
     - var isHighlighted = false
     each massage in globalData.massages
-      if massage.id === id
+      if +massage.id === id
         - massageInfo = massage
       if id === 1
         - isHighlighted = true
@@ -36,8 +36,8 @@ mixin massage-preview(id)
         if id === 7
           - title = 'Ручное моделирование'
         h3.massage-card__title= title
-        p.massage-card__text!= massageInfo.shortDescription
-        a(href=massageInfo.url).massage-card__link.link.link_primary.link_arrow Смотреть
+        p.massage-card__text!= massageInfo.short_description
+        a(href=massage.url).massage-card__link.link.link_primary.link_arrow Смотреть
 
 section.more-massages
   .container
