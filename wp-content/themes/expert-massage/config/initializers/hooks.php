@@ -22,6 +22,8 @@ add_action('admin_post_nopriv_test', 'handle_test_form');
 add_action('admin_post_test', 'handle_test_form');
 add_action('admin_post_nopriv_review', 'handle_review_form');
 add_action('admin_post_review', 'handle_review_form');
+add_action('wp_ajax_reviews-filters', 'handle_reviews_filters');
+add_action('wp_ajax_nopriv_reviews-filters', 'handle_reviews_filters');
 // Admin panel handlers
 add_action('admin_post_review_change', 'handle_review_change');
 add_action('admin_post_review_delete', 'handle_review_delete');
@@ -121,18 +123,19 @@ function update_yandex_reviews_database($reviews) {
  * Adds new section in wordpress admin panel
  */
 function custom_administrating() {
-    add_menu_page('Управление сайтом', 'Админ. панель', 'manage_options', 'custom_administrating', 'custom_administrating_options');
-    add_submenu_page('custom_administrating', 'Запись на массаж', 'Запись на массаж', 'manage_options', 'application_form', 'application_form_administrating');
-    add_submenu_page('custom_administrating', 'Заказ обратного звонка', 'Заказ обратного звонка', 'manage_options', 'callback_form', 'callback_form_administrating');
-    add_submenu_page('custom_administrating', 'Тест выбора массажа', 'Тест выбора массажа', 'manage_options', 'test_form', 'test_form_administrating');
+    add_menu_page('Управление сайтом', 'Админ. панель', 'upload_files', 'custom_administrating', 'custom_administrating_options');
+    add_submenu_page('custom_administrating', 'Запись на массаж', 'Запись на массаж', 'upload_files', 'application_form', 'application_form_administrating');
+    add_submenu_page('custom_administrating', 'Заказ обратного звонка', 'Заказ обратного звонка', 'upload_files', 'callback_form', 'callback_form_administrating');
+    add_submenu_page('custom_administrating', 'Тест выбора массажа', 'Тест выбора массажа', 'upload_files', 'test_form', 'test_form_administrating');
     add_submenu_page('custom_administrating', 'Отзывы', 'Отзывы', 'manage_options', 'review_form', 'review_form_administrating');
+    add_submenu_page('custom_administrating', 'Прайс-лист', 'Прайс-лист', 'manage_options', 'prices', 'prices_administrating');
 }
 
 /*
  * Defines functionality of custom administrating panel
  */
 function custom_administrating_options() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
     render_template('includes/admin/main');
@@ -142,7 +145,7 @@ function custom_administrating_options() {
  * Application form data
  */
 function application_form_administrating() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
 
@@ -173,7 +176,7 @@ function application_form_administrating() {
  * Callback form data
  */
 function callback_form_administrating() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
 
@@ -198,7 +201,7 @@ function callback_form_administrating() {
  * Test form data
  */
 function test_form_administrating() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('upload_files'))  {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
 
@@ -262,6 +265,25 @@ function review_form_administrating() {
 }
 
 /*
+ * Receiving prices from database and rendering admin price-list
+ */
+function prices_administrating() {
+    if (!current_user_can('manage_options'))  {
+        wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
+    }
+
+    global $wpdb;
+
+    $pricesData = [
+        'massages' => $wpdb->get_results('SELECT id, full_name, first_price, standard_price, old_price, duration FROM wp_exp_massages'),
+        'procedures' => $wpdb->get_results('SELECT * FROM wp_exp_price_procedures'),
+        'additions' => $wpdb->get_results('SELECT * FROM wp_exp_price_additions'),
+    ];
+
+    render_template('includes/admin/prices', ['data' => json_encode($pricesData)]);
+}
+
+/*
  * Handles user data obtained from application form
  */
 function handle_application_form() {
@@ -289,6 +311,32 @@ function handle_application_form() {
             'certificate' => $_REQUEST['need-certificate'] ? 1 : 0,
             'date' => current_time('mysql')
         ]);
+
+        $emailMessage = "Телефон: $phone<br>Имя: $name<br>";
+        if ($_REQUEST['massage-id']) {
+            $emailMessage .= 'Желаемый массаж: ' . $wpdb->get_var(
+                $wpdb->prepare(
+                    'SELECT full_name FROM wp_exp_massages WHERE id = %d', $_REQUEST['massage-id']
+                )
+            ) . '<br>';
+        }
+        if ($_REQUEST['specialist-id']) {
+            $emailMessage .= 'Выбранный специалист: ' . $wpdb->get_var(
+                $wpdb->prepare(
+                    'SELECT surname FROM wp_exp_specialists WHERE id = %d', $_REQUEST['specialist-id']
+                )
+            ) . '<br>';
+        }
+        if ($_REQUEST['need-certificate']) {
+            $emailMessage .= 'Нужен сертификат';
+        }
+
+        wp_mail(
+            SUPPORT_EMAIL,
+            'Новая заявка на массаж',
+            $emailMessage,
+            array('Content-Type: text/html; charset=UTF-8')
+        );
 
         $response = [
             'result' => true
@@ -325,6 +373,17 @@ function handle_callback_form() {
             'date' => current_time('mysql')
         ]);
 
+        wp_mail(SUPPORT_EMAIL, 'Заявка на обратный звонок',
+            "
+            <p>Получена новая заявка на обратный звонок</p>
+            <p>
+              <span>Телефон:</span>
+              <a href='tel:$phone'>$phone</a>
+            </p>
+            ",
+            array('Content-Type: text/html; charset=UTF-8')
+        );
+
         $response = [
             'result' => true
         ];
@@ -348,6 +407,11 @@ function handle_test_form() {
     try {
         $name = trim($_REQUEST['name']);
         $phone = extract_phone(trim($_REQUEST['phone']));
+        $age = $_REQUEST['age'];
+        $problems = $_REQUEST['problems'];
+        $spineDisease = $_REQUEST['spine-disease'];
+        $expectations = $_REQUEST['expectations'];
+        $previousExperience = $_REQUEST['previous-experience'];
 
         if (!$name) {
             throw new Exception('Необходимо указать имя');
@@ -362,13 +426,48 @@ function handle_test_form() {
         $wpdb->insert('wp_exp_choosing_test_results', [
             'phone' => $phone,
             'name' => $name,
-            'age' => $_REQUEST['age'],
-            'problems' => $_REQUEST['problems'],
-            'spine_disease' => $_REQUEST['spine-disease'],
-            'expectations' => $_REQUEST['expectations'],
-            'previous_experience' => $_REQUEST['previous-experience'],
+            'age' => $age,
+            'problems' => $problems,
+            'spine_disease' => $spineDisease,
+            'expectations' => $expectations,
+            'previous_experience' => $previousExperience,
             'date' => current_time('mysql')
         ]);
+
+        wp_mail(SUPPORT_EMAIL, 'Тест на подходящий массаж',
+            "
+            <p>Пройден тест по выбору подходящего массажа</p>
+            <p>
+              <span>Имя:</span>
+              <span>$name</span>
+            </p>
+            <p>
+              <span>Телефон:</span>
+              <a href='tel:$phone'>$phone</a>
+            </p>
+            <p>
+              <span>Возраст:</span>
+              <span>$age</span>
+            </p>
+            <p>
+              <span>Проблемы:</span>
+              <span>$problems</span>
+            </p>
+            <p>
+              <span>Заболевания позвоночника:</span>
+              <span>$spineDisease</span>
+            </p>
+            <p>
+              <span>Чего хочет добиться массажем:</span>
+              <span>$expectations</span>
+            </p>
+            <p>
+              <span>Какие массажи были пройдены ранее:</span>
+              <span>$previousExperience</span>
+            </p>
+            ",
+            array('Content-Type: text/html; charset=UTF-8')
+        );
 
         $response = [
             'result' => true
@@ -395,11 +494,11 @@ function handle_review_form() {
         if (!$name) {
             throw new Exception('Необходимо указать имя');
         }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new Exception('Email указан некорректно');
         }
         if (!$review) {
-            throw new Exception('Необходимо написать отзыв');
+            throw new Exception('Отзыв не может быть пустым');
         }
 
         $wpdb->insert('wp_exp_reviews', [
@@ -409,6 +508,21 @@ function handle_review_form() {
             'source' => 'site',
             'date' => current_time('mysql')
         ]);
+
+        wp_mail(SUPPORT_EMAIL, 'Новый отзыв',
+            "
+            <p>На сайте оставили новый отзыв</p>
+            <p>
+              <span>Автор:</span>
+              <span>$name</span><a href='mailto:$email'>, $email</a>
+            </p>
+            <p>
+              <span>Отзыв:</span>
+              <span>$review</span>
+            </p>
+            ",
+            array('Content-Type: text/html; charset=UTF-8')
+        );
 
         $response = [
             'result' => true
@@ -422,6 +536,68 @@ function handle_review_form() {
     }
 
     exit(json_encode($response));
+}
+
+function get_reviews_data() {
+    global $wpdb;
+    $reviews_per_page = 15;
+    $page = isset($_GET['page_num']) ? $_GET['page_num'] : 1;
+
+    $reviews = $wpdb->get_results(
+        'SELECT text, author, specialist_id, massage_type, source, date 
+        FROM wp_exp_reviews
+        WHERE accepted = 1
+        ORDER BY date DESC',
+        ARRAY_A
+    );
+
+    if (isset($_GET['massage']) || isset($_GET['specialist'])) {
+        $reviews = array_filter($reviews, function ($item) {
+            if (isset($_GET['massage']) && $item['massage_type'] !== $_GET['massage']) {
+                return false;
+            }
+            if (isset($_GET['specialist']) && $item['specialist_id'] !== $_GET['specialist']) {
+                return false;
+            }
+
+            return true;
+        });
+    }
+
+    $outputReviews = [];
+    foreach ($reviews as $review) {
+        $review['date'] = date_create($review['date'])->format('d.m.Y');
+        $outputReviews[] = $review;
+    }
+
+    return [
+        'reviews' => array_slice($outputReviews, ($page - 1) * $reviews_per_page,$reviews_per_page),
+        'pagination' => get_reviews_pagination(count($reviews), $page)
+    ];
+}
+
+function get_reviews_pagination($reviewsCount, $currentPage) {
+    $args = [
+        'base'         => '/reviews/%_%',
+        'format'       => '?page_num=%#%',
+        'total'        => ceil($reviewsCount / 15),
+        'current'      => $currentPage,
+        'show_all'     => false,
+        'end_size'     => 1,
+        'mid_size'     => 1,
+        'prev_next'    => true,
+        'prev_text'    => __('<'),
+        'next_text'    => __('>'),
+        'type'         => 'plain',
+        'before_page_number' => '',
+        'after_page_number'  => ''
+    ];
+
+    return paginate_links($args);
+}
+
+function handle_reviews_filters() {
+    exit(json_encode(get_reviews_data()));
 }
 
 function handle_review_change() {

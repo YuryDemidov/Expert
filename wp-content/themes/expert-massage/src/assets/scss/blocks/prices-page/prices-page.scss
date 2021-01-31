@@ -113,6 +113,16 @@
     }
 
     .table {
+      &__cell {
+        padding-top: 3.8rem;
+
+        &_heading {
+          padding-top: 0;
+
+          color: map-deep-get($themes, 'main', 'primary-dark');
+        }
+      }
+
       &__row {
         @for $i from 1 to 4 {
           &_promo-#{$i} {
@@ -128,15 +138,15 @@
             }
           }
         }
-      }
 
-      &__cell {
-        padding-top: 3.8rem;
-
-        &_heading {
+        &_promo .table__cell {
           padding-top: 0;
 
-          color: map-deep-get($themes, 'main', 'primary-dark');
+          span.price-list__old-price {
+            font-size: 1.2rem;
+
+            background: none;
+          }
         }
       }
     }

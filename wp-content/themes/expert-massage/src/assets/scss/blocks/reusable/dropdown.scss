@@ -19,7 +19,7 @@
 
       content: '';
       position: absolute;
-      top: 0.25em;
+      top: 0.2em;
       right: 5px;
 
       transition-property: top, transform;
@@ -56,7 +56,7 @@
   &[data-state='opened'] {
     .dropdown__trigger {
       &::before {
-        top: 0.5em;
+        top: 0.45em;
 
         transform: rotate(-135deg);
       }

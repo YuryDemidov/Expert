@@ -4,7 +4,7 @@ mixin massage-card(massage, tags, text, customTitle)
       ul.massage-card__tags
         each tag in tags
           li.massage-card__tag= tag
-      h4.massage-card__title!= ((customTitle) || (massage.fullName))
+      h4.massage-card__title!= ((customTitle) || (massage.full_name))
       p.massage-card__text!= text
       a(href=massage.url).massage-card__link.link.link_arrow.link_secondary.underline Узнать больше
     .massage-card__image
@@ -22,17 +22,17 @@ section.massage-types
           +massage-card(
             globalData.massages['back-massage'],
             ['При боли', 'Лечит заболевания позвоночника', 'При сидячей работе'],
-            'Снимает боль, возвращает лёгкость движе&shy;ний. Показан, если&nbsp;вам поставили диагноз сколиоз, кифоз, остеохондроз или&nbsp;люмбаго, но&nbsp;можно делать и&nbsp;без диагноза. Лечебный массаж&nbsp;— отличная профилактика при офис&shy;ной работе и&nbsp;малоактивном образе жизни'
+            'Снимает боль, возвращает лёгкость движе&shy;ний. Показан при большинстве заболеваний позвоночника, но&nbsp;можно делать и&nbsp;без диагноза. Лечебный массаж&nbsp;— отличная профилактика при офис&shy;ной работе и&nbsp;малоактивном образе жизни'
           )
         .massage-types__item.massage-types__item_2
-          +accordion(globalData.massages['fullbody-massage'].fullName, 'massageTypeAccordionTrigger1', 'massageTypeAccordionBody1', false)
+          +accordion(globalData.massages['fullbody-massage'].full_name, 'massageTypeAccordionTrigger1', 'massageTypeAccordionBody1', false)
             +massage-card(
               globalData.massages['fullbody-massage'],
               ['При хронической усталости', 'От бессоницы'],
               'Оказывает лечебное действие на весь орга&shy;низм, наполняет энергией, даёт запас сил. Расслабляет все зажимы, убирает застои. Если вы не знаете, какой массаж выбрать или у вас болит всё сразу, попробуйте общий массаж. Проработаем спину, шею, голову, руки и&nbsp;ноги, и&nbsp;вам сразу же станет легче'
             )
         .massage-types__item.massage-types__item_3
-          +accordion(globalData.massages['body-lymphatic-drainage'].fullName, 'massageTypeAccordionTrigger2', 'massageTypeAccordionBody2', false)
+          +accordion(globalData.massages['body-lymphatic-drainage'].full_name, 'massageTypeAccordionTrigger2', 'massageTypeAccordionBody2', false)
             +massage-card(
               globalData.massages['body-lymphatic-drainage'],
               ['Для поднятия иммунитета', 'От отёков'],
@@ -40,7 +40,7 @@ section.massage-types
               'Лимфодренажный массаж всего тела'
             )
         .massage-types__item.massage-types__item_4
-          +accordion(globalData.massages['neck-massage'].fullName, 'massageTypeAccordionTrigger3', 'massageTypeAccordionBody3', false)
+          +accordion(globalData.massages['neck-massage'].full_name, 'massageTypeAccordionTrigger3', 'massageTypeAccordionBody3', false)
             +massage-card(
               globalData.massages['neck-massage'],
               ['После трудного дня', 'Если защемило шею', 'При головной боли'],
@@ -48,7 +48,7 @@ section.massage-types
               'Массаж шейно-воротниковой&nbsp;зоны'
             )
         .massage-types__item.massage-types__item_5
-          +accordion(globalData.massages['sports-massage'].fullName, 'massageTypeAccordionTrigger4', 'massageTypeAccordionBody4', false)
+          +accordion(globalData.massages['sports-massage'].full_name, 'massageTypeAccordionTrigger4', 'massageTypeAccordionBody4', false)
             +massage-card(
               globalData.massages['sports-massage'],
               ['После тренировки', 'После спортивных травм', 'Для удлинения мышц'],
@@ -66,21 +66,21 @@ section.massage-types
             'По-настоящему преображающий массаж. Равноценная замена пластике, но без уколов, боли и&nbsp;рисков. Этот массаж убирает все признаки старения, отёки под глазами, второй подбородок. Массаж не травматичен, не имеет противопоказаний, а его результат, при поддержке, держится всю жизнь'
           )
         .massage-types__item.massage-types__item_7
-          +accordion(globalData.massages['classic-facial-massage'].fullName, 'massageTypeAccordionTrigger5', 'massageTypeAccordionBody5', false)
+          +accordion(globalData.massages['classic-facial-massage'].full_name, 'massageTypeAccordionTrigger5', 'massageTypeAccordionBody5', false)
             +massage-card(
               globalData.massages['classic-facial-massage'],
               ['Свежесть и тонус'],
               'Во время сеанса массажист восстанавливает здоровье мышц&nbsp;— мягко поглаживает, растирает и&nbsp;разминает лицо по&nbsp;массажным линиям. Мышца удлиняется и&nbsp;расслабляется, усиливается кровоток и&nbsp;возрастные изменения становятся меньше. Массаж позволяет сохранить тонус и&nbsp;молодость лица, кожа выглядит свежей, светящейся'
             )
         .massage-types__item.massage-types__item_8
-          +accordion(globalData.massages['japanese-asahi-massage'].fullName, 'massageTypeAccordionTrigger6', 'massageTypeAccordionBody6', false)
+          +accordion(globalData.massages['japanese-asahi-massage'].full_name, 'massageTypeAccordionTrigger6', 'massageTypeAccordionBody6', false)
             +massage-card(
               globalData.massages['japanese-asahi-massage'],
               ['Глубокая проработка', 'Мощный лимфодренаж'],
               'С японского переводится как «создание лица». Массажные движения делаются с усилием, но без боли, глубоко прорабатываются мышцы и&nbsp;костные ткани. За счёт стимуляции лимфатических узлов и&nbsp;сосудов, моментально уходят отёки, но лицо не проседает, как бывает при резком похудении, а как будто «оживает изнутри»'
             )
         .massage-types__item.massage-types__item_9
-          +accordion(globalData.massages['facial-lymphatic-drainage'].fullName, 'massageTypeAccordionTrigger7', 'massageTypeAccordionBody7', false)
+          +accordion(globalData.massages['facial-lymphatic-drainage'].full_name, 'massageTypeAccordionTrigger7', 'massageTypeAccordionBody7', false)
             +massage-card(
               globalData.massages['facial-lymphatic-drainage'],
               ['Против отёков, мешков под глазами'],
@@ -88,7 +88,7 @@ section.massage-types
               'Лимфодренажный массаж&nbsp;лица'
             )
         .massage-types__item.massage-types__item_10
-          +accordion(globalData.massages['chiromassage'].fullName, 'massageTypeAccordionTrigger8', 'massageTypeAccordionBody8', false)
+          +accordion(globalData.massages['chiromassage'].full_name, 'massageTypeAccordionTrigger8', 'massageTypeAccordionBody8', false)
             +massage-card(
               globalData.massages['chiromassage'],
               ['Самый расслабляющий', 'Мягкая техника', 'Возвращает в ресурс'],
@@ -103,14 +103,14 @@ section.massage-types
             'Уникальная процедура — включает лимфодренаж и&nbsp;обёртывание. Мастер буквально лепит вам новое тело, помогая похудеть и&nbsp;подтянуть кожу. Уходят отёки, лишняя межклеточная жидкость и&nbsp;жир, объёмы не возвращаются!'
           )
         .massage-types__item.massage-types__item_12
-          +accordion(globalData.massages['anti-cellulite-massage'].fullName, 'massageTypeAccordionTrigger9', 'massageTypeAccordionBody9', false)
+          +accordion(globalData.massages['anti-cellulite-massage'].full_name, 'massageTypeAccordionTrigger9', 'massageTypeAccordionBody9', false)
             +massage-card(
               globalData.massages['anti-cellulite-massage'],
               ['Убирает признаки целлюлита', 'Минимум боли'],
               'Этот массаж идеально подойдёт, если у вас почти нет лишнего веса, но есть выраженный целлюлит. Массаж поможет значительно скорректировать неприятный дефект, а если у вас начальные стадии целлюлита, то он пропадёт полностью'
             )
         .massage-types__item.massage-types__item_13
-          +accordion(globalData.massages['body-lymphatic-drainage'].fullName, 'massageTypeAccordionTrigger10', 'massageTypeAccordionBody10', false)
+          +accordion(globalData.massages['body-lymphatic-drainage'].full_name, 'massageTypeAccordionTrigger10', 'massageTypeAccordionBody10', false)
             +massage-card(
               globalData.massages['body-lymphatic-drainage'],
               ['Для поднятия иммунитета', 'От отёков'],

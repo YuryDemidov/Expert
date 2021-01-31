@@ -3,15 +3,13 @@ extends ../layouts/default
 block variables
   -
     var pageData = JSON.parse(pageData)
-    pageData.title = `Ручное моделирование фигуры в Москве - профессиональный подход`
     pageData.description = `Ручное моделирование фигуры - профессиональный массаж в Москве, отличная цена от профессионального
       массажиста с медицинской лицензией`
     pageData.keywords = `моделирование, фигуры, ручное, массаж, услуга, описание, от целлюлита, Москва, цена`
-    pageData.canonical = 'https://expert-massage-clinic.ru/figure-modeling/'
     pageData.pageClass = 'figure-modeling-page'
     pageData.theme = '7'
     pageData.massage = globalData.massages['figure-modeling']
-    pageData.mainScreenHeading = 'Ручное моделирование фигуры (липоскульптура)'
+    pageData.mainScreenHeading = 'Ручное моделирование фигуры'
     pageData.mainScreenSubheading = `Авторская техника для&nbsp;похудения и&nbsp;подтягивания кожи. Уходит лишний вес, тают
       объёмы`
     pageData.mainScreenFeatures = [
@@ -61,7 +59,7 @@ block variables
     }
     pageData.reviewsBlock.title = 'Отзывы о&nbsp;ручном моделировании фигуры'
     pageData.massageVideo = {
-      id: 'y8nZNDosExU',
+      id: 'dYomA1yVJUM',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_figure-modeling.jpg`,
       sticker: false
     }
@@ -146,6 +144,7 @@ block content
   include ../includes/modules/content/massage-description
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

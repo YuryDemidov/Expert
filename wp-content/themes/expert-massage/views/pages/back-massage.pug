@@ -3,10 +3,8 @@ extends ../layouts/default
 block variables
   -
     var pageData = JSON.parse(pageData)
-    pageData.title = `Лечебный массаж в Москве. Медицинский массаж`
-    pageData.description = `*`
-    pageData.keywords = `*`
-    pageData.canonical = 'https://expert-massage-clinic.ru/back-massage/'
+    pageData.description = `Лечебный массаж, Москва — ${globalData.company.businessDuration} лет успешной работы! Снятие боли после 1-го сеанса. Медицинский массаж спины, позвоночника, общий массаж, лимфодренажный по доступным ценам.`
+    pageData.keywords = `лечебный массаж, Москва, медицинский массаж, лечебный массаж спины, лечебный массаж позвоночника, лечебный общий массаж`
     pageData.pageClass = 'back-massage-page'
     pageData.theme = '12'
     pageData.massage = globalData.massages['back-massage']
@@ -43,7 +41,7 @@ block variables
     }
     pageData.reviewsBlock.title = 'Отзывы о лечебном массаже спины'
     pageData.massageVideo = {
-      id: '_0KHvR5FSXs',
+      id: 'WzRZGD0mzkY',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_back.jpg`,
       sticker: {
         position: 'left',
@@ -174,6 +172,7 @@ block content
   include ../includes/modules/content/blocks-list
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

@@ -18,6 +18,10 @@
     margin-bottom: 0;
 
     font-size: 1.1rem;
+
+    .link {
+      white-space: nowrap;
+    }
   }
 
   &__logo {
@@ -80,7 +84,15 @@
     padding-bottom: 6rem;
 
     &__copyright {
-      max-width: 48rem;
+      max-width: 57rem;
+    }
+  }
+}
+
+@media (min-width: $desktop-min-width) {
+  .page-footer {
+    &__copyright {
+      max-width: 62rem;
 
       font-size: 1.2rem;
     }

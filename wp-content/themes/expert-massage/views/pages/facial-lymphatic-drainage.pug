@@ -3,11 +3,9 @@ extends ../layouts/default
 block variables
   -
     var pageData = JSON.parse(pageData)
-    pageData.title = `Лимфодренажный массаж лица в Москве`
     pageData.description = `Лимфодренажный массаж лица - прорабатывается лицо, шея и зона декольте, эффект заметен после первой
       процедуры`
     pageData.keywords = `лимфодренажный, массаж лица, услуга, описание, цена, стоимость, Москва`
-    pageData.canonical = 'https://expert-massage-clinic.ru/facial-lymphatic-drainage/'
     pageData.pageClass = 'facial-lymphatic-drainage-page'
     pageData.theme = '3'
     pageData.massage = globalData.massages['facial-lymphatic-drainage']
@@ -45,7 +43,7 @@ block variables
     }
     pageData.reviewsBlock.title = 'Отзывы о&nbsp;массаже лица'
     pageData.massageVideo = {
-      id: 'H9IRW0ffpWk',
+      id: 'AA3ZmQWmKX8',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_face.jpg`,
       sticker: false
     }
@@ -103,6 +101,7 @@ block content
   include ../includes/modules/content/massage-description
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

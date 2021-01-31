@@ -21,7 +21,12 @@ footer.page-footer
     p.page-footer__copyright
       | Любое использование либо копирование материалов или подборки материалов сайта, элементов дизайна и оформления
       | допускается лишь с&nbsp;разрешения правообладателя и&nbsp;только со&nbsp;ссылкой на&nbsp;источник:
-      | https://expert-massage-clinic.ru. Вся представленная на&nbsp;сайте информация не&nbsp;является публичной офертой
+      | https://expert-massage-clinic.ru. Вся представленная на&nbsp;сайте информация не&nbsp;является публичной офертой.
+      br.hidden_mobile-tablet
+      |
+      | Ваши вопросы и пожелания пишите на почту:
+      |
+      a.link.link_primary.underline(href=`mailto:${globalData.company.email}`)= globalData.company.email
     .page-footer__company
       a(href='/')
         +picture-tag(footerLogo, footerLogo.mobile.jpg['3x'], 'Клиника профессионального массажа Expert', '125', '26').page-footer__logo

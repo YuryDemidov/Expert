@@ -1,11 +1,5 @@
 'use strict';
-//
-// import('masonry-layout/masonry')
-//   .then(() => {
-//     const reviewsWrap = document.querySelector('.reviews__wrap');
-//     // eslint-disable-next-line no-undef
-//     const masonryGrid = new Masonry(reviewsWrap, {
-//       itemSelector: '.review-card',
-//       columnWidth: 200
-//     });
-//   })
+
+import './reviewForm';
+import './reviewsFilters';
+import './reviewsLayout';

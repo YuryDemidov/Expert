@@ -3,11 +3,9 @@ extends ../layouts/default
 block variables
   -
     var pageData = JSON.parse(pageData)
-    pageData.title = `Антицеллюлитный массаж, Москва - положительные отзывы, видимый эффект`
     pageData.description = `Массаж от целлюлита - антицеллюлитный массаж в Москве, отличная цена от профессионального массажиста
       с медицинской лицензией`
     pageData.keywords = `антицеллюлитный, массаж, услуга, описание, от целлюлита, Москва, цена`
-    pageData.canonical = 'https://expert-massage-clinic.ru/anti-cellulite-massage/'
     pageData.pageClass = 'anti-cellulite-massage-page'
     pageData.theme = '9'
     pageData.massage = globalData.massages['anti-cellulite-massage']
@@ -47,7 +45,7 @@ block variables
     }
     pageData.reviewsBlock.title = 'Отзывы об&nbsp;антицеллюлитном массаже'
     pageData.massageVideo = {
-      id: 'q6TCTNKIU4M',
+      id: 'ejIPT_u7wr8',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_anticellulite.jpg`,
       sticker: false
     }
@@ -124,6 +122,7 @@ block content
   include ../includes/modules/content/massage-description
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

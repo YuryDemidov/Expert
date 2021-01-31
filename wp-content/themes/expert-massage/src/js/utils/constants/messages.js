@@ -10,6 +10,7 @@ export const MESSAGES = {
     EMPTY_NAME: `Необходимо указать имя`,
     EMPTY_PASSWORD: `Ошибка! Введите пароль`,
     EMPTY_PHONE: `Необходимо указать телефон`,
+    EMPTY_REVIEW: `Отзыв не может быть пустым`,
     NO_DATA: `Данные для передачи отсутствуют`,
     NOT_SAVED: `Ошибка! Данные не были сохранены`,
     NOTHING_SELECTED: `Ошибка! Нужно выбрать хотя бы один вариант`,
@@ -31,6 +32,7 @@ export const MESSAGES = {
   SUCCESS: {
     CALLBACK_REQUEST_RECEIVED: `Мы скоро вам перезвоним`,
     COPIED: `Скопировано`,
+    REVIEW_RECEIVED: `Спасибо! Ваш отзыв получен и скоро будет добавлен на сайт`,
     SAVED: `Сохранено`
   }
 }

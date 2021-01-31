@@ -69,13 +69,14 @@
     position: fixed;
     top: 10rem;
     bottom: 0;
-    left: calc(50vw - 48rem);
+    left: calc(50vw - 50rem);
 
-    min-width: 28rem;
+    min-width: 30rem;
     overflow-y: auto;
     overflow-x: hidden;
 
-    ul {
+    .article-navigation__list {
+      margin-top: 4rem;
       margin-bottom: 0;
     }
 
@@ -91,7 +92,7 @@
 
 @media (min-width: $desktop-min-width) {
   .article-navigation {
-    left: calc(50vw - 52rem);
+    left: calc(50vw - 54rem);
 
     &[data-state=absolute] {
       right: calc(100% + 6rem);

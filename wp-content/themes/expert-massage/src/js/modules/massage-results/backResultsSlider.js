@@ -2,7 +2,7 @@ import { tns } from 'tiny-slider/src/tiny-slider';
 import { GLOBAL_VARS } from '../../utils/constants/globalVars';
 import { resultsWrapper } from './addMassageToAppointment';
 
-const backResultsWrap = resultsWrapper.querySelector(`.back-results`);
+const backResultsWrap = resultsWrapper && resultsWrapper.querySelector(`.back-results`);
 let backResultsSlider;
 
 initSlider();

@@ -1,14 +1,17 @@
 meta(charset='utf-8')
-title= pageData.title
+title= globalData.title || pageData.title
 meta(name='description' content=pageData.description)
 meta(name='keywords' content=pageData.keywords)
 meta(name='viewport' content='width=device-width')
 meta(http-equiv='X-UA-Compatible' content='IE=edge')
-meta(name="yandex-verification" content="8085584c20aa6a13")
+meta(name='yandex-verification' content='8085584c20aa6a13')
 link(rel='manifest' href=`${THEME_DIST_PATH}/site.webmanifest`)
 include favicons
-if pageData.canonical
-  link(rel='canonical' href=pageData.canonical)
+if globalData.canonical
+  link(rel='canonical' href=globalData.canonical)
+  meta(property='og:url' content=globalData.canonical)
+meta(property='og:title' content=((globalData.title) || (pageData.title)))
+meta(property='og:description' content=pageData.description)
 if pageData.hasMap
-  script(src="https://api-maps.yandex.ru/2.1/?apikey=b176543a-340b-4de9-9ded-9037e167250b&lang=ru_RU")
+  script(src='https://api-maps.yandex.ru/2.1/?apikey=b176543a-340b-4de9-9ded-9037e167250b&lang=ru_RU')
 - wp_head()

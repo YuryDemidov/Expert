@@ -15,7 +15,7 @@
   }
 
   &__title {
-    margin-bottom: 1.2rem;
+    margin-bottom: 2rem;
   }
 
   &__image {
@@ -78,7 +78,7 @@
     &__image {
       @include vertically-centered();
 
-      top: 65%;
+      top: 55%;
       left: 0;
 
       width: 45%;
@@ -100,6 +100,22 @@
       font-size: 1.8rem;
     }
   }
+
+  .theme-main {
+    .certificate {
+      padding-bottom: 20rem;
+
+      &__content {
+        padding-top: 26rem;
+      }
+
+      &__image {
+        top: 65%;
+
+        max-width: 55rem;
+      }
+    }
+  }
 }
 
 @media (min-width: $desktop-min-width) {
@@ -112,7 +128,7 @@
     }
 
     &__image {
-      top: 70%;
+      top: 60%;
 
       width: 50%;
     }
@@ -121,6 +137,14 @@
       max-width: 51.5rem;
 
       font-size: 1.8rem;
+    }
+  }
+
+  .theme-main {
+    .certificate {
+      &__image {
+        top: 70%;
+      }
     }
   }
 }

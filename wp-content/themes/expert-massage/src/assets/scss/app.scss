@@ -119,6 +119,8 @@
 
 @use 'blocks/socials/socials';
 
+@use 'blocks/share-block/share-block';
+
 @use 'blocks/map-block/map-block';
 
 @use 'blocks/footer/page-footer';
@@ -146,6 +148,5 @@
 @use 'blocks/articles-page/articles-page-card';
 
 // Articles
-@use 'blocks/page/article-page';
-
+@use 'blocks/article-page/article-page';
 @use 'blocks/article-page/article-navigation';

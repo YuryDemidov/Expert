@@ -3,6 +3,17 @@
 add_action('wp_enqueue_scripts', 'enqueue_css');
 add_action('admin_enqueue_scripts', 'enqueue_admin_css');
 add_action('wp_enqueue_scripts', 'enqueue_js');
+add_action('wp_enqueue_scripts', 'wp_ajax_data', 99 );
+
+function wp_ajax_data() {
+    wp_localize_script( 'app', 'PHP_DATA',
+        array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'themeUrl' => get_stylesheet_directory_uri(),
+            'imagesUrl' => THEME_IMG_PATH
+        )
+    );
+}
 
 function enqueue_js() {
     $dirJS = new RecursiveDirectoryIterator(get_stylesheet_directory() . '/dist/js');
@@ -39,7 +50,7 @@ function enqueue_js() {
                     }
                     break;
                 case 'article':
-                    if (is_page('12-steps')) {
+                    if (is_article_page()) {
                         wp_enqueue_script($name, get_template_directory_uri() . '/dist/js/pages/' . $fullName, array('app'), null, true);
                     }
                     break;

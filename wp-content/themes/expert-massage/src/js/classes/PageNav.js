@@ -82,7 +82,7 @@ export default class PageNav {
       if (isPartiallyInViewport(this.sections[i]) && this.sections[i].getBoundingClientRect().top <= this.getHeaderOffset() * 2) {
         const anchor = this.navConfig[`${this.selector}${i + 1}`].anchors[0];
         if (anchor === this.clickedLink || !this.clickedLink) {
-          this.switchActive(anchor);
+          anchor && this.switchActive(anchor);
           this.clickedLink = null;
         }
       }

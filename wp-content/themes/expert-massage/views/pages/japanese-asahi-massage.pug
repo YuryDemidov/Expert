@@ -3,11 +3,9 @@ extends ../layouts/default
 block variables
   -
     var pageData = JSON.parse(pageData)
-    pageData.title = `Японский массаж Асахи (zogan)`
     pageData.description = `Массаж по японской методике Асахи (zogan) - "создание лица". Москва, отличная цена и
       квалифицированные массажисты`
     pageData.keywords = `японский массаж, Асахи, Зоган, asahi, zogan, массаж лица, Москва, услуга, описание, цена, стоимость`
-    pageData.canonical = 'https://expert-massage-clinic.ru/japanese-asahi-massage/'
     pageData.pageClass = 'japanese-asahi-massage-page'
     pageData.theme = '4'
     pageData.massage = globalData.massages['japanese-asahi-massage']
@@ -47,7 +45,7 @@ block variables
     }
     pageData.reviewsBlock.title = 'Отзывы о&nbsp;массаже лица'
     pageData.massageVideo = {
-      id: 'H9IRW0ffpWk',
+      id: 'AA3ZmQWmKX8',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_face.jpg`,
       sticker: false
     }
@@ -112,6 +110,7 @@ block content
   include ../includes/modules/content/massage-description
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

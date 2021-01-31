@@ -1,26 +1,40 @@
+- var imageName = 'certificate-face'
+case pageData.theme
+  when 'main'
+    - imageName = 'certificate-all'
+  when '6'
+  when '10'
+  when '11'
+  when '12'
+    - imageName = 'certificate-body'
+  when '7'
+  when '8'
+  when '9'
+    - imageName = 'certificate-figure'
+
 -
   var certificatePicture = {
     desktop: {
       webp: {
-        '1x': `${THEME_IMG_PATH}/certificate/certificate_desktop@1x.webp`,
-        '2x': `${THEME_IMG_PATH}/certificate/certificate_desktop@2x.webp`
+        '1x': `${THEME_IMG_PATH}/certificate/${imageName}_desktop@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/certificate/${imageName}_desktop@2x.webp`
       },
       png: {
-        '1x': `${THEME_IMG_PATH}/certificate/certificate_desktop@1x.png`,
-        '2x': `${THEME_IMG_PATH}/certificate/certificate_desktop@2x.png`
+        '1x': `${THEME_IMG_PATH}/certificate/${imageName}_desktop@1x.png`,
+        '2x': `${THEME_IMG_PATH}/certificate/${imageName}_desktop@2x.png`
       }
     },
     tablet: false,
     mobile: {
       webp: {
-        '1x': `${THEME_IMG_PATH}/certificate/certificate_mobile@1x.webp`,
-        '2x': `${THEME_IMG_PATH}/certificate/certificate_mobile@2x.webp`,
-        '3x': `${THEME_IMG_PATH}/certificate/certificate_mobile@3x.webp`
+        '1x': `${THEME_IMG_PATH}/certificate/${imageName}_mobile@1x.webp`,
+        '2x': `${THEME_IMG_PATH}/certificate/${imageName}_mobile@2x.webp`,
+        '3x': `${THEME_IMG_PATH}/certificate/${imageName}_mobile@3x.webp`
       },
       png: {
-        '1x': `${THEME_IMG_PATH}/certificate/certificate_mobile@1x.png`,
-        '2x': `${THEME_IMG_PATH}/certificate/certificate_mobile@2x.png`,
-        '3x': `${THEME_IMG_PATH}/certificate/certificate_mobile@3x.png`
+        '1x': `${THEME_IMG_PATH}/certificate/${imageName}_mobile@1x.png`,
+        '2x': `${THEME_IMG_PATH}/certificate/${imageName}_mobile@2x.png`,
+        '3x': `${THEME_IMG_PATH}/certificate/${imageName}_mobile@3x.png`
       }
     }
   }
@@ -32,5 +46,5 @@ section.certificate(data-aos='fade-up' data-aos-offset='100' data-aos-duration='
       +picture-tag(certificatePicture, certificatePicture.desktop.png['2x'], 'Фото подарочного сертификата', '315', '267').certificate__image
       p.certificate__text
         | Поздравьте близких с&nbsp;пользой&nbsp;— подарите им сертификат на&nbsp;сеанс массажа. Вы сможете выбрать либо
-        | конкретную сумму покупки, либо число сеансов, как&nbsp;удобнее. Сертификат действует год с&nbsp;момента покупки
+        | конкретную сумму покупки, либо число сеансов, как&nbsp;удобнее. Сертификат действует 6&nbsp;месяцев с&nbsp;момента покупки
       button.certificate__button.button.button_secondary(type='button' data-open-popup='appointment') Хочу сертификат

@@ -1,7 +1,7 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 import { resultsWrapper } from './addMassageToAppointment';
 
-const figureResultsSliderWrap = resultsWrapper.querySelector(`.figure-results__slider`);
+const figureResultsSliderWrap = resultsWrapper && resultsWrapper.querySelector(`.figure-results__slider`);
 let figureResultsSlider;
 
 initSlider();

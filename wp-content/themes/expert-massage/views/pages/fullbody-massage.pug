@@ -3,11 +3,9 @@ extends ../layouts/default
 block variables
   -
     var pageData = JSON.parse(pageData)
-    pageData.title = `Общий массаж тела в Москве, отличная цена`
     pageData.description = `Массаж всего тела - общий классический массаж в Москве, ощутимый оздоровительный эффект, приятная
       стоимость`
     pageData.keywords = `общий, массаж, услуга, описание, цена, стоимость, Москва`
-    pageData.canonical = 'https://expert-massage-clinic.ru/fullbody-massage/'
     pageData.pageClass = 'fullbody-massage-page'
     pageData.theme = '11'
     pageData.massage = globalData.massages['fullbody-massage']
@@ -39,9 +37,9 @@ block variables
         ]
       }
     ]
-    pageData.reviewsBlock.title = 'Отзывы об&nbsp;общем массаже'
+    pageData.reviewsBlock.title = 'Отзывы о нас'
     pageData.massageVideo = {
-      id: 'lmt72qq1too',
+      id: 'dmnNYQh31Ng',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_fullbody.jpg`,
       sticker: {
         position: 'left',
@@ -118,6 +116,7 @@ block content
   include ../includes/modules/content/massage-description
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

@@ -3,11 +3,9 @@ extends ../layouts/default
 block variables
   -
     var pageData = JSON.parse(pageData)
-    pageData.title = `Спортивный массаж в Москве, отличная цена`
     pageData.description = `Спортивный массаж, Москва — ${globalData.company.businessDuration} лет успешной работы! Снятие боли
       после 1-го сеанса. Массаж от профессионалов по доступным ценам.`
     pageData.keywords = `спортивный массаж, Москва, массаж спины, массаж позвоночника, лечебный массаж, услуга, описание, цена`
-    pageData.canonical = 'https://expert-massage-clinic.ru/sports-massage/'
     pageData.pageClass = 'sports-massage-page'
     pageData.theme = '6'
     pageData.massage = globalData.massages['sports-massage']
@@ -42,9 +40,9 @@ block variables
         ]
       }
     ]
-    pageData.reviewsBlock.title = 'Отзывы о&nbsp;спортивном массаже'
+    pageData.reviewsBlock.title = 'Отзывы о нас'
     pageData.massageVideo = {
-      id: 'YM_MU5ZTGVI',
+      id: 'i84FZv3CZss',
       poster: `${THEME_IMG_PATH}/massage-video/massage-video-poster_all.jpg`,
       sticker: {
         position: 'left',
@@ -95,7 +93,7 @@ block variables
           text: 'Этот вид массажа по&nbsp;сути является частью тренировки. Он облегчает восстановление мышц и&nbsp;улучшает результат. Этот массаж идеально подойдёт тем, кто занимается в&nbsp;зале, и&nbsp;его лучше делать между тренировками'
         },
         {
-          title: 'Восстановительный массаж\n',
+          title: 'Восстановительный массаж',
           text: 'Восстановительный массаж делается после тренировок и,&nbsp;чаще всего, курсом. Он благотворно влияет на&nbsp;состояние организ&shy;ма в&nbsp;целом, избавляет мышцы от&nbsp;застоя молочной кислоты, удлиняет фасции, расслабляет и&nbsp;улучшает результаты'
         }
       ]
@@ -135,6 +133,7 @@ block content
   include ../includes/modules/content/blocks-list
   include ../includes/modules/content/faq
   include ../includes/modules/content/price-list/price-list
+  include ../includes/modules/content/certificate
   include ../includes/modules/content/more-massages
   include ../includes/modules/content/socials
   include ../includes/modules/footer/map-block

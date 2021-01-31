@@ -1,0 +1,32 @@
+@use '../../tools' as *;
+
+.ya-share2__list.ya-share2__list_direction_horizontal > li.ya-share2__item {
+  margin-right: 1.5rem;
+}
+
+.share-block {
+  margin-top: 12rem;
+  margin-bottom: 15rem;
+
+  text-align: center;
+
+  &__text {
+    @include centered-block(35rem);
+
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (min-width: $tablet-min-width) {
+  .share-block {
+    margin-top: 14rem;
+    margin-bottom: 18rem;
+  }
+}
+
+@media (min-width: $s-desktop-min-width) {
+  .share-block {
+    margin-top: 16rem;
+    margin-bottom: 22rem;
+  }
+}
