@@ -17,6 +17,7 @@ section.reviews-block
               article.review-card
                 p.review-card__text= review.text
                 p.review-card__info= `${review.author}, ${review.date}`
+                //- TODO To show source on review card enable this block
                 p.review-card__source
                   if review.source === 'yandex'
                     img.review-card__yandex-logo(src=`${THEME_IMG_PATH}/reviews-block/yandex-logo.svg` alt='Отзыв из Яндекса' width='41' height='15')

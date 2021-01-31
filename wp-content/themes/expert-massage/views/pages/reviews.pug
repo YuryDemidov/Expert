@@ -9,20 +9,32 @@ block variables
     pageData.theme = 'main'
     pageData.filters = [
       {
-        id: 1,
-        name: 'Все отзывы'
-      },
-      {
-        id: 2,
+        massage: 1,
         name: 'Массаж лица'
       },
       {
-        id: 3,
+        massage: 3,
         name: 'Массаж для коррекции фигуры'
       },
       {
-        id: 4,
+        massage: 2,
         name: 'Лечебный массаж'
+      },
+      {
+        specialist: 1,
+        name: 'Рыбников А.Н.'
+      },
+      {
+        specialist: 2,
+        name: 'Ефременкова И.В.'
+      },
+      {
+        specialist: 3,
+        name: 'Батькова Н.А.'
+      },
+      {
+        specialist: 4,
+        name: 'Маликова Т.А.'
       }
     ]
 
@@ -45,34 +57,35 @@ block content
             textarea.review-form__review#reviewText(name='review' placeholder='Текст отзыва')
             p.message.hidden
           button.button_primary.review-form__submit(type='button') Отправить
-      section.reviews-page__reviews.reviews
-        h2.reviews-page__subtitle Отзывы наших клиентов
-        nav.reviews-filters
-          ul.reviews-filters__list
-            each filter, i in pageData.filters
-              li.reviews-filters__list-item
-                button.reviews-filters__filter(type='button' data-type=filter.id data-active=(i === 0 ? '' : false))= filter.name
+          p.message.message_success.hidden
+    section.reviews-page__reviews.reviews
+      h2.reviews-page__subtitle Отзывы наших клиентов
+      nav.reviews-filters
+        ul.reviews-filters__list
+          li.reviews-filters__list-item
+            button.reviews-filters__filter(type='button' data-type='all' data-active) Все отзывы
+          each filter, i in pageData.filters
+            li.reviews-filters__list-item
+              button.reviews-filters__filter(
+                type='button'
+                data-massage=(i <= 2 ? filter.massage : false)
+                data-specialist=(i > 2 ? filter.specialist : false)
+              )= filter.name
+            if i === 2
+              br.hidden_mobile-tablet
+      .reviews-page__content.container
         .reviews__wrap
-          each review in pageData.reviews
-            article.review-card(data-id=review.id data-type=review.type)
+          each review in pageData.reviewsData.reviews
+            article.review-card
               p.review-card__text= review.text
               p.review-card__info= `${review.author}, ${review.date}`
+              //- TODO To show source on review card enable this block
               p.review-card__source
                 if review.source === 'yandex'
                   img.review-card__yandex-logo(src=`${THEME_IMG_PATH}/reviews-block/yandex-logo.svg` alt='Отзыв из Яндекса' width='41' height='15')
                 else
                   span отзыв с сайта
-        .reviews-page__pagination.pagination!= pageData.reviewsPagination
-        .reviews-page__pagination.pagination.hidden
-          button.button_primary.pagination__show-more(type='button') Показать ещё
-          ul.pagination__pages
-            li.pagination__page
-              a.pagination__page-link(data-active href='#') 1
-            li.pagination__page
-              a.pagination__page-link(href='#') 2
-            li.pagination__page.pagination__page_ellipsis
-              a.pagination__page-link(href='#') ...
-            li.pagination__page
-              a.pagination__page-link(href='#') 6
+        .reviews-page__pagination
+          .pagination!= pageData.reviewsData.pagination
 
 block script

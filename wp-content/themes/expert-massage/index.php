@@ -13,6 +13,7 @@ define('THEME_DIST_PATH', get_stylesheet_directory_uri() . '/dist');
 define('THEME_FONTS_PATH', THEME_DIST_PATH . '/assets/fonts');
 define('THEME_IMG_PATH', THEME_DIST_PATH . '/assets/img');
 define('THEME_VIDEO_PATH', THEME_DIST_PATH . '/assets/video');
+define('SUPPORT_EMAIL', 'demiddinamit@mail.ru');
 
 /*
  * In this page, you need to setup Wordless routing: you first
@@ -39,9 +40,7 @@ if (is_home()) {
     ]);
 } else if ($pugPage) {
     if ($pugPage === 'pages/reviews') {
-        // rewrite as reviews page controller with different data depending on get param
-        $pageData['reviews'] = get_reviews_data();
-        $pageData['reviewsPagination'] = get_reviews_pagination();
+        $pageData['reviewsData'] = get_reviews_data();
 
         render_template($pugPage, [
             'globalData' => json_encode($globalData),
@@ -93,9 +92,11 @@ function get_global_data() {
     foreach ($massages as $key => $massage) {
         if ($massage['type'] === '1') {
             array_push($faceMassages['massages'], $massage);
-        } else if ($massage['type'] === '2') {
+        }
+        if ($massage['type'] === '2' || $massage['code'] === 'body-lymphatic-drainage') {
             array_push($bodyMassages['massages'], $massage);
-        } else {
+        }
+        if ($massage['type'] === '3' ) {
             array_push($figureMassages['massages'], $massage);
         }
     }
@@ -178,7 +179,8 @@ function get_massages() {
         wp_exp_color_modifiers.name as menu_tag_color
         FROM wp_exp_massages
         RIGHT JOIN wp_exp_color_modifiers
-        ON wp_exp_massages.menu_tag_color = wp_exp_color_modifiers.id OR wp_exp_massages.menu_tag_color IS NULL',
+        ON wp_exp_massages.menu_tag_color = wp_exp_color_modifiers.id OR wp_exp_massages.menu_tag_color IS NULL
+        ORDER BY sort_position',
         ARRAY_A
     );
 
@@ -232,58 +234,6 @@ function get_additions_prices() {
         FROM wp_exp_price_additions',
         ARRAY_A
     );
-}
-
-
-function get_reviews_data() {
-    global $wpdb;
-    $reviews_per_page = 15;
-    $page = $_GET['page_num'] ? $_GET['page_num'] : 1;
-
-    $reviews = $wpdb->get_results(
-        $wpdb->prepare(
-            'SELECT text, author, source, date 
-            FROM wp_exp_reviews
-            WHERE accepted = 1
-            ORDER BY date DESC
-            LIMIT %d, %d',
-            [
-                ($page - 1) * $reviews_per_page,
-                $reviews_per_page
-            ]
-        ),
-        ARRAY_A
-    );
-
-    for ($i = 0; $i < count($reviews); $i++) {
-        $reviews[$i]['date'] = date_create($reviews[$i]['date'])->format('d.m.Y');
-    }
-
-    return $reviews;
-}
-
-function get_reviews_pagination() {
-    global $wpdb;
-
-    $reviewsCount = $wpdb->get_var('SELECT COUNT(id) FROM wp_exp_reviews;');
-
-    $args = [
-        'base'         => '/reviews/%_%',
-        'format'       => '?page_num=%#%',
-        'total'        => ceil($reviewsCount / 15),
-        'current'      => $_GET['page_num'],
-        'show_all'     => false,
-        'end_size'     => 1,
-        'mid_size'     => 1,
-        'prev_next'    => true,
-        'prev_text'    => __('<'),
-        'next_text'    => __('>'),
-        'type'         => 'plain',
-        'before_page_number' => '',
-        'after_page_number'  => ''
-    ];
-
-    return paginate_links($args);
 }
 
 function get_reviews_slider_data() {

@@ -8,6 +8,7 @@ const nameInput = reviewForm.querySelector(`[name=name]`);
 const emailInput = reviewForm.querySelector(`[name=email]`);
 const reviewInput = reviewForm.querySelector(`[name=review]`);
 const submitButton = reviewForm.querySelector(`.review-form__submit`);
+const successMessage = reviewForm.querySelector(`.message_success`);
 
 submitButton.addEventListener(`click`, submitFormHandler);
 reviewForm.addEventListener(`input`, () => {
@@ -19,8 +20,16 @@ const reviewFormManager = new FormSender({
   form: reviewForm,
   url: `/wp-admin/admin-post.php`,
   dataCollector: () => new FormData(reviewForm),
-  requestFormat: `FormData`
+  requestFormat: `FormData`,
+  responseDataHandler: (data) => handleResponse(data)
 });
+
+function handleResponse(data) {
+  if (data && data.result) {
+    showSuccessMessage();
+    clearForm();
+  }
+}
 
 function submitFormHandler(evt) {
   evt.preventDefault();
@@ -40,7 +49,7 @@ function validateForm() {
     highlightError(nameInput);
     validity = false;
   }
-  if (!REGEXPS.EMAIL.test(emailInput.value.trim())) {
+  if (!REGEXPS.EMAIL.test(emailInput.value.trim()) && emailInput.value.trim() !== ``) {
     messageManager.showMessage(MESSAGES.ERROR.WRONG_EMAIL, `error`, emailInput.closest(`.text-input`));
     highlightError(emailInput);
     validity = false;
@@ -62,5 +71,18 @@ function hideErrorHighlight() {
   reviewInput.classList.remove(`review-form__review_invalid`);
   reviewForm.querySelectorAll(`.text-input__input_invalid`).forEach(input => {
     input.classList.remove(`text-input__input_invalid`);
+  });
+}
+
+function showSuccessMessage() {
+  messageManager.showMessage(MESSAGES.SUCCESS.REVIEW_RECEIVED, `success`, successMessage);
+}
+
+function clearForm() {
+  reviewForm.forEach(input => {
+    if (input.value) {
+      input.value = ``;
+      input.setAttribute(`value`, ``);
+    }
   });
 }

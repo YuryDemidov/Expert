@@ -94,6 +94,7 @@
 
         &::before {
           left: 0;
+          z-index: 1;
 
           background-color: $alt-default-color;
         }
@@ -572,6 +573,7 @@
         position: absolute;
         top: calc(60% - 6vw);
         left: calc(54% + 30rem);
+        z-index: 1;
 
         background-image: url(../../../img/decor/branch-1@1x.png);
         background-position: center;

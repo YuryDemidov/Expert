@@ -3,7 +3,17 @@
 add_action('wp_enqueue_scripts', 'enqueue_css');
 add_action('admin_enqueue_scripts', 'enqueue_admin_css');
 add_action('wp_enqueue_scripts', 'enqueue_js');
+add_action('wp_enqueue_scripts', 'wp_ajax_data', 99 );
 
+function wp_ajax_data() {
+    wp_localize_script( 'app', 'PHP_DATA',
+        array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'themeUrl' => get_stylesheet_directory_uri(),
+            'imagesUrl' => THEME_IMG_PATH
+        )
+    );
+}
 
 function enqueue_js() {
     $dirJS = new RecursiveDirectoryIterator(get_stylesheet_directory() . '/dist/js');

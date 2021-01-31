@@ -25,7 +25,7 @@ export default class FormSender {
     }
 
     let data = this.dataCollector && this.dataCollector();
-    if (!data || (isEmptyObject(data) && !(data instanceof FormData))) {
+    if ((!data || (isEmptyObject(data) && !(data instanceof FormData))) && this.method !== `get`) {
       return;
     }
 

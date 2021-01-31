@@ -32,6 +32,7 @@ export const MESSAGES = {
   SUCCESS: {
     CALLBACK_REQUEST_RECEIVED: `Мы скоро вам перезвоним`,
     COPIED: `Скопировано`,
+    REVIEW_RECEIVED: `Спасибо! Ваш отзыв получен и скоро будет добавлен на сайт`,
     SAVED: `Сохранено`
   }
 }

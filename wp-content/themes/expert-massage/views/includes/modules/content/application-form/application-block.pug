@@ -16,7 +16,7 @@ mixin sticker(mainText, secondaryText, preTitle)
     b.sticker__main-text= mainText
     span.sticker__secondary-text= secondaryText
 
-section.application-form(data-massage-id=(pageData.theme !== 'main' ? pageData.theme : false) data-aos='zoom-in' data-aos-duration='500' data-aos-offset='140')
+section.application-form(data-massage-id=(pageData.theme !== 'main' ? pageData.theme : false) data-aos='zoom-in' data-aos-duration='500' data-aos-offset='90')
   case pageData.theme
     when '1'
       +sticker('До года', 'держится результат одного курса, а при поддержке остаётся навсегда')
