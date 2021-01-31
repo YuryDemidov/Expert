@@ -143,7 +143,7 @@ function renderReviewCard(review) {
   reviewInfo.textContent = `${review.author}, ${review.date}`;
 
   // TODO To show source on review card enable this block
-  const reviewSource = document.createElement(`p`);
+  /* const reviewSource = document.createElement(`p`);
   reviewSource.classList.add(`review-card__source`);
   let reviewSourceContent;
   if (review.source === `site`) {
@@ -157,11 +157,11 @@ function renderReviewCard(review) {
     reviewSourceContent.width = 41;
     reviewSourceContent.height = 15;
   }
-  reviewSource.appendChild(reviewSourceContent);
+  reviewSource.appendChild(reviewSourceContent); */
 
   reviewCard.appendChild(reviewText);
   reviewCard.appendChild(reviewInfo);
-  reviewCard.appendChild(reviewSource);
+  // reviewCard.appendChild(reviewSource);
 
   return reviewCard;
 }

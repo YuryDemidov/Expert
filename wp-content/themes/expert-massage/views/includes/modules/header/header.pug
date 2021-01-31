@@ -1,7 +1,11 @@
 header.page-header(data-state='static')
   .page-header__wrap
-    a.page-header__logo-link(href=(globalData.url === '/' ? false : '/'))
-      +picture-tag(globalData.company.logoImages, globalData.company.logoImages.desktop.png['2x'], 'Клиника профессионального массажа Expert').page-header__logo-image
+    if globalData.url === '/'
+      span.page-header__logo-link
+        +picture-tag(globalData.company.logoImages, globalData.company.logoImages.desktop.png['2x'], 'Клиника профессионального массажа Expert').page-header__logo-image
+    else
+      a.page-header__logo-link(href='/')
+        +picture-tag(globalData.company.logoImages, globalData.company.logoImages.desktop.png['2x'], 'Клиника профессионального массажа Expert').page-header__logo-image
     .page-header__panel
       include main-menu
       button.page-header__menu-trigger.burger-icon.hidden_desktop-tablet(data-state='initial' aria-label='Открыть меню')
