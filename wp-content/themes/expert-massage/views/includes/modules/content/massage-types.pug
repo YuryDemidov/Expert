@@ -1,12 +1,13 @@
 mixin massage-card(massage, tags, text, customTitle)
   .massage-card(class=attributes.class)
+    a.massage-card__wrap-link(href=massage.url aria-label=`${(customTitle) || (massage.full_name)} - узнать больше`)
     .massage-card__content
       ul.massage-card__tags
         each tag in tags
           li.massage-card__tag= tag
       h4.massage-card__title!= ((customTitle) || (massage.full_name))
       p.massage-card__text!= text
-      a(href=massage.url).massage-card__link.link.link_arrow.link_secondary.underline Узнать больше
+      a(href=massage.url).massage-card__link.link.link_arrow.link_secondary.underline(aria-hidden='true') Узнать больше
     .massage-card__image
 
 section.massage-types
@@ -63,7 +64,7 @@ section.massage-types
           +massage-card(
             globalData.massages['sculptural-buccal-massage'],
             ['Замена пластике', 'Улучшение черт лица', 'Без противопоказаний'],
-            'По-настоящему преображающий массаж. Равноценная замена пластике, но без уколов, боли и&nbsp;рисков. Этот массаж убирает все признаки старения, отёки под глазами, второй подбородок. Массаж не травматичен, не имеет противопоказаний, а его результат, при поддержке, держится всю жизнь'
+            'По-настоящему преображающий массаж. Равноценная замена пластике, но без уколов, боли и&nbsp;рисков. Этот массаж убирает все признаки старения, отёки под глазами, второй подбородок. Массаж не травматичен, а его результат, при поддержке, держится всю жизнь'
           )
         .massage-types__item.massage-types__item_7
           +accordion(globalData.massages['classic-facial-massage'].full_name, 'massageTypeAccordionTrigger5', 'massageTypeAccordionBody5', false)

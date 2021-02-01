@@ -180,8 +180,8 @@ const injectChunks = page => {
     case `contacts.pug`:
       chunksArray.push(`pages/contacts`);
       break;
-    case `prices.pug`:
-      chunksArray.push(`pages/prices`);
+    case `ceny.pug`:
+      chunksArray.push(`pages/ceny`);
       break;
     case `reviews.pug`:
       chunksArray.push(`pages/reviews`);
@@ -300,7 +300,7 @@ module.exports = {
     'pages/massages': `${PATHS.src}/js/pages/massages/index.js`,
     'pages/about': `${PATHS.src}/js/pages/service/about/index.js`,
     'pages/contacts': `${PATHS.src}/js/pages/service/contacts/index.js`,
-    'pages/prices': `${PATHS.src}/js/pages/service/prices/index.js`,
+    'pages/ceny': `${PATHS.src}/js/pages/service/ceny/index.js`,
     'pages/reviews': `${PATHS.src}/js/pages/service/reviews/index.js`,
     'pages/article': `${PATHS.src}/js/pages/article/index.js`
   },

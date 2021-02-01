@@ -13,7 +13,6 @@ define('THEME_DIST_PATH', get_stylesheet_directory_uri() . '/dist');
 define('THEME_FONTS_PATH', THEME_DIST_PATH . '/assets/fonts');
 define('THEME_IMG_PATH', THEME_DIST_PATH . '/assets/img');
 define('THEME_VIDEO_PATH', THEME_DIST_PATH . '/assets/video');
-define('SUPPORT_EMAIL', 'demiddinamit@mail.ru');
 
 /*
  * In this page, you need to setup Wordless routing: you first

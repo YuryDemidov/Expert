@@ -103,6 +103,16 @@
   }
 
   .massage-card {
+    color: $default-color;
+
+    @include themify() {
+      @include in-focus() {
+        .massage-card__link {
+          border-bottom-color: $color-primary-transparent;
+        }
+      }
+    }
+
     &__title {
       white-space: nowrap;
       font-size: 1.9rem;

@@ -4,6 +4,8 @@
  * Place here all your WordPress add_filter() and add_action() calls.
  */
 
+define('SUPPORT_EMAILS', ['demiddinamit@mail.ru', 'mr.antony-mir@yandex.ru', 'ms.irina-mir@yandex.ru']);
+
 add_filter('wordless_pug_configuration', 'custom_pug_options', 10, 1);
 
 add_action('wp', 'activate_cron_tasks');
@@ -332,7 +334,7 @@ function handle_application_form() {
         }
 
         wp_mail(
-            SUPPORT_EMAIL,
+            SUPPORT_EMAILS,
             'Новая заявка на массаж',
             $emailMessage,
             array('Content-Type: text/html; charset=UTF-8')
@@ -373,7 +375,7 @@ function handle_callback_form() {
             'date' => current_time('mysql')
         ]);
 
-        wp_mail(SUPPORT_EMAIL, 'Заявка на обратный звонок',
+        wp_mail(SUPPORT_EMAILS, 'Заявка на обратный звонок',
             "
             <p>Получена новая заявка на обратный звонок</p>
             <p>
@@ -434,7 +436,7 @@ function handle_test_form() {
             'date' => current_time('mysql')
         ]);
 
-        wp_mail(SUPPORT_EMAIL, 'Тест на подходящий массаж',
+        wp_mail(SUPPORT_EMAILS, 'Тест на подходящий массаж',
             "
             <p>Пройден тест по выбору подходящего массажа</p>
             <p>
@@ -509,7 +511,7 @@ function handle_review_form() {
             'date' => current_time('mysql')
         ]);
 
-        wp_mail(SUPPORT_EMAIL, 'Новый отзыв',
+        wp_mail(SUPPORT_EMAILS, 'Новый отзыв',
             "
             <p>На сайте оставили новый отзыв</p>
             <p>

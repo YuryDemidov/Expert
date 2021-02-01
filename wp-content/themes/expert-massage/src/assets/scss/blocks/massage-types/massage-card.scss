@@ -6,6 +6,17 @@
   background-color: $lightgray-color;
   border-radius: 0.3rem;
 
+  &__wrap-link {
+    @include absolute-centered();
+    @include box(100%);
+
+    @include in-focus() {
+      + .massage-card__content .massage-card__link {
+        border-bottom-color: map-deep-get($themes, 'main', 'secondary');
+      }
+    }
+  }
+
   &__tags {
     @include horizontal-list();
   }
@@ -65,6 +76,10 @@
 @media (min-width: $phone-landscape-min-width) {
   .massage-card {
     padding: 2.5rem 2rem;
+
+    &__wrap-link {
+      pointer-events: none;
+    }
   }
 }
 

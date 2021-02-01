@@ -140,8 +140,6 @@
         }
 
         &_promo .table__cell {
-          padding-top: 0;
-
           span.price-list__old-price {
             font-size: 1.2rem;
 
@@ -228,16 +226,20 @@
       }
 
       .table {
-        &__row {
-          background-color: $alt-default-color;
-        }
-
         &__cell {
           padding: 1.2rem 2rem;
 
           &:first-of-type {
             min-width: 30rem;
             padding: 1.2rem 2rem;
+          }
+        }
+
+        &__row {
+          background-color: $alt-default-color;
+
+          &_promo .table__cell {
+            padding-top: 0;
           }
         }
       }

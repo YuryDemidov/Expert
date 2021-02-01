@@ -7,23 +7,23 @@ else
   - title = `${title} здоровья тела`
 
 mixin massage-preview(id)
+  - var massageInfo
+  - var isHighlighted = false
+  each massage in globalData.massages
+    if +massage.id === id
+      - massageInfo = massage
+    if id === 1
+      - isHighlighted = true
+    if (id === 6) && (pageData.theme === '12')
+      - isHighlighted = true
+    if (id === 7) && ((pageData.theme === '8') || (pageData.theme === '9'))
+      - isHighlighted = true
+    if (id === 9) && (pageData.theme === '7')
+      - isHighlighted = true
+    if (id === 12) && ((pageData.theme === '6') || (pageData.theme === '10') || (pageData.theme === '11'))
+      - isHighlighted = true
   li.more-massages__slider-item
-    - var massageInfo
-    - var isHighlighted = false
-    each massage in globalData.massages
-      if +massage.id === id
-        - massageInfo = massage
-      if id === 1
-        - isHighlighted = true
-      if (id === 6) && (pageData.theme === '12')
-        - isHighlighted = true
-      if (id === 7) && ((pageData.theme === '8') || (pageData.theme === '9'))
-        - isHighlighted = true
-      if (id === 9) && (pageData.theme === '7')
-        - isHighlighted = true
-      if (id === 12) && ((pageData.theme === '6') || (pageData.theme === '10') || (pageData.theme === '11'))
-        - isHighlighted = true
-    .more-massages__card.massage-card(class={'more-massages__card_highlighted': isHighlighted})
+    a.more-massages__card.massage-card(class=(isHighlighted ? 'more-massages__card_highlighted' : false) href=massageInfo.url)
       if id === 1
         .more-massages__sticker
           .more-massages__sticker-text Хит
@@ -37,7 +37,7 @@ mixin massage-preview(id)
           - title = 'Ручное моделирование'
         h3.massage-card__title= title
         p.massage-card__text!= massageInfo.short_description
-        a(href=massage.url).massage-card__link.link.link_primary.link_arrow Смотреть
+        span.massage-card__link.link.link_primary.link_arrow(aria-hidden='true') Смотреть
 
 section.more-massages
   .container

@@ -22,7 +22,8 @@ section.specialists
                     each tag, i in specialist.tags
                       li.specialist-card__tag(class=((specialist.id === 3) && (i === 0) ? 'hidden_mobile' : false))!= tag
                   h3.specialist-card__name= specialist.fullName
-                  a.specialist-card__reviews.link.underline.link_secondary(href='/reviews/')= `${specialist.reviewsCount} ${declOfNum(specialist.reviewsCount, ['отзыв', 'отзыва', 'отзывов'])}`
+                  // TODO To show specialists reviews count enable this link
+                    a.specialist-card__reviews.link.underline.link_secondary(href='/reviews/')= `${specialist.reviewsCount} ${declOfNum(specialist.reviewsCount, ['отзыв', 'отзыва', 'отзывов'])}`
                   .specialist-card__description
                     each text in specialist.description
                       p.specialist-card__text= text

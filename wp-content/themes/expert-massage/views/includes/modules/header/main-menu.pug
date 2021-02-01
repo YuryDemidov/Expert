@@ -3,7 +3,7 @@
     list: [
       {
         text: 'Цены и акции',
-        url: '/prices/'
+        url: '/ceny/'
       },
       {
         text: 'Отзывы',
@@ -56,7 +56,7 @@ nav.page-header__menu.main-menu
             each type, i in massageTypes
               +submenu-list(type, i)
           article.submenu__promo.submenu-promo
-            a.submenu-promo__wrap(href='/prices/')
+            a.submenu-promo__wrap(href='/ceny/')
               h2.submenu-promo__caption
                 b.submenu-promo__tag Акция
                 span.submenu-promo__caption-text Первый сеанс массажа минус 20&thinsp;%
