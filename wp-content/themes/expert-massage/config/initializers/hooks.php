@@ -6,7 +6,7 @@
 
 define('SUPPORT_EMAILS', ['demiddinamit@mail.ru', 'mr.antony-mir@yandex.ru', 'ms.irina-mir@yandex.ru']);
 
-add_filter('wordless_pug_configuration', 'custom_pug_options', 10, 1);
+add_filter('wordless_pug_configuration', 'custom_pug_options');
 
 add_action('wp', 'activate_cron_tasks');
 add_action('update_yandex_reviews', 'update_yandex_reviews');
@@ -36,8 +36,6 @@ add_action('admin_post_review_delete', 'handle_review_delete');
  */
 function custom_pug_options(array $options): array {
     $options['expressionLanguage'] = 'js';
-    $options['cache'] = false;
-
     return $options;
 }
 

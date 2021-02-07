@@ -1,8 +1,0 @@
-tmp/*
-!tmp/.gitkeep
-dist/*/*
-!dist/*/.gitkeep
-!dist/fonts
-.DS_Store
-node_modules
-vendor/

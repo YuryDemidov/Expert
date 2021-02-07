@@ -174,20 +174,17 @@ const injectChunks = page => {
     case `index.pug`:
       chunksArray.push(`pages/index`);
       break;
-    case `about.pug`:
-      chunksArray.push(`pages/about`);
+    case `professionalnyj-massazh.pug`:
+      chunksArray.push(`pages/professionalnyj-massazh`);
       break;
-    case `contacts.pug`:
-      chunksArray.push(`pages/contacts`);
+    case `kontakty.pug`:
+      chunksArray.push(`pages/kontakty`);
       break;
     case `ceny.pug`:
       chunksArray.push(`pages/ceny`);
       break;
     case `reviews.pug`:
       chunksArray.push(`pages/reviews`);
-      break;
-    case `12-steps.pug`:
-      chunksArray.push(`pages/article`);
       break;
     default:
       if (~MASSAGE_PAGE_TEMPLATES.indexOf(page)) {
@@ -298,8 +295,8 @@ module.exports = {
     'admin': `${PATHS.src}/admin.js`,
     'pages/index': `${PATHS.src}/js/pages/index/index.js`,
     'pages/massages': `${PATHS.src}/js/pages/massages/index.js`,
-    'pages/about': `${PATHS.src}/js/pages/service/about/index.js`,
-    'pages/contacts': `${PATHS.src}/js/pages/service/contacts/index.js`,
+    'pages/professionalnyj-massazh': `${PATHS.src}/js/pages/service/professionalnyj-massazh/index.js`,
+    'pages/kontakty': `${PATHS.src}/js/pages/service/kontakty/index.js`,
     'pages/ceny': `${PATHS.src}/js/pages/service/ceny/index.js`,
     'pages/reviews': `${PATHS.src}/js/pages/service/reviews/index.js`,
     'pages/article': `${PATHS.src}/js/pages/article/index.js`

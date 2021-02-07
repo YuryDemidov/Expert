@@ -1,5 +1,11 @@
 - var data = JSON.parse(data)
 
+mixin confirm-input-cell(name, value)
+  td.table__cell.table__cell_no-padding.table__cell_relative.table__cell_confirm-input
+    .confirm-input
+      input.confirm-input__input(name=name value=value)
+      button.confirm-input__confirm(type='button' aria-label='Подтвердить')
+
 .wrap
   h1 Прайс-лист
   hr
@@ -12,26 +18,22 @@
             th.table__cell.table__cell_heading
               span Массаж
             th.table__cell.table__cell_heading
-              span Цена 1-го сеанса
+              span Цена 1-го сеанса, руб.
             th.table__cell.table__cell_heading
-              span Стандартная цена
+              span Стандартная цена, руб.
             th.table__cell.table__cell_heading
-              span Старая цена
+              span Старая цена, руб.
             th.table__cell.table__cell_heading
-              span Продолжительность
+              span Длительность, мин.
         tbody
           each massage in data.massages
             tr.table__row(data-id=massage.id)
-              td.table__cell
+              td.table__cell.table__cell_left
                 span= massage.full_name
-              td.table__cell
-                span!= `${massage.first_price}₽`
-              td.table__cell
-                span!= `${massage.standard_price}₽`
-              td.table__cell
-                span!= massage.old_price ? `${massage.old_price}₽` : '-'
-              td.table__cell
-                span!= `${massage.duration} минут`
+              +confirm-input-cell('first_price', massage.first_price)
+              +confirm-input-cell('standard_price', massage.standard_price)
+              +confirm-input-cell('old_price', massage.old_price)
+              +confirm-input-cell('duration', massage.duration)
   br
   h2 Отдельные процедуры
   .table.table_procedures
@@ -42,14 +44,13 @@
             th.table__cell.table__cell_heading
               span Название
             th.table__cell.table__cell_heading
-              span Цена
+              span Цена, руб
         tbody
           each procedure in data.procedures
             tr.table__row(data-id=procedure.id)
-              td.table__cell
+              td.table__cell.table__cell_left
                 span= procedure.name
-              td.table__cell
-                span!= `${procedure.price}₽`
+              +confirm-input-cell('price', procedure.price)
   br
   h2 Дополнительные процедуры
   .table.table_additions
@@ -64,7 +65,6 @@
         tbody
           each addition in data.additions
             tr.table__row(data-id=addition.id)
-              td.table__cell
+              td.table__cell.table__cell_left
                 span= addition.name
-              td.table__cell
-                span(data-change='')!= `${addition.price}₽`
+              +confirm-input-cell('price', addition.price)

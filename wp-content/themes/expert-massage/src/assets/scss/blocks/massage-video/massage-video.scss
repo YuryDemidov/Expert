@@ -27,7 +27,6 @@
   }
 
   &__video {
-    @include absolute-centered();
     @include box(100%);
   }
 

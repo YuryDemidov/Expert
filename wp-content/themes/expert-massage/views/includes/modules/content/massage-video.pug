@@ -2,7 +2,8 @@ section.massage-video
   h2.massage-video__title.heading Так проходит сеанс массажа
   .massage-video__content
     .massage-video__video-wrap.video-block
-      #massageVideo.massage-video__video.video-block__video(data-id=pageData.massageVideo.id)
+      .massage-video__video
+        #massageVideo.video-block__video(data-id=pageData.massageVideo.id)
       .video-block__poster(style=`background-image: url(${pageData.massageVideo.poster})`)
       button.massage-video__play.video-block__play-button(type='button' aria-label='Запустить видео')
     - var sticker= pageData.massageVideo.sticker

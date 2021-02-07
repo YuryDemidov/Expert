@@ -41,8 +41,8 @@ function enqueue_js() {
                         wp_enqueue_script($name, get_template_directory_uri() . '/dist/js/pages/' . $fullName, array('app'), null, true);
                     }
                     break;
-                case 'about':
-                case 'contacts':
+                case 'professionalnyj-massazh':
+                case 'kontakty':
                 case 'ceny':
                 case 'reviews':
                     if (is_page($name)) {

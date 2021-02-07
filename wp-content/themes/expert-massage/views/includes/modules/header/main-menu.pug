@@ -11,15 +11,15 @@
       },
       {
         text: 'О нас',
-        url: '/about/'
+        url: '/informatsiya/professionalnyj-massazh/'
       },
       {
         text: 'Контакты',
-        url: '/contacts/'
+        url: '/informatsiya/kontakty/'
       },
       {
         text: 'Интересное',
-        url: '/articles/'
+        url: '/interesnoe/'
       }
     ]
   }
@@ -32,7 +32,7 @@ mixin submenu-list(type, i)
       each massage in section.massages
         if ((i === 0) && (massage.type === '2')) || ((i === 1) && (massage.type === '1')) || ((i === 2) && (massage.type === '3') && (sectionName === 'figure'))
           +submenu-item(massage)
-        if (massage.id === '8') && (i === 0) && (sectionName === 'body')
+        if (massage.id === '8') && (i === 0)
           +submenu-item(massage)
 
 mixin submenu-item(massage)

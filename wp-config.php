@@ -20,19 +20,19 @@
 
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define('DB_NAME', 'expert'); // server - define('DB_NAME', "mrantog6_exmscl");
+define('DB_NAME', 'expert');
 
 /** Имя пользователя MySQL */
-define('DB_USER', 'expert_user'); // server - define('DB_USER', "mrantog6_exmscl");
+define('DB_USER', 'expert_user');
 
 /** Пароль к базе данных MySQL */
-define('DB_PASSWORD', '111111'); // server - define('DB_PASSWORD', "*44PgHxy");
+define('DB_PASSWORD', '111111');
 
 /** Имя сервера MySQL */
 define('DB_HOST', 'localhost');
 
 /** Кодировка базы данных для создания таблиц. */
-define('DB_CHARSET', 'utf8mb4'); // server - define('DB_CHARSET', 'utf8');
+define('DB_CHARSET', 'utf8mb4');
 
 /** Схема сопоставления. Не меняйте, если не уверены. */
 define('DB_COLLATE', '');
@@ -58,7 +58,7 @@ define('NONCE_SALT',       'впишите сюда уникальную фра�
 /**#@-*/
 
 define('AUTOMATIC_UPDATER_DISABLED', true);
-
+define('FS_METHOD', 'direct');
 
 /**
  * Префикс таблиц в базе данных WordPress.

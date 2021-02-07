@@ -13,6 +13,20 @@ define('THEME_DIST_PATH', get_stylesheet_directory_uri() . '/dist');
 define('THEME_FONTS_PATH', THEME_DIST_PATH . '/assets/fonts');
 define('THEME_IMG_PATH', THEME_DIST_PATH . '/assets/img');
 define('THEME_VIDEO_PATH', THEME_DIST_PATH . '/assets/video');
+define('ARTICLE_PAGES_URLS', [
+    '/informatsiya/pokazaniya-k-massazhu/',
+    '/informatsiya/protivopokazaniya-k-massazhu/',
+    '/interesnoe/12_steps/',
+    '/massazhnoe-maslo/',
+    '/informatsiya/massage/',
+    '/polza-i-vred-massazha/',
+    '/massazh-shejno-vorotnikovoj-zony-pri-shejnom-osteohondroze/',
+    '/kak-pravilno-delat-massazh-shejno-vorotnikovoj-zony-v-domashnih-usloviyah/',
+    '/massazh-spiny-pri-osteohondroze/',
+    '/kak-pravilno-delat-massazh-spiny-v-domashnih-usloviyah/',
+    '/massazh-s-medicinskimi-mazyami/',
+    '/osteohondroz/'
+]);
 
 /*
  * In this page, you need to setup Wordless routing: you first
@@ -185,7 +199,7 @@ function get_massages() {
 
     $massageObj = [];
     foreach ($massages as $massage) {
-        $massage['url'] = '/' . $massage['code'] . '/';
+        $massage['url'] = '/vidy-massazha/' . $massage['code'] . '/';
 
         if ($massage['code'] === 'sculptural-buccal-massage') {
             $massage['promo'] = [
@@ -251,7 +265,7 @@ function get_reviews_slider_data() {
         $reviews = $wpdb->get_results(
             'SELECT text, author, source, date 
             FROM wp_exp_reviews
-            WHERE accepted = 1 AND massage_type = 2
+            WHERE accepted = 1 AND massage_type = 3
             ORDER BY date DESC
             LIMIT 12',
             ARRAY_A
@@ -260,7 +274,7 @@ function get_reviews_slider_data() {
         $reviews = $wpdb->get_results(
             'SELECT text, author, source, date 
             FROM wp_exp_reviews
-            WHERE accepted = 1 AND massage_type = 3
+            WHERE accepted = 1 AND massage_type = 2
             ORDER BY date DESC
             LIMIT 12',
             ARRAY_A
@@ -284,16 +298,16 @@ function get_reviews_slider_data() {
 }
 
 function is_massage_page() {
-    return is_body_massage() || is_face_massage() || is_figure_massage();
+    return preg_match('/vidy-massazha/', $_SERVER['REQUEST_URI']);
 }
 
 function is_article_page() {
-    return preg_match('/\/articles\/.+/', $_SERVER['REQUEST_URI']);
+    return in_array($_SERVER['REQUEST_URI'], ARTICLE_PAGES_URLS);
 }
 
 function is_body_massage() {
-    return is_page('back-massage') || is_page('body-lymphatic-drainage') ||
-        is_page('fullbody-massage') || is_page('sports-massage') || is_page('neck-massage');
+    return is_page('lechebnyj-massazh') || is_page('mas-limf-2') || is_page('obshchij-massazh') ||
+        is_page('sports-massage') || is_page('massazh-shvz');
 }
 
 function is_face_massage() {
@@ -303,6 +317,5 @@ function is_face_massage() {
 }
 
 function is_figure_massage() {
-    return is_page('body-lymphatic-drainage') || is_page('figure-modeling') ||
-        is_page('anti-cellulite-massage');
+    return is_page('mas-limf-2') || is_page('figure-modeling') || is_page('mas-anti-2');
 }

@@ -31,12 +31,6 @@
   font-size: 14px;
   text-align: center;
 
-  &_massages,
-  &_procedures,
-  &_additions {
-    min-width: 700px;
-  }
-
   &__wrap {
     min-width: 800px;
   }
@@ -68,6 +62,22 @@
       vertical-align: top;
       white-space: normal;
     }
+
+    &_relative {
+      position: relative;
+    }
+
+    &_no-padding {
+      padding: 0;
+    }
+
+    &_left {
+      text-align: left;
+    }
+
+    &_confirm-input {
+      min-width: 150px;
+    }
   }
 
   &__row {
@@ -79,6 +89,71 @@
       background-color: #cce3ee;
     }
   }
+}
+
+.confirm-input {
+  @include box(100%, calc(100% - 2px));
+
+  position: absolute;
+  top: 1px;
+  left: 0;
+
+  margin: 0;
+  padding: 2px 5px;
+
+  text-align: center;
+
+  border: none;
+
+  &__input {
+    @include box(100%, calc(100% - 2px));
+
+    position: absolute;
+    top: 1px;
+    left: 0;
+
+    margin: 0;
+    padding: 2px 5px;
+
+    font-size: 16px;
+    text-align: center;
+
+    border: none;
+    cursor: pointer;
+  }
+
+  &__confirm {
+    @include box(32px, 100%);
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    background-color: #33a339;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+
+    &::before {
+      @include check-mark(10px, 16px, 3px, #ffffff);
+
+      content: '';
+      position: absolute;
+
+      transform: translate(-40%, -65%) rotate(45deg);
+    }
+  }
+
+  &__input:focus + &__confirm {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.table__row:nth-child(2n) .confirm-input__input {
+  background-color: #eeeeee;
 }
 
 .review-card {
@@ -158,6 +233,18 @@
 
       @include in-focus() {
         background-color: #238821;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .table {
+    &_massages,
+    &_procedures,
+    &_additions {
+      .table__table {
+        min-width: 700px;
       }
     }
   }
