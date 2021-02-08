@@ -120,6 +120,12 @@
 
     border: none;
     cursor: pointer;
+
+    transition: background-color 10s;
+
+    &_success {
+      transition: none;
+    }
   }
 
   &__confirm {
@@ -129,12 +135,16 @@
     right: 0;
     top: 0;
 
-    background-color: #33a339;
+    background-color: rgb(51, 163, 57);
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
+
+    transition: background-color 0.3s;
+
+    @include in-focus() {
+      background-color: rgb(91, 203, 97);
+    }
 
     &::before {
       @include check-mark(10px, 16px, 3px, #ffffff);
@@ -144,16 +154,30 @@
 
       transform: translate(-40%, -65%) rotate(45deg);
     }
-  }
 
-  &__input:focus + &__confirm {
-    opacity: 1;
-    pointer-events: auto;
+    &[data-disabled] {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 
-.table__row:nth-child(2n) .confirm-input__input {
-  background-color: #eeeeee;
+.table__row:nth-child(1n) {
+  .confirm-input__input {
+    &_success {
+      background-color: #8dcd8d;
+    }
+  }
+}
+
+.table__row:nth-child(2n) {
+  .confirm-input__input {
+    background-color: #eeeeee;
+
+    &_success {
+      background-color: #8dcd8d;
+    }
+  }
 }
 
 .review-card {

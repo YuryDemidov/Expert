@@ -604,13 +604,13 @@ function handle_review_change() {
     global $wpdb;
 
     try {
-        if ($_REQUEST['massage_type']) {
+        if (isset($_REQUEST['massage_type'])) {
             $wpdb->update('wp_exp_reviews', [
                 'massage_type' => $_REQUEST['massage_type'] === 'default' ? null : $_REQUEST['massage_type']
             ], [
                 'id' => $_REQUEST['id']
             ]);
-        } else if ($_REQUEST['specialist_id']) {
+        } else if (isset($_REQUEST['specialist_id'])) {
             $wpdb->update('wp_exp_reviews', [
                 'specialist_id' => $_REQUEST['specialist_id'] === 'default' ? null : $_REQUEST['specialist_id']
             ], [
