@@ -6,7 +6,7 @@ mixin confirm-input-cell(name, value)
       input.confirm-input__input(name=name value=value)
       button.confirm-input__confirm(type='button' aria-label='Подтвердить')
 
-.wrap
+.wrap.prices-wrap
   h1 Прайс-лист
   hr
   h2 Массажи
@@ -68,3 +68,36 @@ mixin confirm-input-cell(name, value)
               td.table__cell.table__cell_left
                 span= addition.name
               +confirm-input-cell('price', addition.price)
+
+script.
+  const wrap = document.querySelector(`.prices-wrap`);
+  wrap && wrap.addEventListener(`click`, evt => savePrice(evt));
+
+  function savePrice(evt) {
+    if (!evt.target.classList.contains(`confirm-input__confirm`)) {
+      return;
+    }
+
+    const input = evt.target.parentNode.querySelector(`.confirm-input__input`);
+    const data = new FormData();
+    data.append(input.name, input.value);
+    data.append(`procedureId`, evt.target.closest(`[data-id]`).dataset.id);
+    input.classList.add(`confirm-input__input_success`);
+    input.classList.remove(`confirm-input__input_success`);
+
+    sendRequest(data)
+      .then(response => {
+        if (!response || !response.result) {
+          throw new Error(`Цена не была обновлена`);
+        }
+      })
+      .catch(error => alert(`Ошибка: ${error}`));
+  }
+
+  function sendRequest(data) {
+    return fetch(`/wp-admin/admin-post.php`, {
+      method: `post`,
+      body: data
+    })
+    .then(response => response.json());
+  }
