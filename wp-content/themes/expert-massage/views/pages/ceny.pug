@@ -56,12 +56,12 @@ block content
                   if massage.old_price
                     span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
                     br
-                  span.price-list__first-price!= `${massage.first_price}&thinsp;₽`
+                  span.price-list__first-price(class=(((massage.id === '6') || (massage.id === '11') || (massage.id === '12')) ? 'price-list__price-notification' : false))!= `${massage.first_price}&thinsp;₽`
                 td.table__cell
                   if massage.old_price
                     span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
                     br
-                  span(class=(((massage.id === '6') || (massage.id === '11') || (massage.id === '12')) ? 'price-list__price-notification' : false))!= `${massage.standard_price}&thinsp;₽`
+                  span!= `${massage.standard_price}&thinsp;₽`
                 td.table__cell!= `${massage.duration}&thinsp;мин`
           if sectionName === 'body'
             p.price-list__price-notification-description

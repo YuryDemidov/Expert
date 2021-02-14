@@ -1,6 +1,8 @@
 @use '../../tools' as *;
 
 .massage-card {
+  position: relative;
+
   padding: 2rem 1.5rem;
 
   background-color: $lightgray-color;

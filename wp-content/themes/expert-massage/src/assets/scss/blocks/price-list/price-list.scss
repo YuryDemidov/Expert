@@ -44,11 +44,8 @@
     }
   }
 
-  &__type-caption,
   &__first-price {
-    @include themify() {
-      color: $color-primary;
-    }
+    font-weight: 700;
   }
 
   &__old-price {
@@ -65,6 +62,10 @@
   }
 
   &__type-caption {
+    @include themify() {
+      color: $color-primary;
+    }
+
     position: absolute;
     top: 0;
 
@@ -98,6 +99,7 @@
       display: inline-block;
       margin-left: 0.3rem;
 
+      font-weight: 400;
       vertical-align: baseline;
     }
   }
@@ -365,10 +367,6 @@
       vertical-align: baseline;
     }
 
-    &__first-price {
-      font-weight: 700;
-    }
-
     .table {
       margin-bottom: 2.5rem;
 
@@ -414,8 +412,7 @@
 
   .page {
     .price-list {
-      &__type-caption,
-      &__first-price {
+      &__type-caption {
         color: $default-color;
       }
     }

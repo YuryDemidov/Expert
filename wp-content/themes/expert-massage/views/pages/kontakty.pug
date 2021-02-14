@@ -45,7 +45,7 @@ block content
         .contact-info__left-column
           section.contact-info__address
             h2.contact-info__subtitle Мы ждём вас по адресу:
-            p.contact-info__text!= `г. Москва, ${globalData.company.address}`
+            p.contact-info__text!= `${globalData.company.addressCity}, ${globalData.company.address}`
           section.contact-info__working-hours
             h2.contact-info__subtitle Режим работы:
             p.contact-info__text!= globalData.company.workingHours
@@ -61,7 +61,7 @@ block content
             h2.contact-info__subtitle Мы в соцсетях:
             +socials({ ig: ['24', '23'], vk: ['36', '22'], fb: ['24', '24'] })
         .contact-info__right-column
-          +picture-tag(pageData.placementPhoto, pageData.placementPhoto.desktop.jpg['2x'], 'г. Москва, м. Цветной Бульвар Волконский 1-й переулок, д.15').contact-info__placement-photo
+          +picture-tag(pageData.placementPhoto, pageData.placementPhoto.desktop.jpg['2x'], globalData.company.address.replace('<br>', ', ')).contact-info__placement-photo
       include ../includes/modules/footer/map-block
 
 block script

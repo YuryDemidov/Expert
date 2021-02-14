@@ -4,6 +4,8 @@
  * Place here all your WordPress add_filter() and add_action() calls.
  */
 
+include_once(get_stylesheet_directory() . '/common_functions.php');
+
 define('SUPPORT_EMAILS', ['demiddinamit@mail.ru', 'mr.antony-mir@yandex.ru', 'ms.irina-mir@yandex.ru']);
 
 add_filter('wordless_pug_configuration', 'custom_pug_options');
@@ -29,6 +31,8 @@ add_action('wp_ajax_nopriv_reviews-filters', 'handle_reviews_filters');
 // Admin panel handlers
 add_action('admin_post_review_change', 'handle_review_change');
 add_action('admin_post_review_delete', 'handle_review_delete');
+add_action('admin_post_price_change', 'handle_price_change');
+add_action('admin_post_company_info', 'handle_company_info_change');
 
 /*
  * Change pug template engine options such as expression language (php / js)
@@ -129,6 +133,7 @@ function custom_administrating() {
     add_submenu_page('custom_administrating', 'Тест выбора массажа', 'Тест выбора массажа', 'upload_files', 'test_form', 'test_form_administrating');
     add_submenu_page('custom_administrating', 'Отзывы', 'Отзывы', 'manage_options', 'review_form', 'review_form_administrating');
     add_submenu_page('custom_administrating', 'Прайс-лист', 'Прайс-лист', 'manage_options', 'prices', 'prices_administrating');
+    add_submenu_page('custom_administrating', 'О компании', 'О компании', 'manage_options', 'company_info', 'company_info_administrating');
 }
 
 /*
@@ -281,6 +286,17 @@ function prices_administrating() {
     ];
 
     render_template('includes/admin/prices', ['data' => json_encode($pricesData)]);
+}
+
+/*
+ * Receiving company info from database and rendering admin page for changing it
+ */
+function company_info_administrating() {
+    if (!current_user_can('manage_options'))  {
+        wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
+    }
+
+    render_template('includes/admin/company-info', ['data' => json_encode(get_company_data())]);
 }
 
 /*
@@ -500,6 +516,9 @@ function handle_review_form() {
         if (!$review) {
             throw new Exception('Отзыв не может быть пустым');
         }
+        if (preg_match('/<[A-z]/', $review)) {
+            throw new Exception('Отзыв содержит некорректные символы');
+        }
 
         $wpdb->insert('wp_exp_reviews', [
             'text' => $review,
@@ -656,19 +675,73 @@ function handle_review_delete() {
     exit(json_encode($response));
 }
 
-function get_request_result($request) {
-    $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$request);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $server_output = curl_exec($ch);
-    curl_close($ch);
-    return $server_output;
+function handle_price_change() {
+    global $wpdb;
+
+    try {
+        if ($_REQUEST['type'] === 'massage') {
+            $changedTable = 'wp_exp_massages';
+        } else if ($_REQUEST['type'] === 'procedure') {
+            $changedTable = 'wp_exp_price_procedures';
+        } else {
+            $changedTable = 'wp_exp_price_additions';
+        }
+
+        $updateResult = $wpdb->update($changedTable,
+            [
+                $_REQUEST['field'] => $_REQUEST['value'] !== '' ? $_REQUEST['value'] : null
+            ],
+            [
+                'id' => $_REQUEST['procedureId']
+            ]
+        );
+
+        $response = [
+            'result' => true,
+            'updateResult' => $updateResult
+        ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
 }
 
-function extract_phone($string) {
-    return str_replace(['(', ')', '-', ' '], '', $string);
-}
+function handle_company_info_change() {
+    global $wpdb;
 
-function is_valid_phone($phone) {
-    return preg_match('/^\+?([87](?!95[5-79]|99[08]|907|94[^0]|336)([348]\d|9[0-6789]|7[01247])\d{8}|[1246]\d{9,13}|68\d{7}|5[1-46-9]\d{8,12}|55[1-9]\d{9}|55[138]\d{10}|55[1256][14679]9\d{8}|554399\d{7}|500[56]\d{4}|5016\d{6}|5068\d{7}|502[45]\d{7}|5037\d{7}|50[4567]\d{8}|50855\d{4}|509[34]\d{7}|376\d{6}|855\d{8,9}|856\d{10}|85[0-4789]\d{8,10}|8[68]\d{10,11}|8[14]\d{10}|82\d{9,10}|852\d{8}|90\d{10}|96(0[79]|17[0189]|181|13)\d{6}|96[23]\d{9}|964\d{10}|96(5[569]|89)\d{7}|96(65|77)\d{8}|92[023]\d{9}|91[1879]\d{9}|9[34]7\d{8}|959\d{7,9}|989\d{9}|971\d{8,9}|97[02-9]\d{7,11}|99[^4568]\d{7, 11}|994\d{9}|9955\d{8}|996[2579]\d{8}|9989\d{8}|380[345679]\d{8}|381\d{9}|38[57]\d{8,9}|375[234]\d{8}|372\d{7,8}|37[0-4]\d{8}|37[6-9]\d{7,11}|30[69]\d{9}|34[67]\d{8}|3459\d{11}|3[12359]\d{8,12}|36\d{9}|38[169]\d{8}|382\d{8,9}|46719\d{10})$/Ui', $phone);
+    try {
+        foreach ($_REQUEST as $key => $value) {
+            $wpdb->update('wp_exp_company_info', [
+                'value' => $value
+            ], [
+                'option_name' => $key
+            ]);
+
+            if (str_ends_with($key, '-link')) {
+                $socialMedia = substr($key, 0, strpos($key, '-link'));
+                $wpdb->update('wp_exp_socials', [
+                    'link' => $value
+                ], [
+                    'code' => $socialMedia
+                ]);
+            }
+        }
+
+        $response = [
+            'result' => true,
+        ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
 }

@@ -6,6 +6,22 @@
   box-sizing: border-box;
 }
 
+.wrap {
+  &__row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+
+    &_justified {
+      justify-content: space-between;
+    }
+
+    &_wrap {
+      flex-wrap: wrap;
+    }
+  }
+}
+
 .title {
   font-size: 20px;
 }
@@ -118,10 +134,26 @@
     font-size: 16px;
     text-align: center;
 
+    background-color: #ffffff;
     border: none;
     cursor: pointer;
 
     transition: background-color 10s;
+
+    &[type=number] {
+      //noinspection CssInvalidPropertyValue
+      appearance: textfield;
+
+      color: #000000;
+
+      border: none;
+      box-shadow: none;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        appearance: none;
+      }
+    }
 
     &_success {
       transition: none;
@@ -258,6 +290,63 @@
       @include in-focus() {
         background-color: #238821;
       }
+    }
+  }
+}
+
+.form {
+  max-width: 850px;
+  margin: 20px 0;
+  padding: 20px;
+  padding-top: 24px;
+  padding-bottom: 30px;
+
+  font-size: 14px;
+
+  border: 1px solid #333333;
+  border-radius: 5px;
+
+  &__label {
+    margin-right: 10px;
+  }
+
+  &__input {
+    margin-right: auto;
+
+    &_max-width {
+      flex-grow: 1;
+    }
+  }
+
+  &__input-notification {
+    width: 100%;
+    margin: 5px 0;
+
+    color: #666666;
+
+    &::before {
+      content: '*';
+    }
+  }
+
+  &__submitter {
+    padding: 8px 20px;
+
+    font-weight: 700;
+    font-size: 16px;
+    color: #238821;
+
+    background: none;
+    border: 2px solid #238821;
+    border-radius: 3px;
+    cursor: pointer;
+
+    opacity: 0.75;
+
+    transition: opacity 0.4s;
+
+    &:hover {
+      opacity: 1;
     }
   }
 }

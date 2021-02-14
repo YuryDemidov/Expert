@@ -3,5 +3,6 @@ export const REGEXPS = {
   EMAIL: /^[A-Za-z0-9\-_.]+@[A-Za-z0-9\-_.]+\.[A-Za-z]{2,}$/,
   HAS_DIGIT: /\d/,
   NON_DIGIT: /^\D*$/,
-  PHONE_SYMBOLS: /^[0-9+()\s-]+$/
+  PHONE_SYMBOLS: /^[0-9+()\s-]+$/,
+  SPAM_SYMBOLS_COMBINATION: /<[A-z]/
 }

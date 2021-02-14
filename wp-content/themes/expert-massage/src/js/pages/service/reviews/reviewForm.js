@@ -8,7 +8,7 @@ const nameInput = reviewForm.querySelector(`[name=name]`);
 const emailInput = reviewForm.querySelector(`[name=email]`);
 const reviewInput = reviewForm.querySelector(`[name=review]`);
 const submitButton = reviewForm.querySelector(`.review-form__submit`);
-const successMessage = reviewForm.querySelector(`.message_success`);
+const messageNode = reviewForm.querySelector(`.review-form__main-message`);
 
 submitButton.addEventListener(`click`, submitFormHandler);
 reviewForm.addEventListener(`input`, () => {
@@ -21,7 +21,8 @@ const reviewFormManager = new FormSender({
   url: `/wp-admin/admin-post.php`,
   dataCollector: () => new FormData(reviewForm),
   requestFormat: `FormData`,
-  responseDataHandler: (data) => handleResponse(data)
+  responseDataHandler: data => handleResponse(data),
+  errorHandler: error => messageManager.showMessage(error.message || error, `error`, messageNode)
 });
 
 function handleResponse(data) {
@@ -42,6 +43,7 @@ function submitFormHandler(evt) {
 }
 
 function validateForm() {
+  const reviewTextareaWrap = reviewInput.closest(`.review-form__textarea`);
   let validity = true;
 
   if (!nameInput.value.trim()) {
@@ -55,7 +57,12 @@ function validateForm() {
     validity = false;
   }
   if (!reviewInput.value.trim()) {
-    messageManager.showMessage(MESSAGES.ERROR.EMPTY_REVIEW, `error`, reviewInput.closest(`.review-form__textarea`));
+    messageManager.showMessage(MESSAGES.ERROR.EMPTY_REVIEW, `error`, reviewTextareaWrap);
+    reviewInput.classList.add(`review-form__review_invalid`);
+    validity = false;
+  }
+  if (REGEXPS.SPAM_SYMBOLS_COMBINATION.test(reviewInput.value)) {
+    messageManager.showMessage(MESSAGES.ERROR.RESTRICTED_REVIEW_SYMBOLS, `error`, reviewTextareaWrap);
     reviewInput.classList.add(`review-form__review_invalid`);
     validity = false;
   }
@@ -75,7 +82,7 @@ function hideErrorHighlight() {
 }
 
 function showSuccessMessage() {
-  messageManager.showMessage(MESSAGES.SUCCESS.REVIEW_RECEIVED, `success`, successMessage);
+  messageManager.showMessage(MESSAGES.SUCCESS.REVIEW_RECEIVED, `success`, messageNode);
 }
 
 function clearForm() {

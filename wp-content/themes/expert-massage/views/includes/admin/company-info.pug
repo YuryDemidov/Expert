@@ -1,0 +1,89 @@
+- var data = JSON.parse(data)
+
+mixin html-notification()
+  p.form__input-notification В формате HTML (&lt;br&gt; - перенос строки и можно использовать другие теги)
+
+.wrap.company-info
+  h1 Информация о компании
+  hr
+  form.form(action='/wp-admin/admin-post.php' method='post')
+    input(type='hidden' name='action' value='company_info')
+    h2 Контакты
+    .wrap__row.wrap__row_justified
+      label.form__label(for='mainPhone') Основной телефон:
+      input#mainPhone.form__input(type='tel' placeholder='+7 999 000-00-00' name='mainPhone' value=data.phones[0])
+      label.form__label(for='mobilePhone') Мобильный телефон:
+      input#mobilePhone.form__input(type='tel' placeholder='+7 999 000-00-00' name='mobilePhone' value=data.phones[1])
+    .wrap__row.wrap__row_justified
+      label.form__label(for='mainEmail') Основной E-mail:
+      input#mainEmail.form__input(type='email' placeholder='email@email.com' name='mainEmail' value=data.email)
+      label.form__label(for='additionalEmail') Дополнительный E-mail:
+      input#additionalEmail.form__input(type='email' placeholder='email@email.com' name='additionalEmail' value=data.founderEmail)
+    h2 Адрес и часы работы
+    .wrap__row
+      label.form__label(for='addressCity') Город:
+      input#addressCity.form__input(type='text' name='addressCity' value=data.addressCity)
+    .wrap__row.wrap__row_wrap
+      label.form__label(for='address') Адрес:
+      input#address.form__input.form__input_max-width(type='text' name='address' value=data.address)
+      +html-notification()
+    .wrap__row.wrap__row_wrap
+      label.form__label(for='workingHours') Режим работы:
+      input#workingHours.form__input.form__input_max-width(type='text' name='workingHours' value=data.workingHours)
+      +html-notification()
+    h2 Социальные сети
+    each socialMedia, socialMediaCode in data.socials
+      - var socialId = `${socialMediaCode}Social`
+      .wrap__row
+        label.form__label(for=socialId)= `${socialMedia.name}:`
+        input.form__input.form__input_max-width(id=socialId type='url' name=`${socialMediaCode}-link` value=socialMedia.link)
+    h2 Другое
+    .wrap__row
+      label.form__label(for='foundationYear') Год основания:
+      input#foundationYear.year-input.form__input(type='number' min='1900' max='2099' step='1' name='foundationYear' value=data.foundationYear)
+    .wrap__row
+      button.form__submitter(type='submit') Обновить данные
+
+script.
+  const form = document.querySelector(`.form`);
+  const changedInputs = [];
+
+  form.addEventListener(`submit`, formSubmitHandler);
+  form.addEventListener(`input`, addChangedInput);
+
+  function addChangedInput(evt) {
+    changedInputs.push(evt.target.name);
+  }
+
+  function formSubmitHandler(evt) {
+    evt.preventDefault();
+
+    if (!changedInputs.length) {
+      return;
+    }
+
+    const data = new FormData();
+    data.append(`action`, `company_info`);
+    for (let key of changedInputs) {
+      if (!!~changedInputs.indexOf(key)) {
+        data.append(key, form[key].value);
+      }
+    }
+
+    sendRequest(new FormData(form))
+      .then(response => {
+        if (response.result) {
+          alert('Данные успешно обновлены');
+        } else {
+          alert('Произошла ошибка и данные не были обновлены!');
+        }
+      });
+  }
+
+  function sendRequest(data) {
+    return fetch(`/wp-admin/admin-post.php`, {
+      method: `post`,
+      body: data
+    })
+      .then(response => response.json());
+  }

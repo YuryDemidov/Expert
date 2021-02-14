@@ -3,8 +3,8 @@
 mixin confirm-input-cell(name, value)
   td.table__cell.table__cell_no-padding.table__cell_relative.table__cell_confirm-input
     .confirm-input
-      input.confirm-input__input(name=name value=value)
-      button.confirm-input__confirm(type='button' aria-label='Подтвердить')
+      input.confirm-input__input(type='number' name=name value=value)
+      button.confirm-input__confirm(type='button' aria-label='Подтвердить' data-disabled='')
 
 .wrap.prices-wrap
   h1 Прайс-лист
@@ -27,7 +27,7 @@ mixin confirm-input-cell(name, value)
               span Длительность, мин.
         tbody
           each massage in data.massages
-            tr.table__row(data-id=massage.id)
+            tr.table__row(data-id=massage.id data-type='massage')
               td.table__cell.table__cell_left
                 span= massage.full_name
               +confirm-input-cell('first_price', massage.first_price)
@@ -47,7 +47,7 @@ mixin confirm-input-cell(name, value)
               span Цена, руб
         tbody
           each procedure in data.procedures
-            tr.table__row(data-id=procedure.id)
+            tr.table__row(data-id=procedure.id data-type='procedure')
               td.table__cell.table__cell_left
                 span= procedure.name
               +confirm-input-cell('price', procedure.price)
@@ -64,14 +64,32 @@ mixin confirm-input-cell(name, value)
               span Цена
         tbody
           each addition in data.additions
-            tr.table__row(data-id=addition.id)
+            tr.table__row(data-id=addition.id data-type='addition')
               td.table__cell.table__cell_left
                 span= addition.name
               +confirm-input-cell('price', addition.price)
 
 script.
-  const wrap = document.querySelector(`.prices-wrap`);
-  wrap && wrap.addEventListener(`click`, evt => savePrice(evt));
+  window.addEventListener(`click`, evt => {
+    hidePreviousConfirmButton(evt);
+    showConfirmButton();
+    savePrice(evt);
+  });
+
+  function showConfirmButton() {
+    if (document.activeElement.classList.contains(`confirm-input__input`)) {
+      const confirmButton = document.activeElement.closest(`.confirm-input`).querySelector(`.confirm-input__confirm`);
+      delete confirmButton.dataset.disabled;
+    }
+  }
+
+  function hidePreviousConfirmButton(evt) {
+    const activeConfirmButton = document.querySelector(`.confirm-input__confirm:not([data-disabled])`);
+    const inputWrap = evt.target.closest(`.confirm-input`);
+    if (activeConfirmButton && (!inputWrap || inputWrap.querySelector(`.confirm-input__confirm`) !== activeConfirmButton)) {
+      activeConfirmButton.dataset.disabled = ``;
+    }
+  }
 
   function savePrice(evt) {
     if (!evt.target.classList.contains(`confirm-input__confirm`)) {
@@ -80,15 +98,24 @@ script.
 
     const input = evt.target.parentNode.querySelector(`.confirm-input__input`);
     const data = new FormData();
-    data.append(input.name, input.value);
-    data.append(`procedureId`, evt.target.closest(`[data-id]`).dataset.id);
-    input.classList.add(`confirm-input__input_success`);
-    input.classList.remove(`confirm-input__input_success`);
+    const dataNode = evt.target.closest(`[data-id]`);
+
+    data.append(`action`, `price_change`);
+    data.append(`field`, input.name);
+    data.append(`value`, input.value);
+    data.append(`procedureId`, dataNode.dataset.id);
+    data.append(`type`, dataNode.dataset.type);
+    evt.target.dataset.disabled = ``;
 
     sendRequest(data)
       .then(response => {
         if (!response || !response.result) {
           throw new Error(`Цена не была обновлена`);
+        }
+
+        if (response.updateResult) {
+          input.classList.add(`confirm-input__input_success`);
+          setTimeout(() => input.classList.remove(`confirm-input__input_success`));
         }
       })
       .catch(error => alert(`Ошибка: ${error}`));
