@@ -14,6 +14,9 @@ tmp/*
 !tmp/.gitkeep
 test
 
+# Media files
+uploads
+
 # BD, logs
 *.log
 *.sql

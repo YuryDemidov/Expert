@@ -6,7 +6,7 @@ import '../../modules/massageTypesBlock';
 import '../../modules/massage-choosing-test/massageChoosingTest';
 import '../../modules/massage-results/massageResults';
 import '../../modules/famousClientsSlider';
-import '../../modules/videoPlayers';
+import '../../modules/video/videoReviews';
 import '../../modules/priceListForm';
 import '../../modules/popups/popupAppointment';
 import '../../modules/specialistsSlider';

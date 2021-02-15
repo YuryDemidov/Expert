@@ -33,6 +33,8 @@ add_action('admin_post_review_change', 'handle_review_change');
 add_action('admin_post_review_delete', 'handle_review_delete');
 add_action('admin_post_price_change', 'handle_price_change');
 add_action('admin_post_company_info', 'handle_company_info_change');
+add_action('admin_post_massage_video', 'handle_massage_video_change');
+add_action('admin_post_review_video', 'handle_review_video_change');
 
 /*
  * Change pug template engine options such as expression language (php / js)
@@ -134,6 +136,8 @@ function custom_administrating() {
     add_submenu_page('custom_administrating', 'Отзывы', 'Отзывы', 'manage_options', 'review_form', 'review_form_administrating');
     add_submenu_page('custom_administrating', 'Прайс-лист', 'Прайс-лист', 'manage_options', 'prices', 'prices_administrating');
     add_submenu_page('custom_administrating', 'О компании', 'О компании', 'manage_options', 'company_info', 'company_info_administrating');
+    add_submenu_page('custom_administrating', 'Видео', 'Видео', 'manage_options', 'site_video', 'video_administrating');
+    add_submenu_page('custom_administrating', 'Фото', 'Фото', 'manage_options', 'site_photo', 'photo_administrating');
 }
 
 /*
@@ -297,6 +301,43 @@ function company_info_administrating() {
     }
 
     render_template('includes/admin/company-info', ['data' => json_encode(get_company_data())]);
+}
+
+/*
+ * Receiving videos from database and rendering admin page for changing it
+ */
+function video_administrating() {
+    if (!current_user_can('manage_options'))  {
+        wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
+    }
+
+    global $wpdb;
+
+    $massageVideos = $wpdb->get_results(
+        'SELECT name AS massage, wp_exp_massage_video.code, massage_id, poster, sticker_position, sticker_text
+        FROM wp_exp_massage_video
+        RIGHT OUTER JOIN wp_exp_massages
+        ON wp_exp_massages.id = wp_exp_massage_video.massage_id',
+        ARRAY_A
+    );
+
+    $videoReviews = get_video_reviews();
+
+    render_template('includes/admin/videos', ['data' => json_encode([
+        'massageVideos' => $massageVideos,
+        'videoReviews' => $videoReviews
+    ])]);
+}
+
+/*
+ * Receiving photos from database and rendering admin page for changing it
+ */
+function photo_administrating() {
+    if (!current_user_can('manage_options'))  {
+        wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
+    }
+
+    render_template('includes/admin/photos', ['data' => json_encode([])]);
 }
 
 /*
@@ -734,6 +775,93 @@ function handle_company_info_change() {
 
         $response = [
             'result' => true,
+        ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
+function handle_massage_video_change() {
+    global $wpdb;
+
+    try {
+        if (!isset($_REQUEST['code']) || !$_REQUEST['code']) {
+            throw new Exception('Нужно указать код видео с Youtube');
+        }
+
+        $wpdb->update(
+            'wp_exp_massage_video', [
+                'code' => $_REQUEST['code'],
+                'sticker_position' => $_REQUEST['sticker_text'] ? $_REQUEST['sticker_position'] : null,
+                'sticker_text' => $_REQUEST['sticker_text'] ? $_REQUEST['sticker_text'] : null,
+            ], [
+                'massage_id' => $_REQUEST['massage_id']
+            ]
+        );
+
+        if (isset($_FILES['poster']) && $_FILES['poster']['error'] !== 0 && $_FILES['poster']['tmp_name']) {
+            $wpdb->update(
+                'wp_exp_massage_video',
+                ['poster' => process_upload($_FILES['poster'])],
+                ['massage_id' => $_REQUEST['massage_id']]
+            );
+        }
+
+        $response = [
+            'result' => true
+        ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
+function handle_review_video_change() {
+    global $wpdb;
+
+    try {
+        if (isset($_REQUEST['id'])) {
+            $wpdb->update(
+                'wp_exp_video_reviews',
+                ['code' => $_REQUEST['code']],
+                ['id' => $_REQUEST['id']]
+            );
+            if (isset($_FILES['poster']) && $_FILES['poster']['error'] !== 0 && $_FILES['poster']['tmp_name']) {
+                $wpdb->update(
+                    'wp_exp_video_reviews',
+                    ['poster' => process_upload($_FILES['poster'])],
+                    ['id' => $_REQUEST['id']]
+                );
+            }
+        } else {
+            if (!isset($_REQUEST['code']) || !$_REQUEST['code']) {
+                throw new Exception('Нужно указать код видео с Youtube');
+            }
+            if (!isset($_FILES['poster']) || !$_FILES['poster']['error'] !== 0 || !$_FILES['poster']['tmp_name']) {
+                throw new Exception('Постер не был загружен или в процессе загрузки произошла ошибка');
+            }
+
+            $wpdb->insert(
+                'wp_exp_video_reviews', [
+                    'code' => $_REQUEST['code'],
+                    'poster' => process_upload($_FILES['poster'])
+                ]
+            );
+        }
+
+        $response = [
+            'result' => true
         ];
     } catch (Exception $e) {
         status_header(400);

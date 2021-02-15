@@ -244,6 +244,15 @@ function get_reviews_slider_data() {
     return $reviews;
 }
 
+function get_video_reviews() {
+    global $wpdb;
+
+    return $wpdb->get_results(
+        'SELECT * FROM wp_exp_video_reviews',
+        ARRAY_A
+    );
+}
+
 function get_massage_video() {
     global $wpdb, $post;
     $page_slug = $post->post_name;
@@ -261,7 +270,7 @@ function get_massage_video() {
 
     return [
         'id' => $video['code'],
-        'poster' => THEME_IMG_PATH . $video['poster'],
+        'poster' => THEME_UPLOADS_BASE_PATH . $video['poster'],
         'sticker' => [
             'position' => $video['sticker_position'],
             'text' => $video['sticker_text']

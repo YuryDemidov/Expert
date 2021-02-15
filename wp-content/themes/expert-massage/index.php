@@ -12,7 +12,7 @@ if (!class_exists("Wordless")) {
 define('THEME_DIST_PATH', get_stylesheet_directory_uri() . '/dist');
 define('THEME_FONTS_PATH', THEME_DIST_PATH . '/assets/fonts');
 define('THEME_IMG_PATH', THEME_DIST_PATH . '/assets/img');
-define('THEME_VIDEO_PATH', THEME_DIST_PATH . '/assets/video');
+define('THEME_UPLOADS_BASE_PATH', wp_get_upload_dir()['baseurl']);
 define('ARTICLE_PAGES_URLS', [
     '/informatsiya/pokazaniya-k-massazhu/',
     '/informatsiya/protivopokazaniya-k-massazhu/',
@@ -47,6 +47,8 @@ $pageData = [];
 
 if (is_home()) {
     $pageData['reviewsBlock']['reviews'] = get_reviews_slider_data();
+    $pageData['videoReviews'] = get_video_reviews();
+
     render_template('pages/index', [
         'globalData' => json_encode($globalData),
         'pageData' => json_encode($pageData)

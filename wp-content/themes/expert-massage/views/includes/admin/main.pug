@@ -1,16 +1,19 @@
+-
+  var sections = {
+    application_form: 'Запись на массаж',
+    callback_form: 'Заказ обратного звонка',
+    test_form: 'Тест выбора массажа',
+    review_form: 'Отзывы',
+    prices: 'Прайс-лист',
+    company_info: 'Информация о компании',
+    site_video: 'Видео',
+    site_photo: 'Фотографии'
+  }
+
 .wrap
   h1 Администрирование
   p Выберите необходимый подраздел:
   ul
-    li
-      a(href=`${get_admin_url()}admin.php?page=application_form`) Запись на массаж
-    li
-      a(href=`${get_admin_url()}admin.php?page=callback_form`) Заказ обратного звонка
-    li
-      a(href=`${get_admin_url()}admin.php?page=test_form`) Тест выбора массажа
-    li
-      a(href=`${get_admin_url()}admin.php?page=review_form`) Отзывы
-    li
-      a(href=`${get_admin_url()}admin.php?page=prices`) Прайс-лист
-    li
-      a(href=`${get_admin_url()}admin.php?page=company_info`) Информация о компании
+    each section, sectionCode in sections
+      li
+        a(href=`${get_admin_url()}admin.php?page=${sectionCode}`)= section

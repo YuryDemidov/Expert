@@ -16,7 +16,7 @@ export default function createYoutubePlayer(node, options) {
     player: null
   };
 
-  window.onYouTubeIframeAPIReady = () => {
+  globalThis.onYouTubeIframeAPIReady = () => {
     // eslint-disable-next-line no-undef
     video.player = new YT.Player(node, options);
   };

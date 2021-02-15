@@ -428,21 +428,6 @@ import './results/figure-results-12_mobile@2x.webp'
 import './results/figure-results-12_desktop@1x.jpg'
 import './results/figure-results-12_desktop@1x.webp'
 
-// Video posters
-import '../video/video-reviews/video-poster_1.jpg'
-import '../video/video-reviews/video-poster_2.jpg'
-import '../video/video-reviews/video-poster_3.jpg'
-import '../video/video-reviews/video-poster_4.jpg'
-import '../video/video-reviews/video-poster_5.jpg'
-import '../video/video-reviews/video-poster_6.jpg'
-import './massage-video/massage-video-poster_all.jpg'
-import './massage-video/massage-video-poster_anticellulite.jpg'
-import './massage-video/massage-video-poster_back.jpg'
-import './massage-video/massage-video-poster_face.jpg'
-import './massage-video/massage-video-poster_figure-modeling.jpg'
-import './massage-video/massage-video-poster_fullbody.jpg'
-import './massage-video/massage-video-poster_lymphatic-drainage.jpg'
-
 // Famous clients
 import './famous-clients/famous-client-1_mobile@1x.jpg'
 import './famous-clients/famous-client-1_mobile@2x.jpg'

@@ -77,15 +77,10 @@ mixin custom-radio()
     label.custom-radio__label(for=attributes.id)
       block
 
-mixin video(videoConfig, wrapClass)
+mixin video(video, wrapClass)
   .video-block(class=wrapClass)
-    video.video-block__video&attributes(attributes)
-      each source, extension in videoConfig.sources
-        source(src=source type=`video/${extension}`)
-      | Тег video не поддерживается вашим браузером.
-      |
-      a(href=videoConfig.sources.mp4) Скачайте видео
-    .video-block__poster(style=`background-image: url('${attributes.poster}')`)
+    .video-block__video(data-id=video.code)&attributes(attributes)
+    .video-block__poster(style=`background-image: url('${THEME_UPLOADS_BASE_PATH}${video.poster}')`)
     a.video-block__play-button(href='#' aria-label='Запустить видео')
 
 mixin socials(iconsSizes)

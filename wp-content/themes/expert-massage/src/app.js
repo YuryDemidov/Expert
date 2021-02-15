@@ -7,6 +7,3 @@ import './assets/scss/app.scss'
 
 // Images
 import './assets/img/images'
-
-// Videos
-import './assets/video/videos'

@@ -1,69 +1,10 @@
--
-  var videoReviews = [
-    {
-      id: 1,
-      sources: {
-        mp4: `${THEME_VIDEO_PATH}/video-reviews/video_1.mp4`,
-        ogg: `${THEME_VIDEO_PATH}/video-reviews/video_1.ogv`,
-        webm: `${THEME_VIDEO_PATH}/video-reviews/video_1.webm`
-      },
-      poster: `${THEME_VIDEO_PATH}/video-reviews/video-poster_1.jpg`
-    },
-    {
-      id: 2,
-      sources: {
-        mp4: `${THEME_VIDEO_PATH}/video-reviews/video_1.mp4`,
-        ogg: `${THEME_VIDEO_PATH}/video-reviews/video_1.ogv`,
-        webm: `${THEME_VIDEO_PATH}/video-reviews/video_1.webm`
-      },
-      poster: `${THEME_VIDEO_PATH}/video-reviews/video-poster_2.jpg`
-    },
-    {
-      id: 3,
-      sources: {
-        mp4: `${THEME_VIDEO_PATH}/video-reviews/video_1.mp4`,
-        ogg: `${THEME_VIDEO_PATH}/video-reviews/video_1.ogv`,
-        webm: `${THEME_VIDEO_PATH}/video-reviews/video_1.webm`
-      },
-      poster: `${THEME_VIDEO_PATH}/video-reviews/video-poster_3.jpg`
-    },
-    {
-      id: 4,
-      sources: {
-        mp4: `${THEME_VIDEO_PATH}/video-reviews/video_1.mp4`,
-        ogg: `${THEME_VIDEO_PATH}/video-reviews/video_1.ogv`,
-        webm: `${THEME_VIDEO_PATH}/video-reviews/video_1.webm`
-      },
-      poster: `${THEME_VIDEO_PATH}/video-reviews/video-poster_4.jpg`
-    },
-    {
-      id: 5,
-      sources: {
-        mp4: `${THEME_VIDEO_PATH}/video-reviews/video_1.mp4`,
-        ogg: `${THEME_VIDEO_PATH}/video-reviews/video_1.ogv`,
-        webm: `${THEME_VIDEO_PATH}/video-reviews/video_1.webm`
-      },
-      poster: `${THEME_VIDEO_PATH}/video-reviews/video-poster_5.jpg`
-    },
-    {
-      id: 6,
-      sources: {
-        mp4: `${THEME_VIDEO_PATH}/video-reviews/video_1.mp4`,
-        ogg: `${THEME_VIDEO_PATH}/video-reviews/video_1.ogv`,
-        webm: `${THEME_VIDEO_PATH}/video-reviews/video_1.webm`
-      },
-      poster: `${THEME_VIDEO_PATH}/video-reviews/video-poster_6.jpg`
-    }
-  ]
-
-//- TODO To enable this block remove hidden class
 section.video-reviews.hidden
   .video-reviews__content.container(data-aos='fade-up' data-aos-offset='50' data-aos-duration='800' data-aos-anchor-placement='top-bottom')
     h2.video-reviews__title.heading Видеоотзывы наших клиентов
-    each video, i in videoReviews
+    each video, i in pageData.videoReviews
       - var videoClass = 'video-reviews__video'
       if i > 2
         - videoClass = `${videoClass} hidden_mobile-tablet`
-      +video(video, videoClass)(width='320' height='180' poster=video.poster data-id=video.id)
+      +video(video, videoClass)(width='320' height='180')
     .video-reviews__link
       a.link.link_arrow.link_secondary.underline(href='/video-reviews/') Все видеоотзывы

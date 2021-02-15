@@ -1,0 +1,114 @@
+- var data = JSON.parse(data)
+
+.wrap.videos-wrap
+  h1 Видео
+  nav
+    ul
+      li
+        a(href='#massageVideos') Как проходит массаж
+      li
+        a(href='#videoReviews') Видеоотзывы
+  hr
+  h2#massageVideos Как проходит массаж
+  ul.card-list
+    each video, i in data.massageVideos
+      li.card-list__card.video-card
+        h3.video-card__title= video.massage
+        form.video-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+          input(type='hidden' name='action' value='massage_video')
+          input(type='hidden' name='massage_id' value=video.massage_id)
+          .video-card__row
+            label.video-card__label(for=`massageVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
+            span https://www.youtube.com/watch?v=
+            input.video-card__input.form__input.form__input_max-width(id=`massageVideoUrl${i}` type='text' name='code' placeholder='111111' value=video.code)
+          .video-card__row
+            label.video-card__label(for=`massageVideoPoster${i}`) Постер:
+            input.video-card__input(id=`massageVideoPoster${i}` type='file' name='poster')
+            img.video-card__poster-preview(src=`${wp_get_upload_dir()['baseurl']}${video.poster}` alt='' width='300')
+          .video-card__row
+            label.video-card__label(for=`massageVideoStickerPosition${i}`) Положение стикера:
+            select.video-card__select(id=`massageVideoStickerPosition${i}` name='sticker_position')
+              option(value='' selected=!video.sticker_position disabled hidden) Установить
+              option(value='left' selected=video.sticker_position === 'left') слева
+              option(value='right' selected=video.sticker_position === 'right') справа
+          .video-card__row
+            label.video-card__label(for=`massageVideoStickerText${i}`) Текст на стикере:
+            input.video-card__input.form__input.form__input_max-width(id=`massageVideoStickerText${i}` type='text' name='sticker_text' value=video.sticker_text)
+          .video-card__row
+            button.form__submitter(type='submit') Обновить
+  h2#videoReviews Видеоотзывы
+  ul.card-list
+    li.card-list__card.video-card
+      form.video-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+        input(type='hidden' name='action' value='review_video')
+        .video-card__row
+          label.video-card__label(for=`reviewVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
+          span https://www.youtube.com/watch?v=
+          input.video-card__input.form__input.form__input_max-width(id=`reviewVideoUrl${i}` type='text' name='code' placeholder='A12345ABC')
+        .video-card__row
+          label.video-card__label(for=`reviewVideoPoster${i}`) Постер:
+          input.video-card__input(id=`reviewVideoPoster${i}` type='file' name='poster')
+          img.video-card__poster-preview(src=`#` alt='Постер видеоотзыва' width='300')
+        .video-card__row
+          button.form__submitter(type='submit') Добавить
+    each video, i in data.videoReviews
+      li.card-list__card.video-card
+        form.video-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+          input(type='hidden' name='action' value='review_video')
+          input(type='hidden' name='id' value=video.id)
+          .video-card__row
+            label.video-card__label(for=`reviewVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
+            span https://www.youtube.com/watch?v=
+            input.video-card__input.form__input.form__input_max-width(id=`reviewVideoUrl${i}` type='text' name='code' placeholder='111111' value=video.code)
+          .video-card__row
+            label.video-card__label(for=`reviewVideoPoster${i}`) Постер:
+            input.video-card__input(id=`reviewVideoPoster${i}` type='file' name='poster')
+            img.video-card__poster-preview(src=`${wp_get_upload_dir()['baseurl']}${video.poster}` alt='' width='300')
+          .video-card__row
+            button.form__submitter(type='submit') Обновить
+
+script.
+  const videosWrap = document.querySelector(`.wrap`);
+
+  videosWrap.addEventListener('change', showPosterPreview);
+  videosWrap.addEventListener('submit', sendForm);
+
+  function showPosterPreview(evt) {
+    if (evt.target.files) {
+      readURL(evt.target);
+    }
+  }
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      const posterPreview = input.parentNode.querySelector(`.video-card__poster-preview`);
+
+      reader.onload = function(evt) {
+        posterPreview.src = evt.target.result;
+      }
+
+      reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+  }
+
+  function sendForm(evt) {
+    evt.preventDefault();
+    sendRequest(new FormData(evt.target))
+      .then(response => {
+        if (response.result) {
+          alert('Данные успешно обновлены');
+        } else {
+          throw new Error(response.error);
+        }
+      })
+      .catch(error => alert(error.message || error));
+  }
+
+  function sendRequest(data) {
+    return fetch(`/wp-admin/admin-post.php`, {
+      method: `post`,
+      body: data
+    })
+      .then(response => response.json());
+  }
