@@ -10,33 +10,20 @@ section.price-list
             'data-aos-offset':'0',
             'data-aos-anchor-placement':'center-bottom'
           }
-        if pageData.theme === '1'
-          +promo-card(
-            globalData.massages['sculptural-buccal-massage'].promo.title,
-            globalData.massages['sculptural-buccal-massage'].promo.subtitle,
-            globalData.massages['sculptural-buccal-massage'].promo.cardText,
-            globalData.massages['sculptural-buccal-massage'].promo.buttonText,
-            globalData.massages['sculptural-buccal-massage'].promo.buttonColor,
-            globalData.massages['sculptural-buccal-massage'].promo.image
-          ).price-list__promotion.price-list__promotion_photo&attributes(promoAppearance)
-        else if pageData.theme === '7'
-          +promo-card(
-            globalData.massages['figure-modeling'].promo.title,
-            globalData.massages['figure-modeling'].promo.subtitle,
-            globalData.massages['figure-modeling'].promo.cardText,
-            globalData.massages['figure-modeling'].promo.buttonText,
-            globalData.massages['figure-modeling'].promo.buttonColor,
-            globalData.massages['figure-modeling'].promo.image
-          ).price-list__promotion.price-list__promotion_photo&attributes(promoAppearance)
-        else
-          +promo-card(
-            globalData.mainPromo.title,
-            globalData.mainPromo.subtitle,
-            globalData.mainPromo.text,
-            globalData.mainPromo.buttonText
-          ).price-list__promotion&attributes(promoAppearance)
+        - var displayedPromo = globalData.mainPromo
+        each promotion in globalData.promotions
+          if promotion.promoMassageId === pageData.theme
+            - displayedPromo = promotion
+        +promo-card(
+          displayedPromo.title,
+          displayedPromo.subtitle,
+          displayedPromo.text,
+          displayedPromo.buttonText,
+          displayedPromo.buttonColor,
+          displayedPromo.image
+        ).price-list__promotion(class=(displayedPromo === globalData.mainPromo ? false : 'price-list__promotion_photo'))&attributes(promoAppearance)
       .price-list__prices
-        each section in globalData.priceList.sections
+        each section, sectionName in globalData.priceList.sections
           - var promoText = ''
           section.price-list__section
             table.price-list__table.table
@@ -46,17 +33,17 @@ section.price-list
                 th.table__cell.table__cell_heading 1-ый сеанс
                 th.table__cell.table__cell_heading Последующие
                 th.table__cell.table__cell_heading Время
-              each massage, i in section.massages
+              each massage in section.massages
                 - var additionalClass = ''
-                if massage.promo
-                  - promoText = `${promoText}${massage.promo.text}<br>`
-                  if massage.promo.starPlacement
-                    - additionalClass = `table__row_promo table__row_promo-${massage.promo.starPlacement}`
+                if massage.price_list_star_placement
+                  - promoText = `${promoText}${massage.price_list_label}<br>`
+                  if massage.price_list_star_placement
+                    - additionalClass = `table__row_promo table__row_promo-${massage.price_list_star_placement}`
                 if massage.id === pageData.massage.id
                   - additionalClass = `${additionalClass} table__row_highlight`
                 tr.table__row(class=additionalClass)
                   td.table__cell
-                    b.price-list__massage-name= massage.name
+                    b.price-list__massage-name(class=(((massage.id === '6') || (massage.id === '11') || (massage.id === '12')) ? 'price-list__massage-name_notification' : false))= massage.name
                   td.table__cell
                     if massage.old_price
                       span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
@@ -69,4 +56,6 @@ section.price-list
                     span.price-list__standard-price!= `${massage.standard_price}&thinsp;₽`
                   td.table__cell!= `${massage.duration}&thinsp;мин`
             p.price-list__promo-text!= promoText
+            if sectionName === 'body'
+              p.price-list__notification-text мужчины 90 кг и выше + 500 ₽ за сеанс
       include callback-form

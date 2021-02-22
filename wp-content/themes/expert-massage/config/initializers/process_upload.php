@@ -42,6 +42,9 @@ function process_upload($file) {
         // wp_generate_attachment_metadata() won't work if you do not include this file
         require_once(dirname(__FILE__) . '/../../../../../wp-admin/includes/image.php');
 
+        // Change permissions
+        chmod($new_file_path, 0775);
+
         // Generate and save the attachment metas into the database
         wp_update_attachment_metadata($upload_id, wp_generate_attachment_metadata($upload_id, $new_file_path));
 

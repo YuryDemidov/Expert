@@ -1,57 +1,77 @@
 - var faceResults = pageData.massageResults.face
+- var slidesList = ['main']
+- var additionalCurrentPhotos = []
+- var additionalRestPhotos = []
+each photoId in faceResults.slidesOrder.current
+  - slidesList.push(faceResults.photos[photoId])
+each photo in faceResults.photos
+  if photo.massage_id === pageData.theme
+    - additionalCurrentPhotos.push(photo)
+  else
+    - additionalRestPhotos.push(photo)
+each photo in additionalCurrentPhotos
+  //- photo.id !== '8' - excludes same photo as on the main slide
+  if (slidesList.indexOf(photo) === -1) && (photo.id !== '8')
+    - slidesList.push(photo)
+each photoId in faceResults.slidesOrder.rest
+  - slidesList.push(faceResults.photos[photoId])
+each photo in additionalRestPhotos
+  //- photo.id !== '8' - excludes same photo as on the main slide
+  if (slidesList.indexOf(photo) === -1) && (photo.id !== '8')
+    - slidesList.push(photo)
 
-mixin face-slide(number)
-  .face-results__slide(class=(number === 1 ? 'face-results__slide_main' : `face-results__slide_${number}`))
-    case number
-      when 1
+mixin face-slide(slide)
+  .face-results__slide(class=(slide === 'main' ? 'face-results__slide_main' : `face-results__slide_${slide}`))
+    case slide
+      when 'main'
         -
           var photo1 = {
             desktop: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-1_desktop@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-1_desktop@2x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_desktop@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_desktop@2x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-1_desktop@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-1_desktop@2x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_desktop@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_desktop@2x.png`
               }
             },
             tablet: false,
             mobile: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-1_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-1_mobile@2x.webp`,
-                '3x': `${THEME_IMG_PATH}/results/face-results-1-1_mobile@3x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_mobile@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_mobile@2x.webp`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_mobile@3x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-1_mobile@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-1_mobile@2x.png`,
-                '3x': `${THEME_IMG_PATH}/results/face-results-1-1_mobile@3x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_mobile@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_mobile@2x.png`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-1_mobile@3x.png`
               }
             }
           }
           var photo2 = {
             desktop: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-2_desktop@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-2_desktop@2x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_desktop@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_desktop@2x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-2_desktop@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-2_desktop@2x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_desktop@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_desktop@2x.png`
               }
             },
             tablet: false,
             mobile: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-2_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-2_mobile@2x.webp`,
-                '3x': `${THEME_IMG_PATH}/results/face-results-1-2_mobile@3x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_mobile@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_mobile@2x.webp`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_mobile@3x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-1-2_mobile@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-1-2_mobile@2x.png`,
-                '3x': `${THEME_IMG_PATH}/results/face-results-1-2_mobile@3x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_mobile@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_mobile@2x.png`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/face-results-1-2_mobile@3x.png`
               }
             }
           }
@@ -87,46 +107,18 @@ mixin face-slide(number)
           else
             a(href='/vidy-massazha/sculptural-buccal-massage/').button.button_primary Читать о процедуре
       default
-        -
-          var photoFaceResult = {
-            desktop: {
-              webp: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-${number}_desktop@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-${number}_desktop@2x.webp`
-              },
-              jpg: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-${number}_desktop@1x.jpg`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-${number}_desktop@2x.jpg`
-              }
-            },
-            tablet: false,
-            mobile: {
-              webp: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-${number}_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-${number}_mobile@2x.webp`,
-                '3x': `${THEME_IMG_PATH}/results/face-results-${number}_mobile@3x.webp`
-              },
-              jpg: {
-                '1x': `${THEME_IMG_PATH}/results/face-results-${number}_mobile@1x.jpg`,
-                '2x': `${THEME_IMG_PATH}/results/face-results-${number}_mobile@2x.jpg`,
-                '3x': `${THEME_IMG_PATH}/results/face-results-${number}_mobile@3x.jpg`
-              }
-            }
-          }
         - var titleEnd = 'скульптурно-буккального массажа'
         - var slideClass = 'massage-results__simple-slide_1'
         - var link = '/vidy-massazha/sculptural-buccal-massage/'
-        - var linkGoalTheme = '1'
-        if (number === 5) || (number === 6)
+        - var linkGoalTheme = slide.massage_id
+        if slide.massage_id === '4'
           - titleEnd = 'массажа Асахи-Зоган'
           - slideClass = 'massage-results__simple-slide_4'
           - link = '/vidy-massazha/japanese-asahi-massage/'
-          - linkGoalTheme = '4'
-        if (number === 7) || (number === 8)
+        if slide.massage_id === '5'
           - titleEnd = 'хиромассажа'
           - slideClass = 'massage-results__simple-slide_5'
           - link = '/vidy-massazha/chiromassage/'
-          - linkGoalTheme = '5'
         h3.massage-results__slide-title
           | Курс
           |
@@ -138,7 +130,7 @@ mixin face-slide(number)
           h4.massage-results__label.hidden_desktop До
           h4.massage-results__label.hidden_desktop После
         .massage-results__simple-slide(class=slideClass)
-          +picture-tag(photoFaceResult, photoFaceResult.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
+          +picture-tag(slide.photo, slide.photo.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
           button.button.button_primary(type='button' data-open-popup='appointment' data-massage-id=linkGoalTheme) Записаться
 
@@ -147,7 +139,7 @@ if faceResults
     .face-results__slider.slider(data-state='presentation')
       button.slider__button.slider__button_prev(aria-label="Предыдущий слайд")
       ul.face-results__slides
-        each slideNumber in faceResults.slidesOrder
+        each slideNumber in slidesList
           li.face-results__slide-wrap
             +face-slide(slideNumber)
       button.slider__button.slider__button_next(aria-label="Следующий слайд")

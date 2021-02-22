@@ -136,10 +136,13 @@ function get_massages() {
         wp_exp_massages.type, wp_exp_massages.menu_tag_text, wp_exp_massages.first_price,
         wp_exp_massages.standard_price, wp_exp_massages.old_price, wp_exp_massages.duration,
         wp_exp_massages.short_description,
+        wp_exp_promotions.massage_id as promo_massage_id, application_heading, application_text, price_list_label, price_list_star_placement, card_title, card_text, button_text, button_color, image,
         wp_exp_color_modifiers.name as menu_tag_color
         FROM wp_exp_massages
-        RIGHT JOIN wp_exp_color_modifiers
-        ON wp_exp_massages.menu_tag_color = wp_exp_color_modifiers.id OR wp_exp_massages.menu_tag_color IS NULL
+        LEFT JOIN wp_exp_color_modifiers
+        ON wp_exp_massages.menu_tag_color = wp_exp_color_modifiers.id
+        LEFT JOIN wp_exp_promotions
+        ON wp_exp_massages.id = wp_exp_promotions.massage_id
         ORDER BY sort_position',
         ARRAY_A
     );
@@ -147,29 +150,6 @@ function get_massages() {
     $massageObj = [];
     foreach ($massages as $massage) {
         $massage['url'] = '/vidy-massazha/' . $massage['code'] . '/';
-
-        if ($massage['code'] === 'sculptural-buccal-massage') {
-            $massage['promo'] = [
-                'text' => '<span>Акция</span> — скидка на февраль и март 30%',
-                'starPlacement' => 3,
-                'title' => '30% скидка на скульптурно-буккальный массаж!',
-                'cardText' => 'Любое количество сеансов. Только на февраль и март',
-                'buttonText' => 'Записаться',
-                'buttonColor' => '#06319f',
-                'image' => THEME_IMG_PATH . '/prices-page/promo-bg-1@2x.jpg',
-            ];
-        } else if ($massage['code'] === 'figure-modeling') {
-            $massage['promo'] = [
-                'text' => '<span>Акция</span> — скидка на февраль и март 30%',
-                'starPlacement' => 3,
-                'title' => '30% скидка на ручное модели&shy;рование фигуры',
-                'cardText' => 'На февраль и март',
-                'buttonText' => 'Записаться',
-                'buttonColor' => '#fe2c78',
-                'image' => THEME_IMG_PATH . '/prices-page/promo-bg-2@2x.jpg',
-            ];
-        }
-
         $massageObj[$massage['code']] = $massage;
     }
 
@@ -244,11 +224,51 @@ function get_reviews_slider_data() {
     return $reviews;
 }
 
+function get_massage_result_photos($type) {
+    global $wpdb;
+    $data = $wpdb->get_results(
+        $wpdb->prepare(
+            'SELECT wp_exp_massage_result_photo.* FROM wp_exp_massage_result_photo
+            RIGHT JOIN wp_exp_massages ON wp_exp_massage_result_photo.massage_id = wp_exp_massages.id
+            RIGHT JOIN wp_exp_massage_types ON wp_exp_massage_types.id = wp_exp_massages.type
+            WHERE wp_exp_massage_result_photo.id IS NOT NULL AND wp_exp_massage_types.code LIKE %s',
+            [$type]
+        ),
+        ARRAY_A
+    );
+
+    $result = [];
+    foreach ($data as $item) {
+        $result[$item['id']] = [
+            'id' => $item['id'],
+            'massage_id' => $item['massage_id'],
+            'photo' => get_database_images(
+                $item['photo_mobile_webp_1x'],
+                $item['photo_mobile_webp_2x'],
+                $item['photo_mobile_webp_3x'],
+                $item['photo_mobile_jpg_1x'],
+                $item['photo_mobile_jpg_2x'],
+                $item['photo_mobile_jpg_3x'],
+                false,
+                false,
+                false,
+                false,
+                $item['photo_desktop_webp_1x'],
+                $item['photo_desktop_webp_2x'],
+                $item['photo_desktop_jpg_1x'],
+                $item['photo_desktop_jpg_2x']
+            )
+        ];
+    }
+
+    return $result;
+}
+
 function get_video_reviews() {
     global $wpdb;
 
     return $wpdb->get_results(
-        'SELECT * FROM wp_exp_video_reviews',
+        'SELECT * FROM wp_exp_video_reviews ORDER BY sorting',
         ARRAY_A
     );
 }
@@ -260,7 +280,7 @@ function get_massage_video() {
     $video = $wpdb->get_results(
         $wpdb->prepare(
             'SELECT wp_exp_massage_video.code, poster, sticker_position, sticker_text
-            FROM wp_exp_massages 
+            FROM wp_exp_massages
             RIGHT JOIN wp_exp_massage_video
             ON wp_exp_massage_video.massage_id = wp_exp_massages.id
             WHERE wp_exp_massages.code = %s', [$page_slug]
@@ -276,6 +296,51 @@ function get_massage_video() {
             'text' => $video['sticker_text']
         ]
     ];
+}
+
+function get_famous_clients() {
+    global $wpdb;
+
+    $famousClientsInfo = $wpdb->get_results(
+        'SELECT * from wp_exp_famous_clients',
+        ARRAY_A
+    );
+
+    $famousClientsInfo = array_map(function($famousClient) {
+        return [
+            'id' => $famousClient['id'],
+            'name' => $famousClient['full_name'],
+            'photo' => get_database_images(
+                $famousClient['photo_mobile_webp_1x'],
+                $famousClient['photo_mobile_webp_2x'],
+                $famousClient['photo_mobile_webp_3x'],
+                $famousClient['photo_mobile_jpg_1x'],
+                $famousClient['photo_mobile_jpg_2x'],
+                $famousClient['photo_mobile_jpg_3x'],
+                false,
+                false,
+                false,
+                false,
+                $famousClient['photo_desktop_webp_1x'],
+                $famousClient['photo_desktop_webp_2x'],
+                $famousClient['photo_desktop_jpg_1x'],
+                $famousClient['photo_desktop_jpg_2x']
+            )
+        ];
+    }, $famousClientsInfo);
+
+    return $famousClientsInfo;
+}
+
+function get_promotions() {
+    global $wpdb;
+
+    return $wpdb->get_results(
+        'SELECT wp_exp_promotions.*, wp_exp_massages.name as massage_name
+        FROM wp_exp_promotions LEFT JOIN wp_exp_massages
+        ON massage_id = wp_exp_massages.id',
+        ARRAY_A
+    );
 }
 
 function is_massage_page() {
@@ -316,4 +381,125 @@ function get_request_result($request) {
     $server_output = curl_exec($ch);
     curl_close($ch);
     return $server_output;
+}
+
+function get_database_images($mob_webp_1, $mob_webp_2, $mob_webp_3, $mob_jpg_1, $mob_jpg_2, $mob_jpg_3,
+    $tab_webp_1, $tab_webp_2, $tab_jpg_1, $tab_jpg_2, $desk_webp_1, $desk_webp_2, $desk_jpg_1, $desk_jpg_2) {
+    if (!defined('THEME_UPLOADS_BASE_PATH')) {
+        define('THEME_UPLOADS_BASE_PATH', wp_get_upload_dir()['baseurl']);
+    }
+
+    return [
+        'desktop' => [
+            'webp' => [
+                '1x' => $desk_webp_1 ? THEME_UPLOADS_BASE_PATH . $desk_webp_1 : false,
+                '2x' => $desk_webp_2 ? THEME_UPLOADS_BASE_PATH . $desk_webp_2 : false
+            ],
+            'jpg' => [
+                '1x' => $desk_jpg_1 ? THEME_UPLOADS_BASE_PATH . $desk_jpg_1 : false,
+                '2x' => $desk_jpg_2 ? THEME_UPLOADS_BASE_PATH . $desk_jpg_2 : false
+            ]
+        ],
+        'tablet' => [
+            'webp' => [
+                '1x' => $tab_webp_1 ? THEME_UPLOADS_BASE_PATH . $tab_webp_1 : false,
+                '2x' => $tab_webp_2 ? THEME_UPLOADS_BASE_PATH . $tab_webp_2 : false
+            ],
+            'jpg' => [
+                '1x' => $tab_jpg_1 ? THEME_UPLOADS_BASE_PATH . $tab_jpg_1 : false,
+                '2x' => $tab_jpg_2 ? THEME_UPLOADS_BASE_PATH . $tab_jpg_2 : false
+            ]
+        ],
+        'mobile' => [
+            'webp' => [
+                '1x' => $mob_webp_1 ? THEME_UPLOADS_BASE_PATH . $mob_webp_1 : false,
+                '2x' => $mob_webp_2 ? THEME_UPLOADS_BASE_PATH . $mob_webp_2 : false,
+                '3x' => $mob_webp_3 ? THEME_UPLOADS_BASE_PATH . $mob_webp_3 : false
+            ],
+            'jpg' => [
+                '1x' => $mob_jpg_1 ? THEME_UPLOADS_BASE_PATH . $mob_jpg_1 : false,
+                '2x' => $mob_jpg_2 ? THEME_UPLOADS_BASE_PATH . $mob_jpg_2 : false,
+                '3x' => $mob_jpg_3 ? THEME_UPLOADS_BASE_PATH . $mob_jpg_3 : false
+            ]
+        ]
+    ];
+}
+
+function optimize_images($image_path, $filename, $mob_1x_width, $tab_1x_width, $desk_1x_width) {
+    try {
+        if ($mob_1x_width) {
+            $mob_webp_1 = optimize_image($image_path, $mob_1x_width, $filename . '_mobile@1x.webp', true);
+            $mob_webp_2 = optimize_image($image_path, $mob_1x_width * 2, $filename . '_mobile@2x.webp', true);
+            $mob_webp_3 = optimize_image($image_path, $mob_1x_width * 3, $filename . '_mobile@3x.webp', true);
+            $mob_jpg_1 = optimize_image($image_path, $mob_1x_width, $filename . '_mobile@1x.jpg');
+            $mob_jpg_2 = optimize_image($image_path, $mob_1x_width * 2, $filename . '_mobile@2x.jpg');
+            $mob_jpg_3 = optimize_image($image_path, $mob_1x_width * 3, $filename . '_mobile@3x.jpg');
+        }
+
+        if ($tab_1x_width) {
+            $tab_webp_1 = optimize_image($image_path, $tab_1x_width, $filename . '_tablet@1x.webp', true);
+            $tab_webp_2 = optimize_image($image_path, $tab_1x_width * 2, $filename . '_tablet@2x.webp', true);
+            $tab_jpg_1 = optimize_image($image_path, $tab_1x_width, $filename . '_tablet@1x.jpg');
+            $tab_jpg_2 = optimize_image($image_path, $tab_1x_width * 2, $filename . '_tablet@2x.jpg');
+        }
+
+        if ($desk_1x_width) {
+            $desk_webp_1 = optimize_image($image_path, $desk_1x_width, $filename . '_desktop@1x.webp', true);
+            $desk_webp_2 = optimize_image($image_path, $desk_1x_width * 2, $filename . '_desktop@2x.webp', true);
+            $desk_jpg_1 = optimize_image($image_path, $desk_1x_width, $filename . '_desktop@1x.jpg');
+            $desk_jpg_2 = optimize_image($image_path, $desk_1x_width * 2, $filename . '_desktop@2x.jpg');
+        }
+
+        return [
+            'mobile' => [
+                'webp' => [
+                    '1x' => $mob_webp_1 ? $mob_webp_1 : false,
+                    '2x' => $mob_webp_2 ? $mob_webp_2 : false,
+                    '3x' => $mob_webp_3 ? $mob_webp_3 : false
+                ],
+                'jpg' => [
+                    '1x' => $mob_jpg_1 ? $mob_jpg_1 : false,
+                    '2x' => $mob_jpg_2 ? $mob_jpg_2 : false,
+                    '3x' => $mob_jpg_3 ? $mob_jpg_3 : false
+                ]
+            ],
+            'tablet' => [
+                'webp' => [
+                    '1x' => $tab_webp_1 ? $tab_webp_1 : false,
+                    '2x' => $tab_webp_2 ? $tab_webp_2 : false
+                ],
+                'jpg' => [
+                    '1x' => $tab_jpg_1 ? $tab_jpg_1 : false,
+                    '2x' => $tab_jpg_2 ? $tab_jpg_2 : false
+                ]
+            ],
+            'desktop' => [
+                'webp' => [
+                    '1x' => $desk_webp_1 ? $desk_webp_1 : false,
+                    '2x' => $desk_webp_2 ? $desk_webp_2 : false
+                ],
+                'jpg' => [
+                    '1x' => $desk_jpg_1 ? $desk_jpg_1 : false,
+                    '2x' => $desk_jpg_2 ? $desk_jpg_2 : false
+                ]
+            ]
+        ];
+    } catch (ImagickException $e) {
+        return $e->getMessage();
+    }
+}
+
+function optimize_image($image_path, $image_width, $filename, $isWebp = false) {
+    try {
+        $image = new Imagick($image_path);
+        $image->resizeImage($image_width, 0, Imagick::FILTER_LANCZOS, 1);
+        if ($isWebp) {
+            $image->writeImage('webp:' . wp_upload_dir()['path'] . '/' . $filename);
+        } else {
+            $image->writeImage(wp_upload_dir()['path'] . '/' . $filename);
+        }
+        return wp_upload_dir()['subdir'] . '/' . basename($image->getImageFilename());
+    } catch (ImagickException $e) {
+        return false;
+    }
 }

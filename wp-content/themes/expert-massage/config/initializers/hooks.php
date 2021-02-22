@@ -32,9 +32,15 @@ add_action('wp_ajax_nopriv_reviews-filters', 'handle_reviews_filters');
 add_action('admin_post_review_change', 'handle_review_change');
 add_action('admin_post_review_delete', 'handle_review_delete');
 add_action('admin_post_price_change', 'handle_price_change');
+add_action('admin_post_promotion_change', 'handle_promotion_change');
 add_action('admin_post_company_info', 'handle_company_info_change');
 add_action('admin_post_massage_video', 'handle_massage_video_change');
 add_action('admin_post_review_video', 'handle_review_video_change');
+add_action('admin_post_review_video_delete', 'handle_review_video_delete');
+add_action('admin_post_famous_client', 'handle_famous_client_change');
+add_action('admin_post_famous_client_delete', 'handle_famous_client_delete');
+add_action('admin_post_results_photo', 'handle_result_photo_change');
+add_action('admin_post_results_photo_delete', 'handle_result_photo_delete');
 
 /*
  * Change pug template engine options such as expression language (php / js)
@@ -135,6 +141,7 @@ function custom_administrating() {
     add_submenu_page('custom_administrating', 'Тест выбора массажа', 'Тест выбора массажа', 'upload_files', 'test_form', 'test_form_administrating');
     add_submenu_page('custom_administrating', 'Отзывы', 'Отзывы', 'manage_options', 'review_form', 'review_form_administrating');
     add_submenu_page('custom_administrating', 'Прайс-лист', 'Прайс-лист', 'manage_options', 'prices', 'prices_administrating');
+    add_submenu_page('custom_administrating', 'Акции', 'Акции', 'manage_options', 'promotions', 'promotions_administrating');
     add_submenu_page('custom_administrating', 'О компании', 'О компании', 'manage_options', 'company_info', 'company_info_administrating');
     add_submenu_page('custom_administrating', 'Видео', 'Видео', 'manage_options', 'site_video', 'video_administrating');
     add_submenu_page('custom_administrating', 'Фото', 'Фото', 'manage_options', 'site_photo', 'photo_administrating');
@@ -293,6 +300,17 @@ function prices_administrating() {
 }
 
 /*
+ * Receiving promotions from database and rendering admin page for changing them
+ */
+function promotions_administrating() {
+    if (!current_user_can('manage_options'))  {
+        wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
+    }
+
+    render_template('includes/admin/promotions', ['data' => json_encode(get_promotions())]);
+}
+
+/*
  * Receiving company info from database and rendering admin page for changing it
  */
 function company_info_administrating() {
@@ -337,7 +355,13 @@ function photo_administrating() {
         wp_die(__('У вас недостаточно прав для просмотра этого раздела'));
     }
 
-    render_template('includes/admin/photos', ['data' => json_encode([])]);
+    render_template('includes/admin/photos', ['data' => json_encode([
+        'famousClients' => get_famous_clients(),
+        'massageResults' => [
+            'face' => get_massage_result_photos('face'),
+            'figure' => get_massage_result_photos('figure')
+        ]
+    ])]);
 }
 
 /*
@@ -752,24 +776,67 @@ function handle_price_change() {
     exit(json_encode($response));
 }
 
+function handle_promotion_change() {
+    global $wpdb;
+
+    try {
+        $wpdb->update(
+            'wp_exp_promotions',
+            [
+                'application_heading' => $_REQUEST['application_heading'],
+                'application_text' => $_REQUEST['application_text'],
+                'price_list_label' => $_REQUEST['price_list_label'],
+                'price_list_star_placement' => $_REQUEST['price_list_star_placement'],
+                'card_title' => $_REQUEST['card_title'],
+                'card_text' => $_REQUEST['card_text'],
+                'button_text' => $_REQUEST['button_text'],
+                'button_color' => $_REQUEST['button_color']
+            ],
+            [
+                'id' => $_REQUEST['id']
+            ]
+        );
+
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === 0 && $_FILES['image']['tmp_name']) {
+            $wpdb->update(
+                'wp_exp_promotions',
+                ['image' => process_upload($_FILES['image'])],
+                ['id' => $_REQUEST['id']]
+            );
+        }
+
+        $response = [
+            'result' => true
+        ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
 function handle_company_info_change() {
     global $wpdb;
 
     try {
         foreach ($_REQUEST as $key => $value) {
-            $wpdb->update('wp_exp_company_info', [
-                'value' => $value
-            ], [
-                'option_name' => $key
-            ]);
+            $wpdb->update(
+                'wp_exp_company_info',
+                ['value' => $value],
+                ['option_name' => $key]
+            );
 
             if (str_ends_with($key, '-link')) {
                 $socialMedia = substr($key, 0, strpos($key, '-link'));
-                $wpdb->update('wp_exp_socials', [
-                    'link' => $value
-                ], [
-                    'code' => $socialMedia
-                ]);
+                $wpdb->update(
+                    'wp_exp_socials',
+                    ['link' => $value],
+                    ['code' => $socialMedia]
+                );
             }
         }
 
@@ -805,7 +872,7 @@ function handle_massage_video_change() {
             ]
         );
 
-        if (isset($_FILES['poster']) && $_FILES['poster']['error'] !== 0 && $_FILES['poster']['tmp_name']) {
+        if (isset($_FILES['poster']) && $_FILES['poster']['error'] === 0 && $_FILES['poster']['tmp_name']) {
             $wpdb->update(
                 'wp_exp_massage_video',
                 ['poster' => process_upload($_FILES['poster'])],
@@ -834,10 +901,10 @@ function handle_review_video_change() {
         if (isset($_REQUEST['id'])) {
             $wpdb->update(
                 'wp_exp_video_reviews',
-                ['code' => $_REQUEST['code']],
+                ['code' => $_REQUEST['code'], 'sorting' => $_REQUEST['sorting']],
                 ['id' => $_REQUEST['id']]
             );
-            if (isset($_FILES['poster']) && $_FILES['poster']['error'] !== 0 && $_FILES['poster']['tmp_name']) {
+            if (isset($_FILES['poster']) && $_FILES['poster']['error'] === 0 && $_FILES['poster']['tmp_name']) {
                 $wpdb->update(
                     'wp_exp_video_reviews',
                     ['poster' => process_upload($_FILES['poster'])],
@@ -848,13 +915,14 @@ function handle_review_video_change() {
             if (!isset($_REQUEST['code']) || !$_REQUEST['code']) {
                 throw new Exception('Нужно указать код видео с Youtube');
             }
-            if (!isset($_FILES['poster']) || !$_FILES['poster']['error'] !== 0 || !$_FILES['poster']['tmp_name']) {
+            if (!isset($_FILES['poster']) || $_FILES['poster']['error'] !== 0 || !$_FILES['poster']['tmp_name']) {
                 throw new Exception('Постер не был загружен или в процессе загрузки произошла ошибка');
             }
 
             $wpdb->insert(
                 'wp_exp_video_reviews', [
                     'code' => $_REQUEST['code'],
+                    'sorting' => $_REQUEST['sorting'],
                     'poster' => process_upload($_FILES['poster'])
                 ]
             );
@@ -863,6 +931,206 @@ function handle_review_video_change() {
         $response = [
             'result' => true
         ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
+function handle_review_video_delete() {
+    global $wpdb;
+
+    try {
+        if (isset($_REQUEST['id'])) {
+            $response = [
+                'result' => !!$wpdb->delete('wp_exp_video_reviews', ['id' => $_REQUEST['id']])
+            ];
+        }
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
+function handle_famous_client_change() {
+    global $wpdb;
+
+    try {
+        if (!isset($_REQUEST['full_name'])) {
+            throw new Exception('Необходимо указать имя');
+        }
+
+        if (isset($_REQUEST['id'])) {
+            $wpdb->update(
+                'wp_exp_famous_clients',
+                ['full_name' => $_REQUEST['full_name']],
+                ['id' => $_REQUEST['id']]
+            );
+
+            if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['tmp_name']) {
+                $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'famous-client', 420, false, 840);
+                $wpdb->update(
+                    'wp_exp_famous_clients',
+                    [
+                        'photo_mobile_webp_1x' => $images['mobile']['webp']['1x'],
+                        'photo_mobile_webp_2x' => $images['mobile']['webp']['2x'],
+                        'photo_mobile_webp_3x' => $images['mobile']['webp']['3x'],
+                        'photo_mobile_jpg_1x' => $images['mobile']['jpg']['1x'],
+                        'photo_mobile_jpg_2x' => $images['mobile']['jpg']['2x'],
+                        'photo_mobile_jpg_3x' => $images['mobile']['jpg']['3x'],
+                        'photo_desktop_webp_1x' => $images['desktop']['webp']['1x'],
+                        'photo_desktop_webp_2x' => $images['desktop']['webp']['2x'],
+                        'photo_desktop_jpg_1x' => $images['desktop']['jpg']['1x'],
+                        'photo_desktop_jpg_2x' => $images['desktop']['jpg']['2x']
+                    ],
+                    ['id' => $_REQUEST['id']]
+                );
+            }
+        } else {
+            if (!isset($_FILES['photo']) || $_FILES['photo']['error'] !== 0 || !$_FILES['photo']['tmp_name']) {
+                throw new Exception('Фото не было загружено или в процессе загрузки произошла ошибка');
+            }
+
+            $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'famous-client', 420, false, 840);
+
+            $wpdb->insert(
+                'wp_exp_famous_clients', [
+                    'full_name' => $_REQUEST['full_name'],
+                    'photo_mobile_webp_1x' => $images['mobile']['webp']['1x'],
+                    'photo_mobile_webp_2x' => $images['mobile']['webp']['2x'],
+                    'photo_mobile_webp_3x' => $images['mobile']['webp']['3x'],
+                    'photo_mobile_jpg_1x' => $images['mobile']['jpg']['1x'],
+                    'photo_mobile_jpg_2x' => $images['mobile']['jpg']['2x'],
+                    'photo_mobile_jpg_3x' => $images['mobile']['jpg']['3x'],
+                    'photo_desktop_webp_1x' => $images['desktop']['webp']['1x'],
+                    'photo_desktop_webp_2x' => $images['desktop']['webp']['2x'],
+                    'photo_desktop_jpg_1x' => $images['desktop']['jpg']['1x'],
+                    'photo_desktop_jpg_2x' => $images['desktop']['jpg']['2x']
+                ]
+            );
+        }
+
+        $response = [
+            'result' => true
+        ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
+function handle_famous_client_delete() {
+    global $wpdb;
+
+    try {
+        if (isset($_REQUEST['id'])) {
+            $response = [
+                'result' => !!$wpdb->delete('wp_exp_famous_clients', ['id' => $_REQUEST['id']])
+            ];
+        }
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
+function handle_result_photo_change() {
+    global $wpdb;
+
+    try {
+        if (isset($_REQUEST['id'])) {
+            $wpdb->update(
+                'wp_exp_massage_result_photo',
+                ['massage_id' => $_REQUEST['massage_id']],
+                ['id' => $_REQUEST['id']]
+            );
+
+            if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['tmp_name']) {
+                $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'massage-result-photo', 325, false, 600);
+                $wpdb->update(
+                    'wp_exp_massage_result_photo',
+                    [
+                        'photo_mobile_webp_1x' => $images['mobile']['webp']['1x'],
+                        'photo_mobile_webp_2x' => $images['mobile']['webp']['2x'],
+                        'photo_mobile_webp_3x' => $images['mobile']['webp']['3x'],
+                        'photo_mobile_jpg_1x' => $images['mobile']['jpg']['1x'],
+                        'photo_mobile_jpg_2x' => $images['mobile']['jpg']['2x'],
+                        'photo_mobile_jpg_3x' => $images['mobile']['jpg']['3x'],
+                        'photo_desktop_webp_1x' => $images['desktop']['webp']['1x'],
+                        'photo_desktop_webp_2x' => $images['desktop']['webp']['2x'],
+                        'photo_desktop_jpg_1x' => $images['desktop']['jpg']['1x'],
+                        'photo_desktop_jpg_2x' => $images['desktop']['jpg']['2x']
+                    ],
+                    ['id' => $_REQUEST['id']]
+                );
+            }
+        } else {
+            if (!isset($_FILES['photo']) || $_FILES['photo']['error'] !== 0 || !$_FILES['photo']['tmp_name']) {
+                throw new Exception('Фото не было загружено или в процессе загрузки произошла ошибка');
+            }
+
+            $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'massage-result-photo', 325, false, 600);
+
+            $wpdb->insert(
+                'wp_exp_massage_result_photo', [
+                    'massage_id' => $_REQUEST['massage_id'],
+                    'photo_mobile_webp_1x' => $images['mobile']['webp']['1x'],
+                    'photo_mobile_webp_2x' => $images['mobile']['webp']['2x'],
+                    'photo_mobile_webp_3x' => $images['mobile']['webp']['3x'],
+                    'photo_mobile_jpg_1x' => $images['mobile']['jpg']['1x'],
+                    'photo_mobile_jpg_2x' => $images['mobile']['jpg']['2x'],
+                    'photo_mobile_jpg_3x' => $images['mobile']['jpg']['3x'],
+                    'photo_desktop_webp_1x' => $images['desktop']['webp']['1x'],
+                    'photo_desktop_webp_2x' => $images['desktop']['webp']['2x'],
+                    'photo_desktop_jpg_1x' => $images['desktop']['jpg']['1x'],
+                    'photo_desktop_jpg_2x' => $images['desktop']['jpg']['2x']
+                ]
+            );
+        }
+
+        $response = [
+            'result' => true
+        ];
+    } catch (Exception $e) {
+        status_header(400);
+        $response = [
+            'result' => false,
+            'error' => $e->getMessage()
+        ];
+    }
+
+    exit(json_encode($response));
+}
+
+function handle_result_photo_delete() {
+    global $wpdb;
+
+    try {
+        if (isset($_REQUEST['id'])) {
+            $response = [
+                'result' => !!$wpdb->delete('wp_exp_massage_result_photo', ['id' => $_REQUEST['id']])
+            ];
+        }
     } catch (Exception $e) {
         status_header(400);
         $response = [

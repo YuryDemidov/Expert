@@ -48,6 +48,15 @@ $pageData = [];
 if (is_home()) {
     $pageData['reviewsBlock']['reviews'] = get_reviews_slider_data();
     $pageData['videoReviews'] = get_video_reviews();
+    $pageData['famousClients'] = get_famous_clients();
+    $pageData['massageResults'] = [
+        'face' => [
+            'photos' => get_massage_result_photos('face')
+        ],
+        'figure' => [
+            'photos' => get_massage_result_photos('figure')
+        ]
+    ];
 
     render_template('pages/index', [
         'globalData' => json_encode($globalData),
@@ -64,6 +73,11 @@ if (is_home()) {
     } else {
         if (is_massage_page()) {
             $pageData['reviewsBlock']['reviews'] = get_reviews_slider_data();
+            if (is_face_massage()) {
+                $pageData['massageResults']['face']['photos'] = get_massage_result_photos('face');
+            } else if (is_figure_massage()) {
+                $pageData['massageResults']['figure']['photos'] = get_massage_result_photos('figure');
+            }
             $pageData['massageVideo'] = get_massage_video();
         }
 

@@ -6,12 +6,7 @@ block variables
       description: `Массаж, цены, акции и скидки — прайс-лист со стоимостью услуг на массаж`,
       keywords: `цены, акции, скидки, массаж, Москва`,
       pageClass: 'prices-page service-page',
-      theme: 'main',
-      promotions: {
-        1: globalData.mainPromo,
-        2: globalData.massages['sculptural-buccal-massage'].promo,
-        3: globalData.massages['figure-modeling'].promo,
-      }
+      theme: 'main'
     }
 
 block content
@@ -23,7 +18,7 @@ block content
     section.prices-page__promotions
       h2.visually-hidden Текущие акции
       .prices-page__promotions-wrap.container
-        each promo, i in pageData.promotions
+        each promo, i in globalData.promotions
           +promo-card(
             promo.title,
             promo.subtitle,
@@ -45,10 +40,10 @@ block content
               th.table__cell.table__cell_heading Время
             each massage in section.massages
               - var additionalClass = ''
-              if massage.promo
-                - promoText = `${promoText}${massage.promo.text}<br>`
-                if massage.promo.starPlacement
-                  - additionalClass = `table__row_promo table__row_promo-${massage.promo.starPlacement}`
+              if massage.price_list_star_placement
+                - promoText = `${promoText}${massage.price_list_label}<br>`
+                if massage.price_list_star_placement
+                  - additionalClass = `table__row_promo table__row_promo-${massage.price_list_star_placement}`
               tr.table__row(class=additionalClass)
                 td.table__cell
                   a.link.link_arrow.link_secondary.underline.price-list__massage-name(href=massage.url)= massage.name

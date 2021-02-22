@@ -49,7 +49,7 @@
   }
 
   &__old-price {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-decoration: line-through;
     color: $xx-dark-dim-color;
   }
@@ -82,6 +82,19 @@
     left: 2rem;
 
     white-space: nowrap;
+
+    &_notification {
+      &::after {
+        content: '*';
+
+        @include themify() {
+          margin-left: 0.3rem;
+
+          font-weight: 700;
+          color: $color-primary;
+        }
+      }
+    }
   }
 
   &__price-notification {
@@ -101,6 +114,19 @@
 
       font-weight: 400;
       vertical-align: baseline;
+    }
+  }
+
+  &__notification-text {
+    &::before {
+      content: '*';
+
+      @include themify() {
+        margin-right: 0.3rem;
+
+        font-weight: 700;
+        color: $color-primary;
+      }
     }
   }
 

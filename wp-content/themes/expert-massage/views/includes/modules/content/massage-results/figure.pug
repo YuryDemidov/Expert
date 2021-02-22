@@ -1,57 +1,75 @@
 - var figureResults = pageData.massageResults.figure
+- var slidesList = ['main-2']
+- var additionalCurrentPhotos = []
+- var additionalRestPhotos = []
+each photoId in figureResults.slidesOrder.current
+  - slidesList.push(figureResults.photos[photoId])
+each photo in figureResults.photos
+  if photo.massage_id === pageData.theme
+    - additionalCurrentPhotos.push(photo)
+  else
+    - additionalRestPhotos.push(photo)
+each photo in additionalCurrentPhotos
+  if (slidesList.indexOf(photo) === -1)
+    - slidesList.push(photo)
+each photoId in figureResults.slidesOrder.rest
+  - slidesList.push(figureResults.photos[photoId])
+each photo in additionalRestPhotos
+  if (slidesList.indexOf(photo) === -1)
+    - slidesList.push(photo)
 
-mixin figure-slide(number)
+mixin figure-slide(slide)
   .figure-results__slide(class=`figure-results__slide_${number}`)
-    case number
-      when 1
+    case slide
+      when 'main'
         -
           var photo1_1 = {
             desktop: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@2x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_desktop@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_desktop@2x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_desktop@2x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_desktop@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_desktop@2x.png`
               }
             },
             tablet: false,
             mobile: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@2x.webp`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@3x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_mobile@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_mobile@2x.webp`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_mobile@3x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@2x.png`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-1-1_mobile@3x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_mobile@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_mobile@2x.png`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-1_mobile@3x.png`
               }
             }
           }
           var photo1_2 = {
             desktop: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@2x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_desktop@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_desktop@2x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_desktop@2x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_desktop@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_desktop@2x.png`
               }
             },
             tablet: false,
             mobile: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@2x.webp`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@3x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_mobile@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_mobile@2x.webp`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_mobile@3x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@2x.png`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-1-2_mobile@3x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_mobile@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_mobile@2x.png`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-1-2_mobile@3x.png`
               }
             }
           }
@@ -70,55 +88,55 @@ mixin figure-slide(number)
           | которая не&nbsp;вернётся
         .massage-results__link
           button(type='button' data-open-popup='appointment' data-massage-id='9').button.button_primary Записаться
-      when 2
+      when 'main-2'
         -
           var photo2_1 = {
             desktop: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@2x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_desktop@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_desktop@2x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_desktop@2x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_desktop@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_desktop@2x.png`
               }
             },
             tablet: false,
             mobile: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@2x.webp`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@3x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_mobile@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_mobile@2x.webp`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_mobile@3x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@2x.png`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-2-1_mobile@3x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_mobile@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_mobile@2x.png`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-1_mobile@3x.png`
               }
             }
           }
           var photo2_2 = {
             desktop: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@2x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_desktop@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_desktop@2x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_desktop@2x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_desktop@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_desktop@2x.png`
               }
             },
             tablet: false,
             mobile: {
               webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@2x.webp`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@3x.webp`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_mobile@1x.webp`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_mobile@2x.webp`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_mobile@3x.webp`
               },
               png: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@1x.png`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@2x.png`,
-                '3x': `${THEME_IMG_PATH}/results/figure-results-2-2_mobile@3x.png`
+                '1x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_mobile@1x.png`,
+                '2x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_mobile@2x.png`,
+                '3x': `${THEME_UPLOADS_BASE_PATH}/2021/02/figure-results-2-2_mobile@3x.png`
               }
             }
           }
@@ -139,83 +157,25 @@ mixin figure-slide(number)
           | За курс уходят такие проблемные зоны как “ушки” и бока, улучшается форма ягодиц, ног и живота
         .massage-results__link
           button(type='button' data-open-popup='appointment' data-massage-id='7').button.button_primary Записаться
-      when 3
-      when 4
-      when 5
-      when 6
-      when 7
-      when 8
-        -
-          var photoTheme7 = {
-            desktop: {
-              webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.webp`
-              },
-              jpg: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.jpg`
-              }
-            },
-            tablet: false,
-            mobile: {
-              webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.webp`
-              },
-              jpg: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.jpg`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.jpg`
-              }
-            }
-          }
-        h3.massage-results__slide-title Курс ручного моделирования
+      default
+        - var title = 'Курс ручного моделирования'
+        if slide.massage_id === '9'
+          - title = 'Курс антицеллюлитного массажа'
+        h3.massage-results__slide-title= title
         .massage-results__labels
           h4.massage-results__label.hidden_desktop До
           h4.massage-results__label.hidden_desktop После
-        .massage-results__simple-slide.massage-results__simple-slide_7
-          +picture-tag(photoTheme7, photoTheme7.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
+        .massage-results__simple-slide(class=`massage-results__simple-slide_${slide.massage_id}`)
+          +picture-tag(slide.photo, slide.photo.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
-          button(type='button' data-open-popup='appointment' data-massage-id='7').button.button_primary Записаться
-      when 9
-      when 10
-      when 11
-      when 12
-        -
-          var photoTheme9 = {
-            desktop: {
-              webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.webp`
-              },
-              jpg: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_desktop@1x.jpg`
-              }
-            },
-            tablet: false,
-            mobile: {
-              webp: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.webp`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.webp`
-              },
-              jpg: {
-                '1x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@1x.jpg`,
-                '2x': `${THEME_IMG_PATH}/results/figure-results-${number}_mobile@2x.jpg`
-              }
-            }
-          }
-        h3.massage-results__slide-title Курс антицеллюлитного массажа
-        .massage-results__labels
-          h4.massage-results__label.hidden_desktop До
-          h4.massage-results__label.hidden_desktop После
-        .massage-results__simple-slide.massage-results__simple-slide_9
-          +picture-tag(photoTheme9, photoTheme9.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
-        .massage-results__link
-          button(type='button' data-open-popup='appointment' data-massage-id='9').button.button_primary Записаться
+          button(type='button' data-open-popup='appointment' data-massage-id=slide.massage_id).button.button_primary Записаться
 
 if figureResults
   section#figureResults.massage-results__section.figure-results(class=(pageData.theme === 'main' ? 'hidden' : false))
     .figure-results__slider.slider
       button.slider__button.slider__button_prev(aria-label="Предыдущий слайд")
       ul.figure-results__slides
-        each slideNumber in figureResults.slidesOrder
+        each slide in slidesList
           li.figure-results__slide-wrap
-            +figure-slide(slideNumber)
+            +figure-slide(slide)
       button.slider__button.slider__button_next(aria-label="Следующий слайд")

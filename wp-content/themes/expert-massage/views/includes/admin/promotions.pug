@@ -1,0 +1,97 @@
+- var data = JSON.parse(data)
+
+.wrap.promotions-wrap
+  h1 Акции
+  hr
+  each promo in data
+    .block-card
+      form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+        h2.block-card__title= promo.massage_name
+        input(type='hidden' name='action' value='promotion_change')
+        input(type='hidden' name='id' value=promo.id)
+        .block-card__row
+          label.block-card__label(for=`applicationFormHeading${promo.id}`) Заголовок формы с записью на массаж:
+          textarea.block-card__input.form__input.form__input_max-width(id=`applicationFormHeading${promo.id}` name='application_heading')= promo.application_heading
+        .block-card__row
+          label.block-card__label(for=`applicationFormText${promo.id}`) Заголовок формы с записью на массаж:
+          textarea.block-card__input.form__input.form__input_max-width(id=`applicationFormText${promo.id}` name='application_text' rows='5')= promo.application_text
+        .block-card__row.block-card__row_wrap
+          label.block-card__label(for=`priceListLabel${promo.id}`) Подпись акции в прайс-листе:
+          input.block-card__input.form__input.form__input_max-width(id=`priceListLabel${promo.id}` name='price_list_label' value=promo.price_list_label)
+          p.form__input-notification В формате HTML (&lt;br&gt; - перенос строки и можно использовать другие теги)
+        .block-card__row
+          label.block-card__label(for=`priceListStarPlacement${promo.id}`) Положение звёздочки в прайс-листе:
+          select(id=`priceListStarPlacement${promo.id}` name='price_list_star_placement')
+            each option, i in {1: 'У названия массажа', 2: 'У цены первого сеанса', 3: 'У цены следующих сеансов'}
+              option(value=i selected=(+promo.price_list_star_placement === i))= option
+        br
+        h3.block-card__title Карточка акции (на странице цены и в прайс-листе)
+        .block-card__row.block-card__row_wrap
+          label.block-card__label(for=`cardTitle${promo.id}`) Заголовок:
+          input.block-card__input.form__input.form__input_max-width(id=`cardTitle${promo.id}` name='card_title' value=promo.card_title)
+          p.form__input-notification В формате HTML (&lt;br&gt; - перенос строки и можно использовать другие теги)
+        .block-card__row.block-card__row_wrap
+          label.block-card__label(for=`cardText${promo.id}`) Текст:
+          input.block-card__input.form__input.form__input_max-width(id=`cardText${promo.id}` name='card_text' value=promo.card_text)
+          p.form__input-notification В формате HTML (&lt;br&gt; - перенос строки и можно использовать другие теги)
+        .block-card__row
+          label.block-card__label(for=`buttonText${promo.id}`) Подпись кнопки:
+          input.block-card__input.form__input(id=`buttonText${promo.id}` name='button_text' value=promo.button_text)
+        .block-card__row.block-card__row_wrap
+          label.block-card__label(for=`buttonColor${promo.id}`) Цвет кнопки:
+            |
+            span= promo.button_color
+          input.block-card__input.form__input(id=`buttonColor${promo.id}` type='color' name='button_color' value=promo.button_color)
+          p.form__input-notification Любой цветовой формат
+        .block-card__row
+          label.block-card__label(for=`background${promo.id}`) Фоновая картинка:
+          input.block-card__input.form__input(id=`background${promo.id}` type='file' name='image' value=promo.image)
+          img.block-card__preview(src=`${wp_get_upload_dir()['baseurl']}${promo.image}` alt='' width='300')
+        .block-card__row
+          button.form__submitter(type='submit') Обновить
+
+script.
+  const wrapper = document.querySelector(`.wrap`);
+  wrapper.addEventListener('change', showImagePreview);
+  wrapper.addEventListener('submit', sendForm);
+
+  function showImagePreview(evt) {
+    if (evt.target.files) {
+      readURL(evt.target);
+    }
+  }
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      const posterPreview = input.parentNode.querySelector(`.block-card__preview`);
+
+      reader.onload = function(evt) {
+        posterPreview.src = evt.target.result;
+      }
+
+      reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+  }
+
+  function sendForm(evt) {
+    evt.preventDefault();
+    sendRequest(new FormData(evt.target))
+      .then(response => {
+        if (response.result) {
+          alert('Данные успешно обновлены');
+          location.reload();
+        } else {
+          throw new Error(response.error);
+        }
+      })
+      .catch(error => alert(error.message || error));
+  }
+
+  function sendRequest(data) {
+    return fetch(`/wp-admin/admin-post.php`, {
+      method: `post`,
+      body: data
+    })
+      .then(response => response.json());
+  }

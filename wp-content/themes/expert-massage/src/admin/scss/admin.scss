@@ -330,6 +330,7 @@
   }
 
   &__submitter {
+    margin-right: 20px;
     padding: 8px 20px;
 
     font-weight: 700;
@@ -348,10 +349,16 @@
     &:hover {
       opacity: 1;
     }
+
+    &_delete {
+      color: #981111;
+
+      border-color: #981111;
+    }
   }
 }
 
-.video-card {
+.block-card {
   max-width: 800px;
   margin-bottom: 25px;
   padding: 30px 20px;
@@ -368,6 +375,10 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+
+    &_wrap {
+      flex-wrap: wrap;
+    }
   }
 
   &__form {
@@ -378,7 +389,8 @@
     margin-right: 20px;
   }
 
-  &__poster-preview {
+  &__poster-preview,
+  &__preview {
     max-height: 300px;
   }
 }

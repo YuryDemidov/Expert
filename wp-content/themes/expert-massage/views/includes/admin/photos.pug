@@ -1,0 +1,189 @@
+- var data = JSON.parse(data)
+- var group1 = []
+- var group2 = []
+- var group3 = []
+- var group4 = []
+- var group5 = []
+- var photosCount = 0
+each photo in data.massageResults.face
+  if photo.massage_id === '1'
+    - group1.push(photo)
+  if photo.massage_id === '4'
+    - group2.push(photo)
+  if photo.massage_id === '5'
+    - group3.push(photo)
+each photo in data.massageResults.figure
+  if photo.massage_id === '7'
+    - group4.push(photo)
+  if photo.massage_id === '9'
+    - group5.push(photo)
+
+mixin result-photo-card(photo, selectedMassage)
+  li.card-list__card.block-card
+    form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+      input(type='hidden' name='action' value='results_photo')
+      input(type='hidden' name='id' value=photo.id)
+      .block-card__row
+        label.block-card__label(for=`select${photo.id}`) Изменить массаж:
+        select(id=`select${photo.id}` name='massage_id')
+          each option, i in { 1: 'Скульптурно-буккальный', 4: 'Асахи-Зоган', 5: 'Хиромассаж', 7: 'Ручное моделирование', 9: 'Антицеллюлитный' }
+            option(value=i selected=(i === +selectedMassage))= option
+      .block-card__row
+        label.block-card__label(for=`photo${photosCount}`) Фото:
+        input.block-card__input(id=`photo${photosCount}` type='file' name='photo')
+        img.block-card__preview(src=photo.photo.desktop.jpg['1x'] alt='' width='350')
+      .block-card__row
+        b Формат - jpg, приблизительное соотношение сторон - 10:6, предпочтительная ширина - 1200 пикселей
+      .block-card__row
+        button.form__submitter(type='submit') Обновить
+        button.form__submitter.form__submitter_delete(type='button' data-action='results_photo_delete') Удалить
+
+.wrap.photos-wrap
+  h1 Фото
+  nav
+    ul
+      li
+        a(href='#massageResults') Результаты массажа
+      li
+        a(href='#famousClients') Знаменитости
+  hr
+  h2#massageResults Результаты массажа
+  .block-card
+    form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+      input(type='hidden' name='action' value='results_photo')
+      .block-card__row
+        label.block-card__label(for='selectNew') Изменить массаж:
+        select#selectNew(name='massage_id')
+          each option, i in { 1: 'Скульптурно-буккальный', 4: 'Асахи-Зоган', 5: 'Хиромассаж', 7: 'Ручное моделирование', 9: 'Антицеллюлитный' }
+            option(value=i selected=(i === +selectedMassage))= option
+      .block-card__row
+        label.block-card__label(for='photoNew') Фото:
+        input.block-card__input#photoNew(type='file' name='photo')
+        img.block-card__preview(src='#' alt='' width='350')
+      .block-card__row
+        b Формат - jpg, приблизительное соотношение сторон - 10:6, предпочтительная ширина - 1200 пикселей
+      .block-card__row
+        button.form__submitter(type='submit') Добавить
+  h3 Лицо
+  h4 Скульптурно-буккальный массаж лица
+  ul.card-list
+    each photo in group1
+      - photosCount++
+      +result-photo-card(photo, '1')
+  h4 Массаж Асахи-Зоган
+  ul.card-list
+    each photo in group2
+      - photosCount++
+      +result-photo-card(photo, '4')
+  h4 Хиромассаж
+  ul.card-list
+    each photo in group3
+      - photosCount++
+      +result-photo-card(photo, '5')
+  h3 Фигура
+  h4 Антицеллюлитный массаж
+  ul.card-list
+    each photo in group5
+      - photosCount++
+      +result-photo-card(photo, '9')
+  h4 Ручное моделирование фигуры
+  ul.card-list
+    each photo in group4
+      - photosCount++
+      +result-photo-card(photo, '7')
+  br
+  h2#famousClients Знаменитости
+  ul.card-list
+    li.card-list__card.block-card
+      form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+        input(type='hidden' name='action' value='famous_client')
+        .block-card__row
+          label.block-card__label Имя:
+          input.block-card__input(type='text' name='full_name' placeholder='Имя Фамилия')
+        .block-card__row
+          label.block-card__label(for=`clientPhoto${i}`) Фото:
+          input.block-card__input(id=`clientPhoto${i}` type='file' name='photo')
+          img.block-card__preview(src='#' alt='Фото известного клиента' width='300')
+        .block-card__row
+          b Формат - jpg, предпочтительное соотношение сторон - 2:1, предпочтительная ширина - 1680 пикселей
+        .block-card__row
+          button.form__submitter(type='submit') Добавить
+    each client in data.famousClients
+      li.card-list__card.block-card
+        form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+          input(type='hidden' name='action' value='famous_client')
+          input(type='hidden' name='id' value=client.id)
+          .block-card__row
+            label.block-card__label Имя:
+            input.block-card__input(type='text' name='full_name' value=client.name)
+          .block-card__row
+            label.block-card__label(for=`clientPhoto${i}`) Фото:
+            input.block-card__input(id=`clientPhoto${i}` type='file' name='photo')
+            img.block-card__preview(src=client.photo.mobile.jpg['2x'] alt='' width='300')
+          .block-card__row
+            b Формат - jpg, предпочтительное соотношение сторон - 2:1, предпочтительная ширина - 1680 пикселей
+          .block-card__row
+            button.form__submitter(type='submit') Обновить
+            button.form__submitter.form__submitter_delete(type='button' data-action='famous_client_delete') Удалить
+
+script.
+  const wrapper = document.querySelector(`.wrap`);
+  wrapper.addEventListener('change', showImagePreview);
+  wrapper.addEventListener('submit', evt => sendForm(evt, evt.target));
+  wrapper.addEventListener('click', evt => {
+    if (evt.target.classList.contains(`form__submitter_delete`)) {
+      sendForm(evt, evt.target.form, evt.target.dataset.action)
+    }
+  });
+
+  function showImagePreview(evt) {
+    if (evt.target.files) {
+      readURL(evt.target);
+    }
+  }
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      const posterPreview = input.parentNode.querySelector(`.block-card__preview`);
+
+      reader.onload = function(evt) {
+        posterPreview.src = evt.target.result;
+      }
+
+      reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+  }
+
+  function sendForm(evt, form, deleteAction) {
+    evt.preventDefault();
+    const data = new FormData(form);
+    if (deleteAction) {
+      data.set(`action`, deleteAction);
+    }
+
+    sendRequest(data)
+      .then(response => {
+        if (response.result) {
+          if (deleteAction) {
+            form.closest(`.block-card`).remove();
+          }
+          alert('Данные успешно обновлены');
+          location.reload();
+        } else {
+          if (deleteAction) {
+            throw new Error('Не удалось удалить данные');
+          }
+          throw new Error(response.error);
+        }
+      })
+      .catch(error => alert(error.message || error));
+  }
+
+  function sendRequest(data) {
+    return fetch(`/wp-admin/admin-post.php`, {
+      method: `post`,
+      body: data
+    })
+      .then(response => response.json());
+  }

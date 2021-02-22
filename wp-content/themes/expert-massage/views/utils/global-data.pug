@@ -12,6 +12,25 @@
     buttonText: 'Получить скидку'
   }
 
+-
+  globalData.promotions = {
+    1: globalData.mainPromo
+  }
+- var promoCount = 1
+each massage in globalData.massages
+  if massage.card_title
+    - promoCount++
+    -
+      globalData.promotions[promoCount] = {
+        promoMassageId: massage.promo_massage_id,
+        title: massage.card_title,
+        text: massage.card_text,
+        buttonText: massage.button_text,
+        buttonColor: massage.button_color,
+        image: `${THEME_UPLOADS_BASE_PATH}${massage.image}`
+      }
+
+-
   globalData.company.specialists[0].tags = [
     `${(date('Y') - 2008)} лет опыта`,
     'Ведущий специалист'
@@ -149,7 +168,7 @@
   globalData.company.features = [
     {
       bigText: `${globalData.company.businessDuration} лет`,
-      smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/about/'>О нас</a>`
+      smallText: `специализируемся<br>на массаже. <a class='link link_primary underline' href='/informatsiya/professionalnyj-massazh/'>О нас</a>`
     },
     {
       bigText: '10 лет',

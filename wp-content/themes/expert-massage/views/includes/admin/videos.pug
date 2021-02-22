@@ -12,66 +12,77 @@
   h2#massageVideos Как проходит массаж
   ul.card-list
     each video, i in data.massageVideos
-      li.card-list__card.video-card
-        h3.video-card__title= video.massage
-        form.video-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+      li.card-list__card.block-card
+        h3.block-card__title= video.massage
+        form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
           input(type='hidden' name='action' value='massage_video')
           input(type='hidden' name='massage_id' value=video.massage_id)
-          .video-card__row
-            label.video-card__label(for=`massageVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
+          .block-card__row
+            label.block-card__label(for=`massageVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
             span https://www.youtube.com/watch?v=
-            input.video-card__input.form__input.form__input_max-width(id=`massageVideoUrl${i}` type='text' name='code' placeholder='111111' value=video.code)
-          .video-card__row
-            label.video-card__label(for=`massageVideoPoster${i}`) Постер:
-            input.video-card__input(id=`massageVideoPoster${i}` type='file' name='poster')
-            img.video-card__poster-preview(src=`${wp_get_upload_dir()['baseurl']}${video.poster}` alt='' width='300')
-          .video-card__row
-            label.video-card__label(for=`massageVideoStickerPosition${i}`) Положение стикера:
-            select.video-card__select(id=`massageVideoStickerPosition${i}` name='sticker_position')
+            input.block-card__input.form__input.form__input_max-width(id=`massageVideoUrl${i}` type='text' name='code' placeholder='111111' value=video.code)
+          .block-card__row
+            label.block-card__label(for=`massageVideoPoster${i}`) Постер:
+            input.block-card__input(id=`massageVideoPoster${i}` type='file' name='poster')
+            img.block-card__poster-preview(src=`${wp_get_upload_dir()['baseurl']}${video.poster}` alt='' width='300')
+          .block-card__row
+            label.block-card__label(for=`massageVideoStickerPosition${i}`) Положение стикера:
+            select.block-card__select(id=`massageVideoStickerPosition${i}` name='sticker_position')
               option(value='' selected=!video.sticker_position disabled hidden) Установить
               option(value='left' selected=video.sticker_position === 'left') слева
               option(value='right' selected=video.sticker_position === 'right') справа
-          .video-card__row
-            label.video-card__label(for=`massageVideoStickerText${i}`) Текст на стикере:
-            input.video-card__input.form__input.form__input_max-width(id=`massageVideoStickerText${i}` type='text' name='sticker_text' value=video.sticker_text)
-          .video-card__row
+          .block-card__row
+            label.block-card__label(for=`massageVideoStickerText${i}`) Текст на стикере:
+            input.block-card__input.form__input.form__input_max-width(id=`massageVideoStickerText${i}` type='text' name='sticker_text' value=video.sticker_text)
+          .block-card__row
             button.form__submitter(type='submit') Обновить
   h2#videoReviews Видеоотзывы
   ul.card-list
-    li.card-list__card.video-card
-      form.video-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+    li.card-list__card.block-card
+      form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
         input(type='hidden' name='action' value='review_video')
-        .video-card__row
-          label.video-card__label(for=`reviewVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
+        .block-card__row
+          label.block-card__label(for=`reviewVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
           span https://www.youtube.com/watch?v=
-          input.video-card__input.form__input.form__input_max-width(id=`reviewVideoUrl${i}` type='text' name='code' placeholder='A12345ABC')
-        .video-card__row
-          label.video-card__label(for=`reviewVideoPoster${i}`) Постер:
-          input.video-card__input(id=`reviewVideoPoster${i}` type='file' name='poster')
-          img.video-card__poster-preview(src=`#` alt='Постер видеоотзыва' width='300')
-        .video-card__row
+          input.block-card__input.form__input.form__input_max-width(id=`reviewVideoUrl${i}` type='text' name='code' placeholder='A12345ABC')
+        .block-card__row
+          label.block-card__label(for=`reviewVideoPoster${i}`) Постер:
+          input.block-card__input(id=`reviewVideoPoster${i}` type='file' name='poster')
+          img.block-card__poster-preview(src=`#` alt='Постер видеоотзыва' width='300')
+        .block-card__row
+          label.block-card__label(for=`reviewVideoSorting${i}`) Сортировка (чем меньше число, тем ближе к началу будет видео):
+          input.block-card__input(id=`reviewVideoSorting${i}` type='number' min='1' max='9999' step='1' name='sorting' value=500)
+        .block-card__row
           button.form__submitter(type='submit') Добавить
     each video, i in data.videoReviews
-      li.card-list__card.video-card
-        form.video-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
+      li.card-list__card.block-card
+        form.block-card__form(action='/wp-admin/admin-post.php' method='post' enctype='multipart/form-data')
           input(type='hidden' name='action' value='review_video')
           input(type='hidden' name='id' value=video.id)
-          .video-card__row
-            label.video-card__label(for=`reviewVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
+          .block-card__row
+            label.block-card__label(for=`reviewVideoUrl${i}`) Код видео на Youtube (идёт после ?v=):
             span https://www.youtube.com/watch?v=
-            input.video-card__input.form__input.form__input_max-width(id=`reviewVideoUrl${i}` type='text' name='code' placeholder='111111' value=video.code)
-          .video-card__row
-            label.video-card__label(for=`reviewVideoPoster${i}`) Постер:
-            input.video-card__input(id=`reviewVideoPoster${i}` type='file' name='poster')
-            img.video-card__poster-preview(src=`${wp_get_upload_dir()['baseurl']}${video.poster}` alt='' width='300')
-          .video-card__row
+            input.block-card__input.form__input.form__input_max-width(id=`reviewVideoUrl${i}` type='text' name='code' placeholder='111111' value=video.code)
+          .block-card__row
+            label.block-card__label(for=`reviewVideoPoster${i}`) Постер:
+            input.block-card__input(id=`reviewVideoPoster${i}` type='file' name='poster')
+            img.block-card__poster-preview(src=`${wp_get_upload_dir()['baseurl']}${video.poster}` alt='' width='300')
+          .block-card__row
+            label.block-card__label(for=`reviewVideoSorting${i}`) Сортировка (чем меньше число, тем ближе к началу будет видео):
+            input.block-card__input(id=`reviewVideoSorting${i}` type='number' min='1' max='9999' step='1' name='sorting' value=(video.sorting) || (500))
+          .block-card__row
             button.form__submitter(type='submit') Обновить
+            button.form__submitter.form__submitter_delete(type='button') Удалить
 
 script.
-  const videosWrap = document.querySelector(`.wrap`);
-
-  videosWrap.addEventListener('change', showPosterPreview);
-  videosWrap.addEventListener('submit', sendForm);
+  const wrapper = document.querySelector(`.wrap`);
+  wrapper.addEventListener('change', showPosterPreview);
+  wrapper.addEventListener('submit', evt => sendForm(evt, evt.target));
+  wrapper.addEventListener('click', evt => {
+    if (evt.target.classList.contains(`form__submitter_delete`)) {
+      sendForm(evt, evt.target.form, `review_video_delete`);
+    }
+  });
 
   function showPosterPreview(evt) {
     if (evt.target.files) {
@@ -82,7 +93,7 @@ script.
   function readURL(input) {
     if (input.files && input.files[0]) {
       const reader = new FileReader();
-      const posterPreview = input.parentNode.querySelector(`.video-card__poster-preview`);
+      const posterPreview = input.parentNode.querySelector(`.block-card__poster-preview`);
 
       reader.onload = function(evt) {
         posterPreview.src = evt.target.result;
@@ -92,13 +103,24 @@ script.
     }
   }
 
-  function sendForm(evt) {
+  function sendForm(evt, form, deleteAction) {
     evt.preventDefault();
-    sendRequest(new FormData(evt.target))
+    const data = new FormData(form);
+    if (deleteAction) {
+      data.set(`action`, deleteAction);
+    }
+
+    sendRequest(data)
       .then(response => {
         if (response.result) {
+          if (deleteAction) {
+            form.closest(`.block-card`).remove();
+          }
           alert('Данные успешно обновлены');
         } else {
+          if (deleteAction) {
+            throw new Error('Не удалось удалить видеоотзыв');
+          }
           throw new Error(response.error);
         }
       })
