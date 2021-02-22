@@ -19,7 +19,7 @@ each photo in additionalRestPhotos
     - slidesList.push(photo)
 
 mixin figure-slide(slide)
-  .figure-results__slide(class=`figure-results__slide_${number}`)
+  .figure-results__slide(class=`figure-results__slide_${slide.id}`)
     case slide
       when 'main'
         -

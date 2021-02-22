@@ -21,7 +21,7 @@ each photo in additionalRestPhotos
     - slidesList.push(photo)
 
 mixin face-slide(slide)
-  .face-results__slide(class=(slide === 'main' ? 'face-results__slide_main' : `face-results__slide_${slide}`))
+  .face-results__slide(class=(slide === 'main' ? 'face-results__slide_main' : `face-results__slide_${slide.id}`))
     case slide
       when 'main'
         -
