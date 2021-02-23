@@ -186,10 +186,6 @@
 
       &_promo {
         span:not(.price-list__old-price) {
-          position: relative;
-          top: auto;
-          left: auto;
-
           &::after {
             content: '*';
             position: absolute;
@@ -416,6 +412,12 @@
         &_promo {
           .table__cell {
             padding-top: 0;
+          }
+
+          span:not(.price-list__old-price) {
+            position: relative;
+            top: auto;
+            left: auto;
           }
         }
 
