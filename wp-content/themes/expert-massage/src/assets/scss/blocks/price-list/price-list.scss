@@ -81,43 +81,36 @@
     top: 1.2rem;
     left: 2rem;
 
+    font-weight: 700;
     white-space: nowrap;
+  }
 
-    &_notification {
-      &::after {
-        content: '*';
+  &__cell-notification {
+    &::after {
+      content: '*';
 
-        @include themify() {
-          margin-left: 0.3rem;
+      @include themify() {
+        margin-left: 0.3rem;
 
-          font-weight: 700;
-          color: $color-primary;
-        }
+        font-weight: 700;
+        color: $color-primary;
       }
     }
   }
 
   &__price-notification {
-    display: inline-block;
-    padding: 0.2rem 0.5rem;
-
-    vertical-align: baseline;
-
-    background-color: map-deep-get($themes, 'main', 'primary-x-transparent');
-    border-radius: 0.1rem;
-
     &::after {
       content: '*';
 
-      display: inline-block;
       margin-left: 0.3rem;
 
       font-weight: 400;
-      vertical-align: baseline;
     }
   }
 
   &__notification-text {
+    margin: 1rem;
+
     &::before {
       content: '*';
 
@@ -192,8 +185,10 @@
       }
 
       &_promo {
-        .price-list__standard-price {
+        span:not(.price-list__old-price) {
           position: relative;
+          top: auto;
+          left: auto;
 
           &::after {
             content: '*';
@@ -212,13 +207,13 @@
       }
 
       &_promo ~ .table__row_promo {
-        .price-list__standard-price::after {
+        span::after {
           content: '**';
         }
       }
 
       &_promo ~ .table__row_promo ~ .table__row_promo {
-        .price-list__standard-price::after {
+        span::after {
           content: '***';
         }
       }
@@ -226,7 +221,7 @@
       @for $i from 1 to 4 {
         &_promo-#{$i} {
           .table__cell:not(:nth-child(#{$i})) {
-            .price-list__standard-price {
+            span {
               &::after {
                 content: none;
               }
@@ -391,6 +386,10 @@
 
       font-weight: 400;
       vertical-align: baseline;
+    }
+
+    &__notification-text {
+      margin: 0;
     }
 
     .table {

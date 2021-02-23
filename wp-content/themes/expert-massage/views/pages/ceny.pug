@@ -59,9 +59,7 @@ block content
                   span!= `${massage.standard_price}&thinsp;₽`
                 td.table__cell!= `${massage.duration}&thinsp;мин`
           if sectionName === 'body'
-            p.price-list__price-notification-description
-              span.price-list__price-notification
-              != `— мужчины 90&thinsp;кг и выше + 500&thinsp;₽ за сеанс`
+            p.price-list__price-notification-description * — мужчины 90&thinsp;кг и выше + 500&thinsp;₽ за сеанс
           p.price-list__promo-text!= promoText
     .container
       section.prices-page__more-procedures.more-procedures-prices

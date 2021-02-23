@@ -127,11 +127,13 @@
         @for $i from 1 to 4 {
           &_promo-#{$i} {
             .table__cell:nth-child(#{$i}) {
+              a,
               span,
               &::after {
                 @include highlight();
               }
 
+              a,
               span {
                 padding-left: 0.3rem;
               }
@@ -144,6 +146,10 @@
             font-size: 1.4rem;
 
             background: none;
+          }
+
+          span::after {
+            content: none;
           }
         }
       }
