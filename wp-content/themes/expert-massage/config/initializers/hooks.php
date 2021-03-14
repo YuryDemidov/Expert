@@ -978,7 +978,7 @@ function handle_famous_client_change() {
             );
 
             if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['tmp_name']) {
-                $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'famous-client', 420, false, 840);
+                $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 420, false, 840);
                 $wpdb->update(
                     'wp_exp_famous_clients',
                     [
@@ -1001,7 +1001,7 @@ function handle_famous_client_change() {
                 throw new Exception('Фото не было загружено или в процессе загрузки произошла ошибка');
             }
 
-            $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'famous-client', 420, false, 840);
+            $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 420, false, 840);
 
             $wpdb->insert(
                 'wp_exp_famous_clients', [
@@ -1058,15 +1058,38 @@ function handle_result_photo_change() {
     global $wpdb;
 
     try {
+        $collageUploadingResult = null;
+        if (isset($_REQUEST['collage'])) {
+            $collageUploadingResult = upload_collage_photo();
+
+            if (!$collageUploadingResult && !isset($_REQUEST['id'])) {
+                throw new Exception('Фото для коллажа не было загружено или в процессе загрузки произошла ошибка');
+            }
+        }
+
         if (isset($_REQUEST['id'])) {
+            $collageAdditionalPhotoId = $wpdb->get_var(
+                $wpdb->prepare(
+                    'SELECT id from wp_exp_massage_result_photo WHERE main_photo_id = %d', [$_REQUEST['id']]
+                )
+            );
+
             $wpdb->update(
                 'wp_exp_massage_result_photo',
                 ['massage_id' => $_REQUEST['massage_id']],
                 ['id' => $_REQUEST['id']]
             );
 
+            if ($collageAdditionalPhotoId) {
+                $wpdb->update(
+                    'wp_exp_massage_result_photo',
+                    ['massage_id' => $_REQUEST['massage_id']],
+                    ['id' => $collageAdditionalPhotoId]
+                );
+            }
+
             if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['tmp_name']) {
-                $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'massage-result-photo', 325, false, 600);
+                $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 325, false, 600);
                 $wpdb->update(
                     'wp_exp_massage_result_photo',
                     [
@@ -1084,12 +1107,33 @@ function handle_result_photo_change() {
                     ['id' => $_REQUEST['id']]
                 );
             }
+
+            if (!isset($_REQUEST['collage']) && !$collageUploadingResult) {
+                $wpdb->delete('wp_exp_massage_result_photo', ['main_photo_id' => $_REQUEST['id']]);
+            } else if ($collageUploadingResult) {
+                $newData = [
+                    'photo_mobile_webp_1x' => $collageUploadingResult['mobile']['webp']['1x'],
+                    'photo_mobile_webp_2x' => $collageUploadingResult['mobile']['webp']['2x'],
+                    'photo_mobile_webp_3x' => $collageUploadingResult['mobile']['webp']['3x'],
+                    'photo_mobile_jpg_1x' => $collageUploadingResult['mobile']['jpg']['1x'],
+                    'photo_mobile_jpg_2x' => $collageUploadingResult['mobile']['jpg']['2x'],
+                    'photo_mobile_jpg_3x' => $collageUploadingResult['mobile']['jpg']['3x'],
+                ];
+
+                if ($collageAdditionalPhotoId) {
+                    $wpdb->update('wp_exp_massage_result_photo', $newData, ['id' => $collageAdditionalPhotoId]);
+                } else {
+                    $newData['main_photo_id'] = $_REQUEST['id'];
+                    $newData['massage_id'] = $_REQUEST['massage_id'];
+                    $wpdb->insert('wp_exp_massage_result_photo', $newData);
+                }
+            }
         } else {
             if (!isset($_FILES['photo']) || $_FILES['photo']['error'] !== 0 || !$_FILES['photo']['tmp_name']) {
                 throw new Exception('Фото не было загружено или в процессе загрузки произошла ошибка');
             }
 
-            $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 'massage-result-photo', 325, false, 600);
+            $images = optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['photo']), 325, false, 600);
 
             $wpdb->insert(
                 'wp_exp_massage_result_photo', [
@@ -1106,6 +1150,22 @@ function handle_result_photo_change() {
                     'photo_desktop_jpg_2x' => $images['desktop']['jpg']['2x']
                 ]
             );
+
+            if (isset($collageUploadingResult)) {
+                $mainPhotoId = $wpdb->insert_id;
+                $wpdb->insert(
+                    'wp_exp_massage_result_photo', [
+                        'massage_id' => $_REQUEST['massage_id'],
+                        'main_photo_id' => $mainPhotoId,
+                        'photo_mobile_webp_1x' => $collageUploadingResult['mobile']['webp']['1x'],
+                        'photo_mobile_webp_2x' => $collageUploadingResult['mobile']['webp']['2x'],
+                        'photo_mobile_webp_3x' => $collageUploadingResult['mobile']['webp']['3x'],
+                        'photo_mobile_jpg_1x' => $collageUploadingResult['mobile']['jpg']['1x'],
+                        'photo_mobile_jpg_2x' => $collageUploadingResult['mobile']['jpg']['2x'],
+                        'photo_mobile_jpg_3x' => $collageUploadingResult['mobile']['jpg']['3x'],
+                    ]
+                );
+            }
         }
 
         $response = [
@@ -1127,8 +1187,10 @@ function handle_result_photo_delete() {
 
     try {
         if (isset($_REQUEST['id'])) {
+            $wpdb->delete('wp_exp_massage_result_photo', ['id' => $_REQUEST['id']]);
+            $wpdb->delete('wp_exp_massage_result_photo', ['main_photo_id' => $_REQUEST['id']]);
             $response = [
-                'result' => !!$wpdb->delete('wp_exp_massage_result_photo', ['id' => $_REQUEST['id']])
+                'result' => true
             ];
         }
     } catch (Exception $e) {
@@ -1140,4 +1202,12 @@ function handle_result_photo_delete() {
     }
 
     exit(json_encode($response));
+}
+
+function upload_collage_photo() {
+    if (!isset($_FILES['collage-photo']) || $_FILES['collage-photo']['error'] !== 0 || !$_FILES['collage-photo']['tmp_name']) {
+        return false;
+    }
+
+    return optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['collage-photo']), 400, false, false);
 }

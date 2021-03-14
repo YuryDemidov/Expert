@@ -1,20 +1,46 @@
 - var faceResults = pageData.massageResults.face
+//- Slides list order: 1st - main slide with descriptions
 - var slidesList = ['main']
 - var additionalCurrentPhotos = []
 - var additionalRestPhotos = []
-each photoId in faceResults.slidesOrder.current
-  - slidesList.push(faceResults.photos[photoId])
+- var currentCollagePhotos = []
+- var restCollagePhotos = []
+
 each photo in faceResults.photos
   if photo.massage_id === pageData.theme
-    - additionalCurrentPhotos.push(photo)
+    if photo.collage
+      - currentCollagePhotos.push(photo)
+    else
+      - additionalCurrentPhotos.push(photo)
   else
-    - additionalRestPhotos.push(photo)
+    if photo.collage
+      - restCollagePhotos.push(photo)
+    else
+      - additionalRestPhotos.push(photo)
+
+//- Slides list order: 2nd - collages for current massage
+each collagePhoto in currentCollagePhotos
+  - slidesList.push(collagePhoto)
+
+//- Slides list order: 3rd - single photos for current massage from initial list
+each photoId in faceResults.slidesOrder.current
+  - slidesList.push(faceResults.photos[photoId])
+
+//- Slides list order: 4th - single photos for current massage added later
 each photo in additionalCurrentPhotos
   //- photo.id !== '8' - excludes same photo as on the main slide
   if (slidesList.indexOf(photo) === -1) && (photo.id !== '8')
     - slidesList.push(photo)
+
+//- Slides list order: 5th - collages for rest massages
+each collagePhoto in restCollagePhotos
+  - slidesList.push(collagePhoto)
+
+//- Slides list order: 6th - single photos for rest massages from initial list
 each photoId in faceResults.slidesOrder.rest
   - slidesList.push(faceResults.photos[photoId])
+
+//- Slides list order: 7th - single photos for rest massages added later
 each photo in additionalRestPhotos
   //- photo.id !== '8' - excludes same photo as on the main slide
   if (slidesList.indexOf(photo) === -1) && (photo.id !== '8')
@@ -108,31 +134,33 @@ mixin face-slide(slide)
             a(href='/vidy-massazha/sculptural-buccal-massage/').button.button_primary Читать о процедуре
       default
         - var titleEnd = 'скульптурно-буккального массажа'
-        - var slideClass = 'massage-results__simple-slide_1'
-        - var link = '/vidy-massazha/sculptural-buccal-massage/'
-        - var linkGoalTheme = slide.massage_id
+        - var link = '#'
+        each massage in globalData.massages
+          if slide.massage_id === massage.id
+            - link = massage.url
         if slide.massage_id === '4'
           - titleEnd = 'массажа Асахи-Зоган'
-          - slideClass = 'massage-results__simple-slide_4'
-          - link = '/vidy-massazha/japanese-asahi-massage/'
-        if slide.massage_id === '5'
+        else if slide.massage_id === '5'
           - titleEnd = 'хиромассажа'
-          - slideClass = 'massage-results__simple-slide_5'
-          - link = '/vidy-massazha/chiromassage/'
         h3.massage-results__slide-title
           | Курс
           |
-          if pageData.theme === linkGoalTheme
+          if pageData.theme === slide.massage_id
             span= titleEnd
           else
-            a.link.massage-results__massage-link(class=`massage-results__massage-link_${linkGoalTheme}` href=link)= titleEnd
+            a.link.massage-results__massage-link(class=`massage-results__massage-link_${slide.massage_id}` href=link)= titleEnd
         .massage-results__labels
           h4.massage-results__label.hidden_desktop До
           h4.massage-results__label.hidden_desktop После
-        .massage-results__simple-slide(class=slideClass)
-          +picture-tag(slide.photo, slide.photo.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
+        if slide.collage
+          .massage-results__collage-slide(class=`massage-results__collage-slide_${slide.massage_id}`)
+            +picture-tag(slide.photo, slide.photo.mobile.jpg['3x'], 'До и после курса массажа').massage-results__collage-main-image
+            +picture-tag(slide.collage, slide.collage.mobile.jpg['3x'], '').massage-results__collage-secondary-image
+        else
+          .massage-results__simple-slide(class=`massage-results__simple-slide_${slide.massage_id}`)
+            +picture-tag(slide.photo, slide.photo.mobile.jpg['3x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
-          button.button.button_primary(type='button' data-open-popup='appointment' data-massage-id=linkGoalTheme) Записаться
+          button.button.button_primary(type='button' data-open-popup='appointment' data-massage-id=slide.massage_id) Записаться
 
 if faceResults
   section#faceResults.massage-results__section.face-results

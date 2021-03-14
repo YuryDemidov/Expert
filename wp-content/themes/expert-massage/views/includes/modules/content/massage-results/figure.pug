@@ -165,8 +165,13 @@ mixin figure-slide(slide)
         .massage-results__labels
           h4.massage-results__label.hidden_desktop До
           h4.massage-results__label.hidden_desktop После
-        .massage-results__simple-slide(class=`massage-results__simple-slide_${slide.massage_id}`)
-          +picture-tag(slide.photo, slide.photo.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
+        if slide.collage
+          .massage-results__collage-slide(class=`massage-results__collage-slide_${slide.massage_id}`)
+            +picture-tag(slide.photo, slide.photo.mobile.jpg['2x'], 'До и после курса массажа').massage-results__collage-main-image
+            +picture-tag(slide.collage, slide.collage.mobile.jpg['2x'], '').massage-results__collage-secondary-image
+        else
+          .massage-results__simple-slide(class=`massage-results__simple-slide_${slide.massage_id}`)
+            +picture-tag(slide.photo, slide.photo.mobile.jpg['2x'], 'До и после курса массажа').massage-results__single-image
         .massage-results__link
           button(type='button' data-open-popup='appointment' data-massage-id=slide.massage_id).button.button_primary Записаться
 

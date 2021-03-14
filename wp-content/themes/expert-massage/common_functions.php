@@ -239,6 +239,18 @@ function get_massage_result_photos($type) {
 
     $result = [];
     foreach ($data as $item) {
+        if ($item['main_photo_id']) {
+            $result[$item['main_photo_id']]['collage'] = get_database_images(
+                $item['photo_mobile_webp_1x'],
+                $item['photo_mobile_webp_2x'],
+                $item['photo_mobile_webp_3x'],
+                $item['photo_mobile_jpg_1x'],
+                $item['photo_mobile_jpg_2x'],
+                $item['photo_mobile_jpg_3x']
+            );
+            continue;
+        }
+
         $result[$item['id']] = [
             'id' => $item['id'],
             'massage_id' => $item['massage_id'],
@@ -384,7 +396,8 @@ function get_request_result($request) {
 }
 
 function get_database_images($mob_webp_1, $mob_webp_2, $mob_webp_3, $mob_jpg_1, $mob_jpg_2, $mob_jpg_3,
-    $tab_webp_1, $tab_webp_2, $tab_jpg_1, $tab_jpg_2, $desk_webp_1, $desk_webp_2, $desk_jpg_1, $desk_jpg_2) {
+    $tab_webp_1 = false, $tab_webp_2 = false, $tab_jpg_1 = false, $tab_jpg_2 = false,
+    $desk_webp_1 = false, $desk_webp_2 = false, $desk_jpg_1 = false, $desk_jpg_2 = false) {
     if (!defined('THEME_UPLOADS_BASE_PATH')) {
         define('THEME_UPLOADS_BASE_PATH', wp_get_upload_dir()['baseurl']);
     }
@@ -425,7 +438,9 @@ function get_database_images($mob_webp_1, $mob_webp_2, $mob_webp_3, $mob_jpg_1, 
     ];
 }
 
-function optimize_images($image_path, $filename, $mob_1x_width, $tab_1x_width, $desk_1x_width) {
+function optimize_images($image_path, $mob_1x_width, $tab_1x_width, $desk_1x_width) {
+    $filename = pathinfo($image_path)['filename'];
+
     try {
         if ($mob_1x_width) {
             $mob_webp_1 = optimize_image($image_path, $mob_1x_width, $filename . '_mobile@1x.webp', true);

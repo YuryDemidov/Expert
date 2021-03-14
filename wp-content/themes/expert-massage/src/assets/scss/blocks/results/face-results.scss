@@ -319,6 +319,11 @@
       &__single-image {
         max-width: 70rem;
       }
+
+      &__collage-slide {
+        padding-top: 4.5rem;
+        padding-bottom: 7rem;
+      }
     }
 
     &__slide:not(.face-results__slide_main) {

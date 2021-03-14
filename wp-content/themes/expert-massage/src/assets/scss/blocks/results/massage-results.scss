@@ -97,7 +97,8 @@
     }
   }
 
-  &__simple-slide {
+  &__simple-slide,
+  &__collage-slide {
     @each $i in (1, 4, 5, 7, 9) {
       &_#{$i} + .massage-results__link .button {
         @if ($i != 4) and ($i != 5) {
@@ -116,6 +117,15 @@
         }
       }
     }
+  }
+
+  &__collage-main-image,
+  &__collage-secondary-image {
+    @include centered-block(32.5rem);
+  }
+
+  &__collage-main-image {
+    margin-bottom: 0.2rem;
   }
 
   @each $i in (1, 4, 5) {
@@ -293,10 +303,22 @@
       margin-left: 10%;
     }
 
-    &__photos {
-      padding: 0 3rem;
+    &__collage-main-image {
+      max-width: 60rem;
+      width: 52%;
+      margin-right: 3%;
+      margin-bottom: 0;
+      margin-left: 6%;
+    }
 
+    &__collage-secondary-image {
+      max-width: 33%;
+      margin: 0;
+    }
+
+    &__photos {
       justify-content: flex-start;
+      padding: 0 3rem;
     }
 
     &__before,
@@ -333,6 +355,13 @@
       &_5 + .massage-results__link {
         top: 5rem;
       }
+    }
+
+    &__collage-slide {
+      display: flex;
+      align-items: flex-end;
+      padding-top: 4rem;
+      padding-bottom: 5.5rem;
     }
   }
 }
@@ -371,6 +400,20 @@
 
     &__link {
       top: 6rem;
+    }
+
+    &__collage-slide {
+      justify-content: space-between;
+    }
+
+    &__collage-main-image {
+      max-width: 65rem;
+      width: 100%;
+      margin-left: 7%;
+    }
+
+    &__collage-secondary-image {
+      margin-right: 5%;
     }
   }
 }
