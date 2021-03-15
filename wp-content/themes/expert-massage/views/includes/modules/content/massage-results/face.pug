@@ -1,4 +1,6 @@
 - var faceResults = pageData.massageResults.face
+- var initialCurrentPhotos = faceResults.slidesOrder.current
+- var initialRestPhotos = faceResults.slidesOrder.rest
 //- Slides list order: 1st - main slide with descriptions
 - var slidesList = ['main']
 - var additionalCurrentPhotos = []
@@ -7,44 +9,36 @@
 - var restCollagePhotos = []
 
 each photo in faceResults.photos
+  //- photo.id !== '8' - excludes same photo as on the main slide
   if photo.massage_id === pageData.theme
     if photo.collage
       - currentCollagePhotos.push(photo)
-    else
+    else if (initialCurrentPhotos.indexOf(photo.id) === -1 && photo.id !== '8')
       - additionalCurrentPhotos.push(photo)
   else
     if photo.collage
       - restCollagePhotos.push(photo)
-    else
+    else if (initialRestPhotos.indexOf(photo.id) === -1 && photo.id !== '8')
       - additionalRestPhotos.push(photo)
 
 //- Slides list order: 2nd - collages for current massage
 each collagePhoto in currentCollagePhotos
   - slidesList.push(collagePhoto)
-
-//- Slides list order: 3rd - single photos for current massage from initial list
-each photoId in faceResults.slidesOrder.current
-  - slidesList.push(faceResults.photos[photoId])
-
-//- Slides list order: 4th - single photos for current massage added later
+//- Slides list order: 3rd - single photos for current massage added later
 each photo in additionalCurrentPhotos
-  //- photo.id !== '8' - excludes same photo as on the main slide
-  if (slidesList.indexOf(photo) === -1) && (photo.id !== '8')
-    - slidesList.push(photo)
-
+  - slidesList.push(photo)
+//- Slides list order: 4th - single photos for current massage from initial list
+each photoId in initialCurrentPhotos
+  - slidesList.push(faceResults.photos[photoId])
 //- Slides list order: 5th - collages for rest massages
 each collagePhoto in restCollagePhotos
   - slidesList.push(collagePhoto)
-
-//- Slides list order: 6th - single photos for rest massages from initial list
-each photoId in faceResults.slidesOrder.rest
-  - slidesList.push(faceResults.photos[photoId])
-
-//- Slides list order: 7th - single photos for rest massages added later
+//- Slides list order: 6th - single photos for rest massages added later
 each photo in additionalRestPhotos
-  //- photo.id !== '8' - excludes same photo as on the main slide
-  if (slidesList.indexOf(photo) === -1) && (photo.id !== '8')
-    - slidesList.push(photo)
+  - slidesList.push(photo)
+//- Slides list order: 7th - single photos for rest massages from initial list
+each photoId in initialRestPhotos
+    - slidesList.push(faceResults.photos[photoId])
 
 mixin face-slide(slide)
   .face-results__slide(class=(slide === 'main' ? 'face-results__slide_main' : `face-results__slide_${slide.id}`))
