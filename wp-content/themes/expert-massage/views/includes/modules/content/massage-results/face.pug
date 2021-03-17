@@ -1,8 +1,7 @@
 - var faceResults = pageData.massageResults.face
 - var initialCurrentPhotos = faceResults.slidesOrder.current
 - var initialRestPhotos = faceResults.slidesOrder.rest
-//- Slides list order: 1st - main slide with descriptions
-- var slidesList = ['main']
+- var slidesList = []
 - var additionalCurrentPhotos = []
 - var additionalRestPhotos = []
 - var currentCollagePhotos = []
@@ -21,9 +20,12 @@ each photo in faceResults.photos
     else if (initialRestPhotos.indexOf(photo.id) === -1 && photo.id !== '8')
       - additionalRestPhotos.push(photo)
 
-//- Slides list order: 2nd - collages for current massage
+//- Slides list order: 1st - collages for current massage
 each collagePhoto in currentCollagePhotos
   - slidesList.push(collagePhoto)
+//- Slides list order: 2nd - main slide with descriptions
+if pageData.theme !== 'main'
+  - slidesList.push('main')
 //- Slides list order: 3rd - single photos for current massage added later
 each photo in additionalCurrentPhotos
   - slidesList.push(photo)
@@ -33,6 +35,8 @@ each photoId in initialCurrentPhotos
 //- Slides list order: 5th - collages for rest massages
 each collagePhoto in restCollagePhotos
   - slidesList.push(collagePhoto)
+if pageData.theme === 'main'
+  - slidesList.push('main')
 //- Slides list order: 6th - single photos for rest massages added later
 each photo in additionalRestPhotos
   - slidesList.push(photo)
@@ -161,7 +165,7 @@ if faceResults
     .face-results__slider.slider(data-state='presentation')
       button.slider__button.slider__button_prev(aria-label="Предыдущий слайд")
       ul.face-results__slides
-        each slideNumber in slidesList
+        each slide in slidesList
           li.face-results__slide-wrap
-            +face-slide(slideNumber)
+            +face-slide(slide)
       button.slider__button.slider__button_next(aria-label="Следующий слайд")

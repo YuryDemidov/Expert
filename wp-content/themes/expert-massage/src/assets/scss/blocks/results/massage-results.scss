@@ -414,6 +414,10 @@
 
     &__collage-secondary-image {
       margin-right: 5%;
+
+      img {
+        min-width: 400px;
+      }
     }
   }
 }
