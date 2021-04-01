@@ -51,11 +51,23 @@ function validateForm() {
     highlightError(nameInput);
     validity = false;
   }
+  if (/[@.+/]/.test(nameInput.value)) {
+    messageManager.showMessage(MESSAGES.ERROR.RESTRICTED_NAME_SYMBOLS, `error`, nameInput.closest(`.text-input`));
+    highlightError(nameInput);
+    validity = false;
+  }
+  if (nameInput.value.length > 100) {
+    messageManager.showMessage(MESSAGES.ERROR.TOO_LONG_NAME, `error`, nameInput.closest(`.text-input`));
+    highlightError(nameInput);
+    validity = false;
+  }
+
   if (!REGEXPS.EMAIL.test(emailInput.value.trim()) && emailInput.value.trim() !== ``) {
     messageManager.showMessage(MESSAGES.ERROR.WRONG_EMAIL, `error`, emailInput.closest(`.text-input`));
     highlightError(emailInput);
     validity = false;
   }
+
   if (!reviewInput.value.trim()) {
     messageManager.showMessage(MESSAGES.ERROR.EMPTY_REVIEW, `error`, reviewTextareaWrap);
     reviewInput.classList.add(`review-form__review_invalid`);

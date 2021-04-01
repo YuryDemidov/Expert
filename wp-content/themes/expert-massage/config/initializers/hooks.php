@@ -6,7 +6,7 @@
 
 include_once(get_stylesheet_directory() . '/common_functions.php');
 
-define('SUPPORT_EMAILS', ['demiddinamit@mail.ru', 'mr.antony-mir@yandex.ru', 'ms.irina-mir@yandex.ru']);
+define('SUPPORT_EMAILS', ['mr.antony-mir@yandex.ru', 'ms.irina-mir@yandex.ru']);
 
 add_filter('wordless_pug_configuration', 'custom_pug_options');
 
@@ -1209,5 +1209,5 @@ function upload_collage_photo() {
         return false;
     }
 
-    return optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['collage-photo']), 400, false, false);
+    return optimize_images(wp_upload_dir()['baseurl'] . process_upload($_FILES['collage-photo']), 410, false, false);
 }

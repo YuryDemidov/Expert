@@ -391,6 +391,8 @@
 
   &__poster-preview,
   &__preview {
+    max-width: 350px;
+    width: auto;
     max-height: 300px;
   }
 }

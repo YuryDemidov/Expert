@@ -4,5 +4,5 @@ export const REGEXPS = {
   HAS_DIGIT: /\d/,
   NON_DIGIT: /^\D*$/,
   PHONE_SYMBOLS: /^[0-9+()\s-]+$/,
-  SPAM_SYMBOLS_COMBINATION: /<[A-z]/
+  SPAM_SYMBOLS_COMBINATION: /((<[A-z])|((www\.)(?!expert-massage-clinic))|((http)(?!s:\/\/expert-massage-clinic)))/
 }
