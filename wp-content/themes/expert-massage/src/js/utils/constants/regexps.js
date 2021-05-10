@@ -4,5 +4,5 @@ export const REGEXPS = {
   HAS_DIGIT: /\d/,
   NON_DIGIT: /^\D*$/,
   PHONE_SYMBOLS: /^[0-9+()\s-]+$/,
-  SPAM_SYMBOLS_COMBINATION: /((<[A-z])|((www\.)(?!expert-massage-clinic))|((http)(?!s:\/\/expert-massage-clinic)))/
+  SPAM_SYMBOLS_COMBINATION: /(((\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2})|(<[A-z])|(\.php)|(\.html)|(\.рф\/)|(\.su)|(Азия-Трейдинг)|(\(точка\))|(\(тире\))|((www\.)(?!expert-massage-clinic))|((http)(?!s:\/\/expert-massage-clinic)))/
 }
