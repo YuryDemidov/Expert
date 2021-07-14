@@ -18,7 +18,7 @@ function init() {
     </svg>
   `);
 
-  const placemark = new ymaps.Placemark([55.773935, 37.615505], false, {
+  const placemark = new ymaps.Placemark([55.774175, 37.615225], false, {
     iconLayout: iconLayout
   });
 
