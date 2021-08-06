@@ -24,8 +24,9 @@
     }
   }
 
-  &__logo {
-    margin-bottom: 0.6rem;
+  &__logo,
+  &__company-text {
+    margin-bottom: 0.8rem;
   }
 
   &__company-text {
@@ -95,6 +96,7 @@
       max-width: 62rem;
 
       font-size: 1.2rem;
+      line-height: 1.5;
     }
   }
 }

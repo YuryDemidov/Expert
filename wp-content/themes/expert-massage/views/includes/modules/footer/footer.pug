@@ -30,6 +30,8 @@ footer.page-footer
     .page-footer__company
       a(href='/')
         +picture-tag(footerLogo, footerLogo.mobile.jpg['3x'], 'Клиника профессионального массажа Expert', '125', '26').page-footer__logo
+      p.page-footer__company-text
+        a.link.underline(href=`${THEME_DIST_PATH}/license.pdf`) Лицензия&nbsp;ЛО-&NoBreak;77-&NoBreak;01-&NoBreak;021301
       p.page-footer__company-text= `Массаж в Москве ${globalData.company.foundationYear}-${globalData.currentYear}`
     .page-footer__socials
       +socials({ ig: ['25', '24'], vk: ['38', '23'], fb: ['26', '26'] })
