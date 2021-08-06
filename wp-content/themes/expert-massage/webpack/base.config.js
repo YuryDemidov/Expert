@@ -50,7 +50,8 @@ const plugins = () => {
 
     new CopyWebpackPlugin({
       patterns: [
-        { from: `${PATHS.src}/static`, to: `` }
+        { from: `${PATHS.src}/static`, to: `` },
+        { from: `${PATHS.src}/assets/img/favicons/favicon.ico`, to: `${PATHS.dist}/assets/img/favicons/favicon.ico` }
       ]
     }),
 
