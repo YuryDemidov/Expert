@@ -1,6 +1,10 @@
 @use '../../tools' as *;
 
 .rating-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &__number {
     font-size: 5.4rem;
   }

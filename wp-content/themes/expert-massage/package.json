@@ -1,8 +1,8 @@
 {
   "name": "expert-massage",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "description": "Professional massage clinic Expert",
-  "main": "app.js",
+  "main": "src/app.js",
   "author": "Iurii Demidov",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   },
   "private": true,
   "engines": {
-    "node": "14.8.0"
+    "node": "16.3.0"
   },
   "scripts": {
     "server": "npx nf start",

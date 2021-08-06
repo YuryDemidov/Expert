@@ -98,11 +98,13 @@ mixin socials(iconsSizes)
 
 mixin rating-block()
   .rating-block(class=attributes.class)
-    b.rating-block__number(aria-hidden='true') 5
-    +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44' aria-label='5 звёзд')
-    p.rating-block__text
-      | наш рейтинг
-      img.rating-block__yandex-logo(src=`${THEME_IMG_PATH}/reviews-block/yandex-logo.svg` alt='Яндекс' width='41' height='15')
+    a.link.underline(href='https://yandex.ru/maps/org/klinika_professionalnogo_massazha_expert/92492362215/?ll=37.615363%2C55.774188&utm_source=main_stripe_big&z=13' target='_blank')
+      span.rating-block__image
+        b.rating-block__number(aria-hidden='true') 5
+        +svg-icon('#star-icon').rating-block__star-icon(width='44' height='44' aria-label='5 звёзд')
+      span.rating-block__text
+        | наш рейтинг
+        img.rating-block__yandex-logo(src=`${THEME_IMG_PATH}/reviews-block/yandex-logo.svg` alt='Яндекс' width='41' height='15')
 
 mixin promo-card(title, subtitle, text, buttonText, buttonColor, image)
   article.promotion-card(class=attributes.class style=(image ? `background-image: url(${image})` : false))&attributes(attributes)
