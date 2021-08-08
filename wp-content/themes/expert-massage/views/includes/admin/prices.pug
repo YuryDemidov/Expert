@@ -18,9 +18,17 @@ mixin confirm-input-cell(name, value)
             th.table__cell.table__cell_heading
               span Массаж
             th.table__cell.table__cell_heading
-              span Цена 1-го сеанса, руб.
+              span
+                | Цена
+                br
+                | 1-го сеанса, руб.
             th.table__cell.table__cell_heading
-              span Стандартная цена, руб.
+              span
+                | Стандартная
+                br
+                | цена, руб.
+            th.table__cell.table__cell_heading
+              span Цена курса, руб.
             th.table__cell.table__cell_heading
               span Старая цена, руб.
             th.table__cell.table__cell_heading
@@ -32,6 +40,7 @@ mixin confirm-input-cell(name, value)
                 span= massage.full_name
               +confirm-input-cell('first_price', massage.first_price)
               +confirm-input-cell('standard_price', massage.standard_price)
+              +confirm-input-cell('course_price', massage.course_price)
               +confirm-input-cell('old_price', massage.old_price)
               +confirm-input-cell('duration', massage.duration)
   br
