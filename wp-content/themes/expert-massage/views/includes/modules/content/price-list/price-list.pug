@@ -26,36 +26,44 @@ section.price-list
         each section, sectionName in globalData.priceList.sections
           - var promoText = ''
           section.price-list__section
-            table.price-list__table.table
-              tr.table__row
-                th.table__cell.table__cell_heading
-                  h3.price-list__type-caption= section.title
-                th.table__cell.table__cell_heading 1-ый сеанс
-                th.table__cell.table__cell_heading Последующие
-                th.table__cell.table__cell_heading Время
-              each massage in section.massages
-                - var additionalClass = ''
-                if massage.price_list_star_placement
-                  - promoText = `${promoText}${massage.price_list_label}<br>`
+            .price-list__table-wrap
+              table.price-list__table.table
+                tr.table__row
+                  th.table__cell.table__cell_heading
+                    h3.price-list__type-caption= section.title
+                  th.table__cell.table__cell_heading 1-ый сеанс
+                  th.table__cell.table__cell_heading Последующие
+                  th.table__cell.table__cell_heading
+                    | 10 сеансов
+                    |
+                    b.price-list__tag курс
+                  th.table__cell.table__cell_heading Время
+                each massage in section.massages
+                  - var additionalClass = ''
                   if massage.price_list_star_placement
-                    - additionalClass = `table__row_promo table__row_promo-${massage.price_list_star_placement}`
-                if massage.id === pageData.massage.id
-                  - additionalClass = `${additionalClass} table__row_highlight`
-                tr.table__row(class=additionalClass)
-                  td.table__cell
-                    span.price-list__massage-name= massage.name
-                  td.table__cell
-                    if massage.old_price
-                      span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
-                      br
-                    span.price-list__first-price(class=(((massage.id === '6') || (massage.id === '11') || (massage.id === '12')) ? 'price-list__cell-notification' : false))!= `${massage.first_price}&thinsp;₽`
-                  td.table__cell
-                    if massage.old_price
-                      span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
-                      br
-                    span.price-list__standard-price!= `${massage.standard_price}&thinsp;₽`
-                  td.table__cell!= `${massage.duration}&thinsp;мин`
+                    - promoText = `${promoText}${massage.price_list_label}<br>`
+                    if massage.price_list_star_placement
+                      - additionalClass = `table__row_promo table__row_promo-${massage.price_list_star_placement}`
+                  if massage.id === pageData.massage.id
+                    - additionalClass = `${additionalClass} table__row_highlight`
+                  tr.table__row(class=additionalClass)
+                    td.table__cell
+                      span.price-list__massage-name= massage.name
+                    td.table__cell
+                      if massage.old_price
+                        span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
+                        br
+                      span.price-list__first-price(class=(((massage.id === '6') || (massage.id === '11') || (massage.id === '12')) ? 'price-list__cell-notification' : false))!= `${massage.first_price}&thinsp;₽`
+                    td.table__cell
+                      if massage.old_price
+                        span.price-list__old-price!= `${massage.old_price}&thinsp;₽`
+                        br
+                      span.price-list__standard-price!= `${massage.standard_price}&thinsp;₽`
+                    td.table__cell
+                      span.price-list__course-price!= massage.course_price ? `${massage.course_price}&thinsp;₽` : '-'
+                    td.table__cell!= `${massage.duration}&thinsp;мин`
             p.price-list__promo-text!= promoText
             if sectionName === 'body'
+              +price-list-tag-legend()
               p.price-list__notification-text мужчины 90 кг и выше + 500 ₽ за сеанс
       include callback-form

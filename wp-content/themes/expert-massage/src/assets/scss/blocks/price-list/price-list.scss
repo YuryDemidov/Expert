@@ -22,8 +22,8 @@
     padding-right: 13.5rem;
 
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
 
     &::before {
       content: none;
@@ -44,6 +44,41 @@
     }
   }
 
+  &__table-wrap {
+    overflow: auto;
+    padding-bottom: 1.6rem;
+
+    scrollbar-width: thin;
+    scrollbar-color: $x-light-dim-color $x-lightgray-color;
+
+    &::-webkit-scrollbar {
+      height: 0.9rem;
+    }
+
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $x-lightgray-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $x-light-dim-color;
+    }
+  }
+
+  &__table {
+    white-space: nowrap;
+  }
+
+  &__first-price,
+  &__standard-price,
+  &__course-price, {
+    position: relative;
+  }
+
   &__first-price {
     font-weight: 700;
   }
@@ -58,31 +93,54 @@
     position: relative;
 
     margin-bottom: 6rem;
-    padding-top: 5rem;
+    padding-top: 4.5rem;
   }
 
   &__type-caption {
+    position: absolute;
+
+    top: 0;
+    width: 100%;
+
+    font-size: 2rem;
+
+    font-family: $title-font-family;
+    text-align: center;
     @include themify() {
       color: $color-primary;
     }
+  }
 
-    position: absolute;
-    top: 0;
+  &__tag {
+    padding: 0.2rem 0.4rem;
 
-    width: 100%;
+    font-weight: 400;
+    color: $alt-default-color;
 
-    font-family: $title-font-family;
-    font-size: 2rem;
-    text-align: center;
+    border-radius: 0.4rem;
+
+    @include themify() {
+      background-color: $color-secondary-light;
+    }
+  }
+
+  &__section:not(:first-of-type) {
+    .price-list__tag {
+      margin-right: 0.8rem;
+      padding: 0;
+
+      color: inherit;
+
+      background-color: initial;
+    }
   }
 
   &__massage-name {
     position: absolute;
     top: 1.2rem;
-    left: 2rem;
+    left: 3vw;
 
     font-weight: 700;
-    white-space: nowrap;
   }
 
   &__cell-notification {
@@ -109,7 +167,7 @@
   }
 
   &__notification-text {
-    margin: 1rem;
+    margin: 1rem 3vw;
 
     &::before {
       content: '*';
@@ -121,12 +179,83 @@
         color: $color-primary;
       }
     }
+
+    &_no-star {
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  .tooltip {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+
+    line-height: 1.5;
+
+    &__trigger {
+      @include min-box(1.8rem);
+
+      position: relative;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0.5rem;
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1;
+      text-align: center;
+      vertical-align: baseline;
+
+      @include themify() {
+        background-color: $color-secondary-light;
+      }
+      border-radius: 50%;
+    }
+
+    &__body {
+      top: calc(100% + 1rem);
+      left: calc(50% - 8rem);
+
+      min-width: 28rem;
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+
+      text-align: left;
+      font-weight: 400;
+      color: $default-color;
+
+      background-color: $alt-default-color;
+      box-shadow: 0 0.2rem 2rem $x-light-dim-color;
+
+      &::before {
+        top: -1.8rem;
+        left: calc(50% + 8rem);
+
+        border-width: 0.9rem;
+        border-bottom-color: $alt-default-color;
+      }
+    }
+  }
+
+  &__course-heading {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+
+    vertical-align: middle;
+    font-size: 1.4rem;
+  }
+
+  &__course-description {
+    font-size: 1.3rem;
   }
 
   &__price-notification-description {
     margin-top: 1rem;
     margin-bottom: 0;
-    padding: 0 2rem;
+    padding: 0 3vw;
 
     font-size: 1.5rem;
 
@@ -141,7 +270,7 @@
 
   .table {
     &__cell {
-      padding: 1rem 2rem;
+      padding: 1rem 3vw;
       padding-top: 4rem;
 
       vertical-align: bottom;
@@ -152,18 +281,20 @@
         padding: 0;
       }
 
-      &:nth-of-type(3) {
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
         text-align: center;
       }
 
-      &:nth-of-type(4) {
+      &:nth-of-type(5) {
         text-align: right;
       }
 
       &_heading {
-        padding-top: 0;
+        padding-top: 0.5rem;
         padding-bottom: 1.5rem;
 
+        font-size: 1.4rem;
         vertical-align: baseline;
         color: $dark-dim-color;
 
@@ -230,7 +361,7 @@
 
   &__promo-text {
     margin-top: 2rem;
-    padding: 0 2rem;
+    padding: 0 3vw;
 
     @include themify() {
       color: $color-primary;
@@ -286,16 +417,68 @@
   }
 }
 
+@media (min-width: $phone-landscape-min-width) {
+  .price-list {
+    &__table-wrap {
+      max-width: initial;
+      padding-bottom: 0;
+    }
+
+    .table {
+      &__cell {
+        &_heading {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    .tooltip {
+      padding-top: 0;
+
+      &__body {
+        left: 50%;
+
+        &::before {
+          left: 50%;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: $tablet-min-width) {
   .price-list {
     margin-bottom: 10rem;
 
     &__wrap {
-      @include centered-block(40rem);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
 
     &__title {
       margin-bottom: 4rem;
+    }
+
+    &__prices {
+      @include centered-block(90rem);
+
+      order: 1;
+      width: 100%;
+    }
+
+    &__promotion {
+      order: 2;
+      margin-bottom: 0;
+    }
+
+    &__callback {
+      flex-grow: 1;
+      order: 3;
+    }
+
+    &__price-notification-description {
+      padding: 0 2rem;
     }
   }
 }
@@ -312,44 +495,13 @@
       margin-bottom: 6rem;
     }
 
-    &__wrap {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      max-width: initial;
-      max-height: 100rem;
-    }
-
-    &__promotion,
-    &__callback {
-      max-width: 39rem;
-      width: 38%;
-    }
-
-    &__callback {
-      order: 2;
-      margin-top: 22rem;
-      margin-right: 0;
-      margin-left: 2%;
-    }
-
     &__promotion {
-      order: 1;
-
-      &,
-      ~ .price-list__callback {
-        margin-top: 0;
-        margin-right: 2%;
-        margin-left: 0;
-      }
+      max-width: 39rem;
     }
 
-    &__prices {
-      width: 60%;
-    }
-
-    &__promotion ~ .price-list__prices {
-      order: 3;
+    &__callback {
+      max-width: 40vw;
+      min-height: initial;
     }
 
     .theme-1 &__promotion_photo,
@@ -369,8 +521,8 @@
 
       margin: 0;
 
-      font-family: $main-font-family;
       font-size: 1.6rem;
+      font-family: $main-font-family;
       text-align: left;
     }
 
@@ -386,6 +538,7 @@
 
     &__notification-text {
       margin: 0;
+      margin-left: 1rem;
     }
 
     .table {
@@ -394,7 +547,7 @@
       &__cell {
         &,
         &:first-of-type {
-          padding: 0.7rem 1rem;
+          padding: 0.8rem 1rem;
         }
 
         &_heading {
@@ -430,6 +583,10 @@
       }
     }
 
+    .tooltip {
+      padding-bottom: 1rem;
+    }
+
     &__promo-text {
       display: inline;
       margin: 0;
@@ -448,20 +605,40 @@
 
 @media (min-width: $desktop-min-width) {
   .price-list {
+    &__wrap {
+      flex-direction: column;
+      max-height: 100rem;
+    }
+
     &__prices {
-      width: 52%;
-      margin-left: 4%;
+      width: auto;
+      margin-left: 2%;
+    }
+
+    &__promotion,
+    &__callback {
+      width: 38%;
+    }
+
+    &__callback {
+      order: 2;
+      max-width: 39rem;
+      margin-top: 22rem;
+      margin-right: 0;
+      margin-left: 2%;
     }
 
     &__promotion {
-      &,
+      order: 1;
+
       ~ .price-list__callback {
-        margin-left: 6%;
-        margin-right: 4%;
+        margin-top: 7rem;
+        margin-right: auto;
+        margin-left: auto;
       }
 
       ~ .price-list__prices {
-        margin-left: 0;
+        order: 3;
       }
     }
   }

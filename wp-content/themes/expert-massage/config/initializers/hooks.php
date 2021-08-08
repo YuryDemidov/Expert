@@ -291,7 +291,7 @@ function prices_administrating() {
     global $wpdb;
 
     $pricesData = [
-        'massages' => $wpdb->get_results('SELECT id, full_name, first_price, standard_price, old_price, duration FROM wp_exp_massages'),
+        'massages' => $wpdb->get_results('SELECT id, full_name, first_price, standard_price, course_price, old_price, duration FROM wp_exp_massages'),
         'procedures' => $wpdb->get_results('SELECT * FROM wp_exp_price_procedures'),
         'additions' => $wpdb->get_results('SELECT * FROM wp_exp_price_additions'),
     ];

@@ -1,6 +1,6 @@
 {
   "name": "expert-massage",
-  "version": "2.6.7",
+  "version": "2.6.8",
   "description": "Professional massage clinic Expert",
   "main": "src/app.js",
   "author": "Iurii Demidov",

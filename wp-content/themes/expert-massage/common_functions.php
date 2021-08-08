@@ -133,8 +133,8 @@ function get_massages() {
 
     $massages = $wpdb->get_results(
         'SELECT wp_exp_massages.id, wp_exp_massages.code, wp_exp_massages.name, wp_exp_massages.full_name,
-        wp_exp_massages.type, wp_exp_massages.menu_tag_text, wp_exp_massages.first_price,
-        wp_exp_massages.standard_price, wp_exp_massages.old_price, wp_exp_massages.duration,
+        wp_exp_massages.type, wp_exp_massages.menu_tag_text, wp_exp_massages.first_price, wp_exp_massages.standard_price,
+        wp_exp_massages.course_price, wp_exp_massages.old_price, wp_exp_massages.duration,
         wp_exp_massages.short_description,
         wp_exp_promotions.massage_id as promo_massage_id, application_heading, application_text, price_list_label, price_list_star_placement, card_title, card_text, button_text, button_color, image,
         wp_exp_color_modifiers.name as menu_tag_color

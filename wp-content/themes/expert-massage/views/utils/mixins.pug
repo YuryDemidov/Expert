@@ -112,3 +112,16 @@ mixin promo-card(title, subtitle, text, buttonText, buttonColor, image)
     p.promotion-card__subtitle!= subtitle
     p.promotion-card__text!= text
     button.promotion-card__button.button.button_primary(type='button' style=(buttonColor ? `background-color: ${buttonColor}` : false) data-open-popup='appointment')= buttonText
+
+mixin price-list-tag-legend()
+  p.price-list__notification-text.price-list__notification-text_no-star.tooltip
+    b.price-list__tag Курс
+    |
+    | – 10 процедур с учётом скидок
+    span.tooltip__trigger(data-on='hover' aria-hidden='true')
+      | ?
+      |
+      span.tooltip__body
+        b.price-list__course-heading Курс — это 10 сеансов со скидкой
+        br
+        span.price-list__course-description Специалист может посоветовать вам взять ещё 1-3 сеанса. Если вы согласитесь, они тоже будут со скидкой
